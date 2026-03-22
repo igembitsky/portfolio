@@ -6,13 +6,13 @@ const links = [
   { label: 'connect', href: '#connect' },
 ];
 ---
-<nav class="fixed top-0 left-0 right-0 z-50 px-8 py-4 flex justify-between items-center border-b border-border bg-bg/90 backdrop-blur-sm">
-  <span class="font-bold text-sm tracking-widest uppercase text-white">igor gembitsky</span>
-  <div class="flex gap-1">
+<nav class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-3 sm:py-4 flex justify-between items-center border-b border-border bg-bg/90 backdrop-blur-sm">
+  <span class="font-bold text-xs sm:text-sm tracking-widest uppercase text-white">igor gembitsky</span>
+  <div class="flex gap-0.5 sm:gap-1">
     {links.map(link => (
       <a
         href={link.href}
-        class="text-dim text-xs px-3 py-1 border border-transparent hover:border-border hover:bg-surface hover:text-fg transition-all duration-150"
+        class="text-dim text-[10px] sm:text-xs px-1.5 sm:px-3 py-1 border border-transparent hover:border-border hover:bg-surface hover:text-fg transition-all duration-150"
       >
         [{link.label}]
       </a>

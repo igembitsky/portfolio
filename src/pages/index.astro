@@ -14,14 +14,14 @@ import { builds } from '../data/builds';
   <Nav />
   <main>
     <Hero />
-    <hr class="border-t border-border mx-8" id="work">
+    <hr class="border-t border-border mx-4 sm:mx-8" id="work">
     <SectionHeader label="work" />
-    <section class="px-8 pb-16 max-w-4xl">
+    <section class="px-4 sm:px-8 pb-16 max-w-4xl">
       {work.map(item => <WorkCard item={item} />)}
     </section>
-    <hr class="border-t border-border mx-8" id="builds">
+    <hr class="border-t border-border mx-4 sm:mx-8" id="builds">
     <SectionHeader label="builds" />
-    <section class="px-8 pb-16 max-w-4xl">
+    <section class="px-4 sm:px-8 pb-16 max-w-4xl">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {builds.map(item => <BuildCard item={item} />)}
       </div>
