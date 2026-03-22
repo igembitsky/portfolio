@@ -1,0 +1,24 @@
+---
+const links = [
+  { label: 'linkedin', url: 'https://www.linkedin.com/in/gembitsky' },
+  { label: 'github', url: 'https://github.com/igembitsky' },
+  { label: 'email', url: 'mailto:igor.gembitsky@gmail.com' },
+];
+---
+<section id="connect" class="px-8 py-12 max-w-4xl border-t border-border mx-8">
+  <div class="text-dim text-sm mb-4 flex items-center">
+    $ connect<span class="inline-block w-2 h-3.5 bg-accent ml-1 align-text-bottom" style="animation: blink 1s step-end infinite;"></span>
+  </div>
+  <div class="flex gap-4">
+    {links.map(link => (
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-accent2 text-sm border-b border-transparent hover:border-accent2 transition-colors duration-150"
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</section>
