@@ -17,13 +17,21 @@ import { builds } from '../data/builds';
     <hr class="border-t border-border mx-4 sm:mx-8" id="work">
     <SectionHeader label="work" />
     <section class="px-4 sm:px-8 pb-16 max-w-4xl">
-      {work.map(item => <WorkCard item={item} />)}
+      {work.map((item, i) => (
+        <div class="reveal" style={`transition-delay: ${i * 0.1}s`}>
+          <WorkCard item={item} />
+        </div>
+      ))}
     </section>
     <hr class="border-t border-border mx-4 sm:mx-8" id="builds">
     <SectionHeader label="builds" />
     <section class="px-4 sm:px-8 pb-16 max-w-4xl">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {builds.map(item => <BuildCard item={item} />)}
+        {builds.map((item, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 0.1}s`}>
+            <BuildCard item={item} />
+          </div>
+        ))}
       </div>
     </section>
     <Contact />
