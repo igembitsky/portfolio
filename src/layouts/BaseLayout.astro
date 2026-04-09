@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = 'Igor Gembitsky — Leader & Builder',
-  description = 'Product leader and builder. I lead teams, ship software, and use AI tools to build faster than teams twice my size.'
+  title = 'Igor Gembitsky — Product Leader & Builder',
+  description = 'Product and operations leader who builds. 14 years shipping B2B platforms, 3 orgs built from scratch, now building production SaaS with AI coding tools.'
 } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -19,12 +19,15 @@ const {
   <meta name="description" content={description}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0b0b0f">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <title>{title}</title>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen noise">
   <slot />
   <script>
+    // Scroll reveal observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,9 +37,32 @@ const {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
     );
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.reveal, .fade-in').forEach((el) => observer.observe(el));
+
+    // Active nav link tracking
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+    const navObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => {
+              const href = link.getAttribute('href');
+              if (href === `#${entry.target.id}`) {
+                link.classList.add('text-fg', 'bg-surface');
+              } else {
+                link.classList.remove('text-fg', 'bg-surface');
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    sections.forEach((section) => navObserver.observe(section));
   </script>
 </body>
 </html>

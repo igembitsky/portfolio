@@ -1,10 +1,10 @@
 ---
 interface Props {
   label: string;
+  id?: string;
 }
-const { label } = Astro.props;
+const { label, id } = Astro.props;
 ---
-<div class="px-4 sm:px-8 pt-12 pb-6 flex items-baseline gap-3 max-w-4xl">
-  <span class="text-xs uppercase tracking-widest text-accent">// {label}</span>
-  <span class="flex-1 h-px bg-border"></span>
+<div id={id} class="reveal container pt-24 pb-8">
+  <h2 class="text-xs font-mono uppercase tracking-widest text-accent">{label}</h2>
 </div>

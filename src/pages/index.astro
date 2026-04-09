@@ -2,39 +2,103 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
-import SectionHeader from '../components/SectionHeader.astro';
+import About from '../components/About.astro';
 import WorkCard from '../components/WorkCard.astro';
 import BuildCard from '../components/BuildCard.astro';
+import CaseStudy from '../components/CaseStudy.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import { work } from '../data/work';
 import { builds } from '../data/builds';
+
+const production = builds.filter(b => b.category === 'production');
+const automation = builds.filter(b => b.category === 'automation');
+const creative = builds.filter(b => b.category === 'creative');
 ---
 <BaseLayout>
   <Nav />
   <main>
+    <!-- Hero -->
     <Hero />
-    <hr class="border-t border-border mx-4 sm:mx-8" id="work">
-    <SectionHeader label="work" />
-    <section class="px-4 sm:px-8 pb-16 max-w-4xl">
+
+    <!-- Divider -->
+    <div class="section-divider container"></div>
+
+    <!-- About / Narrative Arc -->
+    <About />
+
+    <!-- Divider -->
+    <div class="section-divider container"></div>
+
+    <!-- Experience -->
+    <div id="experience" class="reveal container pt-24 pb-8">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-accent">Experience</h2>
+    </div>
+    <section class="container pb-8 stagger-reveal">
       {work.map((item, i) => (
         <div class="reveal" style={`transition-delay: ${i * 0.1}s`}>
           <WorkCard item={item} />
         </div>
       ))}
     </section>
-    <hr class="border-t border-border mx-4 sm:mx-8" id="builds">
-    <SectionHeader label="builds" />
-    <section class="px-4 sm:px-8 pb-16 max-w-4xl">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {builds.map((item, i) => (
-          <div class="reveal" style={`transition-delay: ${i * 0.1}s`}>
+
+    <!-- Divider -->
+    <div class="section-divider container"></div>
+
+    <!-- Case Study -->
+    <CaseStudy />
+
+    <!-- Divider -->
+    <div class="section-divider container"></div>
+
+    <!-- Projects -->
+    <div id="projects" class="reveal container pt-24 pb-4">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-accent">Projects</h2>
+    </div>
+
+    <!-- Production -->
+    <section class="container pb-2">
+      <p class="text-fg-dim text-xs font-mono mb-4 reveal">Production Software</p>
+      <div class="grid sm:grid-cols-2 gap-4 stagger-reveal">
+        {production.map((item, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
             <BuildCard item={item} />
           </div>
         ))}
       </div>
     </section>
+
+    <!-- Automation -->
+    <section class="container py-6">
+      <p class="text-fg-dim text-xs font-mono mb-4 reveal">Automations & Agents</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 stagger-reveal">
+        {automation.map((item, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
+            <BuildCard item={item} />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Creative -->
+    <section class="container pb-8">
+      <p class="text-fg-dim text-xs font-mono mb-4 reveal">Creative</p>
+      <div class="grid sm:grid-cols-2 gap-4 stagger-reveal">
+        {creative.map((item, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
+            <BuildCard item={item} />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider container"></div>
+
+    <!-- Contact -->
     <Contact />
+
+    <!-- Footer -->
     <Footer />
   </main>
 </BaseLayout>

@@ -1,21 +1,25 @@
 ---
 const links = [
-  { label: 'work', href: '#work' },
-  { label: 'builds', href: '#builds' },
-  { label: 'about', href: '#about' },
-  { label: 'connect', href: '#connect' },
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
 ];
 ---
-<nav class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-3 sm:py-4 flex justify-between items-center border-b border-border bg-bg/90 backdrop-blur-sm">
-  <span class="font-bold text-xs sm:text-sm tracking-widest uppercase text-white">igor gembitsky</span>
-  <div class="flex gap-0.5 sm:gap-1">
-    {links.map(link => (
-      <a
-        href={link.href}
-        class="text-dim text-[10px] sm:text-xs px-1.5 sm:px-3 py-1 border border-transparent hover:border-border hover:bg-surface hover:text-fg transition-all duration-150"
-      >
-        [{link.label}]
-      </a>
-    ))}
+<nav class="fixed top-0 left-0 right-0 z-50 bg-bg/80 backdrop-blur-md border-b border-border/50">
+  <div class="container flex justify-between items-center py-4">
+    <a href="#about" class="font-semibold text-sm text-white tracking-tight hover:text-accent transition-colors duration-200">
+      IG
+    </a>
+    <div class="flex items-center gap-1">
+      {links.map(link => (
+        <a
+          href={link.href}
+          class="text-fg-muted text-xs sm:text-sm px-3 py-1.5 rounded-md hover:text-fg hover:bg-surface transition-all duration-200"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
   </div>
 </nav>

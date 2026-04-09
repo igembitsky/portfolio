@@ -5,9 +5,9 @@ test('homepage loads with key sections', async ({ page }) => {
 
   await expect(page.locator('h1')).toContainText('Igor Gembitsky');
   await expect(page.locator('nav')).toBeVisible();
-  await expect(page.locator('#work')).toBeAttached();
-  await expect(page.locator('#builds')).toBeAttached();
-  await expect(page.locator('#connect')).toBeVisible();
+  await expect(page.locator('#experience')).toBeAttached();
+  await expect(page.locator('#projects')).toBeAttached();
+  await expect(page.locator('#contact')).toBeVisible();
 
   const linkedinLink = page.locator('a[href*="linkedin.com/in/gembitsky"]');
   await expect(linkedinLink.first()).toBeVisible();
@@ -16,6 +16,6 @@ test('homepage loads with key sections', async ({ page }) => {
 test('navigation links scroll to sections', async ({ page }) => {
   await page.goto('/');
 
-  await page.click('a[href="#work"]');
-  await expect(page.locator('#work')).toBeInViewport();
+  await page.click('a[href="#experience"]');
+  await expect(page.locator('#experience')).toBeInViewport();
 });
