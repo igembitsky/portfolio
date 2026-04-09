@@ -7,22 +7,56 @@ interface Props {
 }
 
 const {
-  title = 'Igor Gembitsky — Product Leader & Builder',
-  description = 'Product and operations leader who builds. 14 years shipping B2B platforms, 3 orgs built from scratch, now building production SaaS with AI coding tools.'
+  title = 'Igor Gembitsky / Product Leader & Builder',
+  description = 'Product and operations leader. 14 years across science, education, media, fintech, and industrial AI. 7+ teams built from zero.'
 } = Astro.props;
+
+const siteUrl = 'https://igembitsky.github.io/portfolio';
+const ogImage = `${siteUrl}/og-image.png`;
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary -->
+  <title>{title}</title>
   <meta name="description" content={description}>
+  <meta name="author" content="Igor Gembitsky">
+
+  <!-- Open Graph / Facebook / LinkedIn / WhatsApp / Telegram -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={siteUrl}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
-  <meta property="og:type" content="website">
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Igor Gembitsky -- Product & Operations. 14 years, 7+ teams built, 6 industries.">
+  <meta property="og:site_name" content="Igor Gembitsky">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content={siteUrl}>
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
+  <meta name="twitter:image:alt" content="Igor Gembitsky -- Product & Operations. 14 years, 7+ teams built, 6 industries.">
+
+  <!-- iMessage / Apple -->
+  <meta name="apple-mobile-web-app-title" content="Igor Gembitsky">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Theme -->
   <meta name="theme-color" content="#0b0b0f">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>{title}</title>
+  <meta name="color-scheme" content="dark">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`}>
+  <link rel="canonical" href={siteUrl}>
 </head>
 <body class="min-h-screen noise">
   <slot />
@@ -63,6 +97,58 @@ const {
       { threshold: 0.3 }
     );
     sections.forEach((section) => navObserver.observe(section));
+
+    // Card expand/collapse with accessibility
+    document.addEventListener('click', (e) => {
+      const trigger = (e.target as HTMLElement).closest('[data-expand-trigger]') as HTMLButtonElement | null;
+      if (!trigger) return;
+
+      const card = trigger.closest('.portfolio-card');
+      if (!card) return;
+      const panel = card.querySelector('.card-expand-panel') as HTMLElement | null;
+      if (!panel) return;
+
+      const isOpen = panel.classList.contains('open');
+
+      // Close other open panels
+      document.querySelectorAll('.card-expand-panel.open').forEach((p) => {
+        if (p !== panel) {
+          p.classList.remove('open');
+          p.setAttribute('aria-hidden', 'true');
+          const otherTrigger = p.closest('.portfolio-card')?.querySelector('[data-expand-trigger]') as HTMLButtonElement | null;
+          if (otherTrigger) {
+            otherTrigger.setAttribute('aria-expanded', 'false');
+            const icon = otherTrigger.querySelector('.expand-icon');
+            if (icon) icon.textContent = '+';
+          }
+        }
+      });
+
+      if (isOpen) {
+        panel.classList.remove('open');
+        panel.setAttribute('aria-hidden', 'true');
+        trigger.setAttribute('aria-expanded', 'false');
+        const icon = trigger.querySelector('.expand-icon');
+        if (icon) icon.textContent = '+';
+      } else {
+        panel.classList.add('open');
+        panel.setAttribute('aria-hidden', 'false');
+        trigger.setAttribute('aria-expanded', 'true');
+        const icon = trigger.querySelector('.expand-icon');
+        if (icon) icon.textContent = '\u2212';
+      }
+    });
+
+    // Keyboard support for expand triggers
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const trigger = (e.target as HTMLElement).closest('[data-expand-trigger]');
+        if (trigger) {
+          e.preventDefault();
+          (trigger as HTMLElement).click();
+        }
+      }
+    });
   </script>
 </body>
 </html>
