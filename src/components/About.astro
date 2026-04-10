@@ -1,10 +1,25 @@
 ---
 const narrative = [
-  { era: 'Science', desc: 'Neuroscience researcher, two peer-reviewed publications' },
-  { era: 'Media', desc: 'Video producer and online education platform builder' },
-  { era: 'Product', desc: 'Agency PM, then first PM hire at a B2B marketplace' },
-  { era: 'Operations', desc: 'VP of Customer Success, then VP of Strategic Ops' },
-  { era: 'Builder', desc: 'Leading teams and orchestrating generative engineering workflows' },
+  {
+    era: 'Science',
+    desc: 'Neuroscience researcher. Two peer-reviewed publications. Built the lab\'s experimental processes from scratch as the first research hire.',
+  },
+  {
+    era: 'Media',
+    desc: 'Ran video production end-to-end: research, scripts, directing, post-production, release. Then built an online education platform for 1,000+ students and 30+ programs.',
+  },
+  {
+    era: 'Product',
+    desc: 'Agency PM working with Harvard, Brooklyn Museum, and startups. Then first PM hire at VDB, where I built the product and design team, shipped 20+ features across 5 platforms, and created the white-label framework that became the core revenue driver.',
+  },
+  {
+    era: 'Operations',
+    desc: 'Built Customer Success from zero: onboarding, retention, QBRs, upselling. Then redesigned Sales Ops with BANT process, outbound campaigns, pipeline tracking, and enablement. Drove 100x platform growth over 7 years.',
+  },
+  {
+    era: 'Builder',
+    desc: 'Leading product, sales, and CS at an industrial AI company. Built the full operational framework: GTM engine, safety analytics dashboard, pilot management system, compliance documentation.',
+  },
 ];
 
 const metrics = [
@@ -19,54 +34,22 @@ const metrics = [
     <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-12">The Arc</h2>
   </div>
 
-  <div class="grid md:grid-cols-2 gap-16 items-start">
-    <!-- Left: Bio -->
-    <div>
+  <div class="grid md:grid-cols-5 gap-12 items-start">
+    <!-- Left: Short intro -->
+    <div class="md:col-span-2">
       <div class="reveal">
-        <p class="text-lg text-fg leading-relaxed mb-6">
-          I started in a neuroscience lab, then moved into video production where I ran the
-          full process: finding ideas, market research, working with professors, writing scripts,
-          directing, post-production, and releasing into a managed YouTube channel. That led me
-          to build an online education platform from scratch for 1,000+ students.
-        </p>
-      </div>
-      <div class="reveal" style="transition-delay: 0.08s">
-        <p class="text-fg-muted leading-relaxed mb-6">
-          From there I went deep into technology at a Brooklyn agency, working with entrepreneurs
-          and institutions as a PM to validate ideas, define strategy, and lead agile sprints with
-          designers and developers. One of those clients hired me as their first PM. Over seven
-          years I built their product and design team, stood up Customer Success with the full
-          playbook of onboarding, retention, QBRs, and upselling, then redesigned their entire
-          sales operation: BANT process, outbound campaigns, cold call scripts, pipeline tracking,
-          and enablement infrastructure.
-        </p>
-      </div>
-      <div class="reveal" style="transition-delay: 0.16s">
-        <p class="text-fg-muted leading-relaxed mb-6">
-          Now I'm in industrial safety, working with a small team of engineers, data scientists,
-          and ML consultants to build an AI-powered camera system. I handle everything from lead
-          generation and pilot conversion to compliance documentation, the marketing site, and
-          the safety analytics dashboard. We're training the AI to classify incidents through
-          manual annotation and teaching it to surface the must-see items on its own, so it
-          becomes a true safety agent for the factory floor.
-        </p>
-      </div>
-      <div class="reveal" style="transition-delay: 0.24s">
-        <p class="text-fg-muted leading-relaxed">
-          Across all of it, the constant is how I work: heavy on planning and review, building
-          self-evolving processes, optimizing teams into tight loops of strategy, execution, and
-          retrospectives. I read a lot, think in systems, and focus on proving hypotheses before
-          scaling them. Two peer-reviewed publications in neuroscience gave me that discipline,
-          and it never left.
+        <p class="text-lg text-fg leading-relaxed">
+          Fourteen years across science, education, media, fintech, and industrial AI.
+          I lead teams, build organizations, and ship products.
         </p>
       </div>
     </div>
 
     <!-- Right: Narrative Arc -->
-    <div class="space-y-0">
+    <div class="md:col-span-3 space-y-0">
       {narrative.map((item, i) => (
-        <div class="reveal flex items-start gap-4 py-4 border-b border-border last:border-0" style={`transition-delay: ${i * 0.08}s`}>
-          <span class="text-accent font-mono text-sm font-medium min-w-[90px]">{item.era}</span>
+        <div class="reveal flex items-start gap-4 py-4 border-b border-border last:border-0" style={`transition-delay: ${i * 0.06}s`}>
+          <span class="text-accent font-mono text-sm font-medium min-w-[90px] shrink-0">{item.era}</span>
           <span class="text-fg-muted text-sm leading-relaxed">{item.desc}</span>
         </div>
       ))}
@@ -74,9 +57,9 @@ const metrics = [
   </div>
 
   <!-- Metrics bar -->
-  <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-20 pt-10 border-t border-border">
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16 pt-10 border-t border-border">
     {metrics.map((m, i) => (
-      <div class="reveal text-center sm:text-left" style={`transition-delay: ${i * 0.1}s`}>
+      <div class="reveal text-center sm:text-left" style={`transition-delay: ${i * 0.08}s`}>
         <div class="text-3xl sm:text-4xl font-bold text-white metric-value leading-none">
           {m.value}<span class="text-accent">{m.suffix}</span>
         </div>

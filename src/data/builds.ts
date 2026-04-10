@@ -15,7 +15,7 @@ export const builds: BuildItem[] = [
     description:
       'Full-stack serverless platform with incident triage, video review, pattern analytics, configurable safety rules, and human-in-the-loop AI messaging. Shipped to production with real paying customers.',
     stack: ['React', 'AWS SAM', 'Lambda', 'DynamoDB', 'IoT Core', 'S3'],
-    url: 'https://github.com/igembitsky/canaryview',
+    url: 'https://canaryaware.com',
     featured: true,
     category: 'production',
   },

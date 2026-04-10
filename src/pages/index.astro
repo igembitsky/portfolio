@@ -3,17 +3,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
-import WorkCard from '../components/WorkCard.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
 import BuildCard from '../components/BuildCard.astro';
-import CaseStudy from '../components/CaseStudy.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
-import { work } from '../data/work';
+import { canaryCards } from '../data/portfolio';
 import { builds } from '../data/builds';
 
 const production = builds.filter(b => b.category === 'production');
 const automation = builds.filter(b => b.category === 'automation');
 const creative = builds.filter(b => b.category === 'creative');
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout>
   <Nav />
@@ -21,34 +21,298 @@ const creative = builds.filter(b => b.category === 'creative');
     <!-- Hero -->
     <Hero />
 
-    <!-- Divider -->
     <div class="section-divider container"></div>
 
-    <!-- About / Narrative Arc -->
+    <!-- The Arc -->
     <About />
 
-    <!-- Divider -->
     <div class="section-divider container"></div>
 
-    <!-- Experience -->
-    <div id="experience" class="reveal container pt-24 pb-8">
-      <h2 class="text-xs font-mono uppercase tracking-widest text-accent">Experience</h2>
-    </div>
-    <section class="container pb-8 stagger-reveal">
-      {work.map((item, i) => (
-        <div class="reveal" style={`transition-delay: ${i * 0.1}s`}>
-          <WorkCard item={item} />
-        </div>
-      ))}
+    <!-- Canary -->
+    <section id="canary" class="container py-24">
+      <div class="reveal">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-2">Canary</h2>
+        <p class="text-fg-muted text-sm mb-8 max-w-lg">
+          AI-powered safety camera system for industrial environments.
+          I lead product, sales, and customer success alongside a team of engineers, data scientists, and ML consultants.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4 stagger-reveal">
+        {canaryCards.map((item, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
+            <PortfolioCard item={item} />
+          </div>
+        ))}
+      </div>
     </section>
 
-    <!-- Divider -->
     <div class="section-divider container"></div>
 
-    <!-- Case Study -->
-    <CaseStudy />
+    <!-- Virtual Diamond Boutique -->
+    <section id="vdb" class="container py-24">
+      <div class="reveal">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-2">Virtual Diamond Boutique</h2>
+        <p class="text-fg-muted text-sm mb-10 max-w-lg">
+          B2B/B2C marketplace for the diamond and jewelry industry.
+          Seven years, three promotions, three organizations built from scratch.
+        </p>
+      </div>
 
-    <!-- Divider -->
+      <div class="space-y-8">
+        <!-- Product & Design -->
+        <div class="reveal narrative-block">
+          <h3 class="text-base font-semibold text-white mb-1">Product & Design Organization</h3>
+          <p class="text-accent2 text-xs font-mono mb-3">First PM hire, 2017</p>
+          <p class="text-fg-muted text-sm leading-relaxed mb-3">
+            Joined when the platform had a few hundred users. Built a cross-functional team of 15+
+            (4 PMs, 6+ designers). Created the design system, PRD templates, sprint process,
+            user testing loops, RICE prioritization, and JIRA workflows. Shipped 20+ features
+            across 5 platforms. The white-label framework I designed became the company's core
+            revenue driver.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tag tag-accent text-[10px]">first PM hire</span>
+            <span class="tag tag-accent text-[10px]">100x user growth</span>
+            <span class="tag text-[10px]">5 platforms</span>
+            <span class="tag text-[10px]">20+ features</span>
+          </div>
+        </div>
+
+        <!-- Customer Success -->
+        <div class="reveal narrative-block" style="transition-delay: 0.08s">
+          <h3 class="text-base font-semibold text-white mb-1">Customer Success Organization</h3>
+          <p class="text-accent2 text-xs font-mono mb-3">Built from zero, 2021</p>
+          <p class="text-fg-muted text-sm leading-relaxed mb-3">
+            Hired and managed 8 CSMs. Created the 5-phase onboarding pipeline, retention
+            workflows, Early Warning dashboards for at-risk accounts, quarterly business reviews,
+            and the full CS playbook. Cut churn from 25% to under 10%. Promoted a team member
+            to Director and transitioned operations.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tag tag-accent text-[10px]">0 to 1 org</span>
+            <span class="tag tag-accent text-[10px]">churn: 25% to &lt;10%</span>
+            <span class="tag text-[10px]">8 CSMs</span>
+            <span class="tag text-[10px]">Rocketlane</span>
+          </div>
+        </div>
+
+        <!-- Sales Operations -->
+        <div class="reveal narrative-block" style="transition-delay: 0.16s">
+          <h3 class="text-base font-semibold text-white mb-1">Sales Organization</h3>
+          <p class="text-accent2 text-xs font-mono mb-3">VP Strategic Operations, 2023</p>
+          <p class="text-fg-muted text-sm leading-relaxed mb-3">
+            Defined the end-to-end sales process in Salesforce. Built the enablement library:
+            competitor battlecards, BANT qualification methodology, demo guides, cold call
+            frameworks, and 6 training programs. Automated outbound campaigns and improved
+            deal velocity ~20%. Led a sales transformation with an external consultancy
+            delivering 30+ process deliverables.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tag tag-accent text-[10px]">0 to 1 org</span>
+            <span class="tag tag-accent text-[10px]">~20% deal velocity lift</span>
+            <span class="tag text-[10px]">Salesforce</span>
+            <span class="tag text-[10px]">Knowi</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider container"></div>
+
+    <!-- Earlier Career -->
+    <section class="container py-24">
+      <div class="reveal">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-8">Earlier</h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="reveal flex items-start gap-4">
+          <span class="text-fg-dim font-mono text-xs min-w-[100px] shrink-0 mt-0.5">2015 -- 2017</span>
+          <div>
+            <p class="text-white text-sm font-medium">HappyFunCorp <span class="text-fg-dim font-normal">/ Product Manager</span></p>
+            <p class="text-fg-muted text-sm mt-1">
+              Agency PM in Brooklyn. Shipped mobile and web products for Harvard University (3 schools),
+              Brooklyn Museum, Gorilla Logic, fintech startups, and social apps. Ran discovery workshops,
+              led cross-functional sprints, iterated toward product-market fit.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal flex items-start gap-4" style="transition-delay: 0.06s">
+          <span class="text-fg-dim font-mono text-xs min-w-[100px] shrink-0 mt-0.5">2012 -- 2014</span>
+          <div>
+            <p class="text-white text-sm font-medium">Institute for Humane Studies <span class="text-fg-dim font-normal">/ PM, Online Education</span></p>
+            <p class="text-fg-muted text-sm mt-1">
+              First tech hire. Built Learn Liberty Academy from the ground up. Online education platform
+              reaching 1,000+ students through 30+ experimental programs with 20+ university professors.
+              Lean Startup methods: prototype, test, measure, iterate.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal flex items-start gap-4" style="transition-delay: 0.12s">
+          <span class="text-fg-dim font-mono text-xs min-w-[100px] shrink-0 mt-0.5">2010 -- 2012</span>
+          <div>
+            <p class="text-white text-sm font-medium">UAB Research Hospital <span class="text-fg-dim font-normal">/ Neuroscience Researcher</span></p>
+            <p class="text-fg-muted text-sm mt-1">
+              First research hire. Set up lab operations for neurodegenerative disease research.
+              Co-authored two peer-reviewed publications. The experimental discipline from this
+              work shapes how I think about product decisions today.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider container"></div>
+
+    <!-- How I Think -->
+    <section class="container py-24">
+      <div class="reveal">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-4">How I Think</h2>
+        <p class="text-fg-muted text-sm mb-10 max-w-lg">
+          I work in tight loops of planning, execution, and retrospectives.
+          Frameworks like JTBD, Design Sprints, and the Mom Test are part of how
+          I actually work, not things I put on slides.
+        </p>
+      </div>
+
+      <!-- Frameworks -->
+      <div class="reveal mb-16">
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-4">
+          <div class="flex flex-col items-start gap-1">
+            <span class="text-accent font-mono text-xs">Discover</span>
+            <span class="text-fg-dim text-xs leading-relaxed">JTBD, Mom Test, Design Thinking, Double Diamond</span>
+          </div>
+          <div class="flex flex-col items-start gap-1">
+            <span class="text-accent font-mono text-xs">Prioritize</span>
+            <span class="text-fg-dim text-xs leading-relaxed">RICE, Pareto 80/20, hypothesis-driven dev</span>
+          </div>
+          <div class="flex flex-col items-start gap-1">
+            <span class="text-accent font-mono text-xs">Execute</span>
+            <span class="text-fg-dim text-xs leading-relaxed">Agile sprints, Design Sprints, blameless retros</span>
+          </div>
+          <div class="flex flex-col items-start gap-1">
+            <span class="text-accent font-mono text-xs">Scale</span>
+            <span class="text-fg-dim text-xs leading-relaxed">Automate, delegate, document. PR/FAQ, pre-mortems</span>
+          </div>
+          <div class="flex flex-col items-start gap-1">
+            <span class="text-accent font-mono text-xs">Lead</span>
+            <span class="text-fg-dim text-xs leading-relaxed">Servant leadership, psychological safety</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Books -->
+      <div class="reveal mb-12">
+        <p class="text-fg-dim text-xs font-mono mb-5">Books that shaped how I work</p>
+        <div class="flex gap-4 overflow-x-auto pb-4 sm:grid sm:grid-cols-5 md:grid-cols-10 sm:overflow-visible">
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-[2/3] rounded-md overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/books/lean-startup.jpg`} alt="The Lean Startup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="180" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">The Lean Startup</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-[2/3] rounded-md overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/books/sprint.jpg`} alt="Sprint" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="180" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">Sprint</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-[2/3] rounded-md overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/books/mom-test.jpg`} alt="The Mom Test" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="180" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">The Mom Test</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-[2/3] rounded-md overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/books/zero-to-one.jpg`} alt="Zero to One" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="180" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">Zero to One</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-[2/3] rounded-md overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/books/deep-work.jpg`} alt="Deep Work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="180" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">Deep Work</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-[2/3] rounded-md overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/books/design-of-everyday-things.jpg`} alt="Design of Everyday Things" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="180" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">Design of Everyday Things</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-[2/3] rounded-md overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/books/start-with-why.jpg`} alt="Start with Why" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="180" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">Start with Why</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-[2/3] rounded-md overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/books/creative-confidence.jpg`} alt="Creative Confidence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="180" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">Creative Confidence</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-[2/3] rounded-md overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/books/elements-of-style.jpg`} alt="Elements of Style" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="180" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">Elements of Style</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-[2/3] rounded-md overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/books/power-of-habit.jpg`} alt="The Power of Habit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="180" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">The Power of Habit</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <a href="https://www.goodreads.com/gembitsky" target="_blank" rel="noopener noreferrer" class="link-underline text-accent2 text-xs font-mono">
+            Full reading list on Goodreads
+          </a>
+        </div>
+      </div>
+
+      <!-- Podcasts -->
+      <div class="reveal">
+        <p class="text-fg-dim text-xs font-mono mb-5">Podcasts that inspire my thinking</p>
+        <div class="flex gap-4 overflow-x-auto pb-4 sm:grid sm:grid-cols-5 sm:overflow-visible">
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/podcasts/acquired.jpg`} alt="Acquired" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="120" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">Acquired</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/podcasts/how-i-built-this.jpg`} alt="How I Built This" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="120" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">How I Built This</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/podcasts/99-invisible.jpg`} alt="99% Invisible" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="120" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">99% Invisible</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/podcasts/rework.jpg`} alt="Rework" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="120" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">Rework</p>
+          </div>
+          <div class="shrink-0 w-20 sm:w-auto group">
+            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface">
+              <img src={`${base}assets/podcasts/design-better.jpg`} alt="Design Better" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="120" height="120" />
+            </div>
+            <p class="text-[9px] text-fg-dim mt-1.5 leading-tight">Design Better</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="section-divider container"></div>
 
     <!-- Projects -->
@@ -56,7 +320,6 @@ const creative = builds.filter(b => b.category === 'creative');
       <h2 class="text-xs font-mono uppercase tracking-widest text-accent">Projects</h2>
     </div>
 
-    <!-- Production -->
     <section class="container pb-2">
       <p class="text-fg-dim text-xs font-mono mb-4 reveal">Production Software</p>
       <div class="grid sm:grid-cols-2 gap-4 stagger-reveal">
@@ -68,7 +331,6 @@ const creative = builds.filter(b => b.category === 'creative');
       </div>
     </section>
 
-    <!-- Automation -->
     <section class="container py-6">
       <p class="text-fg-dim text-xs font-mono mb-4 reveal">Automations & Agents</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 stagger-reveal">
@@ -80,7 +342,6 @@ const creative = builds.filter(b => b.category === 'creative');
       </div>
     </section>
 
-    <!-- Creative -->
     <section class="container pb-8">
       <p class="text-fg-dim text-xs font-mono mb-4 reveal">Creative</p>
       <div class="grid sm:grid-cols-2 gap-4 stagger-reveal">
@@ -92,7 +353,78 @@ const creative = builds.filter(b => b.category === 'creative');
       </div>
     </section>
 
-    <!-- Divider -->
+    <div class="section-divider container"></div>
+
+    <!-- Toolbox -->
+    <section class="container py-24">
+      <div class="reveal">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-10">Toolbox</h2>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10">
+        <!-- Dev & AI -->
+        <div class="reveal">
+          <p class="text-fg-dim text-[10px] font-mono uppercase tracking-wider mb-4">Dev & AI</p>
+          <div class="flex flex-wrap gap-3">
+            <div class="tool-icon" title="Claude Code"><img src={`${base}assets/tools/claude.svg`} alt="Claude Code" loading="lazy" /></div>
+            <div class="tool-icon" title="Codex"><img src={`${base}assets/tools/codex.svg`} alt="Codex" loading="lazy" /></div>
+            <div class="tool-icon" title="VS Code"><img src={`${base}assets/tools/vscode.svg`} alt="VS Code" loading="lazy" /></div>
+            <div class="tool-icon" title="Perplexity"><img src={`${base}assets/tools/perplexity.svg`} alt="Perplexity" loading="lazy" /></div>
+            <div class="tool-icon" title="Gemini"><img src={`${base}assets/tools/gemini.svg`} alt="Gemini" loading="lazy" /></div>
+            <div class="tool-icon-full" title="Google AI Studio"><img src={`${base}assets/tools/google-ai-studio.png`} alt="Google AI Studio" loading="lazy" /></div>
+            <div class="tool-icon" title="GitHub"><img src={`${base}assets/tools/github.svg`} alt="GitHub" loading="lazy" /></div>
+          </div>
+        </div>
+
+        <!-- Sales & GTM -->
+        <div class="reveal" style="transition-delay: 0.06s">
+          <p class="text-fg-dim text-[10px] font-mono uppercase tracking-wider mb-4">Sales & GTM</p>
+          <div class="flex flex-wrap gap-3">
+            <div class="tool-icon-full" title="Pipedrive"><img src={`${base}assets/tools/pipedrive.png`} alt="Pipedrive" loading="lazy" /></div>
+            <div class="tool-icon" title="Salesforce"><img src={`${base}assets/tools/salesforce.svg`} alt="Salesforce" loading="lazy" /></div>
+            <div class="tool-icon" title="LinkedIn Sales Navigator"><img src={`${base}assets/tools/linkedin.svg`} alt="LinkedIn" loading="lazy" /></div>
+            <div class="tool-icon-full" title="Woodpecker"><img src={`${base}assets/tools/woodpecker.png`} alt="Woodpecker" loading="lazy" /></div>
+            <div class="tool-icon-full" title="Apollo.io"><img src={`${base}assets/tools/apollo.png`} alt="Apollo" loading="lazy" /></div>
+          </div>
+        </div>
+
+        <!-- Collaboration -->
+        <div class="reveal" style="transition-delay: 0.12s">
+          <p class="text-fg-dim text-[10px] font-mono uppercase tracking-wider mb-4">Collaboration</p>
+          <div class="flex flex-wrap gap-3">
+            <div class="tool-icon" title="Slack"><img src={`${base}assets/tools/slack.svg`} alt="Slack" loading="lazy" /></div>
+            <div class="tool-icon" title="Jira"><img src={`${base}assets/tools/jira.svg`} alt="Jira" loading="lazy" /></div>
+            <div class="tool-icon" title="Trello"><img src={`${base}assets/tools/trello.svg`} alt="Trello" loading="lazy" /></div>
+            <div class="tool-icon" title="Asana"><img src={`${base}assets/tools/asana.svg`} alt="Asana" loading="lazy" /></div>
+            <div class="tool-icon-full" title="Rocketlane"><img src={`${base}assets/tools/rocketlane.png`} alt="Rocketlane" loading="lazy" /></div>
+          </div>
+        </div>
+
+        <!-- Design & Product -->
+        <div class="reveal" style="transition-delay: 0.18s">
+          <p class="text-fg-dim text-[10px] font-mono uppercase tracking-wider mb-4">Design & Product</p>
+          <div class="flex flex-wrap gap-3">
+            <div class="tool-icon" title="Figma"><img src={`${base}assets/tools/figma.svg`} alt="Figma" loading="lazy" /></div>
+            <div class="tool-icon-full" title="Zight"><img src={`${base}assets/tools/zight.png`} alt="Zight" loading="lazy" /></div>
+            <div class="tool-icon" title="Miro"><img src={`${base}assets/tools/miro.svg`} alt="Miro" loading="lazy" /></div>
+            <div class="tool-icon-full" title="Stitch (Google Labs)"><img src={`${base}assets/tools/google-stitch.png`} alt="Stitch (Google Labs)" loading="lazy" /></div>
+          </div>
+        </div>
+
+        <!-- Productivity -->
+        <div class="reveal" style="transition-delay: 0.24s">
+          <p class="text-fg-dim text-[10px] font-mono uppercase tracking-wider mb-4">Productivity</p>
+          <div class="flex flex-wrap gap-3">
+            <div class="tool-icon-full" title="Reclaim.ai"><img src={`${base}assets/tools/reclaim.png`} alt="Reclaim" loading="lazy" /></div>
+            <div class="tool-icon-full" title="Fathom"><img src={`${base}assets/tools/fathom.png`} alt="Fathom" loading="lazy" /></div>
+            <div class="tool-icon-full" title="Wispr Flow"><img src={`${base}assets/tools/wispr.png`} alt="Wispr Flow" loading="lazy" /></div>
+            <div class="tool-icon-full" title="Paste"><img src={`${base}assets/tools/paste.png`} alt="Paste" loading="lazy" /></div>
+            <div class="tool-icon" title="Telegram"><img src={`${base}assets/tools/telegram.svg`} alt="Telegram" loading="lazy" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="section-divider container"></div>
 
     <!-- Contact -->
