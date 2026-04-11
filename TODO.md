@@ -33,6 +33,7 @@
 
 <!-- DONE LISTS BY DATE -->
 # 2026-04-11
+- [X] ~~*Portfolio audit: fixed broken links (invoice-agent 404, chess.com 400), rewrote hero tagline (removed "orchestrate agentic workflows" jargon), ran adversarial review surfacing strategic positioning mismatch, added P1 improvement backlog to nice-to-haves*~~ [2026-04-11]
 - [X] ~~*Books/podcasts overhaul: curated 12 books in custom order, added 5 podcasts, larger grid with text labels, all Goodreads and podcast links verified, Goodreads icon, copy updates (systems thinking, humane teams), deployed to GitHub Pages*~~ [2026-04-11]
 
 # 2026-04-10
