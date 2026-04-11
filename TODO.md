@@ -12,7 +12,17 @@
 
 
 # Nice-to-have
-- [ ]
+- [ ] Restructure Canary section: add leadership narrative intro before feature cards (business context, role scope, strategic decisions, outcomes)
+- [ ] Elevate VDB section visually (strongest VP-level evidence, currently gets less weight than Canary)
+- [ ] Condense Projects section: keep Canary SaaS featured, reduce automation/creative to compact list or GitHub link
+- [ ] Compress Books + Podcasts: merge into smaller "What Shapes My Thinking" row or condense podcasts to 2-3 sentences
+- [ ] Add downloadable CV/resume PDF (hiring managers need to forward materials)
+- [ ] Add social proof: 1-2 testimonial quotes from former colleagues or leadership
+- [ ] Add JSON-LD structured data (schema.org/Person) to BaseLayout.astro
+- [ ] Add screenshots for side projects (NYC Guide, Legend of Nikita) where no IP risk
+- [ ] Nav label clarity: rename "Work" to "Case Studies" or split Canary/VDB in nav
+- [ ] Self-host Inter + JetBrains Mono fonts (eliminate Google Fonts external dependency)
+- [ ] Add skip-to-content accessibility link
 
 
 <!-- SCRATCHPAD -->
@@ -22,5 +32,8 @@
 
 
 <!-- DONE LISTS BY DATE -->
+# 2026-04-11
+- [X] ~~*Books/podcasts overhaul: curated 12 books in custom order, added 5 podcasts, larger grid with text labels, all Goodreads and podcast links verified, Goodreads icon, copy updates (systems thinking, humane teams), deployed to GitHub Pages*~~ [2026-04-11]
+
 # 2026-04-10
 - [X] ~~*Portfolio v2: card-based case studies, expandable Canary cards, VDB narrative blocks, books shelf, podcast artwork, toolbox with 25 real tool logos, chess link, copy rewrite, push to master*~~ [2026-04-10]

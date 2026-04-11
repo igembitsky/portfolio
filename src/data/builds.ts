@@ -25,7 +25,7 @@ export const builds: BuildItem[] = [
     description:
       'Collects invoices from providers, generates client invoices from Toggl time tracking, gets human approval via Telegram, and emails everything out. Two scheduled Cloud Run jobs, zero manual steps on billing day.',
     stack: ['Python', 'Flask', 'Cloud Run', 'Playwright', 'Telegram Bot', 'Gmail API'],
-    url: 'https://github.com/igembitsky/invoice-agent',
+    url: '#',
     category: 'automation',
   },
   {
