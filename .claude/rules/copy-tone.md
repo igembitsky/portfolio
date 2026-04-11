@@ -9,7 +9,7 @@ Igor's portfolio copy must be human, approachable, and specific. Follow these ru
 
 1. No emdashes. Rewrite the sentence to not need one.
 2. No AI tropes: "force multiplier," "defined by," "not just X but Y," motivational-poster phrasing.
-3. No "solo builder" or "solo engineer" framing. Emphasize leadership, vision, team orchestration, generative engineering workflows.
+3. No "solo builder" or "solo engineer" framing. No "orchestrate agentic/generative workflows" jargon. Emphasize leadership, vision, team building, and concrete outcomes.
 4. No self-congratulatory lines like "not as buzzwords but as daily tools."
 5. Focus on systems built, decisions made, outcomes achieved. Not responsibilities.
 6. Write like a person describing their work to a friend who's also a hiring manager.

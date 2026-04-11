@@ -1,5 +1,28 @@
 # Retro Log
 
+## 2026-04-11 | Diagnostic | Portfolio audit, link fixes, hero copy, adversarial review
+
+**What happened:** Comprehensive portfolio audit covering content quality, link integrity, UX, accessibility, SEO, and strategic positioning. Three parallel Explore agents examined the full codebase. Curl-tested all 32 external URLs, finding 2 confirmed broken links (invoice-agent repo 404, chess.com challenge 400) and 1 false positive (freakonomics 403 to bots, works in browser). Fixed both broken links. Rewrote hero tagline to remove "orchestrate agentic workflows" jargon that positioned Igor as IC rather than VP/Head of Product. Ran an adversarial "Codex review" via a Plan agent that surfaced the most important finding: the entire site's information hierarchy is optimized for a technical PM/builder role, not the VP/Head of Product role Igor is targeting. The adversarial review also challenged the plan to add screenshots (NDA risk, signals junior PM portfolio) and recommended structural changes (Canary narrative before feature cards, elevate VDB, condense Projects).
+
+**Classification:** Diagnostic
+
+**Key insight:** The site's *structure* communicates "solo builder" even though the *copy* avoids that phrase. Canary is presented as 4 feature cards with tech stacks (IC-level), while VDB (which shows VP-level work: 3 orgs built, 100x growth, churn halved) gets less visual weight. Fixing copy alone doesn't fix positioning; the information hierarchy needs restructuring.
+
+**Tags:** portfolio-audit, link-verification, hero-copy, adversarial-review, positioning, strategic-narrative
+
+**Patterns:** Third session on portfolio (see 2026-04-10, 2026-04-11 earlier entry). Link verification pattern continues: dedicated systematic checking catches problems before they ship (confirmed in 2026-04-11 books session too). New pattern: adversarial reviews surface strategic blind spots that standard audits miss.
+
+**Artifacts created:**
+- Updated `.claude/rules/copy-tone.md` (added "orchestrate agentic/generative workflows" to banned phrases list)
+
+### Agent self-assessment
+
+**Behavior to reinforce:** Running an adversarial review agent with a contrarian prompt. The Plan agent challenged the initial audit's recommendation to add screenshots (correctly identifying NDA risk and seniority signaling issues) and reframed the entire plan around strategic positioning rather than tactical polish. This was the highest-value output of the session.
+
+**Behavior to reduce:** The initial audit missed the structural positioning problem entirely. Three Explore agents produced thorough tactical findings (broken links, accessibility gaps, SEO) but none identified the strategic mismatch between site structure and target role level. The adversarial review caught it. Lesson: tactical audits need a strategic layer, not just polish recommendations.
+
+---
+
 ## 2026-04-11 | Diagnostic | Books/podcasts curation and link verification
 
 **What happened:** Continuation session focused on content curation and quality assurance. Swapped book list to Igor's curated 12 (added Conscious Business, Leading with Questions, On Writing Well, Atomic Habits; removed Creative Confidence, Elements of Style, Power of Habit). Added 5 new podcasts. Major issue: book cover sourcing from Open Library was unreliable. Multiple ISBNs mapped to completely wrong books (Conscious Business returned "Receiving God", Leading with Questions returned "Words of Jesus"). Google Books API was the reliable fallback. Also fixed Design Better podcast artwork (was showing wrong podcast entirely). All 12 Goodreads links and 10 podcast homepage links systematically verified by a dedicated agent, which caught 2 bad Goodreads URLs before they shipped.
