@@ -1,4 +1,6 @@
 ---
+import GithubStats from './GithubStats.astro';
+
 const linkedinUrl = 'https://www.linkedin.com/in/gembitsky';
 const githubUrl = 'https://github.com/igembitsky';
 ---
@@ -24,8 +26,17 @@ const githubUrl = 'https://github.com/igembitsky';
     <p class="mt-8 text-fg-muted text-base sm:text-lg max-w-lg leading-relaxed">
       14 years across science, education, media, fintech, luxury marketplaces,
       and industrial AI. Seven-plus teams and organizations built from zero.
-      These days I use AI-native tools and workflows to move from idea to
-      shipped product faster than teams twice the size.
+    </p>
+  </div>
+
+  <div class="reveal mt-6 grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-12 items-start" style="transition-delay: 0.28s">
+    <div class="order-2 md:order-1">
+      <GithubStats />
+    </div>
+    <p class="order-1 md:order-2 text-fg-muted text-base sm:text-lg max-w-[48ch] leading-relaxed">
+      These days I use AI-native tools and workflows to automate the tedious
+      and move from idea, to prototype, to shipped product faster than I ever
+      thought possible.
     </p>
   </div>
 
@@ -41,7 +52,7 @@ const githubUrl = 'https://github.com/igembitsky';
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 reveal" style="transition-delay: 0.5s">
+  <div class="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 reveal" style="transition-delay: 0.5s">
     <div class="w-5 h-8 border border-fg-dim rounded-full flex justify-center pt-1.5">
       <div class="w-1 h-2 bg-fg-dim rounded-full animate-bounce"></div>
     </div>

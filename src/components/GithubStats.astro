@@ -1,0 +1,145 @@
+---
+import stats from '../data/github-stats.json';
+
+function relativeTime(iso: string | null): string {
+  if (!iso) return '';
+  const diffMs = Date.now() - new Date(iso).getTime();
+  const mins = Math.round(diffMs / 60000);
+  if (mins < 60) return `${Math.max(1, mins)}m ago`;
+  const hours = Math.round(mins / 60);
+  if (hours < 48) return `${hours}h ago`;
+  const days = Math.round(hours / 24);
+  if (days < 14) return `${days}d ago`;
+  const weeks = Math.round(days / 7);
+  return `${weeks}w ago`;
+}
+
+const hidden = stats.stale === true;
+const rel = relativeTime(stats.lastActivityISO);
+---
+{!hidden && (
+  <div class="gh-stats" data-gh-stats>
+    <div class="gh-stats-header">
+      <span class="gh-stats-dot" aria-hidden="true"></span>
+      <span>last 90 days on github</span>
+    </div>
+    <div class="gh-stats-row">
+      <span class="gh-stats-key">commits</span>
+      <span class="gh-stats-dots" aria-hidden="true"></span>
+      <span class="gh-stats-val" data-stat={stats.commits}>0</span>
+    </div>
+    <div class="gh-stats-row">
+      <span class="gh-stats-key">repos</span>
+      <span class="gh-stats-dots" aria-hidden="true"></span>
+      <span class="gh-stats-val" data-stat={stats.repos}>0</span>
+    </div>
+    <div class="gh-stats-row">
+      <span class="gh-stats-key">merged prs</span>
+      <span class="gh-stats-dots" aria-hidden="true"></span>
+      <span class="gh-stats-val" data-stat={stats.prs}>0</span>
+    </div>
+    {stats.lastActivityISO && (
+      <div class="gh-stats-foot" title={stats.lastActivityISO}>
+        updated {rel}<span class="gh-stats-cursor" aria-hidden="true">▊</span>
+      </div>
+    )}
+  </div>
+)}
+
+<style>
+  .gh-stats {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 18px 22px;
+    background: #0d0d14;
+  }
+  .gh-stats-header {
+    color: var(--color-fg-dim);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .gh-stats-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--color-accent2);
+    box-shadow: 0 0 6px rgba(123, 161, 199, 0.7);
+    animation: gh-pulse 2s ease-in-out infinite;
+  }
+  @keyframes gh-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+  .gh-stats-row {
+    display: flex;
+    align-items: baseline;
+    margin: 6px 0;
+  }
+  .gh-stats-key { color: var(--color-fg-muted); }
+  .gh-stats-dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--color-border);
+    margin: 0 10px;
+    position: relative;
+    top: -3px;
+  }
+  .gh-stats-val {
+    color: var(--color-accent);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  .gh-stats-foot {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-fg-dim);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+  .gh-stats-cursor {
+    color: var(--color-accent);
+    margin-left: 4px;
+    animation: gh-blink 1s steps(2) infinite;
+  }
+  @keyframes gh-blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .gh-stats-dot, .gh-stats-cursor { animation: none; }
+  }
+</style>
+
+<script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+
+  function countUp(el: HTMLElement, target: number) {
+    if (prefersReducedMotion) { el.textContent = String(target); return; }
+    const duration = 1200;
+    const start = performance.now();
+    function frame(now: number) {
+      const t = Math.min(1, (now - start) / duration);
+      el.textContent = String(Math.round(target * easeOut(t)));
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const targets = document.querySelectorAll<HTMLElement>('[data-gh-stats] [data-stat]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target as HTMLElement;
+        const n = Number(el.dataset.stat || 0);
+        countUp(el, n);
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  targets.forEach((el) => io.observe(el));
+</script>
