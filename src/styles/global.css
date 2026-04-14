@@ -10,8 +10,8 @@
   --color-border: #1e1e2e;
   --color-border-hover: #2e2e42;
   --color-fg: #ece8e1;
-  --color-fg-muted: #948f9f;
-  --color-fg-dim: #5c586a;
+  --color-fg-muted: #b4afbe;
+  --color-fg-dim: #807c8d;
   --color-accent: #c8a55a;
   --color-accent-soft: #c8a55a26;
   --color-accent2: #7ba1c7;
@@ -25,6 +25,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 19.2px; /* 1.2x baseline — enforces 12px minimum across rem-based type scale */
 }
 
 body {
@@ -33,7 +34,7 @@ body {
   color: var(--color-fg);
   line-height: 1.7;
   letter-spacing: -0.01em;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 ::selection {
@@ -100,7 +101,7 @@ body {
 /* Tag styles */
 .tag {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.02em;
   padding: 3px 10px;
   border-radius: 100px;
@@ -155,7 +156,7 @@ body {
 /* Expand trigger */
 .expand-trigger {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-accent);
   background: none;
   border: none;
@@ -174,7 +175,7 @@ body {
 /* Section labels inside expanded cards */
 .detail-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-accent);
@@ -302,7 +303,7 @@ body {
   background: var(--color-accent);
   color: var(--color-bg);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 17px;
   border-radius: 8px;
   transition: all 0.25s ease;
   text-decoration: none;
@@ -322,7 +323,7 @@ body {
   background: transparent;
   color: var(--color-fg);
   font-weight: 500;
-  font-size: 14px;
+  font-size: 17px;
   border: 1px solid var(--color-border);
   border-radius: 8px;
   transition: all 0.25s ease;
