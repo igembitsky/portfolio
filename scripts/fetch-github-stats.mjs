@@ -25,7 +25,21 @@ async function gh(path) {
   return res.json();
 }
 
+const ALLOWED_KEYS = ['commits', 'repos', 'prs', 'lastActivityISO', 'fetchedAt', 'stale'];
+
 function writeOutput(obj) {
+  const extras = Object.keys(obj).filter((k) => !ALLOWED_KEYS.includes(k));
+  if (extras.length) {
+    console.error(`[fetch-github-stats] refusing to write disallowed keys: ${extras.join(', ')}`);
+    process.exit(1);
+  }
+  for (const [k, v] of Object.entries(obj)) {
+    if (k === 'lastActivityISO') continue;
+    if (v !== null && typeof v !== 'number' && typeof v !== 'boolean' && typeof v !== 'string') {
+      console.error(`[fetch-github-stats] refusing to write non-primitive value for ${k}`);
+      process.exit(1);
+    }
+  }
   mkdirSync(dirname(OUT_PATH), { recursive: true });
   writeFileSync(OUT_PATH, JSON.stringify(obj, null, 2) + '\n');
   console.log(`wrote ${OUT_PATH}`);
