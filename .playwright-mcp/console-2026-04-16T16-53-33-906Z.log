@@ -1,0 +1,105 @@
+[    1044ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1972
+[    1046ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1972
+[    1046ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1972
+[    1663ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:4321/portfolio/#projects:0
+[    1731ms] [ERROR] %cAstro background: linear-gradient(66.77deg, #D83333 0%, #F041FF 100%); color: white; padding-inline: 4px; border-radius: 2px; font-family: monospace; Error while running audit's match function: TypeError: Failed to fetch @ http://localhost:4321/node_modules/.vite/deps/chunk-LEX3GG7N.js?v=27a0196e:22
+[    1739ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1972
+[    1739ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1972
+[    1739ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1972
+[    1793ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:4321/portfolio/#projects:0
+[   26732ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1989
+[   26733ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1989
+[   26733ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1989
+[   26800ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:4321/portfolio/#projects:0
+[   26824ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   26826ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   26834ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   26841ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   26846ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   26852ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   26858ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   26864ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   26869ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots-install.png:0
+[   51758ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1989
+[   51758ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1989
+[   51759ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:1989
+[   51816ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nyc-map.png:0
+[   51819ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nikita.png:0
+[   51833ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:4321/portfolio/#projects:0
+[   51868ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   51874ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   51877ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   51882ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   51884ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   51889ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   51892ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   51896ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   51900ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots-install.png:0
+[   52008ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nyc-map.png:0
+[   52022ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nikita.png:0
+[   77494ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:2055
+[   77494ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:2055
+[   77494ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:2055
+[   77528ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nikita.png:0
+[   77533ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nyc-map.png:0
+[   77587ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:4321/portfolio/#projects:0
+[   77596ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   77602ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   77610ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   77613ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   77616ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   77621ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   77627ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   77630ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   77634ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots-install.png:0
+[   77638ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/vdb/hero.png:0
+[   77696ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nyc-map.png:0
+[   77702ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nikita.png:0
+[   79444ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:2055
+[   79444ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:2055
+[   79502ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:4321/portfolio/#projects:0
+[   79502ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nyc-map.png:0
+[   79510ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nikita.png:0
+[   79533ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   79538ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   79540ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   79543ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   79545ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   79547ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   79558ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   79560ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   79562ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots-install.png:0
+[   79564ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/vdb/hero.png:0
+[   79595ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nyc-map.png:0
+[   79597ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nikita.png:0
+[   84151ms] [ERROR] Error: <svg> attribute height: Expected length, "auto". @ http://localhost:4321/portfolio/#projects:2055
+[   84185ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nyc-map.png:0
+[   84186ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nikita.png:0
+[   84214ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:4321/portfolio/#projects:0
+[   84227ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   84228ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   84229ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   84230ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   84234ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   84236ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   84237ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   84238ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   84239ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots-install.png:0
+[   84242ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/vdb/hero.png:0
+[   84261ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nyc-map.png:0
+[   84262ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nikita.png:0
+[   88423ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nyc-map.png:0
+[   88431ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nikita.png:0
+[   88454ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:4321/portfolio/#projects:0
+[   88468ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   88470ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/dashboard.png:0
+[   88471ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   88472ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/tagging.png:0
+[   88476ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   88479ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/review.png:0
+[   88481ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   88484ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots.png:0
+[   88485ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/canary/pilots-install.png:0
+[   88486ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/vdb/hero.png:0
+[   88505ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nyc-map.png:0
+[   88507ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/portfolio/assets/personal/nikita.png:0

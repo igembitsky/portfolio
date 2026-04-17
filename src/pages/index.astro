@@ -52,10 +52,21 @@ const base = import.meta.env.BASE_URL;
     <section id="vdb" class="container py-24">
       <div class="reveal">
         <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-2">Virtual Diamond Boutique</h2>
-        <p class="text-fg-muted text-sm mb-10 max-w-lg">
+        <p class="text-fg-muted text-sm mb-8 max-w-lg">
           B2B/B2C marketplace for the diamond and jewelry industry.
           Seven years, three promotions, three organizations built from scratch.
         </p>
+      </div>
+
+      <div class="reveal mb-10">
+        <div class="vdb-hero">
+          <img
+            src={`${base}assets/vdb/hero.png`}
+            alt="Virtual Diamond Boutique platform"
+            loading="lazy"
+            onerror="this.style.opacity=0"
+          />
+        </div>
       </div>
 
       <div class="space-y-8">
@@ -125,35 +136,61 @@ const base = import.meta.env.BASE_URL;
         <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-8">Earlier</h2>
       </div>
 
-      <div class="space-y-6">
+      <div class="space-y-8">
         <div class="reveal flex items-start gap-4">
-          <span class="text-fg-dim font-mono text-xs min-w-[100px] shrink-0 mt-0.5">2015 -- 2017</span>
+          <div class="min-w-[100px] shrink-0 mt-1">
+            <div class="org-logo">
+              <img src={`${base}assets/logos/orgs/happyfuncorp.jpeg`} alt="HappyFunCorp" loading="lazy" />
+            </div>
+          </div>
           <div>
             <p class="text-white text-sm font-medium">HappyFunCorp <span class="text-fg-dim font-normal">/ Product Manager</span></p>
+            <p class="text-fg-dim font-mono text-xs mt-0.5">2015-2017 · Brooklyn, NY</p>
             <p class="text-fg-muted text-sm mt-1">
               Agency PM in Brooklyn. Shipped mobile and web products for Harvard University (3 schools),
               Brooklyn Museum, Gorilla Logic, fintech startups, and social apps. Ran discovery workshops,
               led cross-functional sprints, iterated toward product-market fit.
             </p>
+            <div class="client-logos">
+              <img src={`${base}assets/logos/orgs/harvard.png`} alt="Harvard" loading="lazy" />
+              <img src={`${base}assets/logos/orgs/harvard-law.png`} alt="Harvard Law" loading="lazy" />
+              <img src={`${base}assets/logos/orgs/brooklyn-museum.png`} alt="Brooklyn Museum" loading="lazy" />
+              <img src={`${base}assets/logos/orgs/gorillalogic.png`} alt="Gorilla Logic" loading="lazy" />
+              <img src={`${base}assets/logos/orgs/tommie-hotels.png`} alt="Tommie Hotels" loading="lazy" />
+            </div>
           </div>
         </div>
 
         <div class="reveal flex items-start gap-4" style="transition-delay: 0.06s">
-          <span class="text-fg-dim font-mono text-xs min-w-[100px] shrink-0 mt-0.5">2012 -- 2014</span>
+          <div class="min-w-[100px] shrink-0 mt-1">
+            <div class="org-logo">
+              <img src={`${base}assets/logos/orgs/ihs.jpeg`} alt="Institute for Humane Studies" loading="lazy" />
+            </div>
+          </div>
           <div>
-            <p class="text-white text-sm font-medium">Institute for Humane Studies <span class="text-fg-dim font-normal">/ PM, Online Education</span></p>
+            <p class="text-white text-sm font-medium">Institute for Humane Studies <span class="text-fg-dim font-normal">/ Product Manager</span></p>
+            <p class="text-fg-dim font-mono text-xs mt-0.5">2012-2014 · Arlington, VA</p>
             <p class="text-fg-muted text-sm mt-1">
               First tech hire. Built Learn Liberty Academy from the ground up. Online education platform
               reaching 1,000+ students through 30+ experimental programs with 20+ university professors.
               Lean Startup methods: prototype, test, measure, iterate.
             </p>
+            <div class="client-logos">
+              <img src={`${base}assets/logos/orgs/learn-liberty.png`} alt="Learn Liberty" loading="lazy" />
+              <img src={`${base}assets/logos/orgs/mruniversity.png`} alt="MRUniversity" loading="lazy" />
+            </div>
           </div>
         </div>
 
         <div class="reveal flex items-start gap-4" style="transition-delay: 0.12s">
-          <span class="text-fg-dim font-mono text-xs min-w-[100px] shrink-0 mt-0.5">2010 -- 2012</span>
+          <div class="min-w-[100px] shrink-0 mt-1">
+            <div class="org-logo">
+              <img src={`${base}assets/logos/orgs/uab.png`} alt="UAB Research Hospital" loading="lazy" />
+            </div>
+          </div>
           <div>
             <p class="text-white text-sm font-medium">UAB Research Hospital <span class="text-fg-dim font-normal">/ Neuroscience Researcher</span></p>
+            <p class="text-fg-dim font-mono text-xs mt-0.5">2010-2012 · Birmingham, AL</p>
             <p class="text-fg-muted text-sm mt-1">
               First research hire. Set up lab operations for neurodegenerative disease research.
               Co-authored two peer-reviewed publications. The experimental discipline from this

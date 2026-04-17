@@ -1,0 +1,48 @@
+---
+// Client Invoice Automation: monthly cron drives a linear Toggl → Sheet → PDF → Gmail flow.
+---
+<svg
+  viewBox="0 0 240 290"
+  width="100%"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Client invoice automation: a monthly Cloud Scheduler trigger pulls from Toggl, writes a Google Sheet, exports a PDF invoice, and emails it via Gmail to the client."
+  class="flow-diagram"
+>
+  <defs>
+    <marker id="arrP" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L5,3.5 L0,7 Z" fill="#2e2e42" />
+    </marker>
+  </defs>
+
+  <!-- Cloud Scheduler (accent — trigger) -->
+  <rect x="40" y="8" width="160" height="26" rx="6" fill="none" stroke="#c8a55a" />
+  <text x="120" y="25" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Cloud Scheduler</text>
+  <text x="120" y="50" text-anchor="middle" fill="#807c8d" font-family="ui-monospace, monospace" font-size="9.5">monthly cron</text>
+
+  <path d="M 120 58 V 70" stroke="#2e2e42" fill="none" marker-end="url(#arrP)" />
+
+  <!-- Toggl -->
+  <rect x="60" y="74" width="120" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="91" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Toggl API</text>
+
+  <path d="M 120 100 V 116" stroke="#2e2e42" fill="none" marker-end="url(#arrP)" />
+
+  <!-- Google Sheet -->
+  <rect x="60" y="120" width="120" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="137" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Google Sheet</text>
+
+  <path d="M 120 146 V 162" stroke="#2e2e42" fill="none" marker-end="url(#arrP)" />
+
+  <!-- PDF Invoice -->
+  <rect x="60" y="166" width="120" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="183" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">PDF Invoice</text>
+
+  <path d="M 120 192 V 208" stroke="#2e2e42" fill="none" marker-end="url(#arrP)" />
+
+  <!-- Gmail -->
+  <rect x="60" y="212" width="120" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="229" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Gmail</text>
+
+  <text x="120" y="256" text-anchor="middle" fill="#807c8d" font-family="ui-monospace, monospace" font-size="9.5">→ client</text>
+</svg>

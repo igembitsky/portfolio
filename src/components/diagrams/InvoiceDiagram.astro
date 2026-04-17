@@ -1,0 +1,71 @@
+---
+// Invoice Agent: two Cloud Run jobs converge on a Telegram approval gate, then email.
+---
+<svg
+  viewBox="0 0 240 320"
+  width="100%"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Invoice agent pipeline: Cloud Scheduler triggers two flows — Playwright scrapes provider portals and Toggl generates a client invoice — both converge on Telegram approval, then Gmail delivery."
+  class="flow-diagram"
+>
+  <defs>
+    <marker id="arrI" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L5,3.5 L0,7 Z" fill="#2e2e42" />
+    </marker>
+    <marker id="arrIa" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L5,3.5 L0,7 Z" fill="#c8a55a" />
+    </marker>
+  </defs>
+
+  <!-- Cloud Scheduler -->
+  <rect x="55" y="8" width="130" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="25" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Cloud Scheduler</text>
+
+  <!-- Branch from scheduler -->
+  <path d="M 120 34 V 44 H 50 V 54" stroke="#2e2e42" fill="none" marker-end="url(#arrI)" />
+  <path d="M 120 34 V 44 H 190 V 54" stroke="#2e2e42" fill="none" marker-end="url(#arrI)" />
+
+  <!-- Left branch: Playwright -->
+  <rect x="5" y="58" width="90" height="24" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="50" y="74" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Playwright</text>
+  <text x="50" y="96" text-anchor="middle" fill="#807c8d" font-family="ui-monospace, monospace" font-size="9.5">Ziggo · LinkedIn · NS</text>
+
+  <path d="M 50 100 V 112" stroke="#2e2e42" fill="none" marker-end="url(#arrI)" />
+
+  <!-- Provider PDFs -->
+  <rect x="5" y="116" width="90" height="24" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="50" y="132" text-anchor="middle" fill="#b4afbe" font-family="ui-monospace, monospace" font-size="11">Provider PDFs</text>
+
+  <!-- Right branch: Toggl -->
+  <rect x="145" y="58" width="90" height="24" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="190" y="74" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Toggl API</text>
+
+  <path d="M 190 82 V 90" stroke="#2e2e42" fill="none" marker-end="url(#arrI)" />
+
+  <!-- Google Sheet -->
+  <rect x="145" y="94" width="90" height="24" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="190" y="110" text-anchor="middle" fill="#b4afbe" font-family="ui-monospace, monospace" font-size="11">Google Sheet</text>
+
+  <path d="M 190 118 V 126" stroke="#2e2e42" fill="none" marker-end="url(#arrI)" />
+
+  <!-- PDF Invoice -->
+  <rect x="145" y="130" width="90" height="24" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="190" y="146" text-anchor="middle" fill="#b4afbe" font-family="ui-monospace, monospace" font-size="11">PDF Invoice</text>
+
+  <!-- Merge into Telegram -->
+  <path d="M 50 140 V 180 H 120" stroke="#2e2e42" fill="none" />
+  <path d="M 190 154 V 180 H 120 V 190" stroke="#2e2e42" fill="none" marker-end="url(#arrIa)" />
+
+  <!-- Telegram approval (accent) -->
+  <rect x="55" y="194" width="130" height="26" rx="6" fill="none" stroke="#c8a55a" />
+  <text x="120" y="211" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Telegram Approval</text>
+
+  <path d="M 120 220 V 234" stroke="#c8a55a" fill="none" marker-end="url(#arrIa)" />
+
+  <!-- Gmail -->
+  <rect x="55" y="238" width="130" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="255" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Gmail</text>
+
+  <text x="120" y="282" text-anchor="middle" fill="#807c8d" font-family="ui-monospace, monospace" font-size="9.5">bookkeeper · client</text>
+</svg>

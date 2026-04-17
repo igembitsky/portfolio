@@ -1,0 +1,646 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "IG" [ref=e4] [cursor=pointer]:
+        - /url: "#about"
+      - generic [ref=e5]:
+        - link "About" [ref=e6] [cursor=pointer]:
+          - /url: "#about"
+        - link "Work" [ref=e7] [cursor=pointer]:
+          - /url: "#canary"
+        - link "Projects" [ref=e8] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Contact" [ref=e9] [cursor=pointer]:
+          - /url: "#contact"
+  - main [ref=e10]:
+    - generic [ref=e11]:
+      - paragraph [ref=e13]: Product & Operations
+      - heading "Igor Gembitsky" [level=1] [ref=e15]
+      - paragraph [ref=e17]: I build self-improving teams, self-evolving systems, and product/automations using AI.
+      - paragraph [ref=e19]: 14 years across science, education, media, fintech, luxury marketplaces, and industrial AI. Seven-plus teams and organizations built from zero.
+      - generic [ref=e21]:
+        - generic [ref=e22]: These days I use AI-native tools and workflows to automate the tedious and move from idea, to prototype, to shipped product faster than I ever thought possible.
+        - generic [ref=e24]:
+          - generic [ref=e27]: last 90 days on github
+          - generic [ref=e28]:
+            - generic [ref=e29]: commits
+            - generic [ref=e31]: "0"
+          - generic [ref=e32]:
+            - generic [ref=e33]: repos
+            - generic [ref=e35]: "0"
+          - generic [ref=e36]:
+            - generic [ref=e37]: merged prs
+            - generic [ref=e39]: "0"
+          - generic "2026-04-14T21:25:07Z" [ref=e40]: updated 44h ago▊
+      - generic [ref=e41]:
+        - link "Connect" [ref=e42] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/gembitsky
+          - img [ref=e43]
+          - text: Connect
+        - link "GitHub" [ref=e45] [cursor=pointer]:
+          - /url: https://github.com/igembitsky
+          - img [ref=e46]
+          - text: GitHub
+    - generic [ref=e52]:
+      - heading "The Arc" [level=2] [ref=e54]
+      - generic [ref=e55]:
+        - paragraph [ref=e58]: Fourteen years across science, education, media, fintech, and industrial AI. I lead teams, build organizations, and ship products.
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - generic [ref=e61]: Science
+            - generic [ref=e62]: Neuroscience researcher. Two peer-reviewed publications. Built the lab's experimental processes from scratch as the first research hire.
+          - generic [ref=e63]:
+            - generic [ref=e64]: Media
+            - generic [ref=e65]: "Ran video production end-to-end: research, scripts, directing, post-production, release. Then built an online education platform for 1,000+ students and 30+ programs."
+          - generic [ref=e66]:
+            - generic [ref=e67]: Product
+            - generic [ref=e68]: Agency PM working with Harvard, Brooklyn Museum, and startups. Then first PM hire at VDB, where I built the product and design team, shipped 20+ features across 5 platforms, and created the white-label framework that became the core revenue driver.
+          - generic [ref=e69]:
+            - generic [ref=e70]: Operations
+            - generic [ref=e71]: "Built Customer Success from zero: onboarding, retention, QBRs, upselling. Then redesigned Sales Ops with BANT process, outbound campaigns, pipeline tracking, and enablement. Drove 100x platform growth over 7 years."
+          - generic [ref=e72]:
+            - generic [ref=e73]: Builder
+            - generic [ref=e74]: "Leading product, sales, and CS at an industrial AI company. Built the full operational framework: GTM engine, safety analytics dashboard, pilot management system, compliance documentation."
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]: 7+
+          - generic [ref=e78]: teams & orgs built from zero
+        - generic [ref=e79]:
+          - generic [ref=e80]: 10+
+          - generic [ref=e81]: industries crossed
+        - generic [ref=e82]:
+          - generic [ref=e83]: 14yrs
+          - generic [ref=e84]: in product & operations
+        - generic [ref=e85]:
+          - generic [ref=e86]: "2"
+          - generic [ref=e87]: peer-reviewed publications
+    - generic [ref=e89]:
+      - generic [ref=e90]:
+        - heading "Canary" [level=2] [ref=e91]
+        - paragraph [ref=e92]: AI-powered safety camera system for industrial environments. I lead product, sales, and customer success alongside a team of engineers, data scientists, and ML consultants.
+      - generic [ref=e93]:
+        - generic [ref=e95]:
+          - img "Safety Analytics Dashboard & AI Agent preview" [ref=e97]
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - heading "Safety Analytics Dashboard & AI Agent" [level=3] [ref=e100]
+              - paragraph [ref=e101]: Intelligence system for industrial safety teams
+            - paragraph [ref=e102]: Production deployment with paying pilot customers
+            - list [ref=e103]:
+              - listitem [ref=e104]: Pattern analysis engine that turns raw camera events into actionable trends
+              - listitem [ref=e106]: AI-drafted response messages with human review and approval before sending
+              - listitem [ref=e108]: Configurable safety rules and thresholds per customer environment
+            - generic [ref=e110]:
+              - generic [ref=e111]: AI
+              - generic [ref=e112]: SaaS
+              - generic [ref=e113]: Computer Vision
+              - generic [ref=e114]: Product
+            - button "Details +" [ref=e115] [cursor=pointer]:
+              - text: Details
+              - generic [ref=e116]: +
+            - generic [ref=e117]:
+              - figure [ref=e119]
+              - generic [ref=e120]:
+                - paragraph [ref=e121]: Context
+                - paragraph [ref=e122]: Factory floors generate hundreds of camera events daily. Safety teams were drowning in noise and missing the signals that mattered. We needed a system that could surface the critical incidents and help teams act on them quickly.
+              - generic [ref=e123]:
+                - paragraph [ref=e124]: What I Built
+                - paragraph [ref=e125]: A full analytics dashboard with pattern analysis across time periods, severity scoring, and trend visualization. Integrated an AI messaging layer where the system drafts responses that humans review, edit, and approve before sending. Built a learning loop that tracks which suggestions get used and which get rewritten.
+              - generic [ref=e126]:
+                - paragraph [ref=e127]: Key Decisions
+                - paragraph [ref=e128]: Chose human-in-the-loop over full automation. Safety is high-stakes and customers need to trust the system before they trust the AI. The approval step builds that trust while the learning loop gradually improves draft quality.
+              - generic [ref=e129]:
+                - paragraph [ref=e130]: Outcomes
+                - paragraph [ref=e131]: Deployed to production with paying pilot customers. Safety teams can now focus review time on high-signal events instead of scanning everything manually.
+              - generic [ref=e132]:
+                - paragraph [ref=e133]: Tech Stack
+                - generic [ref=e134]:
+                  - generic [ref=e135]: React
+                  - generic [ref=e136]: AWS Lambda
+                  - generic [ref=e137]: DynamoDB
+                  - generic [ref=e138]: IoT Core
+                  - generic [ref=e139]: S3
+                  - generic [ref=e140]: Claude API
+        - generic [ref=e142]:
+          - img "Incident Tagging & Annotation preview" [ref=e144]
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - heading "Incident Tagging & Annotation" [level=3] [ref=e147]
+              - paragraph [ref=e148]: Training data pipeline for the safety AI
+            - paragraph [ref=e149]: Structured taxonomy feeding continuous model improvement
+            - list [ref=e150]:
+              - listitem [ref=e151]: Labeling system for classifying incidents by type, severity, and environment
+              - listitem [ref=e153]: Ontology design that operators actually understand and use consistently
+              - listitem [ref=e155]: Training data pipeline that feeds directly into model improvement cycles
+            - generic [ref=e157]:
+              - generic [ref=e158]: ML Infrastructure
+              - generic [ref=e159]: Data
+              - generic [ref=e160]: Operations
+            - button "Details +" [ref=e161] [cursor=pointer]:
+              - text: Details
+              - generic [ref=e162]: +
+            - generic [ref=e163]:
+              - figure [ref=e165]
+              - generic [ref=e166]:
+                - paragraph [ref=e167]: Context
+                - paragraph [ref=e168]: The computer vision model needs structured, labeled data to get better at classification. Raw camera events come in unlabeled. Without a good taxonomy and consistent labeling workflow, the model trains on garbage.
+              - generic [ref=e169]:
+                - paragraph [ref=e170]: What I Built
+                - paragraph [ref=e171]: A structured annotation workflow where safety teams label incidents by type, severity, and environment. Designed the ontology to be intuitive for non-technical operators so labels are consistent across different users and sites.
+              - generic [ref=e172]:
+                - paragraph [ref=e173]: Key Decisions
+                - paragraph [ref=e174]: Invested in taxonomy design before any ML training. Spent time with safety teams understanding how they naturally categorize incidents, then built the labeling system around their mental model instead of imposing an engineering-driven schema.
+              - generic [ref=e175]:
+                - paragraph [ref=e176]: Outcomes
+                - paragraph [ref=e177]: Clean, consistently labeled training data flowing into model improvement. The taxonomy is extensible as we encounter new incident types across different industrial environments.
+              - generic [ref=e178]:
+                - paragraph [ref=e179]: Tech Stack
+                - generic [ref=e180]:
+                  - generic [ref=e181]: React
+                  - generic [ref=e182]: DynamoDB
+                  - generic [ref=e183]: S3
+        - generic [ref=e185]:
+          - img "Critical Incident Review Workflow preview" [ref=e187]
+          - generic [ref=e188]:
+            - generic [ref=e189]:
+              - heading "Critical Incident Review Workflow" [level=3] [ref=e190]
+              - paragraph [ref=e191]: Triage system for high-severity safety events
+            - paragraph [ref=e192]: Compressed time from detection to action for safety teams
+            - list [ref=e193]:
+              - listitem [ref=e194]: "Three-action triage: confirm, dismiss, or escalate with full context"
+              - listitem [ref=e196]: Video playback with timeline scrubbing, timestamps, and metadata overlays
+              - listitem [ref=e198]: Decision audit trail for compliance and accountability
+            - generic [ref=e200]:
+              - generic [ref=e201]: UX
+              - generic [ref=e202]: Safety
+              - generic [ref=e203]: Workflow Design
+            - button "Details +" [ref=e204] [cursor=pointer]:
+              - text: Details
+              - generic [ref=e205]: +
+            - generic [ref=e206]:
+              - figure [ref=e208]
+              - generic [ref=e209]:
+                - paragraph [ref=e210]: Context
+                - paragraph [ref=e211]: When a high-severity event happens on a factory floor, the safety team needs to review it fast, decide what to do, and document that decision. The old process was manual review of raw footage with no structure.
+              - generic [ref=e212]:
+                - paragraph [ref=e213]: What I Built
+                - paragraph [ref=e214]: A triage interface with three clear actions (confirm, dismiss, escalate), rich video playback with timeline scrubbing and metadata overlays, and a complete decision audit trail. Every action is logged with who, when, and why.
+              - generic [ref=e215]:
+                - paragraph [ref=e216]: Key Decisions
+                - paragraph [ref=e217]: Kept the action model to three options instead of a complex state machine. Speed matters in safety. Operators need to make a call in seconds, not navigate a workflow diagram.
+              - generic [ref=e218]:
+                - paragraph [ref=e219]: Outcomes
+                - paragraph [ref=e220]: Review-to-action time compressed significantly. Compliance teams get a clean audit trail. Operators report the interface feels natural rather than bureaucratic.
+              - generic [ref=e221]:
+                - paragraph [ref=e222]: Tech Stack
+                - generic [ref=e223]:
+                  - generic [ref=e224]: React
+                  - generic [ref=e225]: AWS Lambda
+                  - generic [ref=e226]: DynamoDB
+                  - generic [ref=e227]: S3 Video
+        - generic [ref=e229]:
+          - img "Pilot Management System preview" [ref=e231]
+          - generic [ref=e232]:
+            - generic [ref=e233]:
+              - heading "Pilot Management System" [level=3] [ref=e234]
+              - paragraph [ref=e235]: End-to-end pipeline from lead to live deployment
+            - paragraph [ref=e236]: Repeatable pilot playbook across customer segments
+            - list [ref=e237]:
+              - listitem [ref=e238]: Tracking from lead qualification through install, training, evaluation, and conversion
+              - listitem [ref=e240]: Self-install packages with setup guides for customer engineering teams
+              - listitem [ref=e242]: Health dashboards for monitoring active pilot performance and engagement
+            - generic [ref=e244]:
+              - generic [ref=e245]: Operations
+              - generic [ref=e246]: GTM
+              - generic [ref=e247]: Infrastructure
+            - button "Details +" [ref=e248] [cursor=pointer]:
+              - text: Details
+              - generic [ref=e249]: +
+            - generic [ref=e250]:
+              - generic [ref=e251]:
+                - figure [ref=e252]
+                - figure [ref=e253]
+              - generic [ref=e254]:
+                - paragraph [ref=e255]: Context
+                - paragraph [ref=e256]: Enterprise pilots are complex. Each one involves hardware installation, software configuration, team training, an evaluation period, and a conversion decision. Without structure, every pilot is a custom project.
+              - generic [ref=e257]:
+                - paragraph [ref=e258]: What I Built
+                - paragraph [ref=e259]: An internal system tracking the full pilot lifecycle. Lead qualification criteria, install checklists, self-install packages with step-by-step guides, training materials, evaluation metrics, and conversion triggers. Health dashboards that surface which pilots are engaged and which are going cold.
+              - generic [ref=e260]:
+                - paragraph [ref=e261]: Key Decisions
+                - paragraph [ref=e262]: Built internal tooling before trying to force this into a CRM. The pilot lifecycle has too many hardware and operational steps that Salesforce or Pipedrive can not model well. Clean internal tooling first, CRM integration later.
+              - generic [ref=e263]:
+                - paragraph [ref=e264]: Outcomes
+                - paragraph [ref=e265]: Repeatable playbook that works across different customer segments and industrial environments. New pilots follow the same structured path instead of being improvised each time.
+              - generic [ref=e266]:
+                - paragraph [ref=e267]: Tech Stack
+                - generic [ref=e268]:
+                  - generic [ref=e269]: React
+                  - generic [ref=e270]: DynamoDB
+                  - generic [ref=e271]: Internal Tooling
+    - generic [ref=e273]:
+      - generic [ref=e274]:
+        - heading "Virtual Diamond Boutique" [level=2] [ref=e275]
+        - paragraph [ref=e276]: B2B/B2C marketplace for the diamond and jewelry industry. Seven years, three promotions, three organizations built from scratch.
+      - generic:
+        - generic:
+          - img "Virtual Diamond Boutique platform"
+      - generic [ref=e277]:
+        - generic [ref=e278]:
+          - heading "Product & Design Organization" [level=3] [ref=e279]
+          - paragraph [ref=e280]: First PM hire, 2017
+          - paragraph [ref=e281]: Joined when the platform had a few hundred users. Built a cross-functional team of 15+ (4 PMs, 6+ designers). Created the design system, PRD templates, sprint process, user testing loops, RICE prioritization, and JIRA workflows. Shipped 20+ features across 5 platforms. The white-label framework I designed became the company's core revenue driver.
+          - generic [ref=e282]:
+            - generic [ref=e283]: first PM hire
+            - generic [ref=e284]: 100x user growth
+            - generic [ref=e285]: 5 platforms
+            - generic [ref=e286]: 20+ features
+        - generic [ref=e287]:
+          - heading "Customer Success Organization" [level=3] [ref=e288]
+          - paragraph [ref=e289]: Built from zero, 2021
+          - paragraph [ref=e290]: Hired and managed 8 CSMs. Created the 5-phase onboarding pipeline, retention workflows, Early Warning dashboards for at-risk accounts, quarterly business reviews, and the full CS playbook. Cut churn from 25% to under 10%. Promoted a team member to Director and transitioned operations.
+          - generic [ref=e291]:
+            - generic [ref=e292]: 0 to 1 org
+            - generic [ref=e293]: "churn: 25% to <10%"
+            - generic [ref=e294]: 8 CSMs
+            - generic [ref=e295]: Rocketlane
+        - generic [ref=e296]:
+          - heading "Sales Organization" [level=3] [ref=e297]
+          - paragraph [ref=e298]: VP Strategic Operations, 2023
+          - paragraph [ref=e299]: "Defined the end-to-end sales process in Salesforce. Built the enablement library: competitor battlecards, BANT qualification methodology, demo guides, cold call frameworks, and 6 training programs. Automated outbound campaigns and improved deal velocity ~20%. Led a sales transformation with an external consultancy delivering 30+ process deliverables."
+          - generic [ref=e300]:
+            - generic [ref=e301]: 0 to 1 org
+            - generic [ref=e302]: ~20% deal velocity lift
+            - generic [ref=e303]: Salesforce
+            - generic [ref=e304]: Knowi
+    - generic [ref=e306]:
+      - heading "Earlier" [level=2] [ref=e308]
+      - generic [ref=e309]:
+        - generic [ref=e310]:
+          - generic [ref=e311]: 2015 -- 2017
+          - generic [ref=e312]:
+            - paragraph [ref=e313]: HappyFunCorp / Product Manager
+            - paragraph [ref=e314]: Agency PM in Brooklyn. Shipped mobile and web products for Harvard University (3 schools), Brooklyn Museum, Gorilla Logic, fintech startups, and social apps. Ran discovery workshops, led cross-functional sprints, iterated toward product-market fit.
+        - generic [ref=e315]:
+          - generic [ref=e316]: 2012 -- 2014
+          - generic [ref=e317]:
+            - paragraph [ref=e318]: Institute for Humane Studies / PM, Online Education
+            - paragraph [ref=e319]: "First tech hire. Built Learn Liberty Academy from the ground up. Online education platform reaching 1,000+ students through 30+ experimental programs with 20+ university professors. Lean Startup methods: prototype, test, measure, iterate."
+        - generic [ref=e320]:
+          - generic [ref=e321]: 2010 -- 2012
+          - generic [ref=e322]:
+            - paragraph [ref=e323]: UAB Research Hospital / Neuroscience Researcher
+            - paragraph [ref=e324]: First research hire. Set up lab operations for neurodegenerative disease research. Co-authored two peer-reviewed publications. The experimental discipline from this work shapes how I think about product decisions today.
+    - generic [ref=e326]:
+      - generic [ref=e327]:
+        - heading "How I Think" [level=2] [ref=e328]
+        - paragraph [ref=e329]: I think in systems. Tight loops of planning, execution, and retrospectives, designed to learn and get better with each cycle. I pull in frameworks as needed and adapt them to the problem at hand. I care about building humane, blameless teams where people are engaged, autonomous, and operating within a system that evolves alongside them.
+      - generic [ref=e331]:
+        - generic [ref=e332]:
+          - generic [ref=e333]: Discover
+          - generic [ref=e334]: JTBD, Mom Test, Design Thinking, Double Diamond
+        - generic [ref=e335]:
+          - generic [ref=e336]: Prioritize
+          - generic [ref=e337]: RICE, Pareto 80/20, hypothesis-driven dev
+        - generic [ref=e338]:
+          - generic [ref=e339]: Execute
+          - generic [ref=e340]: Agile sprints, Design Sprints, blameless retros
+        - generic [ref=e341]:
+          - generic [ref=e342]: Scale
+          - generic [ref=e343]: Automate, delegate, document. PR/FAQ, pre-mortems
+        - generic [ref=e344]:
+          - generic [ref=e345]: Lead
+          - generic [ref=e346]: Servant leadership, psychological safety
+      - generic [ref=e347]:
+        - paragraph [ref=e348]: Books that shaped how I work
+        - generic [ref=e349]:
+          - link "At Home in the Universe At Home in the Universe" [ref=e350] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/319006.At_Home_in_the_Universe
+            - img "At Home in the Universe" [ref=e352]
+            - paragraph [ref=e353]: At Home in the Universe
+          - link "Conscious Business Conscious Business" [ref=e354] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/1169674.Conscious_Business
+            - img "Conscious Business" [ref=e356]
+            - paragraph [ref=e357]: Conscious Business
+          - link "The Lean Startup The Lean Startup" [ref=e358] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/10127019-the-lean-startup
+            - img "The Lean Startup" [ref=e360]
+            - paragraph [ref=e361]: The Lean Startup
+          - link "Sprint Sprint" [ref=e362] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/25814544-sprint
+            - img "Sprint" [ref=e364]
+            - paragraph [ref=e365]: Sprint
+          - link "The Mom Test The Mom Test" [ref=e366] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/52283963-the-mom-test
+            - img "The Mom Test" [ref=e368]
+            - paragraph [ref=e369]: The Mom Test
+          - link "The Design of Everyday Things Design of Everyday Things" [ref=e370] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/840.The_Design_of_Everyday_Things
+            - img "The Design of Everyday Things" [ref=e372]
+            - paragraph [ref=e373]: Design of Everyday Things
+          - link "Deep Work Deep Work" [ref=e374] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/25744928-deep-work
+            - img "Deep Work" [ref=e376]
+            - paragraph [ref=e377]: Deep Work
+          - link "Leading with Questions Leading with Questions" [ref=e378] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/36756.Leading_with_Questions
+            - img "Leading with Questions" [ref=e380]
+            - paragraph [ref=e381]: Leading with Questions
+          - link "On Writing Well On Writing Well" [ref=e382] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/53343.On_Writing_Well
+            - img "On Writing Well" [ref=e384]
+            - paragraph [ref=e385]: On Writing Well
+          - link "Start with Why Start with Why" [ref=e386] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/7108725-start-with-why
+            - img "Start with Why" [ref=e388]
+            - paragraph [ref=e389]: Start with Why
+          - link "Atomic Habits Atomic Habits" [ref=e390] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/40121378-atomic-habits
+            - img "Atomic Habits" [ref=e392]
+            - paragraph [ref=e393]: Atomic Habits
+          - link "Zero to One Zero to One" [ref=e394] [cursor=pointer]:
+            - /url: https://www.goodreads.com/book/show/18050143-zero-to-one
+            - img "Zero to One" [ref=e396]
+            - paragraph [ref=e397]: Zero to One
+        - generic [ref=e398]:
+          - img [ref=e399]
+          - link "See all my books on Goodreads" [ref=e401] [cursor=pointer]:
+            - /url: https://www.goodreads.com/gembitsky
+      - generic [ref=e402]:
+        - paragraph [ref=e403]: Podcasts that inspire my thinking
+        - generic [ref=e404]:
+          - link "Acquired Acquired" [ref=e405] [cursor=pointer]:
+            - /url: https://www.acquired.fm
+            - img "Acquired" [ref=e407]
+            - paragraph [ref=e408]: Acquired
+          - link "How I Built This How I Built This" [ref=e409] [cursor=pointer]:
+            - /url: https://www.npr.org/series/490248027/how-i-built-this
+            - img "How I Built This" [ref=e411]
+            - paragraph [ref=e412]: How I Built This
+          - link "99% Invisible 99% Invisible" [ref=e413] [cursor=pointer]:
+            - /url: https://99percentinvisible.org
+            - img "99% Invisible" [ref=e415]
+            - paragraph [ref=e416]: 99% Invisible
+          - link "Rework Rework" [ref=e417] [cursor=pointer]:
+            - /url: https://37signals.com/podcast
+            - img "Rework" [ref=e419]
+            - paragraph [ref=e420]: Rework
+          - link "Design Better Design Better" [ref=e421] [cursor=pointer]:
+            - /url: https://designbetterpodcast.com
+            - img "Design Better" [ref=e423]
+            - paragraph [ref=e424]: Design Better
+          - link "How to Be a Better Human Better Human" [ref=e425] [cursor=pointer]:
+            - /url: https://www.ted.com/podcasts/how-to-be-a-better-human
+            - img "How to Be a Better Human" [ref=e427]
+            - paragraph [ref=e428]: Better Human
+          - link "How to Take Over the World Take Over the World" [ref=e429] [cursor=pointer]:
+            - /url: https://takeoverpod.com
+            - img "How to Take Over the World" [ref=e431]
+            - paragraph [ref=e432]: Take Over the World
+          - link "The Sales Gravy Podcast Sales Gravy" [ref=e433] [cursor=pointer]:
+            - /url: https://salesgravy.com/podcasts/
+            - img "The Sales Gravy Podcast" [ref=e435]
+            - paragraph [ref=e436]: Sales Gravy
+          - link "The Economics of Everyday Things Economics of Everyday Things" [ref=e437] [cursor=pointer]:
+            - /url: https://freakonomics.com/series/everyday-things/
+            - img "The Economics of Everyday Things" [ref=e439]
+            - paragraph [ref=e440]: Economics of Everyday Things
+          - link "Your Undivided Attention Your Undivided Attention" [ref=e441] [cursor=pointer]:
+            - /url: https://www.humanetech.com/podcast
+            - img "Your Undivided Attention" [ref=e443]
+            - paragraph [ref=e444]: Your Undivided Attention
+    - heading "Projects" [level=2] [ref=e447]
+    - generic [ref=e448]:
+      - paragraph [ref=e449]: Production Software
+      - link "Featured Canary SaaS Platform Production safety ops for industrial sites Full-stack serverless platform with incident triage, video review, pattern analytics, configurable safety rules, and human-in-the-loop AI messaging. Shipped to production with real paying customers. React AWS SAM Lambda DynamoDB IoT Core S3" [ref=e452] [cursor=pointer]:
+        - /url: https://canaryaware.com
+        - generic [ref=e453]:
+          - generic [ref=e454]: Featured
+          - generic [ref=e455]:
+            - generic [ref=e456]:
+              - heading "Canary SaaS Platform" [level=3] [ref=e457]
+              - paragraph [ref=e458]: Production safety ops for industrial sites
+            - img [ref=e459]
+          - paragraph [ref=e461]: Full-stack serverless platform with incident triage, video review, pattern analytics, configurable safety rules, and human-in-the-loop AI messaging. Shipped to production with real paying customers.
+          - generic [ref=e462]:
+            - generic [ref=e463]: React
+            - generic [ref=e464]: AWS SAM
+            - generic [ref=e465]: Lambda
+            - generic [ref=e466]: DynamoDB
+            - generic [ref=e467]: IoT Core
+            - generic [ref=e468]: S3
+    - generic [ref=e469]:
+      - paragraph [ref=e470]: Automations & Agents
+      - generic [ref=e471]:
+        - generic [ref=e474]:
+          - generic [ref=e476]:
+            - heading "Invoice Agent" [level=3] [ref=e477]
+            - paragraph [ref=e478]: Hands-free monthly invoicing
+          - paragraph [ref=e479]: Scrapes invoices from provider portals, generates client invoices from Toggl hours, routes both through a Telegram approval gate, and emails them out. Two Cloud Run jobs on a schedule, zero manual steps on billing day.
+          - 'img "Invoice agent pipeline: Cloud Scheduler triggers two flows — Playwright scrapes provider portals and Toggl generates a client invoice — both converge on Telegram approval, then Gmail delivery." [ref=e482]':
+            - generic [ref=e484]: Cloud Scheduler
+            - generic [ref=e488]: Playwright
+            - generic [ref=e489]: Ziggo · LinkedIn · NS
+            - generic [ref=e491]: Provider PDFs
+            - generic [ref=e493]: Toggl API
+            - generic [ref=e495]: Google Sheet
+            - generic [ref=e497]: PDF Invoice
+            - generic [ref=e501]: Telegram Approval
+            - generic [ref=e503]: Gmail
+            - generic [ref=e504]: bookkeeper · client
+          - generic [ref=e505]:
+            - generic [ref=e506]: Python
+            - generic [ref=e507]: Flask
+            - generic [ref=e508]: Cloud Run
+            - generic [ref=e509]: Playwright
+            - generic [ref=e510]: Telegram Bot
+            - generic [ref=e511]: Gmail API
+        - generic [ref=e514]:
+          - generic [ref=e516]:
+            - heading "Tax Bot" [level=3] [ref=e517]
+            - paragraph [ref=e518]: Multi-agent US expat tax filing
+          - paragraph [ref=e519]: Filing system for Americans living abroad. An orchestrator reads source documents and dispatches them to specialist agents for wages, FBAR, GILTI, capital gains, and foreign earned income. A reviewer validates each output before form assembly composes 10+ IRS forms.
+          - 'img "Tax bot multi-agent orchestration: source documents enter an orchestrator, which dispatches to specialist agents (Wages, FBAR, GILTI, Gains, FEIE), all converging on a reviewer, then form assembly produces 1040 plus schedules." [ref=e522]':
+            - generic [ref=e524]: Source Documents
+            - generic [ref=e526]: Orchestrator
+            - generic [ref=e532]: Wages
+            - generic [ref=e534]: FBAR
+            - generic [ref=e536]: GILTI
+            - generic [ref=e538]: Gains
+            - generic [ref=e540]: FEIE
+            - generic [ref=e546]: Reviewer
+            - generic [ref=e548]: Form Assembly
+            - generic [ref=e550]: 1040 + Schedules
+          - generic [ref=e551]:
+            - generic [ref=e552]: Next.js
+            - generic [ref=e553]: Claude API
+            - generic [ref=e554]: Drizzle ORM
+            - generic [ref=e555]: Python
+            - generic [ref=e556]: pdf-lib
+        - generic [ref=e559]:
+          - generic [ref=e561]:
+            - heading "Client Invoice Automation" [level=3] [ref=e562]
+            - paragraph [ref=e563]: Toggl hours to client inbox, hands-free
+          - paragraph [ref=e564]: Pulls tracked hours from Toggl, writes them into a templated Google Sheet, exports a branded PDF invoice, and emails it to the client. Runs every month on its own via Cloud Scheduler.
+          - 'img "Client invoice automation: a monthly Cloud Scheduler trigger pulls from Toggl, writes a Google Sheet, exports a PDF invoice, and emails it via Gmail to the client." [ref=e567]':
+            - generic [ref=e569]: Cloud Scheduler
+            - generic [ref=e570]: monthly cron
+            - generic [ref=e572]: Toggl API
+            - generic [ref=e574]: Google Sheet
+            - generic [ref=e576]: PDF Invoice
+            - generic [ref=e578]: Gmail
+            - generic [ref=e579]: → client
+          - generic [ref=e580]:
+            - generic [ref=e581]: Python
+            - generic [ref=e582]: Toggl API
+            - generic [ref=e583]: Google Sheets API
+            - generic [ref=e584]: Gmail API
+            - generic [ref=e585]: Cloud Run
+    - generic [ref=e586]:
+      - paragraph [ref=e587]: Creative
+      - generic [ref=e588]:
+        - link "NYC Walking Guide preview NYC Walking Guide 5 curated routes through the real New York Interactive city guide with hand-picked walking routes, points of interest, and local tips. Built with Leaflet.js for the maps. TypeScript Astro Leaflet.js" [ref=e590] [cursor=pointer]:
+          - /url: https://github.com/igembitsky/nyc-guide
+          - img "NYC Walking Guide preview" [ref=e592]
+          - generic [ref=e593]:
+            - generic [ref=e594]:
+              - generic [ref=e595]:
+                - heading "NYC Walking Guide" [level=3] [ref=e596]
+                - paragraph [ref=e597]: 5 curated routes through the real New York
+              - img [ref=e598]
+            - paragraph [ref=e600]: Interactive city guide with hand-picked walking routes, points of interest, and local tips. Built with Leaflet.js for the maps.
+            - generic [ref=e601]:
+              - generic [ref=e602]: TypeScript
+              - generic [ref=e603]: Astro
+              - generic [ref=e604]: Leaflet.js
+        - link "Legend of Nikita preview Legend of Nikita 2D browser game with full CI/CD Phaser 3 game with physics, animations, and input handling. Includes a Playwright E2E test suite and automated build pipeline. Because games should have tests too. JavaScript Phaser 3 Playwright Vite" [ref=e606] [cursor=pointer]:
+          - /url: https://github.com/igembitsky/legend-of-nikita
+          - img "Legend of Nikita preview" [ref=e608]
+          - generic [ref=e609]:
+            - generic [ref=e610]:
+              - generic [ref=e611]:
+                - heading "Legend of Nikita" [level=3] [ref=e612]
+                - paragraph [ref=e613]: 2D browser game with full CI/CD
+              - img [ref=e614]
+            - paragraph [ref=e616]: Phaser 3 game with physics, animations, and input handling. Includes a Playwright E2E test suite and automated build pipeline. Because games should have tests too.
+            - generic [ref=e617]:
+              - generic [ref=e618]: JavaScript
+              - generic [ref=e619]: Phaser 3
+              - generic [ref=e620]: Playwright
+              - generic [ref=e621]: Vite
+    - generic [ref=e623]:
+      - heading "Toolbox" [level=2] [ref=e625]
+      - generic [ref=e626]:
+        - generic [ref=e627]:
+          - paragraph [ref=e628]: Dev & AI
+          - generic [ref=e629]:
+            - generic "Claude Code" [ref=e630]:
+              - img "Claude Code" [ref=e631]
+            - generic "Codex" [ref=e632]:
+              - img "Codex" [ref=e633]
+            - generic "VS Code" [ref=e634]:
+              - img "VS Code" [ref=e635]
+            - generic "Perplexity" [ref=e636]:
+              - img "Perplexity" [ref=e637]
+            - generic "Gemini" [ref=e638]:
+              - img "Gemini" [ref=e639]
+            - generic "Google AI Studio" [ref=e640]:
+              - img "Google AI Studio" [ref=e641]
+            - generic "GitHub" [ref=e642]:
+              - img "GitHub" [ref=e643]
+        - generic [ref=e644]:
+          - paragraph [ref=e645]: Sales & GTM
+          - generic [ref=e646]:
+            - generic "Pipedrive" [ref=e647]:
+              - img "Pipedrive" [ref=e648]
+            - generic "Salesforce" [ref=e649]:
+              - img "Salesforce" [ref=e650]
+            - generic "LinkedIn Sales Navigator" [ref=e651]:
+              - img "LinkedIn" [ref=e652]
+            - generic "Woodpecker" [ref=e653]:
+              - img "Woodpecker" [ref=e654]
+            - generic "Apollo.io" [ref=e655]:
+              - img "Apollo" [ref=e656]
+        - generic [ref=e657]:
+          - paragraph [ref=e658]: Collaboration
+          - generic [ref=e659]:
+            - generic "Slack" [ref=e660]:
+              - img "Slack" [ref=e661]
+            - generic "Jira" [ref=e662]:
+              - img "Jira" [ref=e663]
+            - generic "Trello" [ref=e664]:
+              - img "Trello" [ref=e665]
+            - generic "Asana" [ref=e666]:
+              - img "Asana" [ref=e667]
+            - generic "Rocketlane" [ref=e668]:
+              - img "Rocketlane" [ref=e669]
+        - generic [ref=e670]:
+          - paragraph [ref=e671]: Design & Product
+          - generic [ref=e672]:
+            - generic "Figma" [ref=e673]:
+              - img "Figma" [ref=e674]
+            - generic "Zight" [ref=e675]:
+              - img "Zight" [ref=e676]
+            - generic "Miro" [ref=e677]:
+              - img "Miro" [ref=e678]
+            - generic "Stitch (Google Labs)" [ref=e679]:
+              - img "Stitch (Google Labs)" [ref=e680]
+        - generic [ref=e681]:
+          - paragraph [ref=e682]: Productivity
+          - generic [ref=e683]:
+            - generic "Reclaim.ai" [ref=e684]:
+              - img "Reclaim" [ref=e685]
+            - generic "Fathom" [ref=e686]:
+              - img "Fathom" [ref=e687]
+            - generic "Wispr Flow" [ref=e688]:
+              - img "Wispr Flow" [ref=e689]
+            - generic "Paste" [ref=e690]:
+              - img "Paste" [ref=e691]
+            - generic "Telegram" [ref=e692]:
+              - img "Telegram" [ref=e693]
+    - generic [ref=e695]:
+      - heading "Get in Touch" [level=2] [ref=e697]
+      - generic [ref=e698]:
+        - generic [ref=e699]:
+          - heading "Let's talk." [level=3] [ref=e701]
+          - paragraph [ref=e703]: Based in Amsterdam, open to remote-first roles. I want to join a team where people actually enjoy the work, build products customers genuinely love, and treat each other well along the way. Head of Product, Director, or VP-level.
+          - generic [ref=e705]: Open to opportunities
+        - generic [ref=e707]:
+          - link "LinkedIn" [ref=e708] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/gembitsky
+            - img [ref=e709]
+            - generic [ref=e711]: LinkedIn
+            - img [ref=e712]
+          - link "GitHub" [ref=e714] [cursor=pointer]:
+            - /url: https://github.com/igembitsky
+            - img [ref=e715]
+            - generic [ref=e717]: GitHub
+            - img [ref=e718]
+          - link "Email" [ref=e720] [cursor=pointer]:
+            - /url: mailto:gembitsky@gmail.com
+            - img [ref=e721]
+            - generic [ref=e724]: Email
+            - img [ref=e725]
+          - link "Chess Match" [ref=e727] [cursor=pointer]:
+            - /url: https://www.chess.com/member/gembitsky
+            - img [ref=e728]
+            - generic [ref=e730]: Chess Match
+            - img [ref=e731]
+    - generic [ref=e734]:
+      - generic [ref=e735]: © 2026 Igor Gembitsky
+      - generic [ref=e736]: Built by Igor with ❤️ with Astro + Claude Code
+  - generic [ref=e739]:
+    - button "Menu" [ref=e740]:
+      - img [ref=e742]
+      - generic: Menu
+    - button "Inspect" [ref=e746]:
+      - img [ref=e748]
+      - generic: Inspect
+    - button "Audit" [ref=e750]:
+      - generic [ref=e751]:
+        - img [ref=e752]
+        - img [ref=e755]
+      - generic: Audit
+    - button "Settings" [ref=e758]:
+      - img [ref=e760]
+      - generic: Settings

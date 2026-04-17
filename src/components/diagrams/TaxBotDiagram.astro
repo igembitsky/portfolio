@@ -1,0 +1,77 @@
+---
+// Tax Bot: orchestrator fans out to specialist agents, converges on a reviewer,
+// then hands off to form assembly.
+---
+<svg
+  viewBox="0 0 240 300"
+  width="100%"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Tax bot multi-agent orchestration: source documents enter an orchestrator, which dispatches to specialist agents (Wages, FBAR, GILTI, Gains, FEIE), all converging on a reviewer, then form assembly produces 1040 plus schedules."
+  class="flow-diagram"
+>
+  <defs>
+    <marker id="arrT" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L5,3.5 L0,7 Z" fill="#2e2e42" />
+    </marker>
+    <marker id="arrTa" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L5,3.5 L0,7 Z" fill="#c8a55a" />
+    </marker>
+  </defs>
+
+  <!-- Source documents -->
+  <rect x="55" y="8" width="130" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="25" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Source Documents</text>
+
+  <path d="M 120 34 V 48" stroke="#2e2e42" fill="none" marker-end="url(#arrT)" />
+
+  <!-- Orchestrator (accent) -->
+  <rect x="55" y="52" width="130" height="26" rx="6" fill="none" stroke="#c8a55a" />
+  <text x="120" y="69" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Orchestrator</text>
+
+  <!-- Fan-out lines to 5 agents -->
+  <path d="M 120 78 L 25 108" stroke="#2e2e42" fill="none" />
+  <path d="M 120 78 L 72 108" stroke="#2e2e42" fill="none" />
+  <path d="M 120 78 L 120 108" stroke="#2e2e42" fill="none" />
+  <path d="M 120 78 L 168 108" stroke="#2e2e42" fill="none" />
+  <path d="M 120 78 L 215 108" stroke="#2e2e42" fill="none" />
+
+  <!-- Specialist agents: Wages | FBAR | GILTI | Gains | FEIE -->
+  <rect x="3" y="112" width="44" height="22" rx="5" fill="none" stroke="#2e2e42" />
+  <text x="25" y="126" text-anchor="middle" fill="#b4afbe" font-family="ui-monospace, monospace" font-size="10">Wages</text>
+
+  <rect x="50" y="112" width="44" height="22" rx="5" fill="none" stroke="#2e2e42" />
+  <text x="72" y="126" text-anchor="middle" fill="#b4afbe" font-family="ui-monospace, monospace" font-size="10">FBAR</text>
+
+  <rect x="98" y="112" width="44" height="22" rx="5" fill="none" stroke="#2e2e42" />
+  <text x="120" y="126" text-anchor="middle" fill="#b4afbe" font-family="ui-monospace, monospace" font-size="10">GILTI</text>
+
+  <rect x="146" y="112" width="44" height="22" rx="5" fill="none" stroke="#2e2e42" />
+  <text x="168" y="126" text-anchor="middle" fill="#b4afbe" font-family="ui-monospace, monospace" font-size="10">Gains</text>
+
+  <rect x="193" y="112" width="44" height="22" rx="5" fill="none" stroke="#2e2e42" />
+  <text x="215" y="126" text-anchor="middle" fill="#b4afbe" font-family="ui-monospace, monospace" font-size="10">FEIE</text>
+
+  <!-- Fan-in lines to Reviewer -->
+  <path d="M 25 134 L 120 164" stroke="#2e2e42" fill="none" />
+  <path d="M 72 134 L 120 164" stroke="#2e2e42" fill="none" />
+  <path d="M 120 134 L 120 164" stroke="#2e2e42" fill="none" />
+  <path d="M 168 134 L 120 164" stroke="#2e2e42" fill="none" />
+  <path d="M 215 134 L 120 164" stroke="#2e2e42" fill="none" />
+
+  <!-- Reviewer (accent) -->
+  <rect x="70" y="168" width="100" height="26" rx="6" fill="none" stroke="#c8a55a" />
+  <text x="120" y="185" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Reviewer</text>
+
+  <path d="M 120 194 V 208" stroke="#c8a55a" fill="none" marker-end="url(#arrTa)" />
+
+  <!-- Form Assembly -->
+  <rect x="55" y="212" width="130" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="229" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Form Assembly</text>
+
+  <path d="M 120 238 V 252" stroke="#2e2e42" fill="none" marker-end="url(#arrT)" />
+
+  <!-- Filed forms -->
+  <rect x="55" y="256" width="130" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="273" text-anchor="middle" fill="#b4afbe" font-family="ui-monospace, monospace" font-size="11">1040 + Schedules</text>
+</svg>

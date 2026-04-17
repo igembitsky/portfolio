@@ -1,5 +1,8 @@
 ---
 import type { BuildItem } from '../data/builds';
+import InvoiceDiagram from './diagrams/InvoiceDiagram.astro';
+import TaxBotDiagram from './diagrams/TaxBotDiagram.astro';
+import InvoicingDiagram from './diagrams/InvoicingDiagram.astro';
 
 interface Props {
   item: BuildItem;
@@ -7,37 +10,62 @@ interface Props {
 
 const { item } = Astro.props;
 const isExternal = item.url !== '#';
+const base = import.meta.env.BASE_URL;
+const mediaClass = item.imageLayout === 'mobile' ? 'card-media card-media-mobile' : 'card-media card-media-desktop';
+const mediaFit = item.imageLayout === 'mobile' ? 'object-contain' : 'object-cover object-top';
 ---
 <a
   href={isExternal ? item.url : undefined}
   target={isExternal ? "_blank" : undefined}
   rel={isExternal ? "noopener noreferrer" : undefined}
   class:list={[
-    'card block p-6 h-full group',
+    'card block h-full group overflow-hidden',
     item.featured && 'sm:col-span-2 border-accent/20 bg-gradient-to-br from-surface to-accent-soft',
     !isExternal && 'cursor-default',
   ]}
 >
-  {item.featured && (
-    <span class="text-[12px] font-mono uppercase tracking-widest text-accent mb-3 block">Featured</span>
-  )}
-  <div class="flex items-start justify-between gap-3">
-    <div>
-      <h3 class="text-base font-semibold text-white group-hover:text-accent transition-colors duration-200">
-        {item.name}
-      </h3>
-      <p class="text-fg-muted text-xs mt-1">{item.headline}</p>
+  {item.image && (
+    <div class={mediaClass}>
+      <img
+        src={`${base}${item.image}`}
+        alt={`${item.name} preview`}
+        class={`${mediaFit} w-full h-full transition-transform duration-500 group-hover:scale-[1.02]`}
+        loading="lazy"
+        onerror="this.style.opacity=0"
+      />
     </div>
-    {isExternal && (
-      <svg class="w-4 h-4 text-fg-dim group-hover:text-accent transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 mt-1" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M4 12L12 4M12 4H6M12 4V10" />
-      </svg>
+  )}
+  <div class="p-6">
+    {item.featured && (
+      <span class="text-[12px] font-mono uppercase tracking-widest text-accent mb-3 block">Featured</span>
     )}
-  </div>
-  <p class="text-fg-dim text-sm leading-relaxed mt-3">{item.description}</p>
-  <div class="flex flex-wrap gap-1.5 mt-4">
-    {item.stack.map(s => (
-      <span class="tag text-[12px]">{s}</span>
-    ))}
+    <div class="flex items-start justify-between gap-3">
+      <div>
+        <h3 class="text-base font-semibold text-white group-hover:text-accent transition-colors duration-200">
+          {item.name}
+        </h3>
+        <p class="text-fg-muted text-xs mt-1">{item.headline}</p>
+      </div>
+      {isExternal && (
+        <svg class="w-4 h-4 text-fg-dim group-hover:text-accent transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 mt-1" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 12L12 4M12 4H6M12 4V10" />
+        </svg>
+      )}
+    </div>
+    <p class="text-fg-dim text-sm leading-relaxed mt-3">{item.description}</p>
+    {item.diagram && (
+      <div class="mt-5 pt-5 border-t border-border/60 flex justify-center">
+        <div class="w-full max-w-[220px]">
+          {item.diagram === 'invoice' && <InvoiceDiagram />}
+          {item.diagram === 'taxbot' && <TaxBotDiagram />}
+          {item.diagram === 'invoicing' && <InvoicingDiagram />}
+        </div>
+      </div>
+    )}
+    <div class="flex flex-wrap gap-1.5 mt-4">
+      {item.stack.map(s => (
+        <span class="tag text-[12px]">{s}</span>
+      ))}
+    </div>
   </div>
 </a>

@@ -1,3 +1,5 @@
+import type { GalleryImage, ImageLayout } from './portfolio';
+
 export interface BuildItem {
   name: string;
   headline: string;
@@ -6,6 +8,10 @@ export interface BuildItem {
   url: string;
   featured?: boolean;
   category: 'production' | 'automation' | 'creative';
+  diagram?: 'invoice' | 'taxbot' | 'invoicing';
+  image?: string;
+  imageLayout?: ImageLayout;
+  galleryImages?: GalleryImage[];
 }
 
 export const builds: BuildItem[] = [
@@ -23,28 +29,31 @@ export const builds: BuildItem[] = [
     name: 'Invoice Agent',
     headline: 'Hands-free monthly invoicing',
     description:
-      'Collects invoices from providers, generates client invoices from Toggl time tracking, gets human approval via Telegram, and emails everything out. Two scheduled Cloud Run jobs, zero manual steps on billing day.',
+      'Scrapes invoices from provider portals, generates client invoices from Toggl hours, routes both through a Telegram approval gate, and emails them out. Two Cloud Run jobs on a schedule, zero manual steps on billing day.',
     stack: ['Python', 'Flask', 'Cloud Run', 'Playwright', 'Telegram Bot', 'Gmail API'],
     url: '#',
     category: 'automation',
+    diagram: 'invoice',
   },
   {
     name: 'Tax Bot',
     headline: 'Multi-agent US expat tax filing',
     description:
-      'Filing system for Americans living abroad. Handles 10+ IRS forms including FBAR, GILTI, and foreign earned income exclusion. Replaces a $3K/year tax preparer with a modular agent pipeline.',
+      'Filing system for Americans living abroad. An orchestrator reads source documents and dispatches them to specialist agents for wages, FBAR, GILTI, capital gains, and foreign earned income. A reviewer validates each output before form assembly composes 10+ IRS forms.',
     stack: ['Next.js', 'Claude API', 'Drizzle ORM', 'Python', 'pdf-lib'],
     url: '#',
     category: 'automation',
+    diagram: 'taxbot',
   },
   {
-    name: 'Toggl Timesheet Sync',
-    headline: 'Automated time tracking pipeline',
+    name: 'Client Invoice Automation',
+    headline: 'Toggl hours to client inbox, hands-free',
     description:
-      'Syncs Toggl entries into Google Sheets, detects last sync point, transforms data, and injects Apps Script. Solved real browser automation constraints like clipboard API restrictions and OAuth quirks.',
-    stack: ['Python', 'Toggl API', 'Google Apps Script'],
+      'Pulls tracked hours from Toggl, writes them into a templated Google Sheet, exports a branded PDF invoice, and emails it to the client. Runs every month on its own via Cloud Scheduler.',
+    stack: ['Python', 'Toggl API', 'Google Sheets API', 'Gmail API', 'Cloud Run'],
     url: '#',
     category: 'automation',
+    diagram: 'invoicing',
   },
   {
     name: 'NYC Walking Guide',
@@ -54,6 +63,12 @@ export const builds: BuildItem[] = [
     stack: ['TypeScript', 'Astro', 'Leaflet.js'],
     url: 'https://github.com/igembitsky/nyc-guide',
     category: 'creative',
+    image: 'assets/personal/nyc-map.png',
+    imageLayout: 'mobile',
+    galleryImages: [
+      { src: 'assets/personal/nyc-map.png', layout: 'mobile', alt: 'NYC walking guide map view' },
+      { src: 'assets/personal/nyc-list.png', layout: 'mobile', alt: 'NYC walking guide routes list' },
+    ],
   },
   {
     name: 'Legend of Nikita',
@@ -63,5 +78,10 @@ export const builds: BuildItem[] = [
     stack: ['JavaScript', 'Phaser 3', 'Playwright', 'Vite'],
     url: 'https://github.com/igembitsky/legend-of-nikita',
     category: 'creative',
+    image: 'assets/personal/nikita.png',
+    imageLayout: 'desktop',
+    galleryImages: [
+      { src: 'assets/personal/nikita.png', layout: 'desktop', alt: 'Legend of Nikita gameplay' },
+    ],
   },
 ];
