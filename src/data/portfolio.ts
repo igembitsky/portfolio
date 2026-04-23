@@ -1,4 +1,4 @@
-export type ImageLayout = 'desktop' | 'mobile';
+export type ImageLayout = 'desktop' | 'mobile' | 'poster' | 'gallery';
 
 export interface GalleryImage {
   src: string;
@@ -18,7 +18,7 @@ export interface PortfolioItem {
   galleryImages?: GalleryImage[];
   sections?: {
     context?: string;
-    built?: string;
+    built?: string | string[];
     decisions?: string;
     outcomes?: string;
     tech?: string[];
@@ -27,100 +27,100 @@ export interface PortfolioItem {
 
 export const canaryCards: PortfolioItem[] = [
   {
-    id: 'canary-dashboard',
-    title: 'Safety Analytics Dashboard & AI Agent',
-    subtitle: 'Intelligence system for industrial safety teams',
-    outcome: 'Production deployment with paying pilot customers',
-    highlights: [
-      'Pattern analysis engine that turns raw camera events into actionable trends',
-      'AI-drafted response messages with human review and approval before sending',
-      'Configurable safety rules and thresholds per customer environment',
-    ],
-    tags: ['AI', 'SaaS', 'Computer Vision', 'Product'],
-    image: 'assets/canary/dashboard.png',
-    imageLayout: 'mobile',
+    id: 'canary-pipeline',
+    title: 'From cold outreach to signed pilots',
+    subtitle: 'Built the outbound system that turned targeted outreach into real pilots. Defined the ICP, ran the campaigns, qualified the leads, and closed the pilot agreements.',
+    highlights: [],
+    tags: ['GTM', 'Outbound', 'Pilot Sales'],
+    image: 'assets/canary/pipeline-funnel.svg',
+    imageLayout: 'poster',
     galleryImages: [
-      { src: 'assets/canary/dashboard.png', layout: 'mobile', alt: 'Safety analytics dashboard with pattern analysis' },
+      { src: 'assets/canary/pipeline-campaign-flow.svg', layout: 'poster', alt: 'Outreach campaign sequence with reply branch to discovery call' },
     ],
     sections: {
-      context: 'Factory floors generate hundreds of camera events daily. Safety teams were drowning in noise and missing the signals that mattered. We needed a system that could surface the critical incidents and help teams act on them quickly.',
-      built: 'A full analytics dashboard with pattern analysis across time periods, severity scoring, and trend visualization. Integrated an AI messaging layer where the system drafts responses that humans review, edit, and approve before sending. Built a learning loop that tracks which suggestions get used and which get rewritten.',
-      decisions: 'Chose human-in-the-loop over full automation. Safety is high-stakes and customers need to trust the system before they trust the AI. The approval step builds that trust while the learning loop gradually improves draft quality.',
-      outcomes: 'Deployed to production with paying pilot customers. Safety teams can now focus review time on high-signal events instead of scanning everything manually.',
-      tech: ['React', 'AWS Lambda', 'DynamoDB', 'IoT Core', 'S3', 'Claude API'],
+      built: [
+        'Defined the ICP across industries and EHS and operations roles',
+        'Built the outreach system on LinkedIn plus campaign automation',
+        'Designed the messaging and iteration loops that lifted response rates',
+        'Set qualification criteria so discovery time went to real buyers',
+        'Ran discovery, pitch, objection handling, and pilot agreements end to end',
+        'Tracked and followed up across the whole pipeline',
+      ],
+      outcomes: '5 pilots launched across the country.',
+      tech: ['LinkedIn Sales Navigator', 'Woodpecker', 'Notion'],
     },
   },
   {
-    id: 'canary-tagging',
-    title: 'Incident Tagging & Annotation',
-    subtitle: 'Training data pipeline for the safety AI',
-    outcome: 'Structured taxonomy feeding continuous model improvement',
-    highlights: [
-      'Labeling system for classifying incidents by type, severity, and environment',
-      'Ontology design that operators actually understand and use consistently',
-      'Training data pipeline that feeds directly into model improvement cycles',
-    ],
-    tags: ['ML Infrastructure', 'Data', 'Operations'],
-    image: 'assets/canary/tagging.png',
-    imageLayout: 'mobile',
+    id: 'canary-onboarding',
+    title: 'Designed the onboarding experience',
+    subtitle: 'Created the full onboarding system so customers could install and activate Canary on their own, while we managed every pilot in one place.',
+    highlights: [],
+    tags: ['Onboarding', 'Customer Success', 'Pilot Ops'],
+    image: 'assets/canary/pilots.png',
+    imageLayout: 'desktop',
     galleryImages: [
-      { src: 'assets/canary/tagging.png', layout: 'mobile', alt: 'Incident tagging and annotation interface' },
+      { src: 'assets/canary/pilots-install.png', layout: 'mobile', alt: 'QR-driven setup site used during self-install' },
     ],
     sections: {
-      context: 'The computer vision model needs structured, labeled data to get better at classification. Raw camera events come in unlabeled. Without a good taxonomy and consistent labeling workflow, the model trains on garbage.',
-      built: 'A structured annotation workflow where safety teams label incidents by type, severity, and environment. Designed the ontology to be intuitive for non-technical operators so labels are consistent across different users and sites.',
-      decisions: 'Invested in taxonomy design before any ML training. Spent time with safety teams understanding how they naturally categorize incidents, then built the labeling system around their mental model instead of imposing an engineering-driven schema.',
-      outcomes: 'Clean, consistently labeled training data flowing into model improvement. The taxonomy is extensible as we encounter new incident types across different industrial environments.',
-      tech: ['React', 'DynamoDB', 'S3'],
+      built: [
+        'Built marketing and onboarding as one system at canaryaware.com',
+        'Designed and produced the physical welcome kit',
+        'Wrote every instruction and customer-facing piece of material',
+        'Created a QR-based setup site for guided self-installation',
+        'Made self-install the default so we did not have to fly out',
+        'Managed every pilot centrally through the pilot dashboard',
+      ],
+      decisions: 'Keep day-one friction as close to zero as possible.',
+      outcomes: 'Pilots went live without on-site support, so the team could focus on outcomes instead of setup calls.',
+      tech: ['Astro', 'Auth0', 'DynamoDB'],
     },
   },
   {
     id: 'canary-review',
-    title: 'Critical Incident Review Workflow',
-    subtitle: 'Triage system for high-severity safety events',
-    outcome: 'Compressed time from detection to action for safety teams',
-    highlights: [
-      'Three-action triage: confirm, dismiss, or escalate with full context',
-      'Video playback with timeline scrubbing, timestamps, and metadata overlays',
-      'Decision audit trail for compliance and accountability',
-    ],
-    tags: ['UX', 'Safety', 'Workflow Design'],
-    image: 'assets/canary/review.png',
-    imageLayout: 'mobile',
+    title: 'Built the system behind the system',
+    subtitle: 'Created the workflow that turns raw footage into usable signal, combining human review with AI so customers only see what matters.',
+    highlights: [],
+    tags: ['Human-in-the-Loop', 'AI Ops', 'Workflow'],
+    image: 'assets/canary/review-flow.svg',
+    imageLayout: 'poster',
     galleryImages: [
-      { src: 'assets/canary/review.png', layout: 'mobile', alt: 'Critical incident review workflow' },
+      { src: 'assets/canary/tagging.png', layout: 'mobile', alt: 'Internal tagging and annotation interface' },
     ],
     sections: {
-      context: 'When a high-severity event happens on a factory floor, the safety team needs to review it fast, decide what to do, and document that decision. The old process was manual review of raw footage with no structure.',
-      built: 'A triage interface with three clear actions (confirm, dismiss, escalate), rich video playback with timeline scrubbing and metadata overlays, and a complete decision audit trail. Every action is logged with who, when, and why.',
-      decisions: 'Kept the action model to three options instead of a complex state machine. Speed matters in safety. Operators need to make a call in seconds, not navigate a workflow diagram.',
-      outcomes: 'Review-to-action time compressed significantly. Compliance teams get a clean audit trail. Operators report the interface feels natural rather than bureaucratic.',
-      tech: ['React', 'AWS Lambda', 'DynamoDB', 'S3 Video'],
+      built: [
+        'Designed the manual review and tagging system from scratch',
+        'Structured how incidents are labeled, filtered, and understood',
+        'Added AI for detection, tagging suggestions, and prioritization',
+        'Built human-in-the-loop validation before anything reaches a customer',
+        'Added AI-assisted customer messages that still require human approval before sending',
+      ],
+      decisions: 'Raise signal-to-noise before anything reaches the customer.',
+      outcomes: 'Internal review is faster and cleaner, and customers only see the incidents worth their attention.',
+      tech: ['React', 'AWS Lambda', 'DynamoDB', 'Claude API', 'Auth0'],
     },
   },
   {
-    id: 'canary-pilots',
-    title: 'Pilot Management System',
-    subtitle: 'End-to-end pipeline from lead to live deployment',
-    outcome: 'Repeatable pilot playbook across customer segments',
-    highlights: [
-      'Tracking from lead qualification through install, training, evaluation, and conversion',
-      'Self-install packages with setup guides for customer engineering teams',
-      'Health dashboards for monitoring active pilot performance and engagement',
-    ],
-    tags: ['Operations', 'GTM', 'Infrastructure'],
-    image: 'assets/canary/pilots.png',
-    imageLayout: 'desktop',
+    id: 'canary-dashboard',
+    title: 'Turned video into safety decisions',
+    subtitle: 'Built the dashboard that helps safety teams review incidents, confirm risk, and track actions across their facilities.',
+    highlights: [],
+    tags: ['Product', 'Dashboard', 'Workflow'],
+    image: 'assets/canary/dashboard-triple.png',
+    imageLayout: 'gallery',
     galleryImages: [
-      { src: 'assets/canary/pilots.png', layout: 'desktop', alt: 'Pilot management dashboard' },
-      { src: 'assets/canary/pilots-install.png', layout: 'mobile', alt: 'Self-install instructions for customer engineering teams' },
+      { src: 'assets/canary/review.png', layout: 'mobile', alt: 'Safety dashboard surfacing incidents that need a decision' },
     ],
     sections: {
-      context: 'Enterprise pilots are complex. Each one involves hardware installation, software configuration, team training, an evaluation period, and a conversion decision. Without structure, every pilot is a custom project.',
-      built: 'An internal system tracking the full pilot lifecycle. Lead qualification criteria, install checklists, self-install packages with step-by-step guides, training materials, evaluation metrics, and conversion triggers. Health dashboards that surface which pilots are engaged and which are going cold.',
-      decisions: 'Built internal tooling before trying to force this into a CRM. The pilot lifecycle has too many hardware and operational steps that Salesforce or Pipedrive can not model well. Clean internal tooling first, CRM integration later.',
-      outcomes: 'Repeatable playbook that works across different customer segments and industrial environments. New pilots follow the same structured path instead of being improvised each time.',
-      tech: ['React', 'DynamoDB', 'Internal Tooling'],
+      built: [
+        'Surface only the incidents that need attention',
+        'Let teams confirm or dismiss in a single motion',
+        'Track follow-up actions like coaching and interventions',
+        'Keep a record of every incident and every outcome',
+        'Spot patterns across locations with heatmaps and trends',
+      ],
+      decisions: 'Move from detection to decision to action to record.',
+      outcomes: 'Safety teams spend their review time on what matters, and every decision is logged and searchable.',
+      tech: ['React', 'AWS Lambda', 'DynamoDB', 'IoT Core', 'S3', 'Claude API'],
     },
   },
 ];

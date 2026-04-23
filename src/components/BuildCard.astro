@@ -11,8 +11,14 @@ interface Props {
 const { item } = Astro.props;
 const isExternal = item.url !== '#';
 const base = import.meta.env.BASE_URL;
-const mediaClass = item.imageLayout === 'mobile' ? 'card-media card-media-mobile' : 'card-media card-media-desktop';
-const mediaFit = item.imageLayout === 'mobile' ? 'object-contain' : 'object-cover object-top';
+const mediaClass =
+  item.imageLayout === 'mobile' ? 'card-media card-media-mobile'
+  : item.imageLayout === 'poster' ? 'card-media card-media-poster'
+  : 'card-media card-media-desktop';
+const mediaFit =
+  item.imageLayout === 'mobile' ? 'object-contain'
+  : item.imageLayout === 'poster' ? 'object-contain'
+  : 'object-cover object-top';
 ---
 <a
   href={isExternal ? item.url : undefined}

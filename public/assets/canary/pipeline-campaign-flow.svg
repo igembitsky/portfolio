@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Outreach campaign sequence with reply branch to discovery call">
+  <defs>
+    <marker id="arr" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L5,3.5 L0,7 Z" fill="#2e2e42" />
+    </marker>
+    <marker id="arrAcc" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L5,3.5 L0,7 Z" fill="#c8a55a" />
+    </marker>
+  </defs>
+  <style>
+    .t { fill: #ece8e1; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 500; }
+    .m { fill: #807c8d; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+    .acc { fill: #c8a55a; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 600; }
+    .lbl { fill: #c8a55a; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; font-weight: 500; }
+  </style>
+
+  <text x="60" y="56" text-anchor="end" class="m">Day 1</text>
+  <rect x="80" y="36" width="240" height="40" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="200" y="62" text-anchor="middle" class="t">LinkedIn connect</text>
+
+  <path d="M 200 78 V 96" stroke="#2e2e42" fill="none" marker-end="url(#arr)" />
+
+  <text x="60" y="120" text-anchor="end" class="m">Day 3</text>
+  <rect x="80" y="100" width="240" height="40" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="200" y="126" text-anchor="middle" class="t">Intro email</text>
+
+  <path d="M 200 142 V 160" stroke="#2e2e42" fill="none" marker-end="url(#arr)" />
+
+  <text x="60" y="184" text-anchor="end" class="m">Day 7</text>
+  <rect x="80" y="164" width="240" height="40" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="200" y="190" text-anchor="middle" class="t">Follow-up with value</text>
+
+  <path d="M 200 206 V 224" stroke="#2e2e42" fill="none" marker-end="url(#arr)" />
+
+  <text x="60" y="248" text-anchor="end" class="m">Day 14</text>
+  <rect x="80" y="228" width="240" height="40" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="200" y="254" text-anchor="middle" class="t">Break-up email</text>
+
+  <path d="M 320 184 H 400" stroke="#c8a55a" stroke-dasharray="4 3" fill="none" marker-end="url(#arrAcc)" />
+  <text x="360" y="178" text-anchor="middle" class="lbl">reply</text>
+
+  <rect x="400" y="164" width="200" height="40" rx="6" fill="none" stroke="#c8a55a" stroke-width="1.5" />
+  <text x="500" y="190" text-anchor="middle" class="acc">Discovery call</text>
+
+  <text x="320" y="320" text-anchor="middle" class="m">stop the cadence on reply, pick up the conversation</text>
+</svg>

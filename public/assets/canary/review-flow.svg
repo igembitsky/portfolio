@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Internal review flow: video event becomes a customer-ready incident through human review, tagging, and AI assist">
+  <defs>
+    <marker id="arrR" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L5,3.5 L0,7 Z" fill="#2e2e42" />
+    </marker>
+  </defs>
+  <style>
+    .t { fill: #ece8e1; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 500; }
+    .m { fill: #807c8d; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+    .acc { fill: #c8a55a; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 600; }
+    .h { fill: #807c8d; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.08em; }
+  </style>
+
+  <text x="320" y="90" text-anchor="middle" class="h">RAW FOOTAGE BECOMES STRUCTURED SIGNAL</text>
+
+  <rect x="20" y="170" width="110" height="56" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="75" y="195" text-anchor="middle" class="t">Video event</text>
+  <text x="75" y="212" text-anchor="middle" class="m">camera stream</text>
+
+  <path d="M 130 198 H 152" stroke="#2e2e42" fill="none" marker-end="url(#arrR)" />
+
+  <rect x="155" y="170" width="110" height="56" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="210" y="195" text-anchor="middle" class="t">Human review</text>
+  <text x="210" y="212" text-anchor="middle" class="m">ops team</text>
+
+  <path d="M 265 198 H 287" stroke="#2e2e42" fill="none" marker-end="url(#arrR)" />
+
+  <rect x="290" y="170" width="110" height="56" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="345" y="195" text-anchor="middle" class="t">Tag and note</text>
+  <text x="345" y="212" text-anchor="middle" class="m">taxonomy</text>
+
+  <path d="M 400 198 H 422" stroke="#2e2e42" fill="none" marker-end="url(#arrR)" />
+
+  <rect x="425" y="170" width="110" height="56" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="480" y="195" text-anchor="middle" class="t">AI assist</text>
+  <text x="480" y="212" text-anchor="middle" class="m">suggestions</text>
+
+  <path d="M 535 198 H 557" stroke="#c8a55a" fill="none" marker-end="url(#arrR)" />
+
+  <rect x="555" y="170" width="70" height="56" rx="6" fill="none" stroke="#c8a55a" stroke-width="1.5" />
+  <text x="590" y="195" text-anchor="middle" class="acc" font-size="12">Customer</text>
+  <text x="590" y="212" text-anchor="middle" class="acc" font-size="12">ready</text>
+
+  <text x="320" y="320" text-anchor="middle" class="m">every incident the customer sees has been reviewed, tagged, and approved</text>
+</svg>

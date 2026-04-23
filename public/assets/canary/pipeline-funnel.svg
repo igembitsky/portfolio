@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Canary pilot sales funnel: target accounts to signed pilots">
+  <style>
+    .t { fill: #ece8e1; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; font-weight: 500; }
+    .m { fill: #807c8d; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+    .acc { fill: #c8a55a; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; font-weight: 600; }
+  </style>
+  <rect x="70" y="30" width="500" height="54" rx="6" fill="none" stroke="#2e2e42" stroke-width="1" />
+  <text x="320" y="62" text-anchor="middle" class="t">Target accounts</text>
+  <text x="320" y="78" text-anchor="middle" class="m">EHS and operations leaders</text>
+
+  <rect x="110" y="100" width="420" height="54" rx="6" fill="none" stroke="#2e2e42" stroke-width="1" />
+  <text x="320" y="132" text-anchor="middle" class="t">Outreach</text>
+  <text x="320" y="148" text-anchor="middle" class="m">LinkedIn plus campaign automation</text>
+
+  <rect x="150" y="170" width="340" height="54" rx="6" fill="none" stroke="#2e2e42" stroke-width="1" />
+  <text x="320" y="202" text-anchor="middle" class="t">Discovery and qualification</text>
+
+  <rect x="195" y="240" width="250" height="54" rx="6" fill="none" stroke="#2e2e42" stroke-width="1" />
+  <text x="320" y="272" text-anchor="middle" class="t">Pitch</text>
+
+  <rect x="240" y="310" width="160" height="54" rx="6" fill="none" stroke="#c8a55a" stroke-width="1.5" />
+  <text x="320" y="342" text-anchor="middle" class="acc">Signed pilots</text>
+</svg>
