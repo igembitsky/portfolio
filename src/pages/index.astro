@@ -208,38 +208,69 @@ const base = import.meta.env.BASE_URL;
     <!-- How I Think -->
     <section class="container py-24">
       <div class="reveal">
-        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-4">How I Think</h2>
-        <p class="text-fg-muted text-sm mb-10 max-w-lg">
-          I think in systems. Tight loops of planning, execution, and retrospectives,
-          designed to learn and get better with each cycle. I pull in frameworks as
-          needed and adapt them to the problem at hand. I care about building
-          humane, blameless teams where people are engaged, autonomous, and
-          operating within a system that evolves alongside them.
+        <p class="text-xs font-mono uppercase tracking-widest text-accent mb-6">How I Think</p>
+        <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-[1.08] mb-5 max-w-[680px]">
+          The <span class="text-accent">purpose</span> of a system is what it <span class="text-accent">does</span>.
+        </h2>
+        <p class="text-fg-muted text-base leading-relaxed mb-12 max-w-xl">
+          I build systems that move toward the outcome, self-heal through reflection, and run on empowered people. The frameworks below are how I do that work.
         </p>
       </div>
 
-      <!-- Frameworks -->
+      <!-- Three principle pillars -->
+      <div class="reveal grid grid-cols-1 sm:grid-cols-3 gap-8 pb-10 border-b border-border mb-4">
+        <div>
+          <p class="text-accent font-mono text-[11px] uppercase tracking-[0.14em] mb-2.5">Purpose</p>
+          <p class="text-sm text-fg leading-relaxed">Systems are judged by what they produce. That's the one metric that matters. Everything else serves it.</p>
+        </div>
+        <div>
+          <p class="text-accent font-mono text-[11px] uppercase tracking-[0.14em] mb-2.5">Reflection</p>
+          <p class="text-sm text-fg leading-relaxed">Tight loops. Plan, ship, retro, question. How a system learns, self-corrects, and outlasts any individual.</p>
+        </div>
+        <div>
+          <p class="text-accent font-mono text-[11px] uppercase tracking-[0.14em] mb-2.5">People</p>
+          <p class="text-sm text-fg leading-relaxed">Empowered teams run the system. They need clarity of direction, real autonomy, and authority to act.</p>
+        </div>
+      </div>
+
+      <!-- Transition label -->
+      <p class="reveal text-[11px] font-mono uppercase tracking-[0.16em] text-fg-dim mt-10 mb-5">How I do the work</p>
+
+      <!-- Stage infographic -->
       <div class="reveal mb-16">
-        <div class="grid grid-cols-2 sm:grid-cols-5 gap-4">
-          <div class="flex flex-col items-start gap-1">
-            <span class="text-accent font-mono text-xs">Discover</span>
-            <span class="text-fg-dim text-xs leading-relaxed">JTBD, Mom Test, Design Thinking, Double Diamond</span>
+        <div class="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] items-baseline py-3.5 border-b border-border">
+          <span class="font-mono text-[28px] sm:text-[30px] font-bold text-[#2a2a3a]">01</span>
+          <div>
+            <span class="text-base font-semibold tracking-tight text-white">Discover.</span>
+            <span class="text-xs text-fg-dim ml-3">JTBD · Mom Test · Design Thinking · Double Diamond</span>
           </div>
-          <div class="flex flex-col items-start gap-1">
-            <span class="text-accent font-mono text-xs">Prioritize</span>
-            <span class="text-fg-dim text-xs leading-relaxed">RICE, Pareto 80/20, hypothesis-driven dev</span>
+        </div>
+        <div class="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] items-baseline py-3.5 border-b border-border">
+          <span class="font-mono text-[28px] sm:text-[30px] font-bold text-[#2a2a3a]">02</span>
+          <div>
+            <span class="text-base font-semibold tracking-tight text-white">Prioritize.</span>
+            <span class="text-xs text-fg-dim ml-3">RICE · Pareto 80/20 · Hypothesis-driven dev</span>
           </div>
-          <div class="flex flex-col items-start gap-1">
-            <span class="text-accent font-mono text-xs">Execute</span>
-            <span class="text-fg-dim text-xs leading-relaxed">Agile sprints, Design Sprints, blameless retros</span>
+        </div>
+        <div class="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] items-baseline py-3.5 border-b border-border">
+          <span class="font-mono text-[28px] sm:text-[30px] font-bold text-[#2a2a3a]">03</span>
+          <div>
+            <span class="text-base font-semibold tracking-tight text-white">Execute.</span>
+            <span class="text-xs text-fg-dim ml-3">Agile sprints · Design Sprints · Blameless retros</span>
           </div>
-          <div class="flex flex-col items-start gap-1">
-            <span class="text-accent font-mono text-xs">Scale</span>
-            <span class="text-fg-dim text-xs leading-relaxed">Automate, delegate, document. PR/FAQ, pre-mortems</span>
+        </div>
+        <div class="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] items-baseline py-3.5 border-b border-border">
+          <span class="font-mono text-[28px] sm:text-[30px] font-bold text-[#2a2a3a]">04</span>
+          <div>
+            <span class="text-base font-semibold tracking-tight text-white">Scale.</span>
+            <span class="text-xs text-fg-dim ml-3">Automate · Delegate · Document · PR/FAQ · Pre-mortems</span>
           </div>
-          <div class="flex flex-col items-start gap-1">
-            <span class="text-accent font-mono text-xs">Lead</span>
-            <span class="text-fg-dim text-xs leading-relaxed">Servant leadership, psychological safety</span>
+        </div>
+        <div class="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] items-baseline py-3.5">
+          <span class="font-mono text-[28px] sm:text-[30px] font-bold text-[#2a2a3a]">05</span>
+          <div>
+            <span class="text-base font-semibold tracking-tight text-accent">Lead.</span>
+            <span class="text-xs text-fg-dim ml-3">Servant leadership · Psychological safety</span>
           </div>
         </div>
       </div>
