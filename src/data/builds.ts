@@ -26,11 +26,26 @@ export const builds: BuildItem[] = [
     category: 'production',
   },
   {
-    name: 'Invoice Agent',
-    headline: 'Hands-free monthly invoicing',
+    name: 'VibeOps Tracker',
+    headline: 'Local-first issue tracker with an AI agent backend',
     description:
-      'Scrapes provider invoices, generates client invoices from Toggl hours, routes both through a Telegram approval gate, sends them out. Two scheduled Cloud Run jobs. Zero manual steps on billing day.',
-    stack: ['Python', 'Flask', 'Cloud Run', 'Playwright', 'Telegram Bot', 'Gmail API'],
+      'An issue tracker that runs entirely on your machine. A one-line widget captures bugs from any web app, a Kanban board sets priority, and an MCP server lets AI coding agents pick up and clear the backlog. Issues are plain markdown, so nothing leaves your laptop. Open source on npm, with 69 passing tests and CI.',
+    stack: ['Node.js', 'MCP', 'Vanilla JS', 'Markdown'],
+    url: 'https://github.com/igembitsky/vibeops-tracker',
+    category: 'automation',
+    image: 'assets/tools/vibeops-board.png',
+    imageLayout: 'desktop',
+    galleryImages: [
+      { src: 'assets/tools/vibeops-board.png', layout: 'desktop', alt: 'VibeOps Tracker Kanban board with issues across four columns' },
+      { src: 'assets/tools/vibeops-widget.png', layout: 'desktop', alt: 'Capturing an issue with the floating widget on a demo app' },
+    ],
+  },
+  {
+    name: 'Invoicing Pipeline',
+    headline: 'Provider invoices in, client invoices out, hands-free',
+    description:
+      'A billing pipeline that handles both sides of invoicing every month. It scrapes provider invoices with a headless browser, pulls tracked hours from Toggl into a templated Google Sheet and exports a branded PDF, then routes everything through a Telegram approval gate before sending it out by email. Two scheduled Cloud Run jobs. Zero manual steps on billing day.',
+    stack: ['Python', 'Cloud Run', 'Playwright', 'Toggl API', 'Google Sheets API', 'Telegram Bot', 'Gmail API'],
     url: '#',
     category: 'automation',
     diagram: 'invoice',
@@ -44,16 +59,6 @@ export const builds: BuildItem[] = [
     url: '#',
     category: 'automation',
     diagram: 'taxbot',
-  },
-  {
-    name: 'Client Invoice Automation',
-    headline: 'Toggl hours to client inbox, hands-free',
-    description:
-      'Pulls tracked hours from Toggl into a templated Google Sheet, exports a branded PDF, emails it to the client. Runs monthly on Cloud Scheduler.',
-    stack: ['Python', 'Toggl API', 'Google Sheets API', 'Gmail API', 'Cloud Run'],
-    url: '#',
-    category: 'automation',
-    diagram: 'invoicing',
   },
   {
     name: 'NYC Walking Guide',
