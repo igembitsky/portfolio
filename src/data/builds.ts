@@ -8,7 +8,7 @@ export interface BuildItem {
   url: string;
   featured?: boolean;
   category: 'production' | 'automation' | 'creative';
-  diagram?: 'invoice' | 'taxbot' | 'invoicing';
+  diagram?: 'invoice' | 'taxbot' | 'invoicing' | 'vibeops';
   image?: string;
   imageLayout?: ImageLayout;
   galleryImages?: GalleryImage[];
@@ -29,22 +29,17 @@ export const builds: BuildItem[] = [
     name: 'VibeOps Tracker',
     headline: 'Local-first issue tracker with an AI agent backend',
     description:
-      'An issue tracker that runs entirely on your machine. A one-line widget captures bugs from any web app, a Kanban board sets priority, and an MCP server lets AI coding agents pick up and clear the backlog. Issues are plain markdown, so nothing leaves your laptop. Open source on npm, with 69 passing tests and CI.',
+      'When you build several things at once, bugs and stray ideas pile up faster than you can act on them, and stopping mid-flow to fix each one wrecks your focus. So they land here instead: a one-line widget captures issues from any web app, a Kanban board sets priority, and an MCP server lets AI coding agents pick up and clear the backlog while you keep building. Everything runs locally, nothing in the cloud.',
     stack: ['Node.js', 'MCP', 'Vanilla JS', 'Markdown'],
     url: 'https://github.com/igembitsky/vibeops-tracker',
     category: 'automation',
-    image: 'assets/tools/vibeops-board.png',
-    imageLayout: 'desktop',
-    galleryImages: [
-      { src: 'assets/tools/vibeops-board.png', layout: 'desktop', alt: 'VibeOps Tracker Kanban board with issues across four columns' },
-      { src: 'assets/tools/vibeops-widget.png', layout: 'desktop', alt: 'Capturing an issue with the floating widget on a demo app' },
-    ],
+    diagram: 'vibeops',
   },
   {
     name: 'Invoicing Pipeline',
     headline: 'Provider invoices in, client invoices out, hands-free',
     description:
-      'A billing pipeline that handles both sides of invoicing every month. It scrapes provider invoices with a headless browser, pulls tracked hours from Toggl into a templated Google Sheet and exports a branded PDF, then routes everything through a Telegram approval gate before sending it out by email. Two scheduled Cloud Run jobs. Zero manual steps on billing day.',
+      'Monthly billing used to be a manual slog: download each provider invoice, turn tracked hours into a client invoice, double-check it, and send everything out. Now it runs itself. A headless browser scrapes the provider invoices, Toggl hours flow into a templated Google Sheet and a branded PDF, and a Telegram approval gate gives a one-tap sign-off before Gmail delivers it all. Two scheduled Cloud Run jobs, zero manual steps on billing day.',
     stack: ['Python', 'Cloud Run', 'Playwright', 'Toggl API', 'Google Sheets API', 'Telegram Bot', 'Gmail API'],
     url: '#',
     category: 'automation',

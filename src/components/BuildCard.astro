@@ -3,6 +3,7 @@ import type { BuildItem } from '../data/builds';
 import InvoiceDiagram from './diagrams/InvoiceDiagram.astro';
 import TaxBotDiagram from './diagrams/TaxBotDiagram.astro';
 import InvoicingDiagram from './diagrams/InvoicingDiagram.astro';
+import VibeOpsDiagram from './diagrams/VibeOpsDiagram.astro';
 
 interface Props {
   item: BuildItem;
@@ -65,6 +66,7 @@ const mediaFit =
           {item.diagram === 'invoice' && <InvoiceDiagram />}
           {item.diagram === 'taxbot' && <TaxBotDiagram />}
           {item.diagram === 'invoicing' && <InvoicingDiagram />}
+          {item.diagram === 'vibeops' && <VibeOpsDiagram />}
         </div>
       </div>
     )}

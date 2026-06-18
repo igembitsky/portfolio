@@ -1,0 +1,62 @@
+---
+// VibeOps Tracker: three capture paths converge on one board; an AI agent works
+// the backlog, then a human verifies before Done.
+---
+<svg
+  viewBox="0 0 240 264"
+  width="100%"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="VibeOps Tracker flow: a widget, an MCP server, and the board itself all capture issues onto one Kanban board. An AI agent picks up the backlog and moves work to In Review, then a human verifies before Done. Everything stays local."
+  class="flow-diagram"
+>
+  <defs>
+    <marker id="arrV" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L5,3.5 L0,7 Z" fill="#2e2e42" />
+    </marker>
+    <marker id="arrVa" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L5,3.5 L0,7 Z" fill="#c8a55a" />
+    </marker>
+  </defs>
+
+  <!-- Three capture paths -->
+  <rect x="6" y="8" width="66" height="24" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="39" y="24" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Widget</text>
+
+  <rect x="87" y="8" width="66" height="24" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="24" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">MCP</text>
+
+  <rect x="168" y="8" width="66" height="24" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="201" y="24" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">+ New</text>
+
+  <!-- Fan-in to the board -->
+  <path d="M 39 32 L 120 58" stroke="#2e2e42" fill="none" />
+  <path d="M 120 32 V 58" stroke="#2e2e42" fill="none" />
+  <path d="M 201 32 L 120 58" stroke="#2e2e42" fill="none" />
+
+  <!-- Kanban Board -->
+  <rect x="55" y="58" width="130" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="75" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Kanban Board</text>
+
+  <path d="M 120 84 V 98" stroke="#2e2e42" fill="none" marker-end="url(#arrV)" />
+
+  <!-- AI Agent (accent) -->
+  <rect x="55" y="102" width="130" height="26" rx="6" fill="none" stroke="#c8a55a" />
+  <text x="120" y="119" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">AI Agent</text>
+
+  <text x="120" y="142" text-anchor="middle" fill="#807c8d" font-family="ui-monospace, monospace" font-size="9.5">works the backlog</text>
+
+  <path d="M 120 146 V 160" stroke="#c8a55a" fill="none" marker-end="url(#arrVa)" />
+
+  <!-- In Review -->
+  <rect x="55" y="164" width="130" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="181" text-anchor="middle" fill="#b4afbe" font-family="ui-monospace, monospace" font-size="11">In Review</text>
+
+  <path d="M 120 190 V 204" stroke="#2e2e42" fill="none" marker-end="url(#arrV)" />
+
+  <!-- Done -->
+  <rect x="55" y="208" width="130" height="26" rx="6" fill="none" stroke="#2e2e42" />
+  <text x="120" y="225" text-anchor="middle" fill="#ece8e1" font-family="ui-monospace, monospace" font-size="11" font-weight="500">Done</text>
+
+  <text x="120" y="250" text-anchor="middle" fill="#807c8d" font-family="ui-monospace, monospace" font-size="9.5">you verify · local markdown</text>
+</svg>
