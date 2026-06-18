@@ -49,7 +49,7 @@ export const builds: BuildItem[] = [
     name: 'Tax Orchestrator',
     headline: 'Organizes and analyzes your whole tax picture',
     description:
-      'My taxes used to be a black box I handed to accountants, with little visibility into what got filed or why. Now I drop in any document the moment it arrives, and it organizes everything, runs a full analysis against my profile and prior years, and tells me what is still missing. An orchestrator dispatches specialist agents across each part of the return and a reviewer checks their work. I get year-over-year comparisons, a second opinion on what my accountant files, answers to my own questions, and models for different tax strategies, turning a process I outsourced into one I understand and can push back on.',
+      'My taxes used to be a black box I handed to accountants. Now I drop in any document as it arrives, and an orchestrator of specialist agents organizes it, analyzes it against my profile and prior years, and flags what is still missing. I get year-over-year comparisons, tax-strategy models, and a second opinion on what my accountant files, turning a process I outsourced into one I understand and can push back on.',
     stack: ['Next.js', 'Claude API', 'Drizzle ORM', 'Python', 'pdf-lib'],
     url: '#',
     category: 'automation',
