@@ -13,7 +13,7 @@ Igor's portfolio copy must be human, approachable, and specific. Follow these ru
 4. No self-congratulatory lines like "not as buzzwords but as daily tools."
 5. Focus on systems built, decisions made, outcomes achieved. Not responsibilities.
 6. Write like a person describing their work to a friend who's also a hiring manager.
-7. Don't remove specific numbers that aren't sensitive (100x growth, 20+ features). Do remove dollar amounts and ARR figures.
+7. Don't remove specific numbers that aren't sensitive (60x growth, 20+ features). Never publish a precise revenue or ARR figure, but vague revenue framing ("millions in ARR") and cost-savings ("$78K in over-licensing cut") are fine.
 
 **Why:** Session 2026-04-10. Multiple rounds of copy feedback. Igor flagged emdashes, "solo builder" framing, corporate-speak, and AI-sounding prose across every section.
 
