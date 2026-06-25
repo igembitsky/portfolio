@@ -8,7 +8,7 @@ on:
     - cron: "0 6 * * *"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -32,10 +32,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Fetch GitHub stats
+      # Stats are fetched only on the daily schedule / manual run, then cached
+      # back into the repo. Content pushes just build from the committed cache,
+      # so GitHub's API is touched ~once a day instead of on every deploy.
+      - name: Refresh GitHub stats (scheduled / manual only)
+        if: github.event_name != 'push'
         env:
           GH_TOKEN: ${{ secrets.STATS_GH_TOKEN }}
         run: npm run fetch:stats
+
+      - name: Commit refreshed stats cache
+        if: github.event_name != 'push'
+        run: |
+          changed=$(jq -S 'del(.fetchedAt)' src/data/github-stats.json)
+          base=$(git show HEAD:src/data/github-stats.json 2>/dev/null | jq -S 'del(.fetchedAt)' || echo '')
+          if [ "$changed" = "$base" ]; then
+            echo "GitHub stats unchanged; nothing to commit"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data/github-stats.json
+            git commit -m "chore: refresh GitHub stats cache [skip ci]"
+            git push || echo "stats push failed; data still deployed this run"
+          fi
 
       - name: Build
         run: npm run build

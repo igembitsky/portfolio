@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -7,23 +7,30 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, '../src/data/github-stats.json');
 const USER = 'igembitsky';
 const DAYS = 90;
-const PAGE_LIMIT = 10;
+const PAGE_LIMIT = 12; // commit-search pages to walk for the distinct-repo set
+const PAGE_DELAY_MS = 2000; // gentle pacing between Search API pages to dodge the secondary rate limit
 
 const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
 const since = new Date(Date.now() - DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-const headers = {
-  Accept: 'application/vnd.github+json',
-  'X-GitHub-Api-Version': '2022-11-28',
-  'User-Agent': 'portfolio-fetch-stats',
-  ...(token ? { Authorization: `Bearer ${token}` } : {}),
-};
-
-async function gh(path) {
-  const res = await fetch(`https://api.github.com${path}`, { headers });
-  if (!res.ok) throw new Error(`GitHub ${res.status} ${res.statusText} for ${path}`);
-  return res.json();
+// Last-good snapshot. On any failure we keep these numbers instead of zeroing
+// out, so a transient API hiccup never makes the widget disappear.
+let previous = {};
+try {
+  previous = JSON.parse(readFileSync(OUT_PATH, 'utf8'));
+} catch {
+  // first run, no prior data
 }
+
+const result = {
+  commits: typeof previous.commits === 'number' ? previous.commits : 0,
+  repos: typeof previous.repos === 'number' ? previous.repos : 0,
+  prs: typeof previous.prs === 'number' ? previous.prs : 0,
+  lastActivityISO: previous.lastActivityISO ?? null,
+  fetchedAt: new Date().toISOString(),
+  stale: false,
+};
 
 const ALLOWED_KEYS = ['commits', 'repos', 'prs', 'lastActivityISO', 'fetchedAt', 'stale'];
 
@@ -47,48 +54,68 @@ function writeOutput(obj) {
 }
 
 if (!token) {
-  console.warn('[fetch-github-stats] no GH_TOKEN/GITHUB_TOKEN; writing stale fallback');
-  writeOutput({
-    commits: 0,
-    repos: 0,
-    prs: 0,
-    lastActivityISO: null,
-    fetchedAt: new Date().toISOString(),
-    stale: true,
-  });
+  console.warn('[fetch-github-stats] no GH_TOKEN/GITHUB_TOKEN; keeping last-good data, marking stale');
+  writeOutput({ ...result, stale: true });
   process.exit(0);
 }
 
-const result = {
-  commits: 0,
-  repos: 0,
-  prs: 0,
-  lastActivityISO: null,
-  fetchedAt: new Date().toISOString(),
-  stale: false,
+const baseHeaders = {
+  Accept: 'application/vnd.github+json',
+  'X-GitHub-Api-Version': '2022-11-28',
+  'User-Agent': 'portfolio-fetch-stats',
+  Authorization: `Bearer ${token}`,
 };
 
+// GET with resilient handling of GitHub's primary + secondary (burst) rate limits.
+async function gh(path, { accept } = {}, attempt = 0) {
+  const headers = accept ? { ...baseHeaders, Accept: accept } : baseHeaders;
+  const res = await fetch(`https://api.github.com${path}`, { headers });
+
+  if ((res.status === 403 || res.status === 429) && attempt < 4) {
+    const retryAfter = Number(res.headers.get('retry-after'));
+    const reset = Number(res.headers.get('x-ratelimit-reset'));
+    const remaining = Number(res.headers.get('x-ratelimit-remaining'));
+    let waitMs;
+    if (Number.isFinite(retryAfter) && retryAfter > 0) {
+      waitMs = retryAfter * 1000;
+    } else if (Number.isFinite(reset) && remaining === 0) {
+      waitMs = reset * 1000 - Date.now() + 1000;
+    } else {
+      waitMs = 2000 * (attempt + 1);
+    }
+    waitMs = Math.min(Math.max(waitMs, 1000), 60000);
+    console.warn(`[fetch-github-stats] ${res.status} on ${path}; waiting ${Math.round(waitMs / 1000)}s then retrying (attempt ${attempt + 1})`);
+    await sleep(waitMs);
+    return gh(path, { accept }, attempt + 1);
+  }
+
+  if (!res.ok) throw new Error(`GitHub ${res.status} ${res.statusText} for ${path}`);
+  return res.json();
+}
+
+// Commit count is free from page 1's total_count. We then walk pages gently
+// (only to dedupe the repo set), pacing requests so we don't trip the Search
+// API's secondary rate limit. Commit count is committed early so a mid-walk
+// failure still keeps the fresh number.
 async function fetchCommitsAndRepos() {
   const repoSet = new Set();
-  let totalCount = 0;
   for (let page = 1; page <= PAGE_LIMIT; page++) {
     const data = await gh(
-      `/search/commits?q=author:${USER}+author-date:>=${since}&per_page=100&page=${page}`
+      `/search/commits?q=author:${USER}+author-date:>=${since}&per_page=100&page=${page}`,
+      { accept: 'application/vnd.github.cloak-preview+json' }
     );
-    if (page === 1) totalCount = data.total_count;
+    if (page === 1) result.commits = data.total_count;
     for (const item of data.items || []) {
       if (item.repository?.full_name) repoSet.add(item.repository.full_name);
     }
     if ((data.items || []).length < 100) break;
+    if (page < PAGE_LIMIT) await sleep(PAGE_DELAY_MS);
   }
-  result.commits = totalCount;
   result.repos = repoSet.size;
 }
 
 async function fetchMergedPRs() {
-  const data = await gh(
-    `/search/issues?q=type:pr+author:${USER}+is:merged+merged:>=${since}`
-  );
+  const data = await gh(`/search/issues?q=type:pr+author:${USER}+is:merged+merged:>=${since}`);
   result.prs = data.total_count;
 }
 
@@ -99,17 +126,15 @@ async function fetchLastActivity() {
   }
 }
 
-const jobs = [
+for (const [name, job] of [
   ['commits/repos', fetchCommitsAndRepos],
   ['merged PRs', fetchMergedPRs],
   ['last activity', fetchLastActivity],
-];
-
-for (const [name, job] of jobs) {
+]) {
   try {
     await job();
   } catch (err) {
-    console.warn(`[fetch-github-stats] ${name} failed: ${err.message}`);
+    console.warn(`[fetch-github-stats] ${name} failed: ${err.message} (keeping last-good)`);
     result.stale = true;
   }
 }

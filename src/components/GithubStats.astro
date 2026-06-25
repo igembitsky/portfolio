@@ -14,7 +14,9 @@ function relativeTime(iso: string | null): string {
   return `${weeks}w ago`;
 }
 
-const hidden = stats.stale === true;
+// Show the widget whenever we have any data (fresh or last-good). The
+// "updated Xw ago" footer signals recency; only hide if truly empty.
+const hidden = !stats.commits && !stats.repos && !stats.prs;
 const rel = relativeTime(stats.lastActivityISO);
 const hasSlot = Astro.slots.has('default');
 ---
