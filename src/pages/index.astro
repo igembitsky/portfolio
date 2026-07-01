@@ -9,6 +9,7 @@ import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import { canaryCards } from '../data/portfolio';
 import { builds } from '../data/builds';
+import { happyfuncorpLogo } from '../data/orgLogos';
 
 const production = builds.filter(b => b.category === 'production');
 const automation = builds.filter(b => b.category === 'automation');
@@ -132,7 +133,7 @@ const base = import.meta.env.BASE_URL;
         <div class="reveal flex items-start gap-4">
           <div class="min-w-[100px] shrink-0 mt-1">
             <div class="org-logo">
-              <img src={`${base}assets/logos/orgs/happyfuncorp.jpeg`} alt="HappyFunCorp" loading="lazy" />
+              <img src={happyfuncorpLogo} alt="HappyFunCorp" loading="lazy" />
             </div>
           </div>
           <div>
