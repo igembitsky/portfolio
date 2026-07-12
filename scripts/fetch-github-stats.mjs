@@ -103,7 +103,7 @@ async function fetchCommitsAndRepos() {
     let data;
     try {
       data = await gh(
-        `/search/commits?q=author:${USER}+author-date:>=${since}&per_page=100&page=${page}`,
+        `/search/commits?q=author:${USER}+author-date:>=${since}&sort=author-date&order=desc&per_page=100&page=${page}`,
         { accept: 'application/vnd.github.cloak-preview+json' }
       );
     } catch (err) {
