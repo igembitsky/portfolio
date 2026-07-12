@@ -7,7 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, '../src/data/github-stats.json');
 const USER = 'igembitsky';
 const DAYS = 90;
-const PAGE_LIMIT = 12; // commit-search pages to walk for the distinct-repo set
+const PAGE_LIMIT = 10; // GitHub Search caps results at 1000 (10 pages of 100); page 11+ returns 422
 const PAGE_DELAY_MS = 2000; // gentle pacing between Search API pages to dodge the secondary rate limit
 
 const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
@@ -100,10 +100,18 @@ async function gh(path, { accept } = {}, attempt = 0) {
 async function fetchCommitsAndRepos() {
   const repoSet = new Set();
   for (let page = 1; page <= PAGE_LIMIT; page++) {
-    const data = await gh(
-      `/search/commits?q=author:${USER}+author-date:>=${since}&per_page=100&page=${page}`,
-      { accept: 'application/vnd.github.cloak-preview+json' }
-    );
+    let data;
+    try {
+      data = await gh(
+        `/search/commits?q=author:${USER}+author-date:>=${since}&per_page=100&page=${page}`,
+        { accept: 'application/vnd.github.cloak-preview+json' }
+      );
+    } catch (err) {
+      // Search caps at 1000 results; walking past that returns 422. Stop paging
+      // and keep the repos collected so far rather than failing the whole fetch.
+      if (page > 1 && /\b422\b/.test(err.message)) break;
+      throw err;
+    }
     if (page === 1) result.commits = data.total_count;
     for (const item of data.items || []) {
       if (item.repository?.full_name) repoSet.add(item.repository.full_name);
