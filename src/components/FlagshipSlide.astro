@@ -24,7 +24,7 @@ const { f } = Astro.props;
 </section>
 
 <dialog class="case" id={`case-${f.id}`} aria-labelledby={`case-${f.id}-title`}>
-  <button type="button" class="close" data-close>Close</button>
+  <button type="button" class="close" data-close aria-label="Close">Close</button>
   <div class="wrap">
     <p class="eyebrow eyebrow-accent">{f.number} &middot; {f.category} &middot; {f.org}</p>
     <h2 id={`case-${f.id}-title`}>{f.title}</h2>

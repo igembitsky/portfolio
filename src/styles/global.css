@@ -191,24 +191,30 @@ dialog.case::backdrop { background: rgba(23, 27, 29, 0.25); }
 @media (prefers-reduced-motion: reduce) { dialog.case[open], dialog.case.closing { animation: none; } }
 dialog.case .wrap { width: min(70rem, 100%); margin: 0 auto; padding: 88px 6vw 96px; }
 dialog.case .close {
-  position: fixed; top: 22px; right: 6vw; z-index: 5;
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--color-bg); border: 1px solid var(--color-rule); border-radius: 999px;
-  font: inherit; font-size: var(--fs-small); font-weight: 500; color: var(--color-ink); padding: 10px 14px 10px 18px; cursor: pointer;
-  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+  position: fixed; top: 24px; right: 6vw; z-index: 5;
+  width: 48px; height: 48px; padding: 0; border-radius: 50%;
+  border: 1px solid var(--color-ink); background: rgba(246, 247, 247, 0.72);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  color: transparent; font-size: 0; cursor: pointer; display: grid; place-items: center;
+  transition: background 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s;
 }
-dialog.case .close::after {
-  content: "\00D7"; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%;
-  font-size: 18px; line-height: 1; background: var(--color-ink); color: var(--color-bg);
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.25s, color 0.25s;
+dialog.case .close::before, dialog.case .close::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 18px; height: 1.5px; background: var(--color-ink); border-radius: 1px;
+  transform-origin: center; transition: background 0.3s, transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-dialog.case .close:hover { background: var(--color-ink); color: var(--color-bg); border-color: var(--color-ink); transform: scale(1.03); }
-dialog.case .close:hover::after { background: var(--color-bg); color: var(--color-ink); transform: rotate(90deg) scale(1.15); }
-dialog.case .close:active { transform: scale(0.96); }
-dialog.case[open] .close { animation: close-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.65s both; }
-dialog.case[open] .close::after { animation: x-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s both; }
-@keyframes close-in { 0% { opacity: 0; transform: translateY(-22px) scale(0.9); } 70% { opacity: 1; transform: translateY(3px) scale(1.02); } 100% { opacity: 1; transform: none; } }
-@keyframes x-in { from { transform: rotate(-180deg) scale(0.3); opacity: 0; } to { transform: none; opacity: 1; } }
+dialog.case .close::before { transform: translate(-50%, -50%) rotate(45deg); }
+dialog.case .close::after { transform: translate(-50%, -50%) rotate(-45deg); }
+dialog.case .close:hover { background: var(--color-ink); transform: scale(1.06); }
+dialog.case .close:hover::before { background: var(--color-bg); transform: translate(-50%, -50%) rotate(135deg); }
+dialog.case .close:hover::after { background: var(--color-bg); transform: translate(-50%, -50%) rotate(45deg); }
+dialog.case .close:active { transform: scale(0.94); }
+dialog.case .close:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+dialog.case[open] .close { animation: close-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both; }
+dialog.case[open] .close::before { animation: bar-a 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.95s both; }
+dialog.case[open] .close::after { animation: bar-b 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 1.1s both; }
+@keyframes close-in { 0% { opacity: 0; transform: scale(0.6); } 70% { opacity: 1; transform: scale(1.05); } 100% { opacity: 1; transform: none; } }
+@keyframes bar-a { from { transform: translate(-50%, -50%) rotate(45deg) scaleX(0); } to { transform: translate(-50%, -50%) rotate(45deg) scaleX(1); } }
+@keyframes bar-b { from { transform: translate(-50%, -50%) rotate(-45deg) scaleX(0); } to { transform: translate(-50%, -50%) rotate(-45deg) scaleX(1); } }
 dialog.case h2 { font-size: clamp(32px, 4vw, 54px); margin: 12px 0 16px; max-width: 20ch; }
 dialog.case .thesis { font-size: clamp(18px, 1.5vw, 22px); color: var(--color-muted); max-width: 40rem; }
 dialog.case .visual { margin: 44px 0 52px; }
@@ -331,4 +337,4 @@ dialog.spot .mark { height: 176px; width: auto; display: block; margin: 0 0 8px 
   position: fixed; z-index: 40; width: 40px; height: 40px; border-radius: 50%; pointer-events: none;
   background: var(--color-bg); box-shadow: 0 0 0 1px var(--color-rule); transform: translate(-50%, -50%) scale(0); will-change: transform;
 }
-@media (prefers-reduced-motion: reduce) { .open:hover::after, dialog.case[open] .close, dialog.case[open] .close::after { animation: none; } .burst { display: none; } }
+@media (prefers-reduced-motion: reduce) { .open:hover::after, dialog.case[open] .close, dialog.case[open] .close::before, dialog.case[open] .close::after { animation: none; } .burst { display: none; } }
