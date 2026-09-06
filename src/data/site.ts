@@ -65,7 +65,7 @@ export const flagships: Flagship[] = [
     impact: [
       { value: '~30K MAU', label: '60x growth' },
       { value: '135+', label: 'branded apps' },
-      { value: '~$3.5M ARR', label: 'white-label platform' },
+      { value: 'Millions in ARR', label: 'white-label platform' },
       { value: '15', label: 'product and design team' },
     ],
     support: [
