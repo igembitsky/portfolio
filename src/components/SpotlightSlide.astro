@@ -82,7 +82,7 @@ import Rich from './Rich.astro';
 <style>
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; }
   .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .shots :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; display: block; }
+  .shots :global(img) { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: center top; display: block; }
   h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
   .open { margin-top: 26px; background: none; border: 0; border-bottom: 1px solid var(--color-accent); font: inherit; font-size: 16px; color: var(--color-ink); cursor: pointer; padding: 0 0 2px; }
   .open:hover { color: var(--color-accent); }
