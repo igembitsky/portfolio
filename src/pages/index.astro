@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import Dots from '../components/Dots.astro';
 import Hero from '../components/Hero.astro';
 import FlagshipSlide from '../components/FlagshipSlide.astro';
+import SpotlightSlide from '../components/SpotlightSlide.astro';
 import AiSlide from '../components/AiSlide.astro';
 import OthersSlide from '../components/OthersSlide.astro';
 import AboutSlide from '../components/AboutSlide.astro';
@@ -15,7 +16,8 @@ import { flagships } from '../data/site';
   <main>
     <Hero />
     <div class="work-anchor" id="work"></div>
-    {flagships.map((f) => <FlagshipSlide f={f} />)}
+    <SpotlightSlide />
+    {flagships.filter((f) => f.id !== 'build-scale').map((f) => <FlagshipSlide f={f} />)}
     <AiSlide />
     <OthersSlide />
     <AboutSlide />
@@ -54,7 +56,7 @@ import { flagships } from '../data/site';
     btn.addEventListener('click', () => {
       const d = document.getElementById(btn.dataset.open!) as HTMLDialogElement | null;
       if (!d) return;
-      const card = btn.closest('.slide')?.querySelector('.media, .photo') ?? btn;
+      const card = btn.closest('.slide')?.querySelector('.media, .photo, .compare') ?? btn;
       const r = card.getBoundingClientRect();
       d.style.setProperty('--ox', `${r.left + r.width / 2}px`);
       d.style.setProperty('--oy', `${r.top + r.height / 2}px`);

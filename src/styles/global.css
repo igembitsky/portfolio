@@ -197,6 +197,7 @@ dialog.case .visual { margin: 44px 0 52px; }
 dialog.case h3 { font-size: 15px; font-weight: 500; color: var(--color-accent); margin: 0 0 10px; letter-spacing: 0.01em; }
 dialog.case section p { font-size: 18px; max-width: 34rem; }
 dialog.case .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+dialog.case section p { margin-bottom: 12px; }
 dialog.case .sec { margin-top: 44px; }
 dialog.case .did { list-style: none; padding: 0; margin: 0; max-width: 44rem; }
 dialog.case .did li { position: relative; padding: 8px 0 8px 24px; font-size: 18px; border-top: 1px solid var(--color-rule); }
