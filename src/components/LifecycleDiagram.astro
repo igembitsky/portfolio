@@ -27,7 +27,7 @@ const labels = [
   { dx: -24, dy: -8, anchor: 'end' },
 ];
 ---
-<svg class:list={['loop', { detailed }]} viewBox="-60 0 720 510" role="img" aria-label="Customer lifecycle loop: Sales, Implementation, Adoption, Use and Success, Relationship, each feeding back into the whole journey">
+<svg class:list={['loop', { detailed }]} viewBox="-20 0 640 510" role="img" aria-label="Customer lifecycle loop: Sales, Implementation, Adoption, Use and Success, Relationship, each feeding back into the whole journey">
   <circle cx={cx} cy={cy} r={r} class="ring" />
   {mids.map((m) => <polygon points="-5,-6 6,0 -5,6" transform={`translate(${m.x} ${m.y}) rotate(${m.deg})`} class="head" />)}
   {pts.map((p) => <line x1={p.x} y1={p.y} x2={cx + (p.x - cx) * 0.4} y2={cy + (p.y - cy) * 0.4} class="spoke" style={`stroke:${p.color}`} />)}
@@ -39,7 +39,7 @@ const labels = [
       <circle cx={p.x} cy={p.y} r="8" class="node" style={`stroke:${p.color}`} />
       <text x={p.x + labels[i].dx} y={p.y + labels[i].dy} text-anchor={labels[i].anchor} class="name">{p.name}</text>
       {p.outcome.map((line, k) => (
-        <text x={p.x + labels[i].dx} y={p.y + labels[i].dy + 20 + k * 17} text-anchor={labels[i].anchor} class="out">{line}</text>
+        <text x={p.x + labels[i].dx} y={p.y + labels[i].dy + 21 + k * 18} text-anchor={labels[i].anchor} class="out">{line}</text>
       ))}
     </g>
   ))}
@@ -51,8 +51,8 @@ const labels = [
   .head { fill: var(--color-muted); opacity: 0.8; }
   .spoke { stroke-width: 1.2; stroke-dasharray: 3 4; opacity: 0.45; }
   .core { fill: #fff; stroke: var(--color-rule); stroke-width: 1.5; }
-  .core-t { font-size: 18px; font-weight: 500; fill: var(--color-ink); text-anchor: middle; }
+  .core-t { font-size: 19px; font-weight: 500; fill: var(--color-ink); text-anchor: middle; }
   .node { fill: #fff; stroke-width: 3; }
-  .name { font-size: 18px; font-weight: 500; fill: var(--color-ink); }
-  .out { font-size: 14px; fill: var(--color-muted); }
+  .name { font-size: 20px; font-weight: 500; fill: var(--color-ink); }
+  .out { font-size: 15px; fill: var(--color-muted); }
 </style>
