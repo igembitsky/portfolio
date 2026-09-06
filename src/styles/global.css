@@ -124,7 +124,9 @@ p { margin: 0; }
   transition: opacity 0.3s, filter 0.3s;
 }
 .logos img:hover { opacity: 1; filter: none; }
-.lg-canary { --ls: 1.45; } .lg-brooklyn-museum { --ls: 0.62; } .lg-harvard-law { --ls: 0.95; } .lg-ihs { --ls: 1.0; } .lg-hbs { --ls: 1.5; } .lg-mru { --ls: 1.15; }
+.lg-canary { --ls: 1.45; } .lg-brooklyn-museum { --ls: 0.62; } .lg-harvard-law { --ls: 0.95; } .lg-ihs { --ls: 1.0; } .lg-hbs { --ls: 1.5; } .lg-mru { --ls: 1.5; }
+.lg-mru img { filter: invert(1); }
+.lg-mru img:hover { filter: invert(1); }
 .lockup { display: inline-flex; align-items: center; gap: 10px; opacity: 0.75; transition: opacity 0.3s; }
 .lockup:hover { opacity: 1; }
 .lockup .mark { height: 27px; width: auto; max-width: 40px; object-fit: contain; filter: grayscale(1) brightness(0.35); opacity: 1; mix-blend-mode: multiply; }

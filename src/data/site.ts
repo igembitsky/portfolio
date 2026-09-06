@@ -19,7 +19,7 @@ export const logos: Logo[] = [
   { key: 'harvard-law', name: 'Harvard Law School', file: 'harvard-law.svg' },
   { key: 'hbs', name: 'Harvard Business School', file: 'hbs-lockup.svg' },
   { key: 'ihs', name: 'Institute for Humane Studies', file: 'ihs.svg' },
-  { key: 'mru', name: 'Marginal Revolution University', file: 'mru.svg' },
+  { key: 'mru', name: 'Marginal Revolution University', file: 'mru-lockup.png' },
 ];
 
 export interface Metric { value: string; label: string }
