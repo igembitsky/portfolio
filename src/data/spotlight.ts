@@ -1,6 +1,6 @@
 import type { Visual } from './site';
 
-export interface CompareRow { label: string; before: string; after: string }
+export interface CompareRow { label: string; before: string; after: string; delta?: string }
 
 export const spotlight = {
   id: 'build-scale',
@@ -13,10 +13,10 @@ export const spotlight = {
   note: 'First product hire',
   visual: <Visual>{ video: 'assets/vdb/marketplace.mp4', src: 'assets/vdb/marketplace-poster.jpg', alt: 'The VDB marketplace app in use' },
   compare: <CompareRow[]>[
-    { label: 'Product', before: 'Freemium B2B marketplace', after: 'Multi-tenant SaaS platform and white-label factory' },
-    { label: 'Monthly active users', before: '~500', after: '30,000+' },
-    { label: 'Revenue', before: 'Pre-revenue', after: 'Millions in ARR' },
-    { label: 'Product managers', before: '0', after: '5' },
+    { label: 'Product', before: 'Freemium marketplace', after: 'Multi-tenant SaaS platform', delta: '+ white-label factory' },
+    { label: 'Monthly active users', before: '~500', after: '30,000+', delta: '60x' },
+    { label: 'Revenue', before: 'Pre-revenue', after: 'Millions in ARR', delta: 'From zero' },
+    { label: 'Product managers', before: '0', after: '5', delta: 'Team built' },
   ],
   caseTitle: 'A case study in building and scaling',
   thesis: 'From a pre-revenue B2B marketplace to a multi-tenant SaaS platform generating millions in ARR.',
@@ -32,7 +32,7 @@ export const spotlight = {
     'Before VDB this ran on **phone calls, spreadsheets, JPG files, and other people\'s catalogs.** Fragmented, slow, impossible to show a customer, awkward to mark up.',
     'The platforms that existed were **ugly, hard to use, or expensive.**',
   ],
-  icp: ['Jewelry wholesalers', 'Jewelry retailers', 'Jewelry manufacturers', 'Jewelry designers', 'Jewelry brokers'],
+  icp: ['Wholesalers', 'Retailers', 'Manufacturers', 'Designers', 'Brokers'],
   did: [
     '**Built the analytics framework from scratch.** Instrumentation, metrics and KPIs, user journeys. Used it to find the power users, interviewed them, and tested monetization ideas through design sprints and prototypes.',
     '**Shipped the core trading experience.** Search, filtering, saving, sharing, comparing, matching, and buyer-to-seller communications.',
