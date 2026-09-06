@@ -23,7 +23,7 @@ import Rich from './Rich.astro';
           </div>
         ))}
       </div>
-      <button type="button" class="tlink open" data-open={`case-${f.id}`}>View case study &rarr;</button>
+      <button type="button" class="open" data-open={`case-${f.id}`}>View case study &rarr;</button>
     </div>
     <div class="media collage rv" style="transition-delay:.12s">
       <div class="frame main"><Visual v={f.shots[0]} /></div>
@@ -90,7 +90,5 @@ import Rich from './Rich.astro';
   .collage .side { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; }
   .collage .side .frame { min-height: 0; }
   h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
-  .open { margin-top: 26px; background: none; border: 0; border-bottom: 1px solid var(--color-accent); font: inherit; font-size: var(--fs-body); color: var(--color-ink); cursor: pointer; padding: 0 0 2px; }
-  .open:hover { color: var(--color-accent); }
   @media (max-width: 820px) { .grid { grid-template-columns: 1fr; gap: 28px; } .media { order: -1; } }
 </style>

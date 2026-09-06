@@ -52,28 +52,60 @@ import AboutSlide from '../components/AboutSlide.astro';
   }, { threshold: 0.55 });
   document.querySelectorAll<HTMLElement>('section.slide[id]').forEach((s) => so.observe(s));
 
-  // Case study dialogs: open from the card, collapse back
+  // Case study dialogs: a burst grows from the button, the panel fades in, and the whole thing reverses on close
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const burst = document.createElement('div'); burst.className = 'burst'; document.body.appendChild(burst);
+  const coverScale = (x: number, y: number) => {
+    const dx = Math.max(x, innerWidth - x), dy = Math.max(y, innerHeight - y);
+    return (Math.hypot(dx, dy) * 2) / 40 + 1;
+  };
+  let lastTrigger: HTMLElement | null = null;
+  const placeBurst = (el: HTMLElement) => {
+    const r = el.getBoundingClientRect();
+    const x = r.left + r.width / 2, y = r.top + r.height / 2;
+    burst.style.left = `${x}px`; burst.style.top = `${y}px`;
+    return coverScale(x, y);
+  };
   document.querySelectorAll<HTMLButtonElement>('[data-open]').forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const d = document.getElementById(btn.dataset.open!) as HTMLDialogElement | null;
       if (!d) return;
-      const card = btn.closest('.slide')?.querySelector('.media, .photo') ?? btn;
-      const r = card.getBoundingClientRect();
-      d.style.setProperty('--ox', `${r.left + r.width / 2}px`);
-      d.style.setProperty('--oy', `${r.top + r.height / 2}px`);
+      lastTrigger = btn;
       d.classList.remove('closing');
-      d.showModal();
-      d.scrollTop = 0;
       document.documentElement.style.overflow = 'hidden';
+      if (!reduced) {
+        const sc = placeBurst(btn);
+        const a = burst.animate(
+          [{ transform: 'translate(-50%, -50%) scale(0)' }, { transform: `translate(-50%, -50%) scale(${sc})` }],
+          { duration: 480, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
+        );
+        await a.finished;
+        d.showModal(); d.scrollTop = 0;
+        burst.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 350, delay: 150, fill: 'forwards' }).finished.then(() => {
+          burst.getAnimations().forEach((an) => an.cancel());
+        });
+      } else {
+        d.showModal(); d.scrollTop = 0;
+      }
     });
   });
   document.querySelectorAll<HTMLDialogElement>('dialog.case').forEach((d) => {
-    const closeSoft = () => {
+    const closeSoft = async () => {
       if (d.classList.contains('closing')) return;
       d.classList.add('closing');
-      const done = () => { d.classList.remove('closing'); d.close(); };
-      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduced) done(); else d.addEventListener('animationend', done, { once: true });
+      if (!reduced && lastTrigger) {
+        const sc = placeBurst(lastTrigger);
+        burst.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, fill: 'forwards' });
+        const a = burst.animate(
+          [{ transform: `translate(-50%, -50%) scale(${sc})` }, { transform: 'translate(-50%, -50%) scale(0)' }],
+          { duration: 520, delay: 180, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
+        );
+        setTimeout(() => { d.classList.remove('closing'); d.close(); }, 380);
+        await a.finished;
+        burst.getAnimations().forEach((an) => an.cancel());
+      } else {
+        d.classList.remove('closing'); d.close();
+      }
     };
     d.querySelector('[data-close]')?.addEventListener('click', closeSoft);
     d.addEventListener('cancel', (ev) => { ev.preventDefault(); closeSoft(); });

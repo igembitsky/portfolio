@@ -13,7 +13,7 @@ const base = import.meta.env.BASE_URL;
       <p class="card-org">{f.org} &middot; {f.role}</p>
       <p class="card-sub">{f.note}</p>
       <ul class="how">{f.how.map((h) => <li><Rich text={h} /></li>)}</ul>
-      <button type="button" class="tlink open" data-open={`case-${f.id}`}>View case study &rarr;</button>
+      <button type="button" class="open" data-open={`case-${f.id}`}>View case study &rarr;</button>
     </div>
     <figure class="media rv" style="transition-delay:.12s">
       <div class="frame"><Visual v={f.visual} /></div>
@@ -59,8 +59,6 @@ const base = import.meta.env.BASE_URL;
   .how li:last-child { border-bottom: 1px solid var(--color-rule); }
   .how li::before { content: ""; position: absolute; left: 0; top: 1.4em; width: 12px; height: 1px; background: var(--color-accent); }
   .how b { font-weight: 500; }
-  .open { margin-top: 26px; background: none; border: 0; border-bottom: 1px solid var(--color-accent); font: inherit; font-size: var(--fs-body); color: var(--color-ink); cursor: pointer; padding: 0 0 2px; }
-  .open:hover { color: var(--color-accent); }
   .media { margin: 0; }
   :global(dialog.spot .heroimg.cover img) { object-fit: cover; object-position: center top; mask-image: linear-gradient(180deg, #000 62%, transparent 100%); -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 100%); }
   :global(dialog.spot .heroimg.cover) { height: auto; aspect-ratio: 1.9; max-height: 82svh; }

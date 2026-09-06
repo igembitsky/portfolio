@@ -22,7 +22,7 @@ const year = new Date().getFullYear();
       <div class="science">
         <p class="lead">{about.science}</p>
         <ol class="method">{about.method.map((m) => <li>{m}</li>)}</ol>
-        <button type="button" class="tlink open" data-open="case-papers">View the papers &rarr;</button>
+        <button type="button" class="open" data-open="case-papers">View the papers &rarr;</button>
       </div>
     </div>
   </div>
@@ -68,8 +68,6 @@ const year = new Date().getFullYear();
   .method { list-style: decimal; margin: 10px 0 16px; padding-left: 24px; font-size: var(--fs-body); }
   .method li { padding: 2px 0; }
   .method li::marker { color: var(--color-accent); font-variant-numeric: tabular-nums; }
-  .open { background: none; border: 0; border-bottom: 1px solid var(--color-accent); font: inherit; font-size: var(--fs-body); color: var(--color-ink); cursor: pointer; padding: 0 0 2px; }
-  .open:hover { color: var(--color-accent); }
   .foot { position: absolute; left: 6vw; bottom: 24px; font-size: var(--fs-small); color: var(--color-muted); }
   .papers { list-style: none; padding: 0; margin: 40px 0 0; max-width: 52rem; }
   .papers li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 22px 0; border-top: 1px solid var(--color-rule); }

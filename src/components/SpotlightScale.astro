@@ -24,7 +24,7 @@ import LifecycleDiagram from './LifecycleDiagram.astro';
           </div>
         ))}
       </div>
-      <button type="button" class="tlink open" data-open={`case-${f.id}`}>View case study &rarr;</button>
+      <button type="button" class="open" data-open={`case-${f.id}`}>View case study &rarr;</button>
     </div>
     <div class="media frame rv diagram-box" style="transition-delay:.12s"><LifecycleDiagram /></div>
   </div>
@@ -58,8 +58,6 @@ import LifecycleDiagram from './LifecycleDiagram.astro';
 <style>
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; }
   h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
-  .open { margin-top: 26px; background: none; border: 0; border-bottom: 1px solid var(--color-accent); font: inherit; font-size: var(--fs-body); color: var(--color-ink); cursor: pointer; padding: 0 0 2px; }
-  .open:hover { color: var(--color-accent); }
   .diagram-box { width: 100%; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: 1% 1.5%; }
   :global(dialog.spot .heroimg.product) { height: auto; max-width: 84rem; margin: 0 auto; padding: 72px 3vw 0; overflow: visible; }
   :global(dialog.spot .heroimg.product img) { height: auto; object-fit: contain; -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%); mask-image: linear-gradient(180deg, #000 70%, transparent 100%); }
