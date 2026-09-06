@@ -1,0 +1,112 @@
+---
+// Blowing snow over the hero. Wind runs to the left, matching the hair in the photo.
+// Starts with a few flakes and builds while the hero is on screen. The pointer disturbs it.
+---
+<canvas class="snow" aria-hidden="true"></canvas>
+
+<style>
+  .snow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+</style>
+
+<script>
+  const canvas = document.querySelector<HTMLCanvasElement>('.snow');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (canvas && !reduced) {
+    const ctx = canvas.getContext('2d')!;
+    const hero = canvas.parentElement as HTMLElement;
+    let W = 0, H = 0, dpr = 1;
+    const resize = () => {
+      dpr = Math.min(devicePixelRatio || 1, 2);
+      W = hero.clientWidth; H = hero.clientHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize(); addEventListener('resize', resize);
+
+    type Flake = { x: number; y: number; z: number; vx: number; vy: number; r: number; a: number; life: number };
+    const flakes: Flake[] = [];
+    const MAX = 260;
+    const spawn = (anywhere = false): Flake => {
+      const z = Math.random();                       // depth: 0 far, 1 near
+      return {
+        x: anywhere ? Math.random() * W : W + Math.random() * 80, // enter from the right, wind blows left
+        y: Math.random() * H,
+        z,
+        vx: 0, vy: 0,
+        r: 0.6 + z * 2.2,
+        a: 0.25 + z * 0.55,
+        life: Math.random() * 1000,
+      };
+    };
+
+    // Pointer disturbance
+    let px = -1e4, py = -1e4, pvx = 0, pvy = 0, lastPX = 0, lastPY = 0;
+    hero.addEventListener('pointermove', (e) => {
+      const r = hero.getBoundingClientRect();
+      const nx = e.clientX - r.left, ny = e.clientY - r.top;
+      pvx = nx - lastPX; pvy = ny - lastPY; lastPX = nx; lastPY = ny; px = nx; py = ny;
+    });
+    hero.addEventListener('pointerleave', () => { px = -1e4; py = -1e4; });
+
+    // Only run while the hero is on screen; intensity builds with time on the hero
+    let visible = false, onHero = 0, last = performance.now();
+    new IntersectionObserver((es) => { visible = es[0].isIntersecting; last = performance.now(); }, { threshold: 0.2 }).observe(hero);
+
+    for (let i = 0; i < 20; i++) flakes.push(spawn(true));
+
+    const frame = (now: number) => {
+      requestAnimationFrame(frame);
+      if (!visible || document.hidden) { last = now; return; }
+      const dt = Math.min(0.05, (now - last) / 1000); last = now;
+      onHero += dt;
+
+      // build-up: 0 to 1 over about 50 seconds, easing in
+      const build = Math.min(1, onHero / 50);
+      const intensity = build * build * (3 - 2 * build);
+      const target = Math.round(20 + intensity * (MAX - 20));
+      while (flakes.length < target) flakes.push(spawn());
+
+      // wind: steady leftward flow with slow gusts, growing with intensity
+      const gust = 0.6 + 0.4 * Math.sin(onHero * 0.7) * Math.sin(onHero * 0.23 + 1.3);
+      const wind = (40 + intensity * 260) * gust;           // px per second, leftward
+      const turb = 12 + intensity * 40;
+
+      ctx.clearRect(0, 0, W, H);
+      for (const f of flakes) {
+        f.life += dt;
+        const depth = 0.35 + f.z * 0.95;
+        const tx = -wind * depth;                                       // target horizontal speed
+        const ty = (18 + f.z * 30) + Math.sin(f.life * 1.7 + f.x * 0.01) * turb * 0.4;
+        f.vx += (tx - f.vx) * Math.min(1, dt * 2.2);
+        f.vy += (ty - f.vy) * Math.min(1, dt * 2.2);
+        f.vx += (Math.random() - 0.5) * turb * dt * 4;
+        f.vy += (Math.random() - 0.5) * turb * dt * 2;
+
+        // pointer pushes flakes away and drags them along
+        const dx = f.x - px, dy = f.y - py, d2 = dx * dx + dy * dy, R = 130;
+        if (d2 < R * R) {
+          const d = Math.sqrt(d2) || 1, k = (1 - d / R);
+          f.vx += (dx / d) * k * 420 * dt + pvx * k * 6 * dt * 60;
+          f.vy += (dy / d) * k * 420 * dt + pvy * k * 6 * dt * 60;
+        }
+
+        f.x += f.vx * dt; f.y += f.vy * dt;
+        if (f.x < -40 || f.y > H + 20 || f.y < -60) { Object.assign(f, spawn()); if (f.x > W) f.y = Math.random() * H; }
+
+        // draw: near flakes as short streaks along their motion, far flakes as soft dots
+        const speed = Math.hypot(f.vx, f.vy);
+        ctx.globalAlpha = f.a * (0.55 + 0.45 * intensity);
+        ctx.strokeStyle = ctx.fillStyle = '#ffffff';
+        if (speed > 140 && f.z > 0.45) {
+          const len = Math.min(26, speed * 0.05) * f.z;
+          ctx.lineWidth = f.r * 0.9; ctx.lineCap = 'round';
+          ctx.beginPath(); ctx.moveTo(f.x, f.y); ctx.lineTo(f.x - (f.vx / speed) * len, f.y - (f.vy / speed) * len); ctx.stroke();
+        } else {
+          ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+      ctx.globalAlpha = 1;
+    };
+    requestAnimationFrame(frame);
+  }
+</script>
