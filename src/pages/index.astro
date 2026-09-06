@@ -49,20 +49,33 @@ import { flagships } from '../data/site';
   }, { threshold: 0.55 });
   document.querySelectorAll<HTMLElement>('section.slide[id]').forEach((s) => so.observe(s));
 
-  // Case study dialogs
+  // Case study dialogs: open from the card, collapse back
   document.querySelectorAll<HTMLButtonElement>('[data-open]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const d = document.getElementById(btn.dataset.open!) as HTMLDialogElement | null;
       if (!d) return;
+      const card = btn.closest('.slide')?.querySelector('.media') ?? btn;
+      const r = card.getBoundingClientRect();
+      d.style.setProperty('--ox', `${r.left + r.width / 2}px`);
+      d.style.setProperty('--oy', `${r.top + r.height / 2}px`);
+      d.classList.remove('closing');
       d.showModal();
       d.scrollTop = 0;
       document.documentElement.style.overflow = 'hidden';
     });
   });
   document.querySelectorAll<HTMLDialogElement>('dialog.case').forEach((d) => {
-    d.querySelector('[data-close]')?.addEventListener('click', () => d.close());
+    const closeSoft = () => {
+      if (d.classList.contains('closing')) return;
+      d.classList.add('closing');
+      const done = () => { d.classList.remove('closing'); d.close(); };
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) done(); else d.addEventListener('animationend', done, { once: true });
+    };
+    d.querySelector('[data-close]')?.addEventListener('click', closeSoft);
+    d.addEventListener('cancel', (ev) => { ev.preventDefault(); closeSoft(); });
+    d.addEventListener('click', (ev) => { if (ev.target === d) closeSoft(); });
     d.addEventListener('close', () => { document.documentElement.style.overflow = ''; });
-    d.addEventListener('click', (ev) => { if (ev.target === d) d.close(); });
   });
 </script>
 

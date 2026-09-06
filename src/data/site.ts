@@ -6,10 +6,13 @@ export const links = {
 
 export const hero = {
   eyebrow: 'Product leader & builder',
-  domains: ['B2B SaaS', 'Marketplaces', 'Applied AI', 'Industrial IoT'],
   headline: 'I build and scale products in complex, ambiguous environments.',
-  paragraph:
-    "Over 10+ years, I've taken products from idea to production, grown them into platforms and businesses, and built the teams and systems around them. Today I lead product at an industrial AI startup and increasingly ship production software myself with coding agents.",
+  bullets: [
+    'Take products from idea to production',
+    'Grow them into platforms and businesses',
+    'Build the teams and systems around them',
+  ],
+  now: 'Today I lead product at an industrial AI startup and ship production software myself with coding agents.',
 };
 
 export interface Logo { key: string; name: string; file?: string; mark?: string; text?: string }
@@ -48,12 +51,12 @@ export const flagships: Flagship[] = [
     id: 'build-scale',
     number: '01',
     category: 'Build & Scale',
-    title: 'From marketplace to B2B SaaS platform',
+    title: 'From B2B marketplace to a multi-tenant SaaS platform and white-label factory',
     org: 'Virtual Diamond Boutique',
     summary:
       'Joined as the first product hire and helped grow an early B2B marketplace into a multi-product SaaS platform and business.',
     tags: ['B2B SaaS', 'Marketplace', 'Platform', 'Product Leadership'],
-    key: { src: 'assets/vdb/hero.png', alt: 'Virtual Diamond Boutique marketplace apps' },
+    key: { src: 'assets/vdb/phones.png', alt: 'Virtual Diamond Boutique marketplace apps' },
     goal:
       "Find the marketplace's most valuable users and workflows, build products they would pay for, and create a scalable business around them.",
     users:
@@ -82,7 +85,7 @@ export const flagships: Flagship[] = [
     title: 'Turning AI + hardware into a safety product',
     org: 'Canary',
     summary:
-      'Built an industrial safety product across computer vision, edge hardware, and cloud software by working directly with the people responsible for preventing accidents.',
+      'Built an industrial safety product across computer vision, edge hardware, and cloud software: safety analytics, event review, and data visualization, shaped directly with the safety managers responsible for preventing accidents.',
     tags: ['Applied AI', 'Industrial IoT', '0 to 1', 'Product Discovery'],
     key: { alt: 'Canary installed on a forklift', caption: 'Canary installed on a forklift' },
     goal:
@@ -92,7 +95,8 @@ export const flagships: Flagship[] = [
     did: [
       'Interviewed EHS managers to identify high-value safety problems beyond pedestrian detection.',
       'Expanded the product toward collision and unsafe-driving detection using IMU signals such as hard braking and cornering, alongside video-based identification of safety and OSHA violations.',
-      'Built the customer-facing software and review workflows, created feedback loops around AI detections, and helped make deployment repeatable through self-installation.',
+      'Built the customer-facing software: safety analytics, event review, and data visualization that turn detections into decisions.',
+      'Created feedback loops around AI detections and made deployment repeatable through self-installation.',
     ],
     impact: [
       { value: 'Broader detection', label: 'Pedestrians to driving behavior, collisions, and violations' },
@@ -110,14 +114,14 @@ export const flagships: Flagship[] = [
     id: 'scale-system',
     number: '03',
     category: 'Scale the System',
-    title: 'Scaling the system around the product',
+    title: 'Owning the customer lifecycle end to end',
     org: 'Virtual Diamond Boutique',
     summary:
-      'Extended product thinking into onboarding, customer success, retention, and sales as the business scaled.',
+      'Integrated every customer touchpoint, from first sales call to renewal, into one system with feedback flowing back into product.',
     tags: ['Customer Lifecycle', 'GTM', 'Systems Thinking', 'Product Leadership'],
     key: { alt: 'Customer lifecycle system diagram', caption: 'Sales to onboarding to adoption to health to retention' },
     goal:
-      'Help customers reach value faster while creating a continuous feedback loop between customers, customer success, sales, and product.',
+      'Manage the whole customer experience as one system: reach value faster, keep customers longer, and feed what we learn back into product.',
     users:
       'Customers implementing the white-label platform, plus the internal customer success, implementation, product, and sales teams supporting them.',
     did: [
@@ -158,40 +162,36 @@ export const ai = {
   category: 'Build with AI',
   title: 'Building products with AI',
   org: 'Independent work',
-  summary:
-    'Coding agents have changed what I can build personally. I use them to take ideas through product design, architecture, implementation, deployment, and iteration.',
+  summary: '',
   tags: ['Agentic Engineering', 'AI Product', 'Rapid Prototyping'],
   products: <AiProduct[]>[
     {
       name: 'Prophase',
-      tagline: 'AI job matching built around fit, not keywords',
-      description:
-        "A production job-search product that evaluates opportunities against a candidate's experience, goals, and preferences and helps manage the application process.",
+      tagline: 'Job matching built around fit, not keywords',
+      description: 'Scores every opening against your experience and goals, then drafts the application.',
       status: '~12 beta users',
-      focus: ['Structured context', 'LLM evaluation', 'Recommendations', 'Agentic development'],
-      visual: { alt: 'Prophase screenshot', caption: 'Prophase screenshot' },
+      focus: ['LLM evaluation', 'Recommendations', 'Agentic development'],
+      visual: { src: 'assets/ai/prophase.jpg', alt: 'Prophase shortlist with match analysis' },
     },
     {
       name: 'VibeOps',
       tagline: 'Issue tracking designed for coding agents',
-      description:
-        'An open-source issue tracker built around agentic software development and used across my own projects.',
-      status: 'Open source, actively used',
-      focus: ['Agent coordination', 'Task decomposition', 'Persistent context', 'Human oversight'],
+      description: 'Open-source tracker where agents and humans share one board.',
+      status: 'Open source, in daily use',
+      focus: ['Agent coordination', 'Persistent context', 'Human oversight'],
       url: 'https://github.com/igembitsky/vibeops-tracker',
       urlLabel: 'GitHub',
-      visual: { alt: 'VibeOps screenshot', caption: 'VibeOps screenshot' },
+      visual: { src: 'assets/ai/vibeops.jpg', alt: 'VibeOps board' },
     },
     {
       name: 'Virtual Standardized Patient',
       tagline: 'AI patient simulation designed for local deployment',
-      description:
-        'Built for a global-health conference where I was invited to speak about AI in medical education in resource-constrained environments. Lets medical students practice clinical consultations with an AI-simulated patient using locally running models.',
-      status: 'Conference project',
-      focus: ['Local LLMs', 'Simulation', 'Medical education', 'Offline deployment'],
+      description: 'Medical students practice consultations with an AI patient that runs offline.',
+      status: 'Built for a global-health conference talk',
+      focus: ['Local LLMs', 'Medical education', 'Offline'],
       url: 'https://github.com/igembitsky/virtual-standardized-patient',
       urlLabel: 'GitHub',
-      visual: { alt: 'Virtual Standardized Patient screenshot', caption: 'Virtual Standardized Patient screenshot' },
+      visual: { src: 'assets/ai/vsp.jpg', alt: 'Virtual Standardized Patient' },
     },
   ],
 };
