@@ -21,7 +21,7 @@ export const canary = {
   ],
   mark: 'assets/logos/brand/canary-mark.png',
   caseTitle: 'A case study in finding the product',
-  thesis: 'The founders had a working prototype and a hypothesis: computer vision on a forklift can save lives. My job was to find out what the market needed, and shape the product until it fit.',
+  thesis: 'The founder had a working prototype and a hypothesis: computer vision on a forklift can save lives. My job was to find out what the market needed, and shape the product until it fit.',
   hero: <Visual>{ src: 'assets/canary/cover.jpg', alt: 'Canary: an AI camera platform that reduces forklift near misses and prevents life-threatening incidents' },
   start: [
     '**A functional prototype.** Two cameras and an edge unit on a forklift, detecting pedestrians and warning the driver.',

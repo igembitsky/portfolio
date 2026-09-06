@@ -4,8 +4,8 @@ import Visual from './Visual.astro';
 import Rich from './Rich.astro';
 const base = import.meta.env.BASE_URL;
 ---
-<section class="slide" id={f.id}>
-  <div class="watermark" aria-hidden="true">{f.number}</div>
+<section class="slide flip" id={f.id}>
+  <div class="watermark low" aria-hidden="true">{f.number}</div>
   <div class="inner grid">
     <div class="text rv">
       <p class="eyebrow eyebrow-accent">{f.number} &middot; {f.category}</p>
@@ -51,6 +51,8 @@ const base = import.meta.env.BASE_URL;
 
 <style>
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; }
+  .flip .media { order: -1; }
+  .flip .text { padding-left: 1vw; }
   h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
   .how { list-style: none; padding: 0; margin: 26px 0 0; max-width: 36rem; }
   .how li { position: relative; padding: 12px 0 12px 26px; font-size: 17px; line-height: 1.5; border-top: 1px solid var(--color-rule); }

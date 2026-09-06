@@ -89,6 +89,9 @@ p { margin: 0; }
   user-select: none;
 }
 
+/* Watermark variant: bottom right, for slides with the image on the left */
+.watermark.low { top: auto; bottom: 5vh; }
+
 /* Reveal: visible at rest, animated only when JS is present */
 .js .rv {
   opacity: 0;
