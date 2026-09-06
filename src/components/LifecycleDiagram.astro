@@ -1,15 +1,16 @@
 ---
-// The customer lifecycle as a loop: five stages around a ring, feeding Product at the center.
+// The customer lifecycle as a loop: five stages around a ring, feeding back into the whole journey.
 interface Props { detailed?: boolean }
 const { detailed = false } = Astro.props;
+// Node colors from the VDB logo, used lightly.
 const stages = [
-  { name: 'Sales', outcome: 'Signed SOW' },
-  { name: 'Implementation', outcome: 'Live customer' },
-  { name: 'Adoption', outcome: 'App utilization' },
-  { name: 'Use & Success', outcome: 'Business value' },
-  { name: 'Relationship', outcome: 'Renewals and referrals' },
+  { name: 'Sales', outcome: ['Signed SOW'], color: '#3b72cc' },
+  { name: 'Implementation', outcome: ['Live customer'], color: '#4ca191' },
+  { name: 'Adoption', outcome: ['App utilization'], color: '#804195' },
+  { name: 'Use & Success', outcome: ['Business value'], color: '#d31c50' },
+  { name: 'Relationship', outcome: ['Renewals and', 'referrals'], color: '#713782' },
 ];
-const cx = 300, cy = 240, r = 162;
+const cx = 300, cy = 250, r = 158;
 const pts = stages.map((s, i) => {
   const a = (-90 + i * 72) * Math.PI / 180;
   return { ...s, x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
@@ -19,25 +20,27 @@ const mids = pts.map((p, i) => {
   return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a), deg: a * 180 / Math.PI + 90 };
 });
 const labels = [
-  { dx: 0, dy: -34, anchor: 'middle' },
-  { dx: 22, dy: -6, anchor: 'start' },
-  { dx: 16, dy: 34, anchor: 'start' },
-  { dx: -16, dy: 34, anchor: 'end' },
-  { dx: -22, dy: -6, anchor: 'end' },
+  { dx: 0, dy: -38, anchor: 'middle' },
+  { dx: 24, dy: -8, anchor: 'start' },
+  { dx: 18, dy: 36, anchor: 'start' },
+  { dx: -18, dy: 36, anchor: 'end' },
+  { dx: -24, dy: -8, anchor: 'end' },
 ];
 ---
-<svg class:list={['loop', { detailed }]} viewBox="-30 0 660 484" role="img" aria-label="Customer lifecycle loop: Sales, Implementation, Adoption, Use and Success, Relationship, each feeding Product at the center">
+<svg class:list={['loop', { detailed }]} viewBox="-60 0 720 510" role="img" aria-label="Customer lifecycle loop: Sales, Implementation, Adoption, Use and Success, Relationship, each feeding back into the whole journey">
   <circle cx={cx} cy={cy} r={r} class="ring" />
   {mids.map((m) => <polygon points="-5,-6 6,0 -5,6" transform={`translate(${m.x} ${m.y}) rotate(${m.deg})`} class="head" />)}
-  {pts.map((p) => <line x1={p.x} y1={p.y} x2={cx + (p.x - cx) * 0.36} y2={cy + (p.y - cy) * 0.36} class="spoke" />)}
-  <circle cx={cx} cy={cy} r="52" class="core" />
-  <text x={cx} y={cy - 2} class="core-t">Product</text>
-  <text x={cx} y={cy + 16} class="core-s">learns from every stage</text>
+  {pts.map((p) => <line x1={p.x} y1={p.y} x2={cx + (p.x - cx) * 0.4} y2={cy + (p.y - cy) * 0.4} class="spoke" style={`stroke:${p.color}`} />)}
+  <circle cx={cx} cy={cy} r="58" class="core" />
+  <text x={cx} y={cy - 6} class="core-t">Customer</text>
+  <text x={cx} y={cy + 16} class="core-t">lifecycle</text>
   {pts.map((p, i) => (
     <g>
-      <circle cx={p.x} cy={p.y} r="7" class="node" />
+      <circle cx={p.x} cy={p.y} r="8" class="node" style={`stroke:${p.color}`} />
       <text x={p.x + labels[i].dx} y={p.y + labels[i].dy} text-anchor={labels[i].anchor} class="name">{p.name}</text>
-      <text x={p.x + labels[i].dx} y={p.y + labels[i].dy + 17} text-anchor={labels[i].anchor} class="out">{p.outcome}</text>
+      {p.outcome.map((line, k) => (
+        <text x={p.x + labels[i].dx} y={p.y + labels[i].dy + 20 + k * 17} text-anchor={labels[i].anchor} class="out">{line}</text>
+      ))}
     </g>
   ))}
 </svg>
@@ -45,12 +48,11 @@ const labels = [
 <style>
   .loop { width: 100%; height: auto; display: block; font-family: inherit; }
   .ring { fill: none; stroke: var(--color-rule); stroke-width: 1.5; }
-  .head { fill: var(--color-accent); }
-  .spoke { stroke: var(--color-rule); stroke-width: 1; stroke-dasharray: 3 4; }
-  .core { fill: rgba(47, 93, 98, 0.08); stroke: var(--color-accent); stroke-width: 1.2; }
+  .head { fill: var(--color-muted); opacity: 0.8; }
+  .spoke { stroke-width: 1.2; stroke-dasharray: 3 4; opacity: 0.45; }
+  .core { fill: #fff; stroke: var(--color-rule); stroke-width: 1.5; }
   .core-t { font-size: 18px; font-weight: 500; fill: var(--color-ink); text-anchor: middle; }
-  .core-s { font-size: 11px; fill: var(--color-muted); text-anchor: middle; }
-  .node { fill: #fff; stroke: var(--color-accent); stroke-width: 2.5; }
-  .name { font-size: 16px; font-weight: 500; fill: var(--color-ink); }
-  .out { font-size: 13px; fill: var(--color-muted); }
+  .node { fill: #fff; stroke-width: 3; }
+  .name { font-size: 18px; font-weight: 500; fill: var(--color-ink); }
+  .out { font-size: 14px; fill: var(--color-muted); }
 </style>
