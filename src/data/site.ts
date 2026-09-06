@@ -148,9 +148,7 @@ export interface AiProduct {
   tagline: string;
   description: string;
   status: string;
-  focus: string[];
-  url?: string;
-  urlLabel?: string;
+  links: { label: string; url: string }[];
   visual: Visual;
 }
 
@@ -164,30 +162,32 @@ export const ai = {
   products: <AiProduct[]>[
     {
       name: 'Prophase',
-      tagline: 'Finds the jobs worth your time, then helps you apply',
-      description: 'Understands your skills, experience, domain expertise, and where you want to go. Matches that against what is on offer, and helps you apply.',
-      status: '~12 beta users',
-      focus: ['LLM evaluation', 'Recommendations', 'Agentic development'],
+      tagline: 'A job search product that understands you, then does the work.',
+      description:
+        'Reads your skills, experience, and what you want next. Matches that against real openings, and helps you apply. Shipped to production and in use with early customers.',
+      status: 'In production · Private beta',
+      links: [],
       visual: { src: 'assets/ai/prophase.jpg', alt: 'Prophase shortlist with match analysis' },
     },
     {
       name: 'VibeOps',
-      tagline: 'Issue tracking designed for coding agents',
-      description: 'A tracker where coding agents and humans share one board, with persistent context and human oversight.',
-      status: 'Open source, in daily use',
-      focus: ['Agent coordination', 'Persistent context', 'Human oversight'],
-      url: 'https://github.com/igembitsky/vibeops-tracker',
-      urlLabel: 'GitHub',
+      tagline: 'An issue tracker built for working with coding agents.',
+      description:
+        'Started as my own pain: bugs, ideas, and production feedback scattered across too many places. Now one board that captures context from the code, prioritizes, and hands work to agents. Open sourced.',
+      status: 'Open source · Daily use',
+      links: [{ label: 'GitHub', url: 'https://github.com/igembitsky/vibeops-tracker' }],
       visual: { src: 'assets/ai/vibeops.jpg', alt: 'VibeOps board' },
     },
     {
       name: 'Virtual Standardized Patient',
-      tagline: 'AI patient simulation designed for local deployment',
-      description: 'Medical students practice clinical consultations with an AI patient that runs on local models, fully offline.',
-      status: 'Open source · Built for a global-health conference',
-      focus: ['Local LLMs', 'Medical education', 'Offline'],
-      url: 'https://github.com/igembitsky/virtual-standardized-patient',
-      urlLabel: 'GitHub',
+      tagline: 'A free AI patient that runs offline, for medical schools with few resources.',
+      description:
+        'Invited to speak at the Global Health Conference, I built this for the workshop. Students practice consultations with an AI patient on local models. No cloud, no cost, no data leaving the room.',
+      status: 'Open source · Conference workshop',
+      links: [
+        { label: 'GitHub', url: 'https://github.com/igembitsky/virtual-standardized-patient' },
+        { label: 'Conference', url: 'https://www.theglobalhealthacademy.org/global-health-academy/global-health-conferences/2026-home' },
+      ],
       visual: { src: 'assets/ai/vsp.jpg', alt: 'Virtual Standardized Patient consultation with Jerry Graham, 55' },
     },
   ],

@@ -16,8 +16,10 @@ import Visual from './Visual.astro';
           <h3>{p.name}</h3>
           <p class="tag">{p.tagline}</p>
           <p class="desc">{p.description}</p>
-          <ul class="tags">{p.focus.map((t) => <li>{t}</li>)}</ul>
-          <p class="meta">{p.status}{p.url && <span> &middot; <a class="tlink" href={p.url} target="_blank" rel="noopener noreferrer">{p.urlLabel} &rarr;</a></span>}</p>
+          <div class="foot">
+            <span class="status">{p.status}</span>
+            <span class="links">{p.links.map((l) => <a class="tlink" href={l.url} target="_blank" rel="noopener noreferrer">{l.label} &rarr;</a>)}</span>
+          </div>
         </article>
       ))}
     </div>
@@ -26,15 +28,14 @@ import Visual from './Visual.astro';
 
 <style>
   h2 { font-size: clamp(30px, 3.4vw, 46px); margin: 14px 0 0; }
-  /* Rows align across the three cards with subgrid: image, name, tagline, description, focus, status */
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto auto auto auto auto; gap: 0 24px; margin-top: 36px; }
-  .card { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; border: 1px solid var(--color-rule); background: #fff; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto auto auto auto; gap: 0 24px; margin-top: 36px; }
+  .card { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; border: 1px solid var(--color-rule); background: #fff; }
   .card > .frame { border: 0; border-bottom: 1px solid var(--color-rule); }
   .card :global(img), .card :global(.ph) { aspect-ratio: 16 / 10; }
-  h3 { font-size: 24px; font-weight: 500; margin: 22px 24px 0; }
-  .tag { font-size: var(--fs-body); margin: 4px 24px 0; }
-  .desc { margin: 12px 24px 0; font-size: var(--fs-body); color: var(--color-muted); }
-  .tags { margin: 18px 24px 0; align-self: end; }
-  .meta { font-size: var(--fs-small); color: var(--color-muted); margin: 16px 0 0; padding: 14px 24px 20px; border-top: 1px solid var(--color-rule); }
-  @media (max-width: 900px) { .cards { grid-template-columns: 1fr; gap: 28px; } .card { grid-row: auto; grid-template-rows: auto; } }
+  h3 { font-size: 24px; font-weight: 500; margin: 26px 26px 0; }
+  .tag { font-size: var(--fs-body); font-weight: 500; margin: 10px 26px 0; line-height: 1.4; }
+  .desc { margin: 16px 26px 0; font-size: var(--fs-body); color: var(--color-muted); }
+  .foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 26px 0 0; padding: 16px 26px 20px; border-top: 1px solid var(--color-rule); font-size: var(--fs-small); color: var(--color-muted); }
+  .links { display: flex; gap: 16px; white-space: nowrap; color: var(--color-ink); }
+  @media (max-width: 900px) { .cards { grid-template-columns: 1fr; gap: 24px; } .card { grid-row: auto; grid-template-rows: auto; } }
 </style>
