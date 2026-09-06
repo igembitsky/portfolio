@@ -5,6 +5,7 @@ import Dots from '../components/Dots.astro';
 import Hero from '../components/Hero.astro';
 import FlagshipSlide from '../components/FlagshipSlide.astro';
 import SpotlightSlide from '../components/SpotlightSlide.astro';
+import SpotlightCanary from '../components/SpotlightCanary.astro';
 import AiSlide from '../components/AiSlide.astro';
 import OthersSlide from '../components/OthersSlide.astro';
 import AboutSlide from '../components/AboutSlide.astro';
@@ -17,7 +18,8 @@ import { flagships } from '../data/site';
     <Hero />
     <div class="work-anchor" id="work"></div>
     <SpotlightSlide />
-    {flagships.filter((f) => f.id !== 'build-scale').map((f) => <FlagshipSlide f={f} />)}
+    <SpotlightCanary />
+    {flagships.filter((f) => f.id !== 'build-scale' && f.id !== 'find-product').map((f) => <FlagshipSlide f={f} />)}
     <AiSlide />
     <OthersSlide />
     <AboutSlide />
