@@ -1,57 +1,51 @@
 ---
-import GithubStats from './GithubStats.astro';
-
-const linkedinUrl = 'https://www.linkedin.com/in/gembitsky';
-const githubUrl = 'https://github.com/igembitsky';
+import { hero, links, logos } from '../data/site';
+const base = import.meta.env.BASE_URL;
 ---
-<section id="about" class="min-h-[90vh] flex flex-col justify-center container py-24 relative">
-
-  <div class="reveal">
-    <p class="text-fg-muted text-sm font-mono tracking-wide mb-6">Product & Operations</p>
+<section class="slide hero" id="top">
+  <div class="bg" role="img" aria-label="Igor Gembitsky in front of a glacier lake" style={`background-image:url(${base}assets/personal/igor-hero.jpg)`}></div>
+  <div class="veil"></div>
+  <div class="copy">
+    <p class="eyebrow eyebrow-accent">{hero.eyebrow}</p>
+    <p class="domains">{hero.domains.join(' · ')}</p>
+    <h1>{hero.headline}</h1>
+    <p class="lede">{hero.paragraph}</p>
+    <ul class="cta">
+      <li><a class="tlink" href="#build-scale">Selected work &darr;</a></li>
+      <li><a class="tlink" href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn &rarr;</a></li>
+      <li><a class="tlink" href={links.github} target="_blank" rel="noopener noreferrer">GitHub &rarr;</a></li>
+      <li><a class="tlink" href={links.chess} target="_blank" rel="noopener noreferrer">Play me at chess &rarr;</a></li>
+    </ul>
   </div>
-
-  <div class="reveal" style="transition-delay: 0.08s">
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-[1.1]">
-      Igor Gembitsky
-    </h1>
-  </div>
-
-  <div class="reveal" style="transition-delay: 0.16s">
-    <p class="mt-5 text-xl sm:text-2xl font-light gradient-text max-w-2xl leading-snug">
-      I build self-improving teams, self-evolving systems, and product/automations using AI.
-    </p>
-  </div>
-
-  <div class="reveal" style="transition-delay: 0.24s">
-    <p class="mt-8 text-fg-muted text-base sm:text-lg max-w-lg leading-relaxed">
-      Great products need someone who builds the team as carefully as the
-      product. I've been that person seven times across science, education,
-      media, fintech, marketplaces, and industrial AI.
-    </p>
-  </div>
-
-  <div class="reveal mt-6" style="transition-delay: 0.28s">
-    <GithubStats>
-      I use AI-native tools and workflows to automate the tedious and move
-      from idea, to prototype, to shipped product.
-    </GithubStats>
-  </div>
-
-  <div class="reveal flex flex-wrap gap-3 mt-10" style="transition-delay: 0.32s">
-    <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      Connect
-    </a>
-    <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-      GitHub
-    </a>
-  </div>
-
-  <!-- Scroll indicator -->
-  <div class="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 reveal" style="transition-delay: 0.5s">
-    <div class="w-5 h-8 border border-fg-dim rounded-full flex justify-center pt-1.5">
-      <div class="w-1 h-2 bg-fg-dim rounded-full animate-bounce"></div>
-    </div>
+  <div class="strip">
+    <p class="eyebrow">Worked with</p>
+    <ul class="logos">
+      {logos.map((l) => (
+        <li class={`lg-${l.key}`}>
+          {l.file && <img src={`${base}assets/logos/brand/${l.file}`} alt={l.name} loading="eager" />}
+          {l.mark && <span class="lockup"><img class="mark" src={`${base}assets/logos/brand/${l.mark}`} alt="" loading="eager" /><span class="name">{l.text}</span></span>}
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
+
+<style>
+  .hero { padding: 0; display: block; }
+  .bg { position: absolute; inset: 0; background-position: center left; background-size: cover; background-repeat: no-repeat; }
+  .veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(246,247,247,0) 38%, rgba(246,247,247,0.92) 64%, rgba(246,247,247,1) 100%); }
+  .copy { position: relative; margin-left: auto; width: min(46rem, 50vw); padding: 22vh 6vw 0 0; min-height: calc(100svh - 150px); }
+  .domains { font-size: 14px; color: var(--color-muted); margin: 12px 0 26px; letter-spacing: 0.02em; }
+  h1 { font-size: clamp(32px, 4vw, 54px); }
+  .lede { font-size: clamp(16px, 1.25vw, 19px); color: var(--color-muted); max-width: 34rem; margin: 26px 0 0; }
+  .cta { display: flex; gap: 28px; margin: 36px 0 0; list-style: none; padding: 0; font-size: 15px; }
+  .strip { position: relative; padding: 24px 6vw 28px; border-top: 1px solid var(--color-rule); background: linear-gradient(180deg, rgba(246,247,247,0.7), rgba(246,247,247,1)); }
+  .strip .eyebrow { margin-bottom: 16px; }
+  @media (max-width: 820px) {
+    .veil { background: linear-gradient(180deg, rgba(246,247,247,0) 26%, rgba(246,247,247,0.95) 52%); }
+    .copy { width: 100%; padding: 52vh 24px 40px; min-height: auto; }
+    .bg { background-size: 140% auto; background-position: 34% 0; }
+    .strip { padding: 20px 24px 28px; }
+    .strip .logos { justify-content: flex-start; gap: 18px 28px; }
+  }
+</style>

@@ -1,32 +1,53 @@
 import { test, expect } from '@playwright/test';
 
-test('homepage loads with key sections', async ({ page }) => {
-  await page.goto('/');
+test('homepage loads with hero, flagships, and about', async ({ page }) => {
+  await page.goto('/portfolio/');
 
-  await expect(page.locator('h1')).toContainText('Igor Gembitsky');
-  await expect(page.locator('nav')).toBeVisible();
-  await expect(page.locator('#canary')).toBeAttached();
-  await expect(page.locator('#vdb')).toBeAttached();
-  await expect(page.locator('#projects')).toBeAttached();
-  await expect(page.locator('#contact')).toBeVisible();
+  await expect(page.locator('h1')).toContainText('I build and scale products');
+  await expect(page.locator('nav.site-nav')).toBeVisible();
+  await expect(page.locator('#build-scale')).toBeAttached();
+  await expect(page.locator('#find-product')).toBeAttached();
+  await expect(page.locator('#scale-system')).toBeAttached();
+  await expect(page.locator('#build-ai')).toBeAttached();
+  await expect(page.locator('#other')).toBeAttached();
+  await expect(page.locator('#about')).toBeAttached();
 
-  const linkedinLink = page.locator('a[href*="linkedin.com/in/gembitsky"]');
-  await expect(linkedinLink.first()).toBeVisible();
+  const linkedin = page.locator('a[href*="linkedin.com/in/gembitsky"]');
+  await expect(linkedin.first()).toBeVisible();
 });
 
-test('navigation links scroll to sections', async ({ page }) => {
-  await page.goto('/');
-
-  await page.click('a[href="#canary"]');
-  await expect(page.locator('#canary')).toBeInViewport();
+test('no email address or resume link is exposed', async ({ page }) => {
+  await page.goto('/portfolio/');
+  const html = await page.content();
+  expect(html).not.toMatch(/mailto:/i);
+  expect(html).not.toMatch(/[A-Za-z0-9.+-]+@[A-Za-z0-9-]+\.[a-z]{2,}/);
+  expect(html).not.toMatch(/resume|\bcv\b/i);
 });
 
-test('portfolio cards expand on click', async ({ page }) => {
-  await page.goto('/');
+test('logo strip renders all seven logos', async ({ page }) => {
+  await page.goto('/portfolio/');
+  const imgs = page.locator('.logos img');
+  await expect(imgs).toHaveCount(7);
+  for (const img of await imgs.all()) {
+    const w = await img.evaluate((el) => (el as HTMLImageElement).naturalWidth);
+    expect(w).toBeGreaterThan(0);
+  }
+});
 
-  const trigger = page.locator('[data-expand-trigger]').first();
-  await trigger.click();
+test('case study opens as a dialog and closes on Escape', async ({ page }) => {
+  await page.goto('/portfolio/');
+  await page.locator('[data-open="case-build-scale"]').click();
+  const dialog = page.locator('#case-build-scale');
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator('h2')).toContainText('From marketplace');
+  await expect(dialog.getByText('Goal', { exact: true })).toBeVisible();
+  await expect(dialog.getByText('Impact', { exact: true })).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+});
 
-  const panel = page.locator('.card-expand-panel.open').first();
-  await expect(panel).toBeVisible();
+test('nav links scroll to the section', async ({ page }) => {
+  await page.goto('/portfolio/');
+  await page.click('nav.site-nav a[href="#about"]');
+  await expect(page.locator('#about')).toBeInViewport();
 });

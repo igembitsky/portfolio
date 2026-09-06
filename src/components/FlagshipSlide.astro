@@ -1,0 +1,63 @@
+---
+import type { Flagship } from '../data/site';
+import Visual from './Visual.astro';
+import Diagram from './Diagram.astro';
+interface Props { f: Flagship }
+const { f } = Astro.props;
+---
+<section class="slide" id={f.id}>
+  <div class="watermark" aria-hidden="true">{f.number}</div>
+  <div class="inner grid">
+    <div class="text rv">
+      <p class="eyebrow eyebrow-accent">{f.number} &middot; {f.category}</p>
+      <h2>{f.title}</h2>
+      <p class="org">{f.org}</p>
+      <p class="summary">{f.summary}</p>
+      <ul class="tags">{f.tags.map((t) => <li>{t}</li>)}</ul>
+      <button type="button" class="tlink open" data-open={`case-${f.id}`}>View case study &rarr;</button>
+    </div>
+    <div class="media rv" style="transition-delay:.12s">
+      {f.diagram === 'system' && !f.key.src ? <div class="ph"><Diagram kind="system" /></div> : <Visual v={f.key} />}
+    </div>
+  </div>
+</section>
+
+<dialog class="case" id={`case-${f.id}`} aria-labelledby={`case-${f.id}-title`}>
+  <button type="button" class="close" data-close>Close &times;</button>
+  <div class="wrap">
+    <p class="eyebrow eyebrow-accent">{f.number} &middot; {f.category} &middot; {f.org}</p>
+    <h2 id={`case-${f.id}-title`}>{f.title}</h2>
+    <p class="thesis">{f.summary}</p>
+    <div class="visual"><Visual v={f.key} wide /></div>
+    <div class="cols">
+      <div><p class="eyebrow">Goal</p><p class="mt-3">{f.goal}</p></div>
+      <div><p class="eyebrow">Users</p><p class="mt-3">{f.users}</p></div>
+    </div>
+    <div class="sec">
+      <p class="eyebrow">What I did</p>
+      {f.did.map((d) => <p class="mt-3">{d}</p>)}
+    </div>
+    <div class="sec">
+      <p class="eyebrow">Impact</p>
+      <div class="impact">
+        {f.impact.map((m) => <div><b>{m.value}</b><span>{m.label}</span></div>)}
+      </div>
+    </div>
+    {f.diagram && <div class="sec"><Diagram kind={f.diagram} /></div>}
+    {f.support.length > 0 && (
+      <div class="support">
+        {f.support.map((v) => <Visual v={v} />)}
+      </div>
+    )}
+  </div>
+</dialog>
+
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 6vw; align-items: center; }
+  h2 { font-size: clamp(30px, 3.6vw, 50px); margin: 14px 0 10px; max-width: 16ch; }
+  .org { color: var(--color-muted); font-size: 15px; letter-spacing: 0.04em; }
+  .summary { margin: 22px 0 22px; max-width: 34rem; font-size: 17px; }
+  .open { margin-top: 30px; background: none; border: 0; border-bottom: 1px solid var(--color-accent); font: inherit; font-size: 15px; color: var(--color-ink); cursor: pointer; padding: 0 0 2px; }
+  .open:hover { color: var(--color-accent); }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; gap: 28px; } .media { order: -1; } }
+</style>

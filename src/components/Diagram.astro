@@ -1,0 +1,21 @@
+---
+interface Props { kind: 'platform' | 'system' }
+const { kind } = Astro.props;
+---
+{kind === 'platform' && (
+  <div class="diagram" aria-label="Marketplace to shared platform to 135 plus branded products">
+    <span class="node">Marketplace</span><span class="arrow">&rarr;</span>
+    <span class="node">Shared platform</span><span class="arrow">&rarr;</span>
+    <span class="node accent">135+ branded products</span>
+  </div>
+)}
+{kind === 'system' && (
+  <div class="diagram" aria-label="Sales to onboarding to adoption to customer health to retention, with feedback into product">
+    <span class="node">Sales</span><span class="arrow">&rarr;</span>
+    <span class="node">Onboarding</span><span class="arrow">&rarr;</span>
+    <span class="node">Adoption</span><span class="arrow">&rarr;</span>
+    <span class="node">Customer health</span><span class="arrow">&rarr;</span>
+    <span class="node">Retention</span>
+    <span class="loop">&#8617; Feedback from every stage flows into <b>Product</b></span>
+  </div>
+)}

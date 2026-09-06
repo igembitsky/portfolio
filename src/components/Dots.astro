@@ -1,0 +1,6 @@
+---
+import { sections } from '../data/site';
+---
+<ul class="dots" aria-label="Sections">
+  {sections.map((s) => <li><a href={`#${s.id}`} data-dot={s.id} aria-label={s.label} title={s.label}></a></li>)}
+</ul>
