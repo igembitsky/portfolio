@@ -5,14 +5,10 @@ export const links = {
 };
 
 export const hero = {
+  name: 'Igor Gembitsky',
   eyebrow: 'Product leader & builder',
+  domains: ['B2B SaaS', 'Marketplaces', 'Applied AI', 'Industrial IoT'],
   headline: 'I build and scale products in complex, ambiguous environments.',
-  bullets: [
-    'Take products from idea to production',
-    'Grow them into platforms and businesses',
-    'Build the teams and systems around them',
-  ],
-  now: 'Today I lead product at an industrial AI startup and ship production software myself with coding agents.',
 };
 
 export interface Logo { key: string; name: string; file?: string; mark?: string; text?: string }
@@ -191,7 +187,7 @@ export const ai = {
       focus: ['Local LLMs', 'Medical education', 'Offline'],
       url: 'https://github.com/igembitsky/virtual-standardized-patient',
       urlLabel: 'GitHub',
-      visual: { src: 'assets/ai/vsp.jpg', alt: 'Virtual Standardized Patient' },
+      visual: { src: 'assets/ai/vsp.jpg', alt: 'Virtual Standardized Patient consultation with Jerry Graham, 55' },
     },
   ],
 };
@@ -240,12 +236,25 @@ export const others: OtherProject[] = [
 ];
 
 export const about = {
-  headline: 'I tend to think in systems.',
-  paragraphs: [
-    'I started in biochemistry and neuroscience, publishing three peer-reviewed papers before moving into product.',
-    'That background still shapes how I work: understand the system, make its behavior visible, build feedback loops, and keep improving it.',
-    "Since then I've built products, led product teams, owned customer and commercial systems, and increasingly build production software directly with AI.",
-    "I'm most useful when the problem matters and the path isn't obvious yet.",
+  headline: 'Senior product leader who still ships as an individual contributor.',
+  sub: 'Hire me to own a product area end to end, or to build the products, processes, and infrastructure a product team runs on.',
+  bullets: [
+    'Take products from idea to production',
+    'Grow them into platforms and businesses',
+    'Build the teams and systems around them',
+  ],
+  now: 'Today I lead product at an industrial AI startup and ship production software myself with coding agents.',
+  science: 'I started in biochemistry and neuroscience and published three peer-reviewed papers. That training still shapes how I work:',
+  method: [
+    'Start with research and understanding',
+    'Build experimental frameworks and feedback loops',
+    'Collect and analyze the data',
+    'Keep improving',
+  ],
+  papers: [
+    { title: 'Inhibition of System xc Transporter Attenuates Autoimmune Inflammatory Demyelination', journal: 'The Journal of Immunology', date: 'July 2015', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4490999/' },
+    { title: 'A Possible Connection Between Antidiabetic and Antilipemic Properties of Psoralea corylifolia Seeds: A LIBS-Based Study', journal: 'Food Biophysics', date: 'June 2013', url: 'https://link.springer.com/article/10.1007/s11483-012-9280-1' },
+    { title: 'Comparative Toxicological Studies of Heracleum maximum and Psoralea corylifolia on Brine Shrimp and Wistar Rats', journal: 'Annals of Phytomedicine', date: 'July 2024', url: 'https://doi.org/10.54085/ap.2024.13.1.66' },
   ],
 };
 

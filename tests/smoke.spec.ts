@@ -51,3 +51,13 @@ test('nav links scroll to the section', async ({ page }) => {
   await page.click('nav.site-nav a[href="#about"]');
   await expect(page.locator('#about')).toBeInViewport();
 });
+
+test('papers dialog opens from About and lists three papers', async ({ page }) => {
+  await page.goto('/portfolio/');
+  await page.locator('[data-open="case-papers"]').click();
+  const dialog = page.locator('#case-papers');
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator('.papers li')).toHaveCount(3);
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+});

@@ -1,5 +1,5 @@
 ---
-import { links, hero } from '../data/site';
+import { links } from '../data/site';
 const items = [
   { label: 'Work', href: '#build-scale' },
   { label: 'About', href: '#about' },
@@ -8,7 +8,7 @@ const items = [
 ];
 ---
 <nav class="site-nav" aria-label="Primary">
-  <a class="brand" href="#top">Igor Gembitsky <span class="role">{hero.eyebrow}</span></a>
+  <a class="brand" href="#top">Igor Gembitsky</a>
   <ul>
     {items.map((i) => (
       <li>

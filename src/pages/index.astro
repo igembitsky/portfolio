@@ -54,7 +54,7 @@ import { flagships } from '../data/site';
     btn.addEventListener('click', () => {
       const d = document.getElementById(btn.dataset.open!) as HTMLDialogElement | null;
       if (!d) return;
-      const card = btn.closest('.slide')?.querySelector('.media') ?? btn;
+      const card = btn.closest('.slide')?.querySelector('.media, .photo') ?? btn;
       const r = card.getBoundingClientRect();
       d.style.setProperty('--ox', `${r.left + r.width / 2}px`);
       d.style.setProperty('--oy', `${r.top + r.height / 2}px`);
