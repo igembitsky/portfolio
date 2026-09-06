@@ -21,7 +21,7 @@ export const scale = {
   thesis:
     'Having built the core product and the team to run it, my ownership expanded to customer success and the pre-sale journey.',
   wins: ['Delivered value faster', 'Increased customer retention', 'Increased engagement and satisfaction', 'Increased revenue retention and sales velocity'],
-  hero: <Visual>{ src: 'assets/vdb/cs/presenting-analytics.jpg', alt: 'Presenting the executive summary of plan usage to the team' },
+  hero: <Visual>{ src: 'assets/vdb/devices.png', alt: 'The VDB platform on desktop, laptop, tablet, and phone' },
   where: [
     '**The platform had scaled.** 30,000+ monthly active users, a white-label factory, and 135+ branded apps on the way.',
     '**The constraint moved from building to delivering.** It took about four months to take a customer live and about three months before they saw a beta.',
@@ -61,7 +61,10 @@ export const scale = {
       { src: 'assets/vdb/cs/slide-8.jpg', alt: 'The customer success pipeline as a flow' },
       { src: 'assets/vdb/cs/slide-17.jpg', alt: 'Accounts in each onboarding phase, 2022 Q3' },
     ] },
-    { cols: 1, items: [{ src: 'assets/vdb/cs/early-warning.jpg', alt: 'The early-warning view: usage signals per account over the last 30 days, account names left out' }] },
+    { cols: 2, items: [
+      { src: 'assets/vdb/cs/presenting-analytics.jpg', alt: 'Presenting the executive summary of plan usage to the team' },
+      { src: 'assets/vdb/cs/early-warning.jpg', alt: 'The early-warning view: usage signals per account over the last 30 days, account names left out' },
+    ] },
     { cols: 3, items: [
       { src: 'assets/vdb/cs/slide-24.jpg', alt: 'How to reduce churn: one view of the customer, early warning, business reviews' },
       { src: 'assets/vdb/cs/slide-25.jpg', alt: 'Customer health score inputs' },
