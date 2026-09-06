@@ -10,8 +10,8 @@ import LifecycleDiagram from './LifecycleDiagram.astro';
     <div class="text rv">
       <p class="eyebrow eyebrow-accent">{f.number} &middot; {f.category}</p>
       <h2>{f.title}</h2>
-      <p class="org">{f.org} &middot; {f.role}</p>
-      <p class="note">{f.note}</p>
+      <p class="card-org">{f.org} &middot; {f.role}</p>
+      <p class="card-sub">{f.note}</p>
       <div class="score" role="table" aria-label="Impact scorecard">
         <div class="shead"><span class="stitle">Impact scorecard</span><span class="speriod">2021 to 2024</span></div>
         <div class="scols" role="row"><span></span><span>Before</span><span></span><span class="after">After</span></div>
@@ -59,8 +59,6 @@ import LifecycleDiagram from './LifecycleDiagram.astro';
 <style>
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; }
   h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
-  .org { font-size: 17px; }
-  .note { color: var(--color-muted); font-size: 16px; margin-top: 4px; }
   .open { margin-top: 26px; background: none; border: 0; border-bottom: 1px solid var(--color-accent); font: inherit; font-size: 16px; color: var(--color-ink); cursor: pointer; padding: 0 0 2px; }
   .open:hover { color: var(--color-accent); }
   .diagram-box { width: 100%; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: 3% 2.5%; }

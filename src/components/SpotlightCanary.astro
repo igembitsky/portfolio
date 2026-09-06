@@ -10,8 +10,8 @@ const base = import.meta.env.BASE_URL;
     <div class="text rv">
       <p class="eyebrow eyebrow-accent">{f.number} &middot; {f.category}</p>
       <h2>{f.title}</h2>
-      <p class="org">{f.org} &middot; {f.role}</p>
-      <p class="note">{f.note}</p>
+      <p class="card-org">{f.org} &middot; {f.role}</p>
+      <p class="card-sub">{f.note}</p>
       <ul class="how">{f.how.map((h) => <li><Rich text={h} /></li>)}</ul>
       <button type="button" class="tlink open" data-open={`case-${f.id}`}>View case study &rarr;</button>
     </div>
@@ -52,8 +52,6 @@ const base = import.meta.env.BASE_URL;
 <style>
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; }
   h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
-  .org { font-size: 17px; }
-  .note { color: var(--color-ink); font-size: 17px; margin-top: 4px; }
   .how { list-style: none; padding: 0; margin: 26px 0 0; max-width: 36rem; }
   .how li { position: relative; padding: 12px 0 12px 26px; font-size: 17px; line-height: 1.5; border-top: 1px solid var(--color-rule); }
   .how li:last-child { border-bottom: 1px solid var(--color-rule); }

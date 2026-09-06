@@ -285,3 +285,7 @@ dialog.spot .mark { height: 176px; width: auto; display: block; margin: 0 0 8px 
   dialog.spot .gallery .g2, dialog.spot .gallery .g3 { grid-template-columns: 1fr; }
   dialog.spot .plain { text-wrap: wrap; }
 }
+
+/* Spotlight card sub-line, shared by all cases */
+.card-org { font-size: 17px; }
+.card-sub { color: var(--color-muted); font-size: 16px; margin-top: 4px; }

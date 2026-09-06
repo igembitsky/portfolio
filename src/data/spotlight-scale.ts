@@ -15,7 +15,7 @@ export const scale = {
     { label: 'Churn', before: '~25%', after: '~10%', delta: '60% less churn' },
     { label: 'Inventory setup', before: '~3 weeks', after: '~5 days', delta: '76% faster' },
     { label: 'Homepage setup', before: '~1 month', after: '~2 weeks', delta: '50% faster' },
-    { label: 'Deal velocity', before: 'Rep by rep', after: 'Structured funnel', delta: '+20%' },
+    { label: 'Pipeline growth, quarter over quarter', before: 'Flat', after: '+20%', delta: 'Every stage up' },
   ],
   caseTitle: 'A case study in scaling the system',
   thesis:
@@ -41,14 +41,14 @@ export const scale = {
     '**Built the customer portal and help bot.** Customers submit and track requests, get answers, and configure their own apps.',
     '**Integrated the support infrastructure into one view of the customer.** Rocketlane for delivery, Salesforce Service for omnichannel support and a knowledge base, health scores and early-warning alerts on top.',
     '**Ran quarterly business reviews** and turned onboarding friction and health signals into product priorities.',
-    '**Applied the same system to the pre-sale journey.** A structured Salesforce funnel, a dedicated SDR role, and automated outreach that gave reps back a day a week.',
+    '**Applied the same system to the pre-sale journey.** Rep-by-rep prospecting became a structured Salesforce funnel with a dedicated SDR role and automated outreach. Pipeline that had been flat quarter over quarter grew about 20 percent a quarter, at every stage from cold call to deal.',
   ],
   impact: [
     { value: '166 to 60', label: 'days from signed contract to value' },
     { value: '25% to 10%', label: 'churn, with risk caught early' },
     { value: '21 to 5 days', label: 'to set up a customer inventory' },
     { value: '4 to 2 weeks', label: 'to design and approve a homepage' },
-    { value: '+20%', label: 'deal velocity from a structured sales funnel' },
+    { value: '+20% QoQ', label: 'pipeline growth: calls, meetings booked, and deals created all up about a fifth each quarter' },
     { value: '50% less', label: 'time in sales meetings' },
   ],
   gallery: <GalleryGroup[]>[
