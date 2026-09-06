@@ -80,20 +80,20 @@ p { margin: 0; }
 .watermark {
   position: absolute;
   right: 6vw;
-  top: 6vh;
-  font-size: clamp(120px, 16vw, 240px);
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  top: 66px;
+  font-size: clamp(72px, 7.5vw, 104px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
   color: var(--color-ink);
-  opacity: 0.035;
-  line-height: 0.9;
+  opacity: 0.07;
+  line-height: 1;
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
 }
 
 /* Watermark variant: bottom right, for slides with the image on the left */
-.watermark.low { top: auto; bottom: 5vh; }
+.watermark.low { top: 66px; }
 
 /* Reveal: visible at rest, animated only when JS is present */
 .js .rv {
@@ -251,12 +251,12 @@ dialog.case .support .frame img, dialog.case .support .frame video, dialog.case 
 .btn.primary:hover { background: #244b4f; border-color: #244b4f; }
 
 /* Spotlight cases: scorecard, story lists, gallery */
-.score { margin-top: 26px; max-width: 42rem; border: 1px solid var(--color-rule); background: #fff; padding: 18px 22px 6px; }
+.score { margin-top: 22px; max-width: 42rem; border: 1px solid var(--color-rule); background: #fff; padding: 14px 22px 4px; }
 .shead { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--color-ink); }
 .stitle { font-size: var(--fs-label); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
 .speriod { font-size: var(--fs-small); color: var(--color-muted); }
 .srow, .scols { display: grid; grid-template-columns: 8.5rem 7.5rem 20px 1fr; gap: 18px; align-items: center; }
-.srow { padding: 14px 0; border-bottom: 1px solid var(--color-rule); }
+.srow { padding: 12px 0; border-bottom: 1px solid var(--color-rule); }
 .scols { padding: 12px 0 8px; font-size: var(--fs-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); font-weight: 500; border-bottom: 1px solid var(--color-rule); }
 .scols .after { color: var(--color-accent); }
 .srow:last-child { border-bottom: 0; }
@@ -310,7 +310,7 @@ dialog.spot .mark { height: 176px; width: auto; display: block; margin: 0 0 8px 
 
 /* Case study trigger: a pill with a shine that passes across on hover */
 .open {
-  position: relative; overflow: hidden; margin-top: 26px;
+  position: relative; overflow: hidden; margin-top: 22px;
   display: inline-flex; align-items: center; gap: 10px;
   padding: 12px 22px; border: 1px solid var(--color-ink); border-radius: 999px; background: transparent;
   font: inherit; font-size: var(--fs-body); font-weight: 500; color: var(--color-ink); cursor: pointer;
