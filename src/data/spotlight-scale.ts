@@ -19,8 +19,8 @@ export const scale = {
   ],
   caseTitle: 'A case study in scaling the system',
   thesis:
-    'Having built the core product and the team to run it, my ownership expanded to customer success and the pre-sale journey.',
-  wins: ['Delivered value faster', 'Increased customer retention', 'Increased engagement and satisfaction', 'Increased revenue retention and sales velocity'],
+    'Having built the core product and the team to run it, my ownership expanded to the entire customer journey, with new objectives:',
+  wins: ['Faster time to value', 'Higher retention', 'Higher engagement and satisfaction', 'Higher revenue retention and sales velocity'],
   hero: <Visual>{ src: 'assets/vdb/devices.png', alt: 'The VDB platform on desktop, laptop, tablet, and phone' },
   where: [
     '**The platform had scaled.** 30,000+ monthly active users, a white-label factory, and 135+ branded apps on the way.',
