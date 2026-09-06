@@ -12,10 +12,11 @@ export const spotlight = {
   domain: 'B2B SaaS · Marketplace · Platform · Integrations',
   note: 'First product hire',
   shots: <Visual[]>[
-    { src: 'assets/vdb/appstore/shot-01.jpg', alt: 'VDB app: search diamonds, gemstones, and jewelry' },
-    { src: 'assets/vdb/appstore/shot-02.jpg', alt: 'VDB app: results with media and pricing' },
-    { src: 'assets/vdb/appstore/shot-03.jpg', alt: 'VDB app: product details' },
-    { src: 'assets/vdb/appstore/shot-04.jpg', alt: 'VDB app: filters and saved searches' },
+    { src: 'assets/vdb/appstore/shot-01.jpg', alt: 'VDB app: the jewelry industry marketplace' },
+    { src: 'assets/vdb/appstore/shot-02.jpg', alt: 'VDB app: natural diamonds marketplace' },
+    { src: 'assets/vdb/appstore/shot-03.jpg', alt: 'VDB app: gemstones marketplace' },
+    { src: 'assets/vdb/appstore/shot-04.jpg', alt: 'VDB app: jewelry marketplace' },
+    { src: 'assets/vdb/appstore/shot-05.jpg', alt: 'VDB app: lab-grown diamonds marketplace' },
   ],
   compare: <CompareRow[]>[
     { label: 'Product', before: 'Freemium marketplace', after: 'Multi-tenant SaaS platform', delta: '+ white-label factory' },
