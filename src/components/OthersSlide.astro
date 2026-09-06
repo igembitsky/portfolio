@@ -5,8 +5,7 @@ import Visual from './Visual.astro';
 <section class="slide" id="other">
   <div class="inner">
     <div class="head rv">
-      <p class="eyebrow eyebrow-accent">Other things I've built</p>
-      <h2>Range beyond the flagship work.</h2>
+      <h2>Other things I've built</h2>
     </div>
     <div class="rows">
       {others.map((o, i) => (
@@ -29,11 +28,11 @@ import Visual from './Visual.astro';
 </section>
 
 <style>
-  h2 { font-size: clamp(28px, 3vw, 40px); margin: 14px 0 0; }
+  h2 { font-size: clamp(28px, 3vw, 40px); margin: 0; }
   .rows { margin-top: 36px; }
-  .row { display: grid; grid-template-columns: 300px 1fr 200px; gap: 36px; align-items: center; padding: 28px 0; border-top: 1px solid var(--color-rule); }
+  .row { display: grid; grid-template-columns: 240px 1fr 200px; gap: 36px; align-items: center; padding: 26px 0; border-top: 1px solid var(--color-rule); }
   .row:last-child { border-bottom: 1px solid var(--color-rule); }
-  .media :global(img) { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: center; display: block; }
+  .media :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; display: block; }
   h3 { font-size: 24px; font-weight: 400; margin: 0 0 4px; }
   .tag { color: var(--color-muted); font-size: 16px; }
   .desc { margin: 10px 0 0; font-size: 14px; max-width: 46rem; }

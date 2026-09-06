@@ -223,7 +223,9 @@ export const others: OtherProject[] = [
     name: 'Learn Liberty Academy',
     tagline: 'Experimenting with how people learn online',
     description:
-      'Led the development of an online learning product and used experimentation with students and educators to improve the experience.',
+      'An online education platform built from scratch with more than twenty professors. It taught thousands of students and connected them to programs, seminars, and career opportunities.',
+    role:
+      'Led product development and ran experiments with students and educators to improve how people learn online.',
     tags: ['EdTech', 'Experimentation', '0 to 1'],
     results: [
       { value: '1,000+', label: 'students' },
