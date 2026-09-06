@@ -76,10 +76,9 @@ p { margin: 0; }
 
 .watermark {
   position: absolute;
-  left: -2vw;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: clamp(120px, 22vw, 320px);
+  right: 6vw;
+  top: 6vh;
+  font-size: clamp(120px, 16vw, 240px);
   font-weight: 600;
   letter-spacing: -0.04em;
   color: var(--color-ink);

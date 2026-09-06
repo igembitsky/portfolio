@@ -4,7 +4,6 @@ const base = import.meta.env.BASE_URL;
 const year = new Date().getFullYear();
 ---
 <section class="slide" id="about">
-  <div class="watermark" aria-hidden="true">Hi</div>
   <div class="inner grid">
     <div class="rv side">
       <img class="photo" src={`${base}assets/personal/igor-portrait.jpg`} alt="Igor Gembitsky" loading="lazy" />
@@ -19,7 +18,7 @@ const year = new Date().getFullYear();
       <h2>{about.headline}</h2>
       <p class="lead">{about.sub}</p>
       <ul class="bullets">{about.bullets.map((b) => <li>{b}</li>)}</ul>
-      <p class="lead muted">{about.now}</p>
+      <p class="lead">{about.now}</p>
       <div class="science">
         <p class="lead">{about.science}</p>
         <ol class="method">{about.method.map((m) => <li>{m}</li>)}</ol>
