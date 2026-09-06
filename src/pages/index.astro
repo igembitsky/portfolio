@@ -3,13 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Dots from '../components/Dots.astro';
 import Hero from '../components/Hero.astro';
-import FlagshipSlide from '../components/FlagshipSlide.astro';
 import SpotlightSlide from '../components/SpotlightSlide.astro';
 import SpotlightCanary from '../components/SpotlightCanary.astro';
+import SpotlightScale from '../components/SpotlightScale.astro';
 import AiSlide from '../components/AiSlide.astro';
 import OthersSlide from '../components/OthersSlide.astro';
 import AboutSlide from '../components/AboutSlide.astro';
-import { flagships } from '../data/site';
 ---
 <BaseLayout>
   <Nav />
@@ -19,7 +18,7 @@ import { flagships } from '../data/site';
     <div class="work-anchor" id="work"></div>
     <SpotlightSlide />
     <SpotlightCanary />
-    {flagships.filter((f) => f.id !== 'build-scale' && f.id !== 'find-product').map((f) => <FlagshipSlide f={f} />)}
+    <SpotlightScale />
     <AiSlide />
     <OthersSlide />
     <AboutSlide />
