@@ -183,7 +183,7 @@ export const ai = {
       tagline: 'A free AI patient that runs offline, for medical schools with few resources.',
       description:
         'Invited to speak at the Global Health Conference, I built this for the workshop. Students practice consultations with an AI patient on local models. No cloud, no cost, no data leaving the room.',
-      status: 'Open source · Conference workshop',
+      status: 'Open source · Workshop',
       links: [
         { label: 'GitHub', url: 'https://github.com/igembitsky/virtual-standardized-patient' },
         { label: 'Conference', url: 'https://www.theglobalhealthacademy.org/global-health-academy/global-health-conferences/2026-home' },
