@@ -11,6 +11,9 @@
   --font-sans: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Type scale: display (clamped), lead 20px, body 18px, small 15px, label 14px uppercase. Nothing smaller. */
+:root { --fs-lead: 20px; --fs-body: 18px; --fs-small: 15px; --fs-label: 14px; }
+
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
@@ -51,7 +54,7 @@ h1, h2, h3 {
 p { margin: 0; }
 
 .eyebrow {
-  font-size: 13px;
+  font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-muted);
@@ -104,7 +107,7 @@ p { margin: 0; }
 }
 
 /* Tags */
-.tags { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; padding: 0; margin: 0; font-size: 15px; color: var(--color-muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; padding: 0; margin: 0; font-size: var(--fs-small); color: var(--color-muted); }
 .tags li::before { content: "\00B7"; color: var(--color-accent); margin-right: 8px; }
 .tags li:first-child::before { content: none; }
 
@@ -148,7 +151,7 @@ p { margin: 0; }
   text-align: center;
   padding: 16px;
   color: var(--color-muted);
-  font-size: 13px;
+  font-size: var(--fs-label);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -190,14 +193,14 @@ dialog.case .wrap { width: min(70rem, 100%); margin: 0 auto; padding: 88px 6vw 9
 dialog.case .close {
   position: fixed; top: 22px; right: 6vw; z-index: 5;
   background: var(--color-bg); border: 1px solid var(--color-rule); border-radius: 999px;
-  font: inherit; font-size: 14px; color: var(--color-ink); padding: 8px 18px; cursor: pointer;
+  font: inherit; font-size: var(--fs-small); color: var(--color-ink); padding: 8px 18px; cursor: pointer;
 }
 dialog.case .close::after { content: "\00D7"; margin-left: 8px; }
 dialog.case .close:hover { border-color: var(--color-accent); color: var(--color-accent); }
 dialog.case h2 { font-size: clamp(32px, 4vw, 54px); margin: 12px 0 16px; max-width: 20ch; }
 dialog.case .thesis { font-size: clamp(18px, 1.5vw, 22px); color: var(--color-muted); max-width: 40rem; }
 dialog.case .visual { margin: 44px 0 52px; }
-dialog.case h3 { font-size: 17px; font-weight: 500; color: var(--color-accent); margin: 0 0 12px; letter-spacing: 0.01em; }
+dialog.case h3 { font-size: var(--fs-body); font-weight: 500; color: var(--color-accent); margin: 0 0 12px; letter-spacing: 0.01em; }
 dialog.case section p { font-size: 18px; max-width: 34rem; }
 dialog.case .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
 dialog.case section p { margin-bottom: 12px; }
@@ -230,7 +233,7 @@ dialog.case .support .frame img, dialog.case .support .frame video, dialog.case 
 
 /* Buttons */
 .btns { display: flex; gap: 12px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border: 1px solid var(--color-ink); border-radius: 999px; font-size: 16px; font-weight: 500; color: var(--color-ink); transition: background 0.15s, color 0.15s, border-color 0.15s; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border: 1px solid var(--color-ink); border-radius: 999px; font-size: var(--fs-body); font-weight: 500; color: var(--color-ink); transition: background 0.15s, color 0.15s, border-color 0.15s; }
 .btn:hover { background: var(--color-ink); color: var(--color-bg); }
 .btn.primary { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
 .btn.primary:hover { background: #244b4f; border-color: #244b4f; }
@@ -238,38 +241,38 @@ dialog.case .support .frame img, dialog.case .support .frame video, dialog.case 
 /* Spotlight cases: scorecard, story lists, gallery */
 .score { margin-top: 26px; max-width: 42rem; border: 1px solid var(--color-rule); background: #fff; padding: 18px 22px 6px; }
 .shead { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--color-ink); }
-.stitle { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
-.speriod { font-size: 14px; color: var(--color-muted); }
+.stitle { font-size: var(--fs-label); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
+.speriod { font-size: var(--fs-small); color: var(--color-muted); }
 .srow, .scols { display: grid; grid-template-columns: 8.5rem 7.5rem 20px 1fr; gap: 18px; align-items: center; }
 .srow { padding: 14px 0; border-bottom: 1px solid var(--color-rule); }
-.scols { padding: 12px 0 8px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); font-weight: 500; border-bottom: 1px solid var(--color-rule); }
+.scols { padding: 12px 0 8px; font-size: var(--fs-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); font-weight: 500; border-bottom: 1px solid var(--color-rule); }
 .scols .after { color: var(--color-accent); }
 .srow:last-child { border-bottom: 0; }
-.slab { font-size: 15px; color: var(--color-muted); }
-.sbefore { font-size: 16px; color: var(--color-muted); }
+.slab { font-size: var(--fs-small); color: var(--color-muted); }
+.sbefore { font-size: var(--fs-small); color: var(--color-muted); }
 .sarrow { color: var(--color-accent); font-size: 18px; text-align: center; }
-.safter { font-size: 18px; font-weight: 500; color: var(--color-ink); }
-.sdelta { display: inline-block; vertical-align: middle; margin-left: 8px; font-size: 12.5px; font-weight: 500; color: var(--color-accent); background: rgba(47, 93, 98, 0.08); border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
+.safter { font-size: var(--fs-body); font-weight: 500; color: var(--color-ink); }
+.sdelta { display: inline-block; vertical-align: middle; margin-left: 8px; font-size: var(--fs-label); font-weight: 500; color: var(--color-accent); background: rgba(47, 93, 98, 0.08); border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
 
 dialog.spot .heroimg { position: relative; width: 100%; height: 62svh; overflow: hidden; }
 dialog.spot .heroimg img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%); }
 dialog.spot .heroimg.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
 dialog.spot .wrap { padding-top: 0; margin-top: -4vh; position: relative; }
-dialog.spot .plain { font-size: 20px; font-weight: 400; margin: 10px 0 0; color: var(--color-muted); max-width: none; text-wrap: nowrap; }
+dialog.spot .plain { font-size: var(--fs-lead); font-weight: 400; margin: 10px 0 0; color: var(--color-muted); max-width: none; text-wrap: nowrap; }
 dialog.spot .quote { margin: 28px 0 8px; padding: 26px 32px; border-left: 3px solid var(--color-accent); background: rgba(47, 93, 98, 0.05); max-width: 40rem; }
 dialog.spot .quote p { font-size: clamp(26px, 2.6vw, 36px); font-weight: 300; line-height: 1.3; letter-spacing: -0.01em; margin: 0; max-width: none; }
-dialog.spot .lead { font-size: 18px; margin-bottom: 14px; }
+dialog.spot .lead { font-size: var(--fs-body); margin-bottom: 14px; }
 dialog.spot .pts { list-style: none; padding: 0; margin: 0; max-width: 46rem; }
-dialog.spot .pts li { position: relative; padding: 10px 0 10px 26px; font-size: 19px; line-height: 1.5; border-top: 1px solid var(--color-rule); }
+dialog.spot .pts li { position: relative; padding: 10px 0 10px 26px; font-size: var(--fs-body); line-height: 1.5; border-top: 1px solid var(--color-rule); }
 dialog.spot .pts li:first-child { border-top: 0; }
 dialog.spot .pts li::before { content: ""; position: absolute; left: 0; top: 1.35em; width: 12px; height: 1px; background: var(--color-accent); }
 dialog.spot .pts b { font-weight: 500; }
 dialog.spot .icp { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-dialog.spot .icp li { border: 1px solid var(--color-rule); border-radius: 999px; padding: 10px 18px; font-size: 17px; }
+dialog.spot .icp li { border: 1px solid var(--color-rule); border-radius: 999px; padding: 10px 18px; font-size: var(--fs-body); }
 dialog.spot .impact6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 32px; margin-top: 12px; }
 dialog.spot .impact6 div { border-top: 1px solid var(--color-rule); padding-top: 16px; }
 dialog.spot .impact6 b { display: block; font-weight: 300; font-size: clamp(30px, 3.2vw, 46px); line-height: 1.08; font-variant-numeric: tabular-nums; }
-dialog.spot .impact6 span { display: block; color: var(--color-muted); font-size: 17px; margin-top: 8px; max-width: 24ch; }
+dialog.spot .impact6 span { display: block; color: var(--color-muted); font-size: var(--fs-body); margin-top: 8px; max-width: 24ch; }
 dialog.spot .gallery { display: grid; gap: 28px; margin-top: 12px; }
 dialog.spot .gallery .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 dialog.spot .gallery .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -279,7 +282,7 @@ dialog.spot .gallery .g2 img { aspect-ratio: 16 / 9; object-fit: contain; backgr
 dialog.spot .gallery .g3 img { aspect-ratio: 4 / 5; object-fit: cover; object-position: center; }
 dialog.spot .gallery .g3.wide img { aspect-ratio: 16 / 9; object-fit: contain; background: #fff; }
 dialog.spot .gallery .frame { background: #fff; }
-dialog.spot .cap { font-size: 15px; color: var(--color-muted); padding: 10px 14px; border-top: 1px solid var(--color-rule); margin: 0; }
+dialog.spot .cap { font-size: var(--fs-small); color: var(--color-muted); padding: 10px 14px; border-top: 1px solid var(--color-rule); margin: 0; }
 dialog.spot .mark { height: 176px; width: auto; display: block; margin: 0 0 8px -12px; }
 @media (max-width: 820px) {
   .srow, .scols { grid-template-columns: 1fr 1fr 18px 1.3fr; gap: 10px; } .sdelta { display: none; }
@@ -290,5 +293,5 @@ dialog.spot .mark { height: 176px; width: auto; display: block; margin: 0 0 8px 
 }
 
 /* Spotlight card sub-line, shared by all cases */
-.card-org { font-size: 17px; }
-.card-sub { color: var(--color-muted); font-size: 16px; margin-top: 4px; }
+.card-org { font-size: var(--fs-body); }
+.card-sub { color: var(--color-muted); font-size: var(--fs-body); margin-top: 4px; }

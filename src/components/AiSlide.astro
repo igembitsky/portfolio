@@ -26,12 +26,14 @@ import Visual from './Visual.astro';
 
 <style>
   h2 { font-size: clamp(30px, 3.4vw, 46px); margin: 14px 0 0; }
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin-top: 40px; }
+  /* Rows align across the three cards with subgrid: image, name, tagline, description, focus, status */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto auto auto auto auto; gap: 0 36px; margin-top: 40px; }
+  .card { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; }
   .card :global(img), .card :global(.ph) { aspect-ratio: 16 / 10; }
-  h3 { font-size: 26px; font-weight: 400; margin: 20px 0 6px; }
-  .tag { font-size: 17px; }
-  .desc { margin: 10px 0 14px; font-size: 15px; color: var(--color-muted); max-width: 30rem; }
-  .tags { font-size: 13px; }
-  .meta { font-size: 13px; color: var(--color-muted); margin-top: 12px; }
-  @media (max-width: 900px) { .cards { grid-template-columns: 1fr; gap: 28px; } }
+  h3 { font-size: 24px; font-weight: 500; margin: 20px 0 0; }
+  .tag { font-size: var(--fs-body); margin-top: 4px; }
+  .desc { margin: 12px 0 0; font-size: var(--fs-body); color: var(--color-muted); }
+  .tags { margin-top: 16px; align-self: end; }
+  .meta { font-size: var(--fs-small); color: var(--color-muted); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--color-rule); }
+  @media (max-width: 900px) { .cards { grid-template-columns: 1fr; gap: 28px; } .card { grid-row: auto; grid-template-rows: auto; } }
 </style>

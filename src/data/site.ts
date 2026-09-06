@@ -164,8 +164,8 @@ export const ai = {
   products: <AiProduct[]>[
     {
       name: 'Prophase',
-      tagline: 'Job matching built around fit, not keywords',
-      description: 'Scores every opening against your experience and goals, then drafts the application.',
+      tagline: 'Finds the jobs worth your time, then helps you apply',
+      description: 'Understands your skills, experience, domain expertise, and where you want to go. Matches that against what is on offer, and helps you apply.',
       status: '~12 beta users',
       focus: ['LLM evaluation', 'Recommendations', 'Agentic development'],
       visual: { src: 'assets/ai/prophase.jpg', alt: 'Prophase shortlist with match analysis' },
@@ -173,7 +173,7 @@ export const ai = {
     {
       name: 'VibeOps',
       tagline: 'Issue tracking designed for coding agents',
-      description: 'Open-source tracker where agents and humans share one board.',
+      description: 'A tracker where coding agents and humans share one board, with persistent context and human oversight.',
       status: 'Open source, in daily use',
       focus: ['Agent coordination', 'Persistent context', 'Human oversight'],
       url: 'https://github.com/igembitsky/vibeops-tracker',
@@ -183,8 +183,8 @@ export const ai = {
     {
       name: 'Virtual Standardized Patient',
       tagline: 'AI patient simulation designed for local deployment',
-      description: 'Medical students practice consultations with an AI patient that runs offline.',
-      status: 'Built for a global-health conference talk',
+      description: 'Medical students practice clinical consultations with an AI patient that runs on local models, fully offline.',
+      status: 'Open source · Built for a global-health conference',
       focus: ['Local LLMs', 'Medical education', 'Offline'],
       url: 'https://github.com/igembitsky/virtual-standardized-patient',
       urlLabel: 'GitHub',
