@@ -33,8 +33,7 @@ const year = new Date().getFullYear();
   <button type="button" class="close" data-close>Close</button>
   <div class="wrap">
     <p class="eyebrow eyebrow-accent">Peer-reviewed research</p>
-    <h2 id="case-papers-title">Three papers from the lab years</h2>
-    <p class="thesis">Biochemistry and neuroscience, before product. The method carried over.</p>
+    <h2 id="case-papers-title">Three papers from my years in biochemistry and neuroscience research</h2>
     <ol class="papers">
       {about.papers.map((p, i) => (
         <li>
@@ -47,7 +46,7 @@ const year = new Date().getFullYear();
       ))}
     </ol>
     <section class="sec">
-      <h3>How it shapes the work</h3>
+      <h3>The scientific discipline translated remarkably well to building good products</h3>
       <ul class="did">{about.method.map((m) => <li>{m}</li>)}</ul>
     </section>
   </div>
