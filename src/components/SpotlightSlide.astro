@@ -35,7 +35,7 @@ import Rich from './Rich.astro';
 <dialog class="case spot" id={`case-${f.id}`} aria-labelledby={`case-${f.id}-title`}>
   <button type="button" class="close" data-close aria-label="Close">Close</button>
   <div class="heroimg"><Visual v={f.hero} /></div>
-  <div class="wrap">
+  <div class="wrap" tabindex="-1">
     <p class="eyebrow eyebrow-accent">{f.org} &middot; {f.role} &middot; {f.note}</p>
     <h2 id={`case-${f.id}-title`} class="plain">{f.caseTitle}</h2>
     <blockquote class="quote"><p>{f.thesis}</p></blockquote>

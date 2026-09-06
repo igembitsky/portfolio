@@ -80,12 +80,12 @@ import AboutSlide from '../components/AboutSlide.astro';
           { duration: 480, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
         );
         await a.finished;
-        d.showModal(); d.scrollTop = 0;
+        d.showModal(); d.scrollTop = 0; (d.querySelector('.wrap') as HTMLElement | null)?.focus({ preventScroll: true });
         burst.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 350, delay: 150, fill: 'forwards' }).finished.then(() => {
           burst.getAnimations().forEach((an) => an.cancel());
         });
       } else {
-        d.showModal(); d.scrollTop = 0;
+        d.showModal(); d.scrollTop = 0; (d.querySelector('.wrap') as HTMLElement | null)?.focus({ preventScroll: true });
       }
     });
   });
