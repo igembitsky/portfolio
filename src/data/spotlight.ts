@@ -11,7 +11,12 @@ export const spotlight = {
   role: 'Director of Product',
   domain: 'B2B SaaS · Marketplace · Platform · Integrations',
   note: 'First product hire',
-  visual: <Visual>{ video: 'assets/vdb/marketplace.mp4', src: 'assets/vdb/marketplace-poster.jpg', alt: 'The VDB marketplace app in use' },
+  shots: <Visual[]>[
+    { src: 'assets/vdb/appstore/shot-01.jpg', alt: 'VDB app: search diamonds, gemstones, and jewelry' },
+    { src: 'assets/vdb/appstore/shot-02.jpg', alt: 'VDB app: results with media and pricing' },
+    { src: 'assets/vdb/appstore/shot-03.jpg', alt: 'VDB app: product details' },
+    { src: 'assets/vdb/appstore/shot-04.jpg', alt: 'VDB app: filters and saved searches' },
+  ],
   compare: <CompareRow[]>[
     { label: 'Product', before: 'Freemium marketplace', after: 'Multi-tenant SaaS platform', delta: '+ white-label factory' },
     { label: 'Monthly active users', before: '~500', after: '30,000+', delta: '60x' },
@@ -55,6 +60,7 @@ export const spotlight = {
     { value: '7', label: 'people on the product and design team' },
   ],
   gallery: <Visual[]>[
+    { video: 'assets/vdb/marketplace.mp4', src: 'assets/vdb/marketplace-poster.jpg', alt: 'The VDB marketplace app in use' },
     { src: 'assets/vdb/marketplace-buyers.jpg', alt: 'VDB marketplace for buyers on phone and tablet' },
     { video: 'assets/vdb/ring-creator.mp4', src: 'assets/vdb/ring-poster.jpg', alt: 'Ring Creator walkthrough on a white-label store' },
     { src: 'assets/vdb/white-label-stores.jpg', alt: 'White-label storefront on desktop, tablet, and phone' },

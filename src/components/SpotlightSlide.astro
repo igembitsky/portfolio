@@ -25,7 +25,7 @@ import Rich from './Rich.astro';
       </div>
       <button type="button" class="tlink open" data-open={`case-${f.id}`}>View case study &rarr;</button>
     </div>
-    <div class="media frame rv" style="transition-delay:.12s"><Visual v={f.visual} /></div>
+    <div class="media shots rv" style="transition-delay:.12s">{f.shots.map((v) => <div class="frame"><Visual v={v} /></div>)}</div>
   </div>
 </section>
 
@@ -81,6 +81,8 @@ import Rich from './Rich.astro';
 
 <style>
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .shots :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; display: block; }
   h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
   .open { margin-top: 26px; background: none; border: 0; border-bottom: 1px solid var(--color-accent); font: inherit; font-size: 16px; color: var(--color-ink); cursor: pointer; padding: 0 0 2px; }
   .open:hover { color: var(--color-accent); }
