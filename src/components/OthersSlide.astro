@@ -3,8 +3,10 @@ import { others } from '../data/site';
 import Visual from './Visual.astro';
 ---
 <section class="slide" id="other">
+  <div class="watermark" aria-hidden="true">05</div>
   <div class="inner">
     <div class="head rv">
+      <p class="eyebrow eyebrow-accent">05 &middot; Earlier work</p>
       <h2>Some other things I've built</h2>
     </div>
     <div class="rows">
@@ -28,7 +30,7 @@ import Visual from './Visual.astro';
 </section>
 
 <style>
-  h2 { font-size: clamp(28px, 3vw, 40px); margin: 0; }
+  h2 { font-size: clamp(28px, 3vw, 40px); margin: 14px 0 0; }
   .rows { margin-top: 36px; }
   .row { display: grid; grid-template-columns: 240px 1fr 200px; gap: 36px; align-items: center; padding: 26px 0; border-top: 1px solid var(--color-rule); }
   .row:last-child { border-bottom: 1px solid var(--color-rule); }

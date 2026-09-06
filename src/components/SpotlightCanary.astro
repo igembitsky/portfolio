@@ -5,7 +5,7 @@ import Rich from './Rich.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <section class="slide flip" id={f.id}>
-  <div class="watermark low" aria-hidden="true">{f.number}</div>
+  <div class="watermark" aria-hidden="true">{f.number}</div>
   <div class="inner grid">
     <div class="text rv">
       <p class="eyebrow eyebrow-accent">{f.number} &middot; {f.category}</p>
