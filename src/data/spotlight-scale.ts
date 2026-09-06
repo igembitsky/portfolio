@@ -15,7 +15,7 @@ export const scale = {
     { label: 'Churn', before: '~25%', after: '~10%', delta: '60% less churn' },
     { label: 'Inventory setup', before: '~3 weeks', after: '~5 days', delta: '76% faster' },
     { label: 'Homepage setup', before: '~1 month', after: '~2 weeks', delta: '50% faster' },
-    { label: 'Pipeline growth, quarter over quarter', before: 'Flat', after: '+20%', delta: 'Every stage up' },
+    { label: 'Pipeline growth (QoQ)', before: 'Flat', after: '+20%', delta: 'Every stage up' },
   ],
   caseTitle: 'A case study in scaling the system',
   thesis:
