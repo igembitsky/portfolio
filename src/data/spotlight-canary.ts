@@ -10,21 +10,19 @@ export const canary = {
   title: 'Turning AI and hardware into a safety product',
   org: 'Canary',
   role: 'Head of Product',
-  note: 'Computer vision, edge hardware, cloud software',
+  note: 'Applied AI · Computer vision · Industrial IoT · 0 to 1',
   visual: <Visual>{ src: 'assets/canary/hardware/mounted-annotated.jpg', alt: 'The Canary system mounted on a forklift: two cameras, the nest, and the driver display outlined' },
   caption: 'The Canary system mounted on a forklift. Cameras, nest, and driver display outlined.',
   how: [
     '**Started with a hypothesis and a prototype.** Computer vision on a forklift can save lives.',
     '**Found the customer.** EHS managers, interviewed one by one, until the real problem was clear.',
     '**Shaped the product with them.** Pilots, analytics reviews, and feedback, iteration after iteration.',
+    '**Shipped the safety analytics dashboard to production with Claude Code.** The screens safety managers use every day.',
   ],
   mark: 'assets/logos/brand/canary-mark.png',
   caseTitle: 'A case study in finding the product',
   thesis: 'The founders had a working prototype and a hypothesis: computer vision on a forklift can save lives. My job was to find out what the market needed, and shape the product until it fit.',
-  hero: <Visual[]>[
-    { src: 'assets/canary/hardware/mounted.jpg', alt: 'Canary mounted on a forklift in a warehouse' },
-    { src: 'assets/canary/hardware/mounted-annotated.jpg', alt: 'The same forklift with the two cameras, the nest, and the display marked' },
-  ],
+  hero: <Visual>{ src: 'assets/canary/cover.jpg', alt: 'Canary: an AI camera platform that reduces forklift near misses and prevents life-threatening incidents' },
   start: [
     '**A functional prototype.** Two cameras and an edge unit on a forklift, detecting pedestrians and warning the driver.',
     '**A strong hypothesis, unvalidated.** The team knew the technology worked. Nobody yet knew who would buy it, or what they would need it to do.',
@@ -54,6 +52,10 @@ export const canary = {
     { before: 'A standalone device', after: 'Analytics that fit the manager\'s reporting' },
   ],
   gallery: <GalleryGroup[]>[
+    { cols: 2, items: [
+      { src: 'assets/canary/hardware/mounted.jpg', alt: 'Canary mounted on a forklift in a warehouse' },
+      { src: 'assets/canary/hardware/mounted-annotated.jpg', alt: 'The same forklift with the two cameras, the nest, and the display outlined' },
+    ] },
     { cols: 1, items: [{ src: 'assets/canary/hardware/schematic.jpg', alt: 'How Canary mounts on a forklift: camera 1, nest, camera 2, and the driver display' }] },
     { cols: 3, items: [
       { src: 'assets/canary/hardware/pos-cameras.jpg', alt: 'Recommended camera positions' },
