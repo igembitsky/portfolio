@@ -42,14 +42,14 @@ export const canary = {
     '**Simplified installation.** Worked from mounting schematics to a self-install kit with recommended positions, so a customer can go live without us on site.',
     '**Pitched, converted, and ran pilots.** Met customers regularly, walked them through their analytics, and turned their feedback into the next iteration.',
     '**Tuned signal against noise.** Severity ranking and motion awareness, so managers see about one serious event a day instead of a feed of alarms.',
-    '**Built the software they actually used.** Event review, safety analytics, and data visualization, with a human review loop that feeds the model.',
+    '**Shipped the safety analytics dashboard to production with Claude Code.** Data visualization, event review, and the workflows managers use to confirm incidents, tag them, and feed the model.',
   ],
   changed: [
     { before: 'Pedestrians in blind spots', after: 'Driving behavior, collisions, and violations' },
     { before: 'An alarm on every detection', after: 'Severity-ranked events, about one serious a day' },
     { before: 'Raw footage', after: 'Curated events with recommendations' },
     { before: 'Installed by us, on site', after: 'Self-install kit, under two hours' },
-    { before: 'A standalone device', after: 'Analytics that fit the manager\'s reporting' },
+    { before: 'Real-time alerts for the driver only', after: 'Every incident logged, so safety managers can review it and find systemic risk' },
   ],
   gallery: <GalleryGroup[]>[
     { cols: 2, items: [
