@@ -19,7 +19,7 @@ export const logos: Logo[] = [
   { key: 'harvard-law', name: 'Harvard Law School', file: 'harvard-law.svg' },
   { key: 'hbs', name: 'Harvard Business School', file: 'hbs-lockup.svg' },
   { key: 'ihs', name: 'Institute for Humane Studies', file: 'ihs.svg' },
-  { key: 'mru', name: 'Marginal Revolution University', mark: 'mru.svg', text: 'Marginal Revolution University' },
+  { key: 'mru', name: 'Marginal Revolution University', file: 'mru.svg' },
 ];
 
 export interface Metric { value: string; label: string }
@@ -235,7 +235,7 @@ export const others: OtherProject[] = [
 ];
 
 export const about = {
-  headline: 'Senior product leader who still ships as an individual contributor.',
+  headline: 'Senior product leader who ships with AI.',
   sub: 'Hire me to own a product area end to end, or to build the products, processes, and infrastructure a product team runs on.',
   bullets: [
     'Take products from idea to production',

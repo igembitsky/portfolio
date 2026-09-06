@@ -8,7 +8,6 @@ const items = [
 ];
 ---
 <nav class="site-nav" aria-label="Primary">
-  <a class="brand" href="#top">Igor Gembitsky</a>
   <ul>
     {items.map((i) => (
       <li>
@@ -21,7 +20,7 @@ const items = [
 <style>
   .site-nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 30;
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; justify-content: flex-end; align-items: center;
     padding: 22px 6vw; font-size: 14px; mix-blend-mode: multiply;
   }
   .site-nav ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
