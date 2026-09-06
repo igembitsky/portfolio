@@ -194,11 +194,11 @@ dialog.case .close:hover { border-color: var(--color-accent); color: var(--color
 dialog.case h2 { font-size: clamp(32px, 4vw, 54px); margin: 12px 0 16px; max-width: 20ch; }
 dialog.case .thesis { font-size: clamp(18px, 1.5vw, 22px); color: var(--color-muted); max-width: 40rem; }
 dialog.case .visual { margin: 44px 0 52px; }
-dialog.case h3 { font-size: 15px; font-weight: 500; color: var(--color-accent); margin: 0 0 10px; letter-spacing: 0.01em; }
+dialog.case h3 { font-size: 17px; font-weight: 500; color: var(--color-accent); margin: 0 0 12px; letter-spacing: 0.01em; }
 dialog.case section p { font-size: 18px; max-width: 34rem; }
 dialog.case .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
 dialog.case section p { margin-bottom: 12px; }
-dialog.case .sec { margin-top: 44px; }
+dialog.case .sec { margin-top: 52px; }
 dialog.case .did { list-style: none; padding: 0; margin: 0; max-width: 44rem; }
 dialog.case .did li { position: relative; padding: 8px 0 8px 24px; font-size: 18px; border-top: 1px solid var(--color-rule); }
 dialog.case .did li:first-child { border-top: 0; }

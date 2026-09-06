@@ -39,7 +39,7 @@ test('case study opens as a dialog and closes on Escape', async ({ page }) => {
   await page.locator('[data-open="case-build-scale"]').click();
   const dialog = page.locator('#case-build-scale');
   await expect(dialog).toBeVisible();
-  await expect(dialog.locator('h2')).toContainText('Virtual Diamond Boutique');
+  await expect(dialog.locator('h2')).toContainText('A case study in building and scaling');
   await expect(dialog.getByText('The company', { exact: true })).toBeVisible();
   await expect(dialog.getByText('Impact', { exact: true })).toBeVisible();
   await page.keyboard.press('Escape');

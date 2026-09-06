@@ -1,0 +1,7 @@
+---
+// Renders **bold** segments of a plain string as <b>.
+interface Props { text: string }
+const { text } = Astro.props;
+const parts = text.split(/\*\*(.+?)\*\*/g);
+---
+{parts.map((p, i) => (i % 2 === 1 ? <b>{p}</b> : p))}
