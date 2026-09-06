@@ -1,0 +1,48 @@
+---
+interface Props { detailed?: boolean }
+const { detailed = false } = Astro.props;
+const stages = [
+  { name: 'Sales', outcome: 'Signed SOW, setup fee collected', work: ['Prospecting and research', 'Sales calls and proposals'] },
+  { name: 'Implementation', outcome: 'Live customer', work: ['Kick-off and check-ins', 'Beta testing, live demo, onboarding'] },
+  { name: 'Adoption', outcome: 'App utilization', work: ['Training: docs, videos, webinars', 'Business goals and milestones'] },
+  { name: 'Use & Success', outcome: 'Business transformation', work: ['Early-warning system', 'At-risk meetings, QBRs, feature training'] },
+  { name: 'Relationship', outcome: 'Renewals, upgrades, referrals', work: ['Newsletters and app updates', 'Annual renewal check-ins'] },
+];
+---
+<div class:list={['lifecycle', { detailed }]} role="img" aria-label="Customer lifecycle: Sales, Implementation, Adoption, Use and Success, Relationship. Feedback flows into product.">
+  <ol class="stages">
+    {stages.map((s, i) => (
+      <li style={`--i:${i}`}>
+        <span class="chev">{s.name}</span>
+        <span class="out"><b>Outcome</b> {s.outcome}</span>
+        {detailed && <ul class="work">{s.work.map((w) => <li>{w}</li>)}</ul>}
+      </li>
+    ))}
+  </ol>
+  <p class="loop">&#8617; What each stage learns flows back into <b>Product</b></p>
+</div>
+
+<style>
+  .lifecycle { width: 100%; font-size: 13px; }
+  .stages { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .stages li { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .chev {
+    display: flex; align-items: center; min-height: 46px; padding: 8px 14px 8px 18px; color: #fff; font-weight: 500; font-size: 12px; line-height: 1.15; letter-spacing: 0.01em;
+    background: color-mix(in oklab, var(--color-accent) calc(100% - var(--i) * 14%), #171b1d calc(var(--i) * 14%));
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%);
+  }
+  .stages li:first-child .chev { clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%); }
+  .out { color: var(--color-muted); line-height: 1.35; padding: 0 4px; }
+  .out b { display: block; font-weight: 500; color: var(--color-ink); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
+  .work { list-style: none; margin: 0; padding: 0 4px; color: var(--color-ink); font-size: 13px; }
+  .work li { padding: 3px 0; border-top: 1px solid var(--color-rule); }
+  .loop { margin: 16px 4px 0; color: var(--color-muted); font-size: 13px; }
+  .loop b { font-weight: 500; color: var(--color-ink); }
+  .detailed { font-size: 14px; }
+  .detailed .chev { font-size: 15px; min-height: 52px; padding: 10px 16px 10px 22px; }
+  @media (max-width: 820px) {
+    .stages { grid-template-columns: 1fr; }
+    .chev { clip-path: none; }
+    .stages li:first-child .chev { clip-path: none; }
+  }
+</style>

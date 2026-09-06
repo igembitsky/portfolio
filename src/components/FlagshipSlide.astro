@@ -2,6 +2,7 @@
 import type { Flagship } from '../data/site';
 import Visual from './Visual.astro';
 import Diagram from './Diagram.astro';
+import LifecycleDiagram from './LifecycleDiagram.astro';
 interface Props { f: Flagship }
 const { f } = Astro.props;
 ---
@@ -17,7 +18,7 @@ const { f } = Astro.props;
       <button type="button" class="tlink open" data-open={`case-${f.id}`}>View case study &rarr;</button>
     </div>
     <div class="media frame rv" style="transition-delay:.12s">
-      {f.diagram === 'system' && !f.key.src ? <div class="diagram-box"><Diagram kind="system" /></div> : <Visual v={f.key} />}
+      {f.diagram === 'system' ? <div class="diagram-box"><LifecycleDiagram /></div> : <Visual v={f.key} />}
     </div>
   </div>
 </section>
@@ -28,7 +29,7 @@ const { f } = Astro.props;
     <p class="eyebrow eyebrow-accent">{f.number} &middot; {f.category} &middot; {f.org}</p>
     <h2 id={`case-${f.id}-title`}>{f.title}</h2>
     <p class="thesis">{f.summary}</p>
-    <div class="visual frame"><Visual v={f.key} wide /></div>
+    {f.diagram === 'system' ? <div class="visual frame diagram-wide"><LifecycleDiagram detailed /></div> : <div class="visual frame"><Visual v={f.key} wide /></div>}
     <div class="cols">
       <section><h3>Goal</h3><p>{f.goal}</p></section>
       <section><h3>Users</h3><p>{f.users}</p></section>
@@ -43,7 +44,7 @@ const { f } = Astro.props;
         {f.impact.map((m) => <div><b>{m.value}</b><span>{m.label}</span></div>)}
       </div>
     </section>
-    {f.diagram && <div class="sec"><Diagram kind={f.diagram} /></div>}
+    {f.diagram === 'platform' && <div class="sec"><Diagram kind="platform" /></div>}
     {f.support.length > 0 && (
       <div class="support">
         {f.support.map((v) => <div class="frame"><Visual v={v} /></div>)}
@@ -59,6 +60,7 @@ const { f } = Astro.props;
   .summary { margin: 22px 0 22px; max-width: 34rem; font-size: 17px; }
   .open { margin-top: 30px; background: none; border: 0; border-bottom: 1px solid var(--color-accent); font: inherit; font-size: 15px; color: var(--color-ink); cursor: pointer; padding: 0 0 2px; }
   .open:hover { color: var(--color-accent); }
-  .diagram-box { width: 100%; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: 8%; }
+  .diagram-box { width: 100%; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: 7%; }
+  .diagram-wide { padding: 32px; }
   @media (max-width: 820px) { .grid { grid-template-columns: 1fr; gap: 28px; } .media { order: -1; } }
 </style>

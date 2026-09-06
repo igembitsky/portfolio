@@ -23,7 +23,7 @@ export const logos: Logo[] = [
 ];
 
 export interface Metric { value: string; label: string }
-export interface Visual { src?: string; alt: string; caption?: string }
+export interface Visual { src?: string; video?: string; alt: string; caption?: string }
 
 export interface Flagship {
   id: string;
@@ -52,7 +52,7 @@ export const flagships: Flagship[] = [
     summary:
       'Joined as the first product hire and helped grow an early B2B marketplace into a multi-product SaaS platform and business.',
     tags: ['B2B SaaS', 'Marketplace', 'Platform', 'Product Leadership'],
-    key: { src: 'assets/vdb/phones.png', alt: 'Virtual Diamond Boutique marketplace apps' },
+    key: { video: 'assets/vdb/marketplace.mp4', src: 'assets/vdb/marketplace-poster.jpg', alt: 'Virtual Diamond Boutique marketplace app in use' },
     goal:
       "Find the marketplace's most valuable users and workflows, build products they would pay for, and create a scalable business around them.",
     users:
@@ -69,8 +69,9 @@ export const flagships: Flagship[] = [
       { value: '15', label: 'product and design team' },
     ],
     support: [
-      { alt: 'Trading and bidding workflow', caption: 'Trading and bidding workflow' },
-      { alt: 'White-label application examples', caption: 'White-label app examples' },
+      { video: 'assets/vdb/ring-creator.mp4', src: 'assets/vdb/ring-poster.jpg', alt: 'Ring Creator walkthrough on a white-label store' },
+      { src: 'assets/vdb/white-label-stores.jpg', alt: 'White-label storefront on desktop, tablet, and phone' },
+      { src: 'assets/vdb/ecosystem.jpg', alt: 'VDB ecosystem: inventory into VDB Cloud, out to B2B apps, white-label tools, and B2C stores' },
     ],
     diagram: 'platform',
   },
@@ -115,7 +116,7 @@ export const flagships: Flagship[] = [
     summary:
       'Integrated every customer touchpoint, from first sales call to renewal, into one system with feedback flowing back into product.',
     tags: ['Customer Lifecycle', 'GTM', 'Systems Thinking', 'Product Leadership'],
-    key: { alt: 'Customer lifecycle system diagram', caption: 'Sales to onboarding to adoption to health to retention' },
+    key: { alt: 'Customer lifecycle: sales, implementation, adoption, use and success, relationship' },
     goal:
       'Manage the whole customer experience as one system: reach value faster, keep customers longer, and feed what we learn back into product.',
     users:
@@ -199,7 +200,6 @@ export interface OtherProject {
   role?: string;
   tags: string[];
   results: Metric[];
-  resultsNote?: string;
   visual: Visual;
 }
 
@@ -217,8 +217,7 @@ export const others: OtherProject[] = [
       { value: '2,401', label: 'objects discussed' },
       { value: '13', label: 'messages per conversation on average' },
     ],
-    resultsNote: 'Overall product results, not individually attributed.',
-    visual: { src: 'assets/other/ask.jpg', alt: 'ASK Brooklyn Museum app, a visitor chatting with a curator about an artwork' },
+    visual: { src: 'assets/other/ask-in-use.jpg', alt: 'A visitor using ASK Brooklyn Museum in the gallery' },
   },
   {
     name: 'Learn Liberty Academy',
@@ -231,7 +230,7 @@ export const others: OtherProject[] = [
       { value: '20+', label: 'professors' },
       { value: '30+', label: 'experiments' },
     ],
-    visual: { src: 'assets/other/learn-liberty.jpg', alt: 'Learn Liberty on-demand course page, 2017' },
+    visual: { src: 'assets/other/learn-liberty.jpg', alt: 'Learn Liberty programs page, 2017' },
   },
 ];
 

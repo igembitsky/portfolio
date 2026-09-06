@@ -4,6 +4,8 @@ interface Props { v: Visual; wide?: boolean; class?: string }
 const { v, wide = false, class: cls = '' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
-{v.src
-  ? <img class={cls} src={`${base}${v.src}`} alt={v.alt} loading="lazy" />
-  : <div class:list={['ph', cls, { wide }]} role="img" aria-label={v.alt}><span>{v.caption ?? v.alt}</span></div>}
+{v.video
+  ? <video class={cls} src={`${base}${v.video}`} poster={v.src ? `${base}${v.src}` : undefined} autoplay muted loop playsinline preload="metadata" aria-label={v.alt}></video>
+  : v.src
+    ? <img class={cls} src={`${base}${v.src}`} alt={v.alt} loading="lazy" />
+    : <div class:list={['ph', cls, { wide }]} role="img" aria-label={v.alt}><span>{v.caption ?? v.alt}</span></div>}
