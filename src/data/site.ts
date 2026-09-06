@@ -21,7 +21,7 @@ export const logos: Logo[] = [
   { key: 'vdb', name: 'Virtual Diamond Boutique', mark: 'vdb-mark.svg', text: 'Virtual Diamond Boutique' },
   { key: 'brooklyn-museum', name: 'Brooklyn Museum', file: 'brooklyn-museum.svg' },
   { key: 'harvard-law', name: 'Harvard Law School', file: 'harvard-law.svg' },
-  { key: 'hbs', name: 'Harvard Business School', mark: 'hbs.svg', text: 'Harvard Business School' },
+  { key: 'hbs', name: 'Harvard Business School', file: 'hbs-lockup.svg' },
   { key: 'ihs', name: 'Institute for Humane Studies', file: 'ihs.svg' },
   { key: 'mru', name: 'Marginal Revolution University', mark: 'mru.svg', text: 'Marginal Revolution University' },
 ];
@@ -222,7 +222,7 @@ export const others: OtherProject[] = [
       { value: '13', label: 'messages per conversation on average' },
     ],
     resultsNote: 'Overall product results, not individually attributed.',
-    visual: { alt: 'Brooklyn Museum ASK app', caption: 'ASK app screenshot' },
+    visual: { src: 'assets/other/ask.jpg', alt: 'ASK Brooklyn Museum app, a visitor chatting with a curator about an artwork' },
   },
   {
     name: 'Learn Liberty Academy',
@@ -235,7 +235,7 @@ export const others: OtherProject[] = [
       { value: '20+', label: 'professors' },
       { value: '30+', label: 'experiments' },
     ],
-    visual: { alt: 'Learn Liberty Academy', caption: 'Learn Liberty Academy screenshot' },
+    visual: { src: 'assets/other/learn-liberty.jpg', alt: 'Learn Liberty on-demand course page, 2017' },
   },
 ];
 
