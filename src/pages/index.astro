@@ -70,6 +70,13 @@ import AboutSlide from '../components/AboutSlide.astro';
     return (Math.hypot(dx, dy) * 2) / 40 + 1;
   };
   let lastTrigger: HTMLElement | null = null;
+  // showModal focuses the Close control (first focusable, at the top), so nothing scrolls the panel on open.
+  const openDialog = (d: HTMLDialogElement) => {
+    d.showModal();
+    const sc = d.querySelector<HTMLElement>('.scroller');
+    if (sc) sc.scrollTop = 0;
+    requestAnimationFrame(() => { if (sc) sc.scrollTop = 0; });
+  };
   const placeBurst = (el: HTMLElement) => {
     const r = el.getBoundingClientRect();
     const x = r.left + r.width / 2, y = r.top + r.height / 2;
@@ -90,12 +97,12 @@ import AboutSlide from '../components/AboutSlide.astro';
           { duration: 480, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
         );
         await a.finished;
-        d.showModal(); d.scrollTop = 0; (d.querySelector('.wrap') as HTMLElement | null)?.focus({ preventScroll: true });
+        openDialog(d);
         burst.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 350, delay: 150, fill: 'forwards' }).finished.then(() => {
           burst.getAnimations().forEach((an) => an.cancel());
         });
       } else {
-        d.showModal(); d.scrollTop = 0; (d.querySelector('.wrap') as HTMLElement | null)?.focus({ preventScroll: true });
+        openDialog(d);
       }
     });
   });
@@ -119,7 +126,6 @@ import AboutSlide from '../components/AboutSlide.astro';
     };
     d.querySelector('[data-close]')?.addEventListener('click', closeSoft);
     d.addEventListener('cancel', (ev) => { ev.preventDefault(); closeSoft(); });
-    d.addEventListener('click', (ev) => { if (ev.target === d) closeSoft(); });
     d.addEventListener('close', () => { document.documentElement.style.overflow = ''; });
   });
 </script>
