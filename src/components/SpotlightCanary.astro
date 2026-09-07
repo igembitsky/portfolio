@@ -50,7 +50,8 @@ const base = import.meta.env.BASE_URL;
 </dialog>
 
 <style>
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: end; }
+  .text .open { align-self: flex-start; }
   .flip .media { order: -1; }
   .flip .text { padding-left: 1vw; }
   h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
@@ -64,7 +65,7 @@ const base = import.meta.env.BASE_URL;
   :global(dialog.spot .heroimg.cover) { height: auto; aspect-ratio: 1.9; max-height: 82svh; }
   :global(dialog.spot .heroimg.cover + .wrap) { margin-top: 0; }
   :global(dialog.spot .gallery .g2 .hw img) { aspect-ratio: 3 / 4; object-fit: cover; }
-  .media :global(img) { aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; max-height: 66svh; }
+  .media :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; display: block; max-height: 66svh; }
   figcaption { font-size: var(--fs-small); color: var(--color-muted); margin-top: 10px; font-style: italic; }
   .shift { list-style: none; padding: 0; margin: 0; max-width: 52rem; }
   .shift li { display: grid; grid-template-columns: 1fr 24px 1.2fr; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid var(--color-rule); font-size: var(--fs-body); }
@@ -72,5 +73,5 @@ const base = import.meta.env.BASE_URL;
   .shift .from { color: var(--color-muted); }
   .shift .arrow { color: var(--color-accent); text-align: center; }
   .shift .to { font-weight: 500; }
-  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; gap: 28px; } .media { order: -1; } .shift li { grid-template-columns: 1fr; gap: 4px; } .shift .arrow { display: none; } }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; gap: 28px; align-items: start; } .media { order: -1; } .shift li { grid-template-columns: 1fr; gap: 4px; } .shift .arrow { display: none; } }
 </style>
