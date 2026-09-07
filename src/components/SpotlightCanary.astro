@@ -7,11 +7,13 @@ const base = import.meta.env.BASE_URL;
 <section class="slide flip" id={f.id}>
   <div class="watermark" aria-hidden="true">{f.number}</div>
   <div class="inner grid">
-    <div class="text rv">
-      <p class="eyebrow eyebrow-accent">{f.number} &middot; {f.category}</p>
+    <div class="head rv">
+      <p class="eyebrow eyebrow-accent">{f.number}&nbsp;&middot; {f.category}</p>
       <h2>{f.title}</h2>
-      <p class="card-org">{f.org} &middot; {f.role}</p>
+      <p class="card-org">{f.org}&nbsp;&middot; {f.role}</p>
       <p class="card-sub">{f.note}</p>
+    </div>
+    <div class="body rv" style="transition-delay:.08s">
       <ul class="how">{f.how.map((h) => <li><Rich text={h} /></li>)}</ul>
       <button type="button" class="open" data-open={`case-${f.id}`}>View case study &rarr;</button>
     </div>
@@ -24,10 +26,11 @@ const base = import.meta.env.BASE_URL;
 
 <dialog class="case spot" id={`case-${f.id}`} aria-labelledby={`case-${f.id}-title`}>
   <button type="button" class="close" data-close aria-label="Close">Close</button>
-  <div class="scroller">
+  <div class="bar" aria-hidden="true">{f.org}</div>
+  <div class="scroller" tabindex="-1">
   <div class="heroimg cover"><Visual v={f.hero} /></div>
   <div class="wrap" tabindex="-1">
-    <p class="eyebrow eyebrow-accent">{f.org} &middot; {f.role} &middot; Bonsai Technology</p>
+    <p class="eyebrow eyebrow-accent"><span class="org">{f.org}&nbsp;&middot; </span>{f.role}&nbsp;&middot; Bonsai Technology</p>
     <h2 id={`case-${f.id}-title`} class="plain">{f.caseTitle}</h2>
     <blockquote class="quote"><p>{f.thesis}</p></blockquote>
 
@@ -47,15 +50,15 @@ const base = import.meta.env.BASE_URL;
         ))}
       </div>
     </section>
+    <button type="button" class="btn back" data-close>Back to the work</button>
   </div>
   </div>
 </dialog>
 
 <style>
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: end; }
-  .text .open { align-self: flex-start; }
-  .flip .media { order: -1; }
-  .flip .text { padding-left: 1vw; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto; grid-template-areas: "media head" "media body"; gap: 0 5vw; align-items: end; }
+  .head { grid-area: head; padding-left: 1vw; } .body { grid-area: body; padding-left: 1vw; display: flex; flex-direction: column; } .media { grid-area: media; }
+  .body .open { align-self: flex-start; }
   h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
   .how { list-style: none; padding: 0; margin: 26px 0 0; max-width: 36rem; }
   .how li { position: relative; padding: 12px 0 12px 26px; font-size: var(--fs-body); line-height: 1.5; border-top: 1px solid var(--color-rule); }
@@ -75,5 +78,5 @@ const base = import.meta.env.BASE_URL;
   .shift .from { color: var(--color-muted); }
   .shift .arrow { color: var(--color-accent); text-align: center; }
   .shift .to { font-weight: 500; }
-  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; gap: 28px; align-items: start; } .media { order: -1; } .shift li { grid-template-columns: 1fr; gap: 4px; } .shift .arrow { display: none; } }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "head" "media" "body"; gap: 24px; align-items: start; } .head, .body { padding-left: 0; } .media :global(img) { aspect-ratio: 4 / 3; max-height: 42svh; } .how { margin-top: 0; } .how li { padding-left: 20px; } .shift li { grid-template-columns: 1fr; gap: 4px; } .shift .arrow { display: none; } }
 </style>

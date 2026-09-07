@@ -10,7 +10,7 @@ export const canary = {
   title: 'Turning AI and hardware into a safety product',
   org: 'Canary',
   role: 'Head of Product',
-  note: 'Applied AI · Computer vision · Industrial IoT · 0 to 1',
+  note: 'Applied AI\u00a0· Computer vision\u00a0· Industrial IoT\u00a0· 0 to 1',
   visual: <Visual>{ src: 'assets/canary/hardware/mounted-annotated.jpg', alt: 'The Canary system mounted on a forklift: two cameras, the nest, and the driver display outlined' },
   caption: 'The Canary system mounted on a forklift. Cameras, nest, and driver display outlined.',
   how: [

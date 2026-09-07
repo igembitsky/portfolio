@@ -24,8 +24,23 @@ import Rich from './Rich.astro';
         </article>
       ))}
     </div>
+    <div class="cdots" aria-hidden="true">{ai.products.map(() => <span></span>)}</div>
   </div>
 </section>
+
+<script>
+  const track = document.querySelector<HTMLElement>("#build-ai .cards");
+  const dots = document.querySelectorAll<HTMLElement>("#build-ai .cdots span");
+  if (track && dots.length) {
+    const paint = () => {
+      const card = track.firstElementChild as HTMLElement | null; if (!card) return;
+      const step = card.offsetWidth + parseFloat(getComputedStyle(track).columnGap || "16");
+      const i = Math.min(dots.length - 1, Math.max(0, Math.round(track.scrollLeft / step)));
+      dots.forEach((d, k) => d.classList.toggle("on", k === i));
+    };
+    paint(); track.addEventListener("scroll", paint, { passive: true });
+  }
+</script>
 
 <style>
   h2 { font-size: clamp(30px, 3.4vw, 46px); margin: 14px 0 0; }
@@ -39,5 +54,18 @@ import Rich from './Rich.astro';
   .desc :global(a) { color: var(--color-ink); }
   .foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 26px 0 0; padding: 16px 26px 20px; border-top: 1px solid var(--color-rule); font-size: var(--fs-small); color: var(--color-muted); }
   .links { display: flex; gap: 16px; white-space: nowrap; color: var(--color-ink); }
-  @media (max-width: 900px) { .cards { grid-template-columns: 1fr; gap: 24px; } .card { grid-row: auto; grid-template-rows: auto; } }
+  .cdots { display: none; }
+  /* Phones: one card at a time, swipe sideways, next card peeks in from the right */
+  @media (max-width: 900px) {
+    .cards { display: flex; gap: 16px; margin: 28px -24px 0; padding: 0 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 24px; -webkit-overflow-scrolling: touch; scrollbar-width: none; align-items: stretch; }
+    .cards::-webkit-scrollbar { display: none; }
+    .card { flex: 0 0 84vw; max-width: 21rem; grid-row: auto; grid-template-rows: auto auto auto 1fr auto; scroll-snap-align: start; }
+    h3 { font-size: 22px; margin: 20px 20px 0; }
+    .tag { margin: 8px 20px 0; }
+    .desc { margin: 12px 20px 0; font-size: var(--fs-small); }
+    .foot { margin-top: 20px; padding: 14px 20px 16px; }
+    .cdots { display: flex; justify-content: center; gap: 10px; margin-top: 24px; }
+    .cdots span { width: 8px; height: 8px; border-radius: 50%; background: var(--color-rule); transition: background 0.2s, transform 0.2s; }
+    .cdots span.on { background: var(--color-accent); transform: scale(1.25); }
+  }
 </style>

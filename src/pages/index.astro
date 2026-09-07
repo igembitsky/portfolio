@@ -74,7 +74,7 @@ import AboutSlide from '../components/AboutSlide.astro';
   const openDialog = (d: HTMLDialogElement) => {
     d.showModal();
     const sc = d.querySelector<HTMLElement>('.scroller');
-    if (sc) sc.scrollTop = 0;
+    if (sc) { sc.scrollTop = 0; sc.focus({ preventScroll: true }); }
     requestAnimationFrame(() => { if (sc) sc.scrollTop = 0; });
   };
   const placeBurst = (el: HTMLElement) => {
@@ -124,7 +124,7 @@ import AboutSlide from '../components/AboutSlide.astro';
         d.classList.remove('closing'); d.close();
       }
     };
-    d.querySelector('[data-close]')?.addEventListener('click', closeSoft);
+    d.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', closeSoft));
     d.addEventListener('cancel', (ev) => { ev.preventDefault(); closeSoft(); });
     d.addEventListener('close', () => { document.documentElement.style.overflow = ''; });
   });
