@@ -252,7 +252,7 @@ export const about = {
   papers: [
     { title: 'Inhibition of System xc Transporter Attenuates Autoimmune Inflammatory Demyelination', journal: 'The Journal of Immunology', date: 'July 2015', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4490999/' },
     { title: 'A Possible Connection Between Antidiabetic and Antilipemic Properties of Psoralea corylifolia Seeds: A LIBS-Based Study', journal: 'Food Biophysics', date: 'June 2013', url: 'https://link.springer.com/article/10.1007/s11483-012-9280-1' },
-    { title: 'Comparative Toxicological Studies of Heracleum maximum and Psoralea corylifolia on Brine Shrimp and Wistar Rats', journal: 'Annals of Phytomedicine', date: 'July 2024', url: 'https://doi.org/10.54085/ap.2024.13.1.66' },
+    { title: 'Comparative Toxicological Studies of Heracleum maximum and Psoralea corylifolia on Brine Shrimp and Wistar Rats', journal: 'Annals of Phytomedicine', date: 'July 2024', url: 'https://www.semanticscholar.org/paper/11e0a4979a0184226c061c8dbeb803dddca28f7f' },
   ],
 };
 
