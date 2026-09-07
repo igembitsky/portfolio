@@ -173,7 +173,7 @@ export const ai = {
       name: 'VibeOps',
       tagline: 'An issue tracker built for working with coding agents.',
       description:
-        'Started as my own pain: bugs, ideas, and production feedback scattered across too many places. Now one board that captures context from the code, prioritizes, and hands work to agents. Open sourced.',
+        'Started as my own pain: bugs, ideas, and production feedback scattered across too many places. Now one board that captures context from the code, prioritizes, and hands work to agents.',
       status: 'Open source · Daily use',
       links: [{ label: 'GitHub', url: 'https://github.com/igembitsky/vibeops-tracker' }],
       visual: { src: 'assets/ai/vibeops.jpg', alt: 'VibeOps board' },
@@ -182,12 +182,9 @@ export const ai = {
       name: 'Virtual Standardized Patient',
       tagline: 'A free AI patient that runs offline, for medical schools with few resources.',
       description:
-        'Invited to speak at the Global Health Conference, I built this for the workshop. Students practice consultations with an AI patient on local models. No cloud, no cost, no data leaving the room.',
+        'Invited to speak at the [Global Health Conference](https://www.theglobalhealthacademy.org/global-health-academy/global-health-conferences/2026-home), I built this for the workshop. Students practice consultations with an AI patient on local models. No cloud, no cost, no data leaving the room.',
       status: 'Open source · Workshop',
-      links: [
-        { label: 'GitHub', url: 'https://github.com/igembitsky/virtual-standardized-patient' },
-        { label: 'Conference', url: 'https://www.theglobalhealthacademy.org/global-health-academy/global-health-conferences/2026-home' },
-      ],
+      links: [{ label: 'GitHub', url: 'https://github.com/igembitsky/virtual-standardized-patient' }],
       visual: { src: 'assets/ai/vsp.jpg', alt: 'Virtual Standardized Patient consultation with Jerry Graham, 55' },
     },
   ],

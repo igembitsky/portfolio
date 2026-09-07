@@ -1,6 +1,7 @@
 ---
 import { ai } from '../data/site';
 import Visual from './Visual.astro';
+import Rich from './Rich.astro';
 ---
 <section class="slide" id="build-ai">
   <div class="watermark" aria-hidden="true">{ai.number}</div>
@@ -15,7 +16,7 @@ import Visual from './Visual.astro';
           <div class="frame"><Visual v={p.visual} /></div>
           <h3>{p.name}</h3>
           <p class="tag">{p.tagline}</p>
-          <p class="desc">{p.description}</p>
+          <p class="desc"><Rich text={p.description} /></p>
           <div class="foot">
             <span class="status">{p.status}</span>
             <span class="links">{p.links.map((l) => <a class="tlink" href={l.url} target="_blank" rel="noopener noreferrer">{l.label} &rarr;</a>)}</span>
@@ -35,6 +36,7 @@ import Visual from './Visual.astro';
   h3 { font-size: 24px; font-weight: 500; margin: 26px 26px 0; }
   .tag { font-size: var(--fs-body); font-weight: 500; margin: 10px 26px 0; line-height: 1.4; }
   .desc { margin: 16px 26px 0; font-size: var(--fs-body); color: var(--color-muted); }
+  .desc :global(a) { color: var(--color-ink); }
   .foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 26px 0 0; padding: 16px 26px 20px; border-top: 1px solid var(--color-rule); font-size: var(--fs-small); color: var(--color-muted); }
   .links { display: flex; gap: 16px; white-space: nowrap; color: var(--color-ink); }
   @media (max-width: 900px) { .cards { grid-template-columns: 1fr; gap: 24px; } .card { grid-row: auto; grid-template-rows: auto; } }
