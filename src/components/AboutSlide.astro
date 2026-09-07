@@ -22,35 +22,14 @@ const year = new Date().getFullYear();
       <div class="science">
         <p class="lead">{about.science}</p>
         <ol class="method">{about.method.map((m) => <li>{m}</li>)}</ol>
-        <button type="button" class="open" data-open="case-papers">View the papers &rarr;</button>
+        <a class="open" href={`${base}thinking/`}>More about how I think &rarr;</a>
       </div>
     </div>
   </div>
   <p class="foot">&copy; {year} Igor Gembitsky</p>
 </section>
 
-<dialog class="case" id="case-papers" aria-labelledby="case-papers-title">
-  <button type="button" class="close" data-close aria-label="Close">Close</button>
-  <div class="wrap" tabindex="-1">
-    <p class="eyebrow eyebrow-accent">Peer-reviewed research</p>
-    <h2 id="case-papers-title">Three papers from my years in biochemistry and neuroscience research</h2>
-    <ol class="papers">
-      {about.papers.map((p, i) => (
-        <li>
-          <span class="n">{String(i + 1).padStart(2, '0')}</span>
-          <div>
-            <a href={p.url} target="_blank" rel="noopener noreferrer">{p.title} &rarr;</a>
-            <p class="meta">{p.journal} &middot; {p.date}</p>
-          </div>
-        </li>
-      ))}
-    </ol>
-    <section class="sec">
-      <h3>The scientific discipline translated remarkably well to building good products</h3>
-      <ul class="did">{about.method.map((m) => <li>{m}</li>)}</ul>
-    </section>
-  </div>
-</dialog>
+
 
 <style>
   .grid { display: grid; grid-template-columns: 300px 1fr; gap: 6vw; align-items: center; }

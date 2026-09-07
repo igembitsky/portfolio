@@ -52,12 +52,15 @@ test('nav links scroll to the section', async ({ page }) => {
   await expect(page.locator('#about')).toBeInViewport();
 });
 
-test('papers dialog opens from About and lists three papers', async ({ page }) => {
+test('thinking page lists the three papers and links back', async ({ page }) => {
+  await page.goto('/portfolio/thinking/');
+  await expect(page.locator('h1')).toContainText('How I think');
+  await expect(page.locator('.papers li')).toHaveCount(3);
+  await expect(page.locator('.covers img')).toHaveCount(22);
+  await expect(page.locator('a[href*="goodreads.com/gembitsky"]')).toBeVisible();
+});
+
+test('About links to the thinking page', async ({ page }) => {
   await page.goto('/portfolio/');
-  await page.locator('[data-open="case-papers"]').click();
-  const dialog = page.locator('#case-papers');
-  await expect(dialog).toBeVisible();
-  await expect(dialog.locator('.papers li')).toHaveCount(3);
-  await page.keyboard.press('Escape');
-  await expect(dialog).toBeHidden();
+  await expect(page.locator('#about a[href$="/thinking/"]')).toBeAttached();
 });
