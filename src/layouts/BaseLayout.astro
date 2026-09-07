@@ -7,12 +7,13 @@ interface Props {
 }
 
 const {
-  title = 'Igor Gembitsky, product leader and builder',
-  description = 'I build and scale products in complex, ambiguous environments. B2B SaaS, marketplaces, applied AI, industrial IoT. 10+ years from idea to platform.'
+  title = 'Igor Gembitsky · Product leader & builder',
+  description = 'I build and scale products in complex, ambiguous environments. B2B SaaS, marketplaces, applied AI, industrial IoT. Three case studies, from first product hire to owning the customer lifecycle.'
 } = Astro.props;
 
 const siteUrl = 'https://igembitsky.github.io/portfolio';
-const ogImage = `${siteUrl}/og-image.png`;
+const ogImage = `${siteUrl}/og-image.png?v=3`;
+const pageUrl = `https://igembitsky.github.io${Astro.url.pathname}`;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -27,23 +28,23 @@ const ogImage = `${siteUrl}/og-image.png`;
 
   <!-- Open Graph / Facebook / LinkedIn / WhatsApp / Telegram -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content={siteUrl}>
+  <meta property="og:url" content={pageUrl}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:image" content={ogImage}>
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Igor Gembitsky, product leader and builder">
+  <meta property="og:image:alt" content="Igor Gembitsky, product leader and builder, in front of a glacier lake, with the line: I build and scale products in complex, ambiguous environments.">
   <meta property="og:site_name" content="Igor Gembitsky">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content={siteUrl}>
+  <meta name="twitter:url" content={pageUrl}>
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={ogImage}>
-  <meta name="twitter:image:alt" content="Igor Gembitsky, product leader and builder">
+  <meta name="twitter:image:alt" content="Igor Gembitsky, product leader and builder, in front of a glacier lake, with the line: I build and scale products in complex, ambiguous environments.">
 
   <!-- iMessage / Apple -->
   <meta name="apple-mobile-web-app-title" content="Igor Gembitsky">
@@ -68,7 +69,7 @@ const ogImage = `${siteUrl}/og-image.png`;
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`}>
-  <link rel="canonical" href={siteUrl}>
+  <link rel="canonical" href={pageUrl}>
 </head>
 <body>
   <slot />
