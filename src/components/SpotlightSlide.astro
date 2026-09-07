@@ -1,0 +1,95 @@
+---
+import { spotlight as f } from '../data/spotlight';
+import Visual from './Visual.astro';
+import Rich from './Rich.astro';
+---
+<section class="slide" id={f.id}>
+  <div class="watermark" aria-hidden="true">{f.number}</div>
+  <div class="inner grid">
+    <div class="text rv">
+      <p class="eyebrow eyebrow-accent">{f.number} &middot; {f.category}</p>
+      <h2>{f.title}</h2>
+      <p class="card-org">{f.org} &middot; {f.role}</p>
+      <p class="card-sub">{f.note}</p>
+      <div class="score" role="table" aria-label="Impact scorecard">
+        <div class="shead"><span class="stitle">Impact scorecard</span><span class="speriod">2017 to 2021</span></div>
+        <div class="scols" role="row"><span></span><span>Before</span><span></span><span class="after">After</span></div>
+        {f.compare.map((r) => (
+          <div class="srow" role="row">
+            <span class="slab" role="cell">{r.label}</span>
+            <span class="sbefore" role="cell">{r.before}</span>
+            <span class="sarrow" aria-hidden="true">&rarr;</span>
+            <span class="safter" role="cell">{r.after} {r.delta && <span class="sdelta">{r.delta}</span>}</span>
+          </div>
+        ))}
+      </div>
+      <button type="button" class="open" data-open={`case-${f.id}`}>View case study &rarr;</button>
+    </div>
+    <div class="media collage rv" style="transition-delay:.12s">
+      <div class="frame main"><Visual v={f.shots[0]} /></div>
+      <div class="side">{f.shots.slice(1).map((v) => <div class="frame"><Visual v={v} /></div>)}</div>
+    </div>
+  </div>
+</section>
+
+<dialog class="case spot" id={`case-${f.id}`} aria-labelledby={`case-${f.id}-title`}>
+  <button type="button" class="close" data-close aria-label="Close">Close</button>
+  <div class="heroimg"><Visual v={f.hero} /></div>
+  <div class="wrap" tabindex="-1">
+    <p class="eyebrow eyebrow-accent">{f.org} &middot; {f.role} &middot; {f.note}</p>
+    <h2 id={`case-${f.id}-title`} class="plain">{f.caseTitle}</h2>
+    <blockquote class="quote"><p>{f.thesis}</p></blockquote>
+
+    <section class="sec">
+      <h3>The company</h3>
+      <ul class="pts">{f.company.map((p) => <li><Rich text={p} /></li>)}</ul>
+    </section>
+
+    <section class="sec">
+      <h3>The problem</h3>
+      <ul class="pts">{f.problem.map((p) => <li><Rich text={p} /></li>)}</ul>
+    </section>
+
+    <section class="sec">
+      <h3>Who it is for</h3>
+      <p class="lead">The jewelry industry, in these roles:</p>
+      <ul class="icp">{f.icp.map((i) => <li>{i}</li>)}</ul>
+    </section>
+
+    <section class="sec">
+      <h3>What I did</h3>
+      <ul class="pts">{f.did.map((d) => <li><Rich text={d} /></li>)}</ul>
+    </section>
+
+    <section class="sec">
+      <h3>Building the team</h3>
+      <ul class="pts">{f.team.map((d) => <li><Rich text={d} /></li>)}</ul>
+    </section>
+
+    <section class="sec">
+      <h3>Impact</h3>
+      <div class="impact6">
+        {f.impact.map((m) => <div><b>{m.value}</b><span>{m.label}</span></div>)}
+      </div>
+    </section>
+
+    <section class="sec">
+      <h3>Gallery</h3>
+      <div class="gallery">
+        {f.gallery.map((v) => <div class="frame"><Visual v={v} /><p class="cap">{v.alt}</p></div>)}
+      </div>
+    </section>
+  </div>
+</dialog>
+
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: end; }
+  .text .open { align-self: flex-start; }
+  .collage { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; }
+  .collage :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .collage .main { aspect-ratio: 600 / 1298; max-height: 64svh; }
+  .collage .side { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; }
+  .collage .side .frame { min-height: 0; }
+  h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; gap: 28px; align-items: start; } .media { order: -1; } .collage .side .frame { aspect-ratio: 600 / 1298; } }
+</style>

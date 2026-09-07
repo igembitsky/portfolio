@@ -1,670 +1,129 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
+import Dots from '../components/Dots.astro';
 import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import PortfolioCard from '../components/PortfolioCard.astro';
-import BuildCard from '../components/BuildCard.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
-import { canaryCards } from '../data/portfolio';
-import { builds } from '../data/builds';
-import { happyfuncorpLogo } from '../data/orgLogos';
-
-const production = builds.filter(b => b.category === 'production');
-const automation = builds.filter(b => b.category === 'automation');
-const creative = builds.filter(b => b.category === 'creative');
-const base = import.meta.env.BASE_URL;
+import SpotlightSlide from '../components/SpotlightSlide.astro';
+import SpotlightCanary from '../components/SpotlightCanary.astro';
+import SpotlightScale from '../components/SpotlightScale.astro';
+import AiSlide from '../components/AiSlide.astro';
+import OthersSlide from '../components/OthersSlide.astro';
+import AboutSlide from '../components/AboutSlide.astro';
 ---
 <BaseLayout>
   <Nav />
+  <Dots />
   <main>
-    <!-- Hero -->
     <Hero />
-
-    <div class="section-divider container"></div>
-
-    <!-- The Arc -->
-    <About />
-
-    <div class="section-divider container"></div>
-
-    <!-- Canary -->
-    <section id="canary" class="container py-24">
-      <div class="reveal">
-        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-2">Canary: Building the System End to End</h2>
-        <p class="text-fg-dim font-mono text-xs mb-3">Co-founder, Head of Product &amp; Operations · 2024-Present</p>
-        <p class="text-fg-muted text-sm mb-3 max-w-lg">
-          Canary uses computer vision to warn warehouse drivers and safety managers about high-risk situations to prevent injury, death, and financial ruin.
-        </p>
-        <p class="text-fg-muted text-sm mb-8 max-w-lg">
-          As co-founder, I own the software and business around the hardware. I designed and shipped the customer-facing platform with AI coding tools (Claude Code, Codex): the screen where safety managers see, confirm, and act on the incidents our system ranks by severity. Then I built the go-to-market from zero, a prospecting-to-pilot playbook that takes a cold name on LinkedIn to a self-installed, validated pilot.
-        </p>
-      </div>
-      <div class="grid sm:grid-cols-2 gap-4 stagger-reveal">
-        {canaryCards.map((item, i) => (
-          <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
-            <PortfolioCard item={item} />
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <div class="section-divider container"></div>
-
-    <!-- Virtual Diamond Boutique -->
-    <section id="vdb" class="container py-24">
-      <div class="reveal">
-        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-2">Virtual Diamond Boutique</h2>
-        <p class="text-fg-dim font-mono text-xs mb-3">Product · Customer Success · SalesOps · 2017-2024</p>
-        <p class="text-fg-muted text-sm mb-8 max-w-lg">
-          B2B/B2C marketplace for the diamond and jewelry trade. Seven years, three promotions. Like a necromancer, I spawned teams out of the void and gave them a pulse.
-        </p>
-      </div>
-
-      <div class="reveal mb-10">
-        <div class="vdb-hero">
-          <img
-            src={`${base}assets/vdb/hero.png`}
-            alt="Virtual Diamond Boutique platform"
-            loading="lazy"
-            onerror="this.style.opacity=0"
-          />
-        </div>
-      </div>
-
-      <div class="space-y-8">
-        <!-- Product -->
-        <div class="reveal narrative-block">
-          <h3 class="text-base font-semibold text-white mb-1">Product 0-1: built the team &amp; money spigot</h3>
-          <p class="text-accent2 text-xs font-mono mb-3">Director of Product Management · 2017-2021</p>
-          <p class="text-fg-muted text-sm leading-relaxed mb-3">
-            Joined as the first PM hire when the platform was a free B2B diamond marketplace with less than a thousand active users. I grew it into a multi-tenant B2B and B2C revenue-generating machine with 60x the MAU. I architected the white-label framework that enabled SaaS sales, and launched three entirely new product categories to bring in millions in ARR. I built and scaled a product and design team of 15, plus the entire ProductOps stack (PRDs, OKRs, design system, sprints, QA, release management).
-          </p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="tag tag-accent text-[12px]">tech employee #2</span>
-            <span class="tag tag-accent text-[12px]">60x MAU</span>
-            <span class="tag text-[12px]">millions in ARR</span>
-            <span class="tag text-[12px]">white-label SaaS</span>
-          </div>
-        </div>
-
-        <!-- Customer Success -->
-        <div class="reveal narrative-block" style="transition-delay: 0.08s">
-          <h3 class="text-base font-semibold text-white mb-1">Customer Success 0-1: fixed the leaky bucket</h3>
-          <p class="text-accent2 text-xs font-mono mb-3">VP of Customer Success · 2021-2023</p>
-          <p class="text-fg-muted text-sm leading-relaxed mb-3">
-            Joined as the first Customer Success hire: no CS function, nothing measured, a company that closed deals fast and lost customers just as fast. I built the CS team from zero (hired 8, fired 3) and wrote the CS playbook: a 5-phase onboarding pipeline operationalized in Rocketlane, quarterly business reviews, and Early Warning health dashboards that flag at-risk accounts before they churn. Churn dropped from roughly 25% to 10%, and time-to-live went from about 166 days to 60.
-          </p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="tag tag-accent text-[12px]">first CS hire</span>
-            <span class="tag tag-accent text-[12px]">churn 25% → 10%</span>
-            <span class="tag text-[12px]">166 → 60 days</span>
-            <span class="tag text-[12px]">CS playbook</span>
-          </div>
-        </div>
-
-        <!-- Sales Operations -->
-        <div class="reveal narrative-block" style="transition-delay: 0.16s">
-          <h3 class="text-base font-semibold text-white mb-1">SalesOps: from chaos to forecasts</h3>
-          <p class="text-accent2 text-xs font-mono mb-3">VP of Strategic Operations · 2023-2024</p>
-          <p class="text-fg-muted text-sm leading-relaxed mb-3">
-            The sales team ran on instinct: manual, rep-by-rep prospecting, no system, no forecast, no shared truth. I rebuilt how VDB sold into a structured, automated Salesforce system of record, so leadership could interrogate the pipeline and forecast revenue. I handed back 20% of rep time per week by automating cold outreach, created a dedicated SDR role so account executives could focus on selling, and built a release-notes pipeline that tied product tickets to the features blocking deals. Deal velocity rose about 20%, sales-meeting time dropped by half, and I clawed back $78k/yr in Salesforce over-licensing.
-          </p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="tag tag-accent text-[12px]">built SalesOps from zero</span>
-            <span class="tag tag-accent text-[12px]">+20% deal velocity</span>
-            <span class="tag text-[12px]">−50% meeting time</span>
-            <span class="tag text-[12px]">$78K waste cut</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider container"></div>
-
-    <!-- Earlier Career -->
-    <section class="container py-24">
-      <div class="reveal">
-        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-8">Earlier</h2>
-      </div>
-
-      <div class="space-y-8">
-        <div class="reveal flex items-start gap-4">
-          <div class="min-w-[100px] shrink-0 mt-1">
-            <div class="org-logo">
-              <img src={happyfuncorpLogo} alt="HappyFunCorp" loading="lazy" />
-            </div>
-          </div>
-          <div>
-            <p class="text-white text-sm font-medium">HappyFunCorp <span class="text-fg-dim font-normal">/ Product Manager</span></p>
-            <p class="text-fg-dim font-mono text-xs mt-0.5">Product development studio · 2015-2017 · Brooklyn, NY</p>
-            <p class="text-fg-muted text-sm mt-1">
-              Agency PM in Brooklyn. Shipped mobile and web products for Harvard University (3 schools),
-              Brooklyn Museum, Gorilla Logic, fintech startups, and social apps. Ran discovery workshops,
-              led cross-functional sprints, iterated toward product-market fit.
-            </p>
-            <div class="client-logos">
-              <img src={`${base}assets/logos/orgs/harvard.png`} alt="Harvard" loading="lazy" />
-              <img src={`${base}assets/logos/orgs/harvard-law.png`} alt="Harvard Law" loading="lazy" />
-              <img src={`${base}assets/logos/orgs/brooklyn-museum.png`} alt="Brooklyn Museum" loading="lazy" />
-              <img src={`${base}assets/logos/orgs/gorillalogic.png`} alt="Gorilla Logic" loading="lazy" />
-              <img src={`${base}assets/logos/orgs/tommie-hotels.png`} alt="Tommie Hotels" loading="lazy" />
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal flex items-start gap-4" style="transition-delay: 0.06s">
-          <div class="min-w-[100px] shrink-0 mt-1">
-            <div class="org-logo">
-              <img src={`${base}assets/logos/orgs/ihs.jpeg`} alt="Institute for Humane Studies" loading="lazy" />
-            </div>
-          </div>
-          <div>
-            <p class="text-white text-sm font-medium">Institute for Humane Studies <span class="text-fg-dim font-normal">/ Product Manager</span></p>
-            <p class="text-fg-dim font-mono text-xs mt-0.5">Educational nonprofit · 2012-2014 · Arlington, VA</p>
-            <p class="text-fg-muted text-sm mt-1">
-              First tech hire. Built Learn Liberty Academy from the ground up. Online education platform
-              reaching 1,000+ students through 30+ experimental programs with 20+ university professors.
-              Lean Startup methods: prototype, test, measure, iterate.
-            </p>
-            <div class="client-logos">
-              <img src={`${base}assets/logos/orgs/learn-liberty.png`} alt="Learn Liberty" loading="lazy" />
-              <img src={`${base}assets/logos/orgs/mruniversity.png`} alt="MRUniversity" loading="lazy" />
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal flex items-start gap-4" style="transition-delay: 0.12s">
-          <div class="min-w-[100px] shrink-0 mt-1">
-            <div class="org-logo">
-              <img src={`${base}assets/logos/orgs/uab.png`} alt="UAB Research Hospital" loading="lazy" />
-            </div>
-          </div>
-          <div>
-            <p class="text-white text-sm font-medium">UAB Research Hospital <span class="text-fg-dim font-normal">/ Neuroscience Researcher</span></p>
-            <p class="text-fg-dim font-mono text-xs mt-0.5">Academic medical center · 2010-2012 · Birmingham, AL</p>
-            <p class="text-fg-muted text-sm mt-1">
-              First research hire. Set up lab operations for neurodegenerative disease research.
-              Co-authored the published findings. The experimental discipline from this
-              work shapes how I think about product decisions today.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider container"></div>
-
-    <!-- How I Think -->
-    <section class="container py-24">
-      <div class="reveal">
-        <p class="text-xs font-mono uppercase tracking-widest text-accent mb-6">How I Think</p>
-        <button type="button" data-wiki-open aria-haspopup="dialog" aria-controls="wiki-modal" aria-label="Read 'The purpose of a system is what it does' on Wikipedia" class="wiki-trigger">
-          <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-[1.08] max-w-[680px]">
-            The <span class="text-accent">purpose</span> of a system is what it <span class="text-accent">does</span>.<svg class="wiki-headline-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-          </h2>
-          <span class="wiki-hint">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-            Read the theory on Wikipedia
-          </span>
-        </button>
-        <p class="text-fg-muted text-base leading-relaxed mb-12 max-w-xl">
-          I build systems that move toward the outcome, self-heal through reflection, and run on empowered people. The frameworks below are how I do that work.
-        </p>
-      </div>
-
-      <!-- Three principle pillars -->
-      <div class="reveal grid grid-cols-1 sm:grid-cols-3 gap-8 pb-10 border-b border-border mb-4">
-        <div>
-          <p class="text-accent font-mono text-[11px] uppercase tracking-[0.14em] mb-2.5">Purpose</p>
-          <p class="text-sm text-fg leading-relaxed">Systems are judged by what they produce. That's the one metric that matters. Everything else serves it.</p>
-        </div>
-        <div>
-          <p class="text-accent font-mono text-[11px] uppercase tracking-[0.14em] mb-2.5">Reflection</p>
-          <p class="text-sm text-fg leading-relaxed">Tight loops. Plan, ship, retro, question. How a system learns, self-corrects, and outlasts any individual.</p>
-        </div>
-        <div>
-          <p class="text-accent font-mono text-[11px] uppercase tracking-[0.14em] mb-2.5">People</p>
-          <p class="text-sm text-fg leading-relaxed">Empowered teams run the system. They need clarity of direction, real autonomy, and authority to act.</p>
-        </div>
-      </div>
-
-      <!-- Transition label -->
-      <p class="reveal text-[11px] font-mono uppercase tracking-[0.16em] text-fg-dim mt-10 mb-5">How I do the work</p>
-
-      <!-- Stage infographic -->
-      <div class="reveal mb-16">
-        <div class="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] items-baseline py-3.5 border-b border-border">
-          <span class="font-mono text-[28px] sm:text-[30px] font-bold text-[#2a2a3a]">01</span>
-          <div>
-            <span class="text-base font-semibold tracking-tight text-white">Discover.</span>
-            <span class="text-xs text-fg-dim ml-3">JTBD · Mom Test · Design Thinking · Double Diamond</span>
-          </div>
-        </div>
-        <div class="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] items-baseline py-3.5 border-b border-border">
-          <span class="font-mono text-[28px] sm:text-[30px] font-bold text-[#2a2a3a]">02</span>
-          <div>
-            <span class="text-base font-semibold tracking-tight text-white">Prioritize.</span>
-            <span class="text-xs text-fg-dim ml-3">RICE · Pareto 80/20 · Hypothesis-driven dev</span>
-          </div>
-        </div>
-        <div class="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] items-baseline py-3.5 border-b border-border">
-          <span class="font-mono text-[28px] sm:text-[30px] font-bold text-[#2a2a3a]">03</span>
-          <div>
-            <span class="text-base font-semibold tracking-tight text-white">Execute.</span>
-            <span class="text-xs text-fg-dim ml-3">Agile sprints · Design Sprints · Blameless retros</span>
-          </div>
-        </div>
-        <div class="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] items-baseline py-3.5 border-b border-border">
-          <span class="font-mono text-[28px] sm:text-[30px] font-bold text-[#2a2a3a]">04</span>
-          <div>
-            <span class="text-base font-semibold tracking-tight text-white">Scale.</span>
-            <span class="text-xs text-fg-dim ml-3">Automate · Delegate · Document · PR/FAQ · Pre-mortems</span>
-          </div>
-        </div>
-        <div class="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] items-baseline py-3.5">
-          <span class="font-mono text-[28px] sm:text-[30px] font-bold text-[#2a2a3a]">05</span>
-          <div>
-            <span class="text-base font-semibold tracking-tight text-accent">Lead.</span>
-            <span class="text-xs text-fg-dim ml-3">Servant leadership · Psychological safety</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Books -->
-      <div class="reveal mb-14">
-        <p class="text-fg-dim text-xs font-mono mb-6">Books that shaped how I work</p>
-        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-x-5 gap-y-6">
-          <a href="https://www.goodreads.com/book/show/319006.At_Home_in_the_Universe" target="_blank" rel="noopener noreferrer" class="group" title="At Home in the Universe by Stuart Kauffman">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/at-home-universe.jpg`} alt="At Home in the Universe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">At Home in the Universe</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/1169674.Conscious_Business" target="_blank" rel="noopener noreferrer" class="group" title="Conscious Business by Fred Kofman">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/conscious-business.jpg`} alt="Conscious Business" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Conscious Business</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/10127019-the-lean-startup" target="_blank" rel="noopener noreferrer" class="group" title="The Lean Startup by Eric Ries">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/lean-startup.jpg`} alt="The Lean Startup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">The Lean Startup</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/25814544-sprint" target="_blank" rel="noopener noreferrer" class="group" title="Sprint by Jake Knapp">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/sprint.jpg`} alt="Sprint" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Sprint</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/52283963-the-mom-test" target="_blank" rel="noopener noreferrer" class="group" title="The Mom Test by Rob Fitzpatrick">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/mom-test.jpg`} alt="The Mom Test" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">The Mom Test</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/840.The_Design_of_Everyday_Things" target="_blank" rel="noopener noreferrer" class="group" title="The Design of Everyday Things by Don Norman">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/design-of-everyday-things.jpg`} alt="The Design of Everyday Things" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Design of Everyday Things</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/25744928-deep-work" target="_blank" rel="noopener noreferrer" class="group" title="Deep Work by Cal Newport">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/deep-work.jpg`} alt="Deep Work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Deep Work</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/36756.Leading_with_Questions" target="_blank" rel="noopener noreferrer" class="group" title="Leading with Questions by Michael Marquardt">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/leading-with-questions.jpg`} alt="Leading with Questions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Leading with Questions</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/53343.On_Writing_Well" target="_blank" rel="noopener noreferrer" class="group" title="On Writing Well by William Zinsser">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/on-writing-well.jpg`} alt="On Writing Well" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">On Writing Well</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/7108725-start-with-why" target="_blank" rel="noopener noreferrer" class="group" title="Start with Why by Simon Sinek">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/start-with-why.jpg`} alt="Start with Why" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Start with Why</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/40121378-atomic-habits" target="_blank" rel="noopener noreferrer" class="group" title="Atomic Habits by James Clear">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/atomic-habits.jpg`} alt="Atomic Habits" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Atomic Habits</p>
-          </a>
-          <a href="https://www.goodreads.com/book/show/18050143-zero-to-one" target="_blank" rel="noopener noreferrer" class="group" title="Zero to One by Peter Thiel">
-            <div class="aspect-[2/3] rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/books/zero-to-one.jpg`} alt="Zero to One" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Zero to One</p>
-          </a>
-        </div>
-        <div class="mt-6 flex items-center gap-2">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#553B08" class="shrink-0"><path d="M11.43 23.995c-3.608-.208-6.274-2.077-6.448-5.078.695.007 1.375-.013 2.07-.006.224 1.98 1.862 3.088 4.378 3.088 2.94 0 4.616-1.558 4.616-4.324v-1.798c-.77 1.357-2.36 2.2-4.255 2.2-3.36 0-5.885-2.744-5.885-6.353S8.431 5.37 11.791 5.37c1.896 0 3.486.844 4.255 2.2V5.6h1.963v12.28c0 3.907-2.514 6.115-6.578 6.115zM12.2 7.31c-2.57 0-4.347 1.97-4.347 4.414 0 2.444 1.778 4.414 4.347 4.414 2.57 0 4.347-1.97 4.347-4.414 0-2.444-1.778-4.414-4.347-4.414z"/></svg>
-          <a href="https://www.goodreads.com/gembitsky" target="_blank" rel="noopener noreferrer" class="link-underline text-fg-muted text-xs hover:text-accent2 transition-colors">
-            See all my books on Goodreads
-          </a>
-        </div>
-      </div>
-
-      <!-- Podcasts -->
-      <div class="reveal">
-        <p class="text-fg-dim text-xs font-mono mb-6">Podcasts that inspire my thinking</p>
-        <div class="grid grid-cols-3 sm:grid-cols-5 gap-x-5 gap-y-6">
-          <a href="https://www.acquired.fm" target="_blank" rel="noopener noreferrer" class="group" title="Acquired">
-            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/podcasts/acquired.jpg`} alt="Acquired" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Acquired</p>
-          </a>
-          <a href="https://www.npr.org/series/490248027/how-i-built-this" target="_blank" rel="noopener noreferrer" class="group" title="How I Built This with Guy Raz">
-            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/podcasts/how-i-built-this.jpg`} alt="How I Built This" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">How I Built This</p>
-          </a>
-          <a href="https://99percentinvisible.org" target="_blank" rel="noopener noreferrer" class="group" title="99% Invisible with Roman Mars">
-            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/podcasts/99-invisible.jpg`} alt="99% Invisible" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">99% Invisible</p>
-          </a>
-          <a href="https://37signals.com/podcast" target="_blank" rel="noopener noreferrer" class="group" title="Rework by 37signals">
-            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/podcasts/rework.jpg`} alt="Rework" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Rework</p>
-          </a>
-          <a href="https://designbetterpodcast.com" target="_blank" rel="noopener noreferrer" class="group" title="Design Better, sponsored by Wix Studio">
-            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/podcasts/design-better.jpg`} alt="Design Better" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Design Better</p>
-          </a>
-          <a href="https://www.ted.com/podcasts/how-to-be-a-better-human" target="_blank" rel="noopener noreferrer" class="group" title="How to Be a Better Human (TED)">
-            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/podcasts/better-human.jpg`} alt="How to Be a Better Human" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Better Human</p>
-          </a>
-          <a href="https://takeoverpod.com" target="_blank" rel="noopener noreferrer" class="group" title="How to Take Over the World with Ben Wilson">
-            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/podcasts/take-over-world.jpg`} alt="How to Take Over the World" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Take Over the World</p>
-          </a>
-          <a href="https://salesgravy.com/podcasts/" target="_blank" rel="noopener noreferrer" class="group" title="The Sales Gravy Podcast with Jeb Blount">
-            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/podcasts/sales-gravy.jpg`} alt="The Sales Gravy Podcast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Sales Gravy</p>
-          </a>
-          <a href="https://freakonomics.com/series/everyday-things/" target="_blank" rel="noopener noreferrer" class="group" title="The Economics of Everyday Things (Freakonomics)">
-            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/podcasts/economics-everyday.jpg`} alt="The Economics of Everyday Things" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Economics of Everyday Things</p>
-          </a>
-          <a href="https://www.humanetech.com/podcast" target="_blank" rel="noopener noreferrer" class="group" title="Your Undivided Attention (Center for Humane Technology)">
-            <div class="aspect-square rounded-lg overflow-hidden border border-border bg-surface"><img src={`${base}assets/podcasts/undivided-attention.jpg`} alt="Your Undivided Attention" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" /></div>
-            <p class="text-[12px] text-fg-dim mt-2 leading-tight group-hover:text-fg-muted transition-colors">Your Undivided Attention</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider container"></div>
-
-    <!-- Projects -->
-    <div id="projects" class="reveal container pt-24 pb-4">
-      <h2 class="text-xs font-mono uppercase tracking-widest text-accent">Projects</h2>
-    </div>
-
-    <section class="container pb-2">
-      <p class="text-fg-dim text-xs font-mono mb-4 reveal">Production Software</p>
-      <div class="grid sm:grid-cols-2 gap-4 stagger-reveal">
-        {production.map((item, i) => (
-          <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
-            <BuildCard item={item} />
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section class="container py-6">
-      <p class="text-fg-dim text-xs font-mono mb-4 reveal">Automations & Agents</p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 stagger-reveal">
-        {automation.map((item, i) => (
-          <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
-            <BuildCard item={item} />
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section class="container pb-8">
-      <p class="text-fg-dim text-xs font-mono mb-4 reveal">Creative</p>
-      <div class="grid sm:grid-cols-2 gap-4 stagger-reveal">
-        {creative.map((item, i) => (
-          <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
-            <BuildCard item={item} />
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <div class="section-divider container"></div>
-
-    <!-- Toolbox -->
-    <section class="container py-24">
-      <div class="reveal">
-        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-10">Toolbox</h2>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10">
-        <!-- Dev & AI -->
-        <div class="reveal">
-          <p class="text-fg-dim text-[12px] font-mono uppercase tracking-wider mb-4">Dev & AI</p>
-          <div class="flex flex-wrap gap-3">
-            <div class="tool-icon" title="Claude Code"><img src={`${base}assets/tools/claude.svg`} alt="Claude Code" loading="lazy" /></div>
-            <div class="tool-icon" title="Codex"><img src={`${base}assets/tools/codex.svg`} alt="Codex" loading="lazy" /></div>
-            <div class="tool-icon" title="VS Code"><img src={`${base}assets/tools/vscode.svg`} alt="VS Code" loading="lazy" /></div>
-            <div class="tool-icon" title="Perplexity"><img src={`${base}assets/tools/perplexity.svg`} alt="Perplexity" loading="lazy" /></div>
-            <div class="tool-icon" title="Gemini"><img src={`${base}assets/tools/gemini.svg`} alt="Gemini" loading="lazy" /></div>
-            <div class="tool-icon-full" title="Google AI Studio"><img src={`${base}assets/tools/google-ai-studio.png`} alt="Google AI Studio" loading="lazy" /></div>
-            <div class="tool-icon" title="GitHub"><img src={`${base}assets/tools/github.svg`} alt="GitHub" loading="lazy" /></div>
-          </div>
-        </div>
-
-        <!-- Sales & GTM -->
-        <div class="reveal" style="transition-delay: 0.06s">
-          <p class="text-fg-dim text-[12px] font-mono uppercase tracking-wider mb-4">Sales & GTM</p>
-          <div class="flex flex-wrap gap-3">
-            <div class="tool-icon-full" title="Pipedrive"><img src={`${base}assets/tools/pipedrive.png`} alt="Pipedrive" loading="lazy" /></div>
-            <div class="tool-icon" title="Salesforce"><img src={`${base}assets/tools/salesforce.svg`} alt="Salesforce" loading="lazy" /></div>
-            <div class="tool-icon" title="LinkedIn Sales Navigator"><img src={`${base}assets/tools/linkedin.svg`} alt="LinkedIn" loading="lazy" /></div>
-            <div class="tool-icon-full" title="Woodpecker"><img src={`${base}assets/tools/woodpecker.png`} alt="Woodpecker" loading="lazy" /></div>
-            <div class="tool-icon-full" title="Apollo.io"><img src={`${base}assets/tools/apollo.png`} alt="Apollo" loading="lazy" /></div>
-          </div>
-        </div>
-
-        <!-- Collaboration -->
-        <div class="reveal" style="transition-delay: 0.12s">
-          <p class="text-fg-dim text-[12px] font-mono uppercase tracking-wider mb-4">Collaboration</p>
-          <div class="flex flex-wrap gap-3">
-            <div class="tool-icon" title="Slack"><img src={`${base}assets/tools/slack.svg`} alt="Slack" loading="lazy" /></div>
-            <div class="tool-icon" title="Jira"><img src={`${base}assets/tools/jira.svg`} alt="Jira" loading="lazy" /></div>
-            <div class="tool-icon" title="Trello"><img src={`${base}assets/tools/trello.svg`} alt="Trello" loading="lazy" /></div>
-            <div class="tool-icon" title="Asana"><img src={`${base}assets/tools/asana.svg`} alt="Asana" loading="lazy" /></div>
-            <div class="tool-icon-full" title="Rocketlane"><img src={`${base}assets/tools/rocketlane.png`} alt="Rocketlane" loading="lazy" /></div>
-          </div>
-        </div>
-
-        <!-- Design & Product -->
-        <div class="reveal" style="transition-delay: 0.18s">
-          <p class="text-fg-dim text-[12px] font-mono uppercase tracking-wider mb-4">Design & Product</p>
-          <div class="flex flex-wrap gap-3">
-            <div class="tool-icon" title="Figma"><img src={`${base}assets/tools/figma.svg`} alt="Figma" loading="lazy" /></div>
-            <div class="tool-icon-full" title="Zight"><img src={`${base}assets/tools/zight.png`} alt="Zight" loading="lazy" /></div>
-            <div class="tool-icon" title="Miro"><img src={`${base}assets/tools/miro.svg`} alt="Miro" loading="lazy" /></div>
-            <div class="tool-icon-full" title="Stitch (Google Labs)"><img src={`${base}assets/tools/google-stitch.png`} alt="Stitch (Google Labs)" loading="lazy" /></div>
-          </div>
-        </div>
-
-        <!-- Productivity -->
-        <div class="reveal" style="transition-delay: 0.24s">
-          <p class="text-fg-dim text-[12px] font-mono uppercase tracking-wider mb-4">Productivity</p>
-          <div class="flex flex-wrap gap-3">
-            <div class="tool-icon-full" title="Reclaim.ai"><img src={`${base}assets/tools/reclaim.png`} alt="Reclaim" loading="lazy" /></div>
-            <div class="tool-icon-full" title="Fathom"><img src={`${base}assets/tools/fathom.png`} alt="Fathom" loading="lazy" /></div>
-            <div class="tool-icon-full" title="Wispr Flow"><img src={`${base}assets/tools/wispr.png`} alt="Wispr Flow" loading="lazy" /></div>
-            <div class="tool-icon-full" title="Paste"><img src={`${base}assets/tools/paste.png`} alt="Paste" loading="lazy" /></div>
-            <div class="tool-icon" title="Telegram"><img src={`${base}assets/tools/telegram.svg`} alt="Telegram" loading="lazy" /></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider container"></div>
-
-    <!-- Publications -->
-    <section class="container py-24">
-      <div class="reveal">
-        <h2 class="text-xs font-mono uppercase tracking-widest text-accent mb-3">Publications</h2>
-        <p class="text-fg-muted text-sm mb-10 max-w-lg">
-          Co-authored, peer-reviewed research across neuroscience, biophysics, and pharmacology.
-        </p>
-      </div>
-
-      <div class="border-t border-border">
-        <!-- 01 -->
-        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4490999/" target="_blank" rel="noopener noreferrer" class="pub-entry reveal grid grid-cols-[40px_1fr] sm:grid-cols-[56px_1fr] gap-x-4 sm:gap-x-6 items-baseline py-7 border-b border-border">
-          <span class="font-mono text-sm text-accent tabular-nums pt-0.5">01</span>
-          <div class="narrative-block">
-            <h3 class="text-base sm:text-lg text-fg leading-snug font-medium tracking-tight text-balance max-w-[58ch]">
-              Inhibition of System x<sub>c</sub><sup>−</sup> Transporter Attenuates Autoimmune Inflammatory Demyelination<svg class="pub-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-            </h3>
-            <p class="text-fg-dim font-mono text-xs uppercase tracking-wider mt-3">
-              The Journal of Immunology · July 2015
-            </p>
-          </div>
-        </a>
-
-        <!-- 02 -->
-        <a href="https://link.springer.com/article/10.1007/s11483-012-9280-1" target="_blank" rel="noopener noreferrer" class="pub-entry reveal grid grid-cols-[40px_1fr] sm:grid-cols-[56px_1fr] gap-x-4 sm:gap-x-6 items-baseline py-7 border-b border-border" style="transition-delay: 0.06s">
-          <span class="font-mono text-sm text-accent tabular-nums pt-0.5">02</span>
-          <div class="narrative-block">
-            <h3 class="text-base sm:text-lg text-fg leading-snug font-medium tracking-tight text-balance max-w-[58ch]">
-              A Possible Connection Between Antidiabetic and Antilipemic Properties of <em>Psoralea corylifolia</em> Seeds and the Trace Elements Present: A LIBS-Based Study<svg class="pub-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-            </h3>
-            <p class="text-fg-dim font-mono text-xs uppercase tracking-wider mt-3">
-              Food Biophysics · June 2013
-            </p>
-          </div>
-        </a>
-
-        <!-- 03 -->
-        <a href="https://doi.org/10.54085/ap.2024.13.1.66" target="_blank" rel="noopener noreferrer" class="pub-entry reveal grid grid-cols-[40px_1fr] sm:grid-cols-[56px_1fr] gap-x-4 sm:gap-x-6 items-baseline py-7 border-b border-border" style="transition-delay: 0.12s">
-          <span class="font-mono text-sm text-accent tabular-nums pt-0.5">03</span>
-          <div class="narrative-block">
-            <h3 class="text-base sm:text-lg text-fg leading-snug font-medium tracking-tight text-balance max-w-[58ch]">
-              Comparative Toxicological Studies of <em>Heracleum maximum</em> W. Bartram and <em>Psoralea corylifolia</em> L. Seed Extracts on Brine Shrimp (<em>Artemia salina</em>) and Wistar Rats<svg class="pub-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-            </h3>
-            <p class="text-fg-dim font-mono text-xs uppercase tracking-wider mt-3">
-              Annals of Phytomedicine · July 2024
-            </p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <div class="section-divider container"></div>
-
-    <!-- Contact -->
-    <Contact />
-
-    <!-- Footer -->
-    <Footer />
+    <div class="work-anchor" id="work"></div>
+    <SpotlightSlide />
+    <SpotlightCanary />
+    <SpotlightScale />
+    <AiSlide />
+    <OthersSlide />
+    <AboutSlide />
   </main>
-
-  <!-- Wikipedia modal -->
-  <div id="wiki-modal" class="wiki-modal" aria-hidden="true">
-    <div class="wiki-modal__backdrop" data-wiki-close></div>
-    <div class="wiki-modal__panel" role="dialog" aria-modal="true" aria-label="Wikipedia: The purpose of a system is what it does">
-      <div class="wiki-modal__bar">
-        <span class="wiki-modal__title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
-          <span>en.wikipedia.org</span>
-        </span>
-        <div class="wiki-modal__actions">
-          <a class="wiki-modal__open" href="https://en.wikipedia.org/wiki/The_purpose_of_a_system_is_what_it_does" target="_blank" rel="noopener noreferrer">
-            <span>Open</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-          </a>
-          <button type="button" class="wiki-modal__close" data-wiki-close aria-label="Close">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-          </button>
-        </div>
-      </div>
-      <div class="wiki-modal__stage" data-wiki-stage>
-        <div class="wiki-modal__loader">
-          <span class="wiki-spinner"></span>
-          <span>Loading Wikipedia…</span>
-        </div>
-        <iframe
-          class="wiki-modal__frame"
-          title="Wikipedia: The purpose of a system is what it does"
-          referrerpolicy="no-referrer"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-        ></iframe>
-      </div>
-    </div>
-  </div>
 </BaseLayout>
 
 <script>
-  const WIKI_URL = 'https://en.wikipedia.org/wiki/The_purpose_of_a_system_is_what_it_does';
-  const modal = document.getElementById('wiki-modal');
-
-  if (modal) {
-    const stage = modal.querySelector('[data-wiki-stage]');
-    const frame = modal.querySelector('.wiki-modal__frame');
-    const closeBtn = modal.querySelector('.wiki-modal__close');
-    const background = [document.querySelector('nav'), document.querySelector('main')].filter(Boolean);
-    let lastFocused = null;
-
-    const reveal = () => stage && stage.classList.add('loaded');
-
-    const openModal = () => {
-      lastFocused = document.activeElement;
-      if (frame && !frame.getAttribute('src')) {
-        frame.addEventListener('load', reveal, { once: true });
-        window.setTimeout(reveal, 9000); // safety net if load never fires
-        frame.setAttribute('src', WIKI_URL);
-      } else {
-        reveal();
-      }
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      background.forEach((el) => (el.inert = true));
-      // lock scroll without a layout shift from the disappearing scrollbar
-      const sbw = window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.overflow = 'hidden';
-      if (sbw > 0) document.body.style.paddingRight = sbw + 'px';
-      window.requestAnimationFrame(() => closeBtn && closeBtn.focus());
-    };
-
-    const closeModal = () => {
-      if (!modal.classList.contains('open')) return;
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      background.forEach((el) => (el.inert = false));
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
-      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
-    };
-
-    document.querySelectorAll('[data-wiki-open]').forEach((trigger) => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal();
-      });
+  // Reveal on entry. Siblings inside one slide stagger by 70ms (a beat the eye reads as one group arriving).
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll<HTMLElement>('section.slide').forEach((slide) => {
+    slide.querySelectorAll<HTMLElement>('.rv').forEach((el, i) => {
+      if (!el.style.transitionDelay) el.style.setProperty('--rv-delay', `${Math.min(i, 6) * 0.07}s`);
     });
-
-    modal.querySelectorAll('[data-wiki-close]').forEach((el) => {
-      el.addEventListener('click', closeModal);
+  });
+  const firstPaint = () => {
+    document.querySelectorAll<HTMLElement>('.rv').forEach((el) => {
+      if (el.getBoundingClientRect().top < innerHeight * 0.9) el.classList.add('in');
+      else io.observe(el);
     });
-
-    document.addEventListener('keydown', (e) => {
-      if (!modal.classList.contains('open')) return;
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        closeModal();
-        return;
-      }
-      if (e.key === 'Tab') {
-        const focusable = Array.from(
-          modal.querySelectorAll('a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])')
-        ).filter((el) => el.offsetParent !== null || el.tagName === 'IFRAME');
-        if (!focusable.length) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    });
+  };
+  if (document.documentElement.classList.contains('ready')) firstPaint();
+  else {
+    const mo = new MutationObserver(() => { if (document.documentElement.classList.contains('ready')) { mo.disconnect(); firstPaint(); } });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   }
+
+  // Progress dots
+  const dots = new Map<string, HTMLAnchorElement>();
+  document.querySelectorAll<HTMLAnchorElement>('[data-dot]').forEach((a) => dots.set(a.dataset.dot!, a));
+  const so = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        dots.forEach((a) => a.removeAttribute('aria-current'));
+        dots.get((e.target as HTMLElement).id)?.setAttribute('aria-current', 'true');
+      }
+    }
+  }, { threshold: 0.55 });
+  document.querySelectorAll<HTMLElement>('section.slide[id]').forEach((s) => so.observe(s));
+
+  // Case study dialogs: a burst grows from the button, the panel fades in, and the whole thing reverses on close
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const burst = document.createElement('div'); burst.className = 'burst'; document.body.appendChild(burst);
+  const coverScale = (x: number, y: number) => {
+    const dx = Math.max(x, innerWidth - x), dy = Math.max(y, innerHeight - y);
+    return (Math.hypot(dx, dy) * 2) / 40 + 1;
+  };
+  let lastTrigger: HTMLElement | null = null;
+  const placeBurst = (el: HTMLElement) => {
+    const r = el.getBoundingClientRect();
+    const x = r.left + r.width / 2, y = r.top + r.height / 2;
+    burst.style.left = `${x}px`; burst.style.top = `${y}px`;
+    return coverScale(x, y);
+  };
+  document.querySelectorAll<HTMLButtonElement>('[data-open]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const d = document.getElementById(btn.dataset.open!) as HTMLDialogElement | null;
+      if (!d) return;
+      lastTrigger = btn;
+      d.classList.remove('closing');
+      document.documentElement.style.overflow = 'hidden';
+      if (!reduced) {
+        const sc = placeBurst(btn);
+        const a = burst.animate(
+          [{ transform: 'translate(-50%, -50%) scale(0)' }, { transform: `translate(-50%, -50%) scale(${sc})` }],
+          { duration: 480, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
+        );
+        await a.finished;
+        d.showModal(); d.scrollTop = 0; (d.querySelector('.wrap') as HTMLElement | null)?.focus({ preventScroll: true });
+        burst.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 350, delay: 150, fill: 'forwards' }).finished.then(() => {
+          burst.getAnimations().forEach((an) => an.cancel());
+        });
+      } else {
+        d.showModal(); d.scrollTop = 0; (d.querySelector('.wrap') as HTMLElement | null)?.focus({ preventScroll: true });
+      }
+    });
+  });
+  document.querySelectorAll<HTMLDialogElement>('dialog.case').forEach((d) => {
+    const closeSoft = async () => {
+      if (d.classList.contains('closing')) return;
+      d.classList.add('closing');
+      if (!reduced && lastTrigger) {
+        const sc = placeBurst(lastTrigger);
+        burst.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, fill: 'forwards' });
+        const a = burst.animate(
+          [{ transform: `translate(-50%, -50%) scale(${sc})` }, { transform: 'translate(-50%, -50%) scale(0)' }],
+          { duration: 520, delay: 180, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
+        );
+        setTimeout(() => { d.classList.remove('closing'); d.close(); }, 380);
+        await a.finished;
+        burst.getAnimations().forEach((an) => an.cancel());
+      } else {
+        d.classList.remove('closing'); d.close();
+      }
+    };
+    d.querySelector('[data-close]')?.addEventListener('click', closeSoft);
+    d.addEventListener('cancel', (ev) => { ev.preventDefault(); closeSoft(); });
+    d.addEventListener('click', (ev) => { if (ev.target === d) closeSoft(); });
+    d.addEventListener('close', () => { document.documentElement.style.overflow = ''; });
+  });
 </script>
+
+<style>
+  .work-anchor { position: relative; top: 0; height: 0; }
+</style>

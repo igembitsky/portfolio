@@ -1,0 +1,14 @@
+---
+// Renders **bold** segments and [text](url) links inside a plain string.
+interface Props { text: string }
+const { text } = Astro.props;
+const tokens = text.split(/(\*\*.+?\*\*|\[[^\]]+\]\([^)]+\))/g).filter(Boolean);
+const parse = (t: string) => {
+  if (t.startsWith('**')) return { kind: 'b', text: t.slice(2, -2) };
+  const m = t.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+  if (m) return { kind: 'a', text: m[1], href: m[2] };
+  return { kind: 't', text: t };
+};
+const parts = tokens.map(parse);
+---
+{parts.map((p) => p.kind === 'b' ? <b>{p.text}</b> : p.kind === 'a' ? <a class="tlink" href={p.href} target="_blank" rel="noopener noreferrer">{p.text}</a> : p.text)}
