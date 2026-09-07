@@ -110,7 +110,7 @@ export const flagships: Flagship[] = [
   {
     id: 'scale-system',
     number: '03',
-    category: 'Scale the System',
+    category: 'Own the Lifecycle',
     title: 'Owning the customer lifecycle end to end',
     org: 'Virtual Diamond Boutique',
     summary:
@@ -260,7 +260,7 @@ export const sections = [
   { id: 'top', label: 'Start' },
   { id: 'build-scale', label: '01 Build & Scale' },
   { id: 'find-product', label: '02 Find the Product' },
-  { id: 'scale-system', label: '03 Scale the System' },
+  { id: 'scale-system', label: '03 Own the Lifecycle' },
   { id: 'build-ai', label: '04 Build with AI' },
   { id: 'other', label: 'Other things' },
   { id: 'about', label: 'About' },

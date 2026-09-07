@@ -26,18 +26,28 @@ import AboutSlide from '../components/AboutSlide.astro';
 </BaseLayout>
 
 <script>
-  document.documentElement.classList.add('js');
-
-  // Reveal on entry
+  // Reveal on entry. Siblings inside one slide stagger by 70ms (a beat the eye reads as one group arriving).
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     }
-  }, { threshold: 0.18 });
-  document.querySelectorAll<HTMLElement>('.rv').forEach((el) => {
-    if (el.getBoundingClientRect().top < innerHeight * 0.9) el.classList.add('in');
-    else io.observe(el);
+  }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll<HTMLElement>('section.slide').forEach((slide) => {
+    slide.querySelectorAll<HTMLElement>('.rv').forEach((el, i) => {
+      if (!el.style.transitionDelay) el.style.setProperty('--rv-delay', `${Math.min(i, 6) * 0.07}s`);
+    });
   });
+  const firstPaint = () => {
+    document.querySelectorAll<HTMLElement>('.rv').forEach((el) => {
+      if (el.getBoundingClientRect().top < innerHeight * 0.9) el.classList.add('in');
+      else io.observe(el);
+    });
+  };
+  if (document.documentElement.classList.contains('ready')) firstPaint();
+  else {
+    const mo = new MutationObserver(() => { if (document.documentElement.classList.contains('ready')) { mo.disconnect(); firstPaint(); } });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
 
   // Progress dots
   const dots = new Map<string, HTMLAnchorElement>();

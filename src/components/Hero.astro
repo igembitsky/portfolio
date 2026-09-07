@@ -4,7 +4,7 @@ import Snow from './Snow.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <section class="slide hero" id="top">
-  <img class="bg" src={`${base}assets/personal/igor-hero.jpg`} alt="Igor Gembitsky in front of a glacier lake" fetchpriority="high" />
+  <img class="bg" src={`${base}assets/personal/igor-hero.jpg`} alt="Igor Gembitsky in front of a glacier lake" width="1600" height="1200" fetchpriority="high" decoding="async" onload="this.classList.add('loaded')" />
   <div class="veil"></div>
   <Snow />
   <div class="copy">
@@ -31,6 +31,19 @@ const base = import.meta.env.BASE_URL;
   .veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(246,247,247,0) 40%, rgba(246,247,247,0.7) 58%, rgba(246,247,247,0.95) 74%, rgba(246,247,247,1) 100%); -webkit-mask-image: linear-gradient(180deg, transparent 22%, rgba(0,0,0,0.6) 36%, #000 48%); mask-image: linear-gradient(180deg, transparent 22%, rgba(0,0,0,0.6) 36%, #000 48%); }
   .copy { position: relative; z-index: 2; isolation: isolate; margin-left: auto; width: min(42rem, 47vw); padding: 30vh 6vw 22vh 0; }
   .copy > * { position: relative; }
+  /* Entrance: the photo settles first, then the four lines arrive 90ms apart, then the logo strip. */
+  :global(.js) .bg { opacity: 0; transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+  :global(.js) .bg.loaded { opacity: 1; }
+  :global(.js) .copy > *, :global(.js) .strip { opacity: 0; transform: translateY(12px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  :global(.js.ready) .copy > *, :global(.js.ready) .strip { opacity: 1; transform: none; }
+  :global(.js.ready) .copy > :nth-child(1) { transition-delay: 0.1s; }
+  :global(.js.ready) .copy > :nth-child(2) { transition-delay: 0.19s; }
+  :global(.js.ready) .copy > :nth-child(3) { transition-delay: 0.28s; }
+  :global(.js.ready) .copy > :nth-child(4) { transition-delay: 0.37s; }
+  :global(.js.ready) .strip { transition-delay: 0.5s; }
+  @media (prefers-reduced-motion: reduce) {
+    :global(.js) .bg, :global(.js) .copy > *, :global(.js) .strip { opacity: 1; transform: none; transition: none; }
+  }
   .copy .name { font-size: clamp(22px, 2vw, 28px); font-weight: 500; letter-spacing: -0.01em; }
   .role { color: #244b4f; font-size: var(--fs-label); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; margin-top: 8px; }
   h1 { font-size: clamp(32px, 3.8vw, 52px); margin-top: 34px; max-width: 16ch; }

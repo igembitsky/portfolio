@@ -5,7 +5,7 @@ import type { GalleryGroup } from './spotlight-canary';
 export const scale = {
   id: 'scale-system',
   number: '03',
-  category: 'Scale the System',
+  category: 'Own the Lifecycle',
   title: 'Owning the customer lifecycle end to end',
   org: 'Virtual Diamond Boutique',
   role: 'Director of Product Management',
@@ -17,7 +17,7 @@ export const scale = {
     { label: 'Homepage setup', before: '~1 month', after: '~2 weeks', delta: '50% faster' },
     { label: 'Pipeline growth (QoQ)', before: 'Flat', after: '+20%', delta: 'Every stage up' },
   ],
-  caseTitle: 'A case study in scaling the system',
+  caseTitle: 'A case study in owning the customer lifecycle',
   thesis:
     'Having built the core product and the team to run it, my ownership expanded to the entire customer journey, with new objectives:',
   wins: ['Faster time to value', 'Higher retention', 'Higher engagement and satisfaction', 'Higher revenue retention and sales velocity'],

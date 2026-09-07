@@ -54,6 +54,18 @@ const ogImage = `${siteUrl}/og-image.png`;
   <meta name="theme-color" content="#f6f7f7">
   <meta name="color-scheme" content="light">
 
+  <!-- Font: preload the latin file so the first paint uses the real face -->
+  <link rel="preload" as="font" type="font/woff2" href={`${import.meta.env.BASE_URL}assets/fonts/hanken-grotesk-latin.woff2`} crossorigin>
+  <script is:inline>
+    document.documentElement.classList.add('js');
+    (function () {
+      var done = false;
+      function ready() { if (done) return; done = true; requestAnimationFrame(function () { document.documentElement.classList.add('ready'); }); }
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(ready); } else { ready(); }
+      setTimeout(ready, 400);
+    })();
+  </script>
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`}>
   <link rel="canonical" href={siteUrl}>
