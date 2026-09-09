@@ -162,9 +162,11 @@ export const ai = {
   products: <AiProduct[]>[
     {
       name: 'Prophase',
-      tagline: 'A job search product that understands you, then does the work.',
+      tagline: 'A job-search platform that grew out of my own search.',
       description:
-        'Reads your skills, experience, and what you want next. Matches that against real openings, and helps you apply. Shipped to production and in use with early customers.',
+        `I built Prophase to find roles that fit my experience and ambitions, and prepare high-quality applications. I went a little overboard and shipped a production platform. It combines LLMs with deterministic matching and claims verification to assess fit and write tailored, fact-checked applications.
+
+Building and using it taught me how to evaluate models, control costs, and make AI reliable across a complete workflow. I’m now testing a boutique service to help others find the right opportunities and make their strongest, most honest case.`,
       status: 'In production · Private beta',
       links: [],
       visual: { src: 'assets/ai/prophase.jpg', alt: 'Prophase shortlist with match analysis' },

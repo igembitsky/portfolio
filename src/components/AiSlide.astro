@@ -16,7 +16,7 @@ import Rich from './Rich.astro';
           <div class="frame"><Visual v={p.visual} /></div>
           <h3>{p.name}</h3>
           <p class="tag">{p.tagline}</p>
-          <p class="desc"><Rich text={p.description} /></p>
+          <div class="desc">{p.description.split("\n\n").map((paragraph) => <p><Rich text={paragraph} /></p>)}</div>
           <div class="foot">
             <span class="status">{p.status}</span>
             <span class="links">{p.links.map((l) => <a class="tlink" href={l.url} target="_blank" rel="noopener noreferrer">{l.label} &rarr;</a>)}</span>
@@ -51,6 +51,8 @@ import Rich from './Rich.astro';
   h3 { font-size: 24px; font-weight: 500; margin: 26px 26px 0; }
   .tag { font-size: var(--fs-body); font-weight: 500; margin: 10px 26px 0; line-height: 1.4; }
   .desc { margin: 16px 26px 0; font-size: var(--fs-body); color: var(--color-muted); }
+  .desc > p { margin: 0; }
+  .desc > p + p { margin-top: 1em; }
   .desc :global(a) { color: var(--color-ink); }
   .foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 26px 0 0; padding: 16px 26px 20px; border-top: 1px solid var(--color-rule); font-size: var(--fs-small); color: var(--color-muted); }
   .links { display: flex; gap: 16px; white-space: nowrap; color: var(--color-ink); }
