@@ -147,6 +147,8 @@ export interface AiProduct {
   name: string;
   tagline: string;
   description: string;
+  points: { label: string; text: string }[];
+  detail: string;
   status: string;
   links: { label: string; url: string }[];
   visual: Visual;
@@ -162,31 +164,44 @@ export const ai = {
   products: <AiProduct[]>[
     {
       name: 'Prophase',
-      tagline: 'A job-search platform that grew out of my own search.',
-      description:
-        `I built Prophase to find roles that fit my experience and ambitions, and prepare high-quality applications. I went a little overboard and shipped a production platform. It combines LLMs with deterministic matching and claims verification to assess fit and write tailored, fact-checked applications.
-
-Building and using it taught me how to evaluate models, control costs, and make AI reliable across a complete workflow. I’m now testing a boutique service to help others find the right opportunities and make their strongest, most honest case.`,
+      tagline: 'A personal approach to your next role.',
+      description: 'Built for my own search. Now piloting a boutique job-search service.',
+      points: [
+        { label: 'Find the fit.', text: 'Roles matched to your experience and ambitions.' },
+        { label: 'Make your case.', text: 'Tailored applications with verified claims.' },
+        { label: 'Apply with care.', text: 'Human judgment, supported by evaluated models.' },
+      ],
+      detail: 'I built and shipped the platform with Claude Code. It combines LLMs, deterministic matching, and claims verification. Using it for my own applications taught me how to evaluate models, control costs, and make the complete workflow reliable. I’m now using those tools to help others find strong matches and prepare thoughtful applications.',
       status: 'In production · Private beta',
       links: [],
       visual: { src: 'assets/ai/prophase.jpg', alt: 'Prophase shortlist with match analysis' },
     },
     {
       name: 'VibeOps',
-      tagline: 'An issue tracker built for working with coding agents.',
-      description:
-        'Started as my own pain: bugs, ideas, and production feedback scattered across too many places. Now one board that captures context from the code, prioritizes, and hands work to agents.',
+      tagline: 'Capture an idea. Put an agent to work.',
+      description: 'A shared workspace for your ideas, direction, and user feedback.',
+      points: [
+        { label: 'Capture in context.', text: 'Ideas, bugs, questions, and what to do next.' },
+        { label: 'Work with any agent.', text: 'Triage, assign, and review through MCP.' },
+        { label: 'Keep people involved.', text: 'User conversations, email, and Slack updates.' },
+      ],
+      detail: 'Part of the productivity toolkit I use across local and production projects. Capture an idea for later or send it straight to Claude, Codex, or another MCP-connected agent, then review the work. The shared backlog keeps production issues visible to everyone on the project. Email replies and Slack updates connect the work back to the people who raised it.',
       status: 'Open source · Daily use',
       links: [{ label: 'GitHub', url: 'https://github.com/igembitsky/vibeops-tracker' }],
       visual: { src: 'assets/ai/vibeops.jpg', alt: 'VibeOps board' },
     },
     {
       name: 'Virtual Standardized Patient',
-      tagline: 'A free AI patient that runs offline, for medical schools with few resources.',
-      description:
-        'Invited to speak at the [Global Health Conference](https://www.theglobalhealthacademy.org/global-health-academy/global-health-conferences/2026-home), I built this for the workshop. Students practice consultations with an AI patient on local models. No cloud, no cost, no data leaving the room.',
-      status: 'Open source · Workshop',
-      links: [{ label: 'GitHub', url: 'https://github.com/igembitsky/virtual-standardized-patient' }],
+      tagline: 'Clinical practice. Without cloud costs.',
+      description: 'For the AI plenary and workshop I’m leading at the Global Health Conference.',
+      points: [
+        { label: 'Practice a consultation.', text: 'Interview an AI patient in a clinical scenario.' },
+        { label: 'Run it locally.', text: 'Open-source models. Offline. On your hardware.' },
+        { label: 'Take it home.', text: 'Install it in the workshop and bring it back.' },
+      ],
+      detail: 'Invited to speak at the 2026 Global Health Conference, I’m coordinating and hosting the AI in medicine plenary, leading the AI in medical education panel, and running the closing hands-on workshop. Delegates will install the patient simulator on their own systems and learn how to bring it back to their home countries. Local models keep conversations on the device and avoid recurring cloud inference charges.',
+      status: 'Open source · Conference 2026',
+      links: [{ label: 'GitHub', url: 'https://github.com/igembitsky/virtual-standardized-patient' }, { label: 'Conference', url: 'https://www.theglobalhealthacademy.org/global-health-academy/global-health-conferences/2026-home' }],
       visual: { src: 'assets/ai/vsp.jpg', alt: 'Virtual Standardized Patient consultation with Jerry Graham, 55' },
     },
   ],

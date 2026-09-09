@@ -9,6 +9,7 @@ import SpotlightScale from '../components/SpotlightScale.astro';
 import AiSlide from '../components/AiSlide.astro';
 import OthersSlide from '../components/OthersSlide.astro';
 import AboutSlide from '../components/AboutSlide.astro';
+const { aiLayout = 'cards' } = Astro.props;
 ---
 <BaseLayout>
   <Nav />
@@ -19,7 +20,7 @@ import AboutSlide from '../components/AboutSlide.astro';
     <SpotlightSlide />
     <SpotlightCanary />
     <SpotlightScale />
-    <AiSlide />
+    <AiSlide layout={aiLayout} />
     <OthersSlide />
     <AboutSlide />
   </main>

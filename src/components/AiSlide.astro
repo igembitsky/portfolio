@@ -1,73 +1,98 @@
 ---
 import { ai } from '../data/site';
 import Visual from './Visual.astro';
-import Rich from './Rich.astro';
+const { layout = 'cards' } = Astro.props;
 ---
-<section class="slide" id="build-ai">
+<section class:list={['slide', { editorial: layout === 'editorial' }]} id="build-ai">
   <div class="watermark" aria-hidden="true">{ai.number}</div>
   <div class="inner">
     <div class="head rv">
-      <p class="eyebrow eyebrow-accent">{ai.number} &middot; {ai.category} &middot; {ai.org}</p>
-      <h2>{ai.title}</h2>
+      <p class="eyebrow eyebrow-accent">04 &middot; Build with AI &middot; Independent work</p>
+      <h2>From real needs to working products.</h2>
+      <p class="intro">Tools I build, use, and put in other people’s hands.</p>
     </div>
-    <div class="cards">
+    <div class="products">
       {ai.products.map((p, i) => (
-        <article class="card rv" style={`transition-delay:${0.08 * (i + 1)}s`}>
-          <div class="frame"><Visual v={p.visual} /></div>
-          <h3>{p.name}</h3>
-          <p class="tag">{p.tagline}</p>
-          <div class="desc">{p.description.split("\n\n").map((paragraph) => <p><Rich text={paragraph} /></p>)}</div>
-          <div class="foot">
-            <span class="status">{p.status}</span>
-            <span class="links">{p.links.map((l) => <a class="tlink" href={l.url} target="_blank" rel="noopener noreferrer">{l.label} &rarr;</a>)}</span>
+        <article class="product rv">
+          <div class="product-visual"><Visual v={p.visual} /></div>
+          <div class="product-copy">
+            <p class="product-name"><span aria-hidden="true">0{i + 1}</span>{p.name}</p>
+            <h3>{p.tagline}</h3>
+            <p class="description">{p.description}</p>
+            <ul class="benefits">
+              {p.points.map(point => <li><strong>{point.label}</strong> {point.text}</li>)}
+            </ul>
+            <details>
+              <summary>{i === 2 ? 'My role at the conference' : 'The story behind it'}<span aria-hidden="true">+</span></summary>
+              <p>{p.detail}</p>
+            </details>
           </div>
+          <footer>
+            <span class="status">{p.status}</span>
+            <span class="product-links">{p.links.map(l => <a href={l.url} target="_blank" rel="noopener noreferrer">{l.label}<span aria-hidden="true"> ↗</span></a>)}</span>
+          </footer>
         </article>
       ))}
     </div>
-    <div class="cdots" aria-hidden="true">{ai.products.map(() => <span></span>)}</div>
   </div>
 </section>
-
-<script>
-  const track = document.querySelector<HTMLElement>("#build-ai .cards");
-  const dots = document.querySelectorAll<HTMLElement>("#build-ai .cdots span");
-  if (track && dots.length) {
-    const paint = () => {
-      const card = track.firstElementChild as HTMLElement | null; if (!card) return;
-      const step = card.offsetWidth + parseFloat(getComputedStyle(track).columnGap || "16");
-      const i = Math.min(dots.length - 1, Math.max(0, Math.round(track.scrollLeft / step)));
-      dots.forEach((d, k) => d.classList.toggle("on", k === i));
-    };
-    paint(); track.addEventListener("scroll", paint, { passive: true });
-  }
-</script>
-
 <style>
-  h2 { font-size: clamp(30px, 3.4vw, 46px); margin: 14px 0 0; }
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto auto auto auto; gap: 0 24px; margin-top: 36px; }
-  .card { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; border: 1px solid var(--color-rule); background: #fff; }
-  .card > .frame { border: 0; border-bottom: 1px solid var(--color-rule); }
-  .card :global(img), .card :global(.ph) { aspect-ratio: 16 / 10; }
-  h3 { font-size: 24px; font-weight: 500; margin: 26px 26px 0; }
-  .tag { font-size: var(--fs-body); font-weight: 500; margin: 10px 26px 0; line-height: 1.4; }
-  .desc { margin: 16px 26px 0; font-size: var(--fs-body); color: var(--color-muted); }
-  .desc > p { margin: 0; }
-  .desc > p + p { margin-top: 1em; }
-  .desc :global(a) { color: var(--color-ink); }
-  .foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 26px 0 0; padding: 16px 26px 20px; border-top: 1px solid var(--color-rule); font-size: var(--fs-small); color: var(--color-muted); }
-  .links { display: flex; gap: 16px; white-space: nowrap; color: var(--color-ink); }
-  .cdots { display: none; }
-  /* Phones: one card at a time, swipe sideways, next card peeks in from the right */
-  @media (max-width: 900px) {
-    .cards { display: flex; gap: 16px; margin: 28px -24px 0; padding: 0 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 24px; -webkit-overflow-scrolling: touch; scrollbar-width: none; align-items: stretch; }
-    .cards::-webkit-scrollbar { display: none; }
-    .card { flex: 0 0 84vw; max-width: 21rem; grid-row: auto; grid-template-rows: auto auto auto 1fr auto; scroll-snap-align: start; }
-    h3 { font-size: 22px; margin: 20px 20px 0; }
-    .tag { margin: 8px 20px 0; }
-    .desc { margin: 12px 20px 0; font-size: var(--fs-small); }
-    .foot { margin-top: 20px; padding: 14px 20px 16px; }
-    .cdots { display: flex; justify-content: center; gap: 10px; margin-top: 24px; }
-    .cdots span { width: 8px; height: 8px; border-radius: 50%; background: var(--color-rule); transition: background 0.2s, transform 0.2s; }
-    .cdots span.on { background: var(--color-accent); transform: scale(1.25); }
+  #build-ai { padding-top: 100px; padding-bottom: 80px; }
+  h2 { font-size: clamp(30px, 3.4vw, 46px); margin: 14px 0 0; max-width: 900px; }
+  .intro { font-size: 20px; color: var(--color-muted); margin: 14px 0 0; }
+  .products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 40px; align-items: stretch; }
+  .product { min-width: 0; display: grid; grid-template-rows: auto 1fr auto; background: white; border: 1px solid var(--color-rule); }
+  .product-visual { aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--color-rule); background: var(--color-ground); }
+  .product-visual :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .product-copy { padding: 24px 24px 0; }
+  .product-name { display: flex; align-items: baseline; gap: 10px; font-size: 15px; font-weight: 500; margin: 0 0 14px; color: var(--color-accent); }
+  .product-name span { font-weight: 400; opacity: .7; }
+  h3 { font-size: clamp(24px, 2vw, 28px); line-height: 1.2; font-weight: 500; letter-spacing: -.025em; margin: 0; min-height: 2.4em; text-wrap: balance; }
+  .description { color: var(--color-muted); font-size: 18px; line-height: 1.5; margin: 16px 0 22px; min-height: 4.5em; }
+  .benefits { list-style: none; padding: 0; margin: 0; font-size: 18px; line-height: 1.45; }
+  .benefits li { border-top: 1px solid var(--color-rule); padding: 12px 0; color: var(--color-muted); }
+  .benefits strong { font-weight: 500; color: var(--color-ink); }
+  details { border-top: 1px solid var(--color-rule); font-size: 16px; }
+  summary { min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; list-style: none; color: var(--color-accent); font-weight: 500; }
+  summary::-webkit-details-marker { display: none; }
+  summary span { font-size: 24px; font-weight: 300; transition: transform .2s; }
+  details[open] summary span { transform: rotate(45deg); }
+  details p { font-size: 18px; line-height: 1.5; color: var(--color-muted); margin: 0 0 24px; }
+  summary:focus-visible, a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+  footer { min-height: 84px; align-content: center; border-top: 1px solid var(--color-rule); padding: 16px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; font-size: 15px; }
+  .status { color: var(--color-accent); }
+  .product-links { display: flex; gap: 16px; }
+  a { color: var(--color-ink); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; min-height: 28px; }
+  .editorial .products { display: block; }
+  .editorial .product { grid-template-columns: 1.15fr 1fr; margin-bottom: 32px; }
+  .editorial .product-visual { grid-row: span 2; aspect-ratio: auto; min-height: 440px; border-bottom: 0; border-right: 1px solid var(--color-rule); }
+  .editorial .product-copy { padding: 32px 40px 0; }
+  .editorial h3 { min-height: 0; font-size: 32px; }
+  .editorial .description { min-height: 0; }
+  .editorial footer { padding: 16px 40px; }
+  .editorial .product:nth-child(even) .product-visual { grid-column: 2; border-right: 0; border-left: 1px solid var(--color-rule); }
+  .editorial .product:nth-child(even) .product-copy, .editorial .product:nth-child(even) footer { grid-column: 1; }
+  .editorial .product:nth-child(even) .product-copy { grid-row: 1; }
+  @media (max-width: 1050px) and (min-width: 761px) {
+    .products { gap: 16px; }
+    .product-copy { padding: 20px 16px 0; }
+    footer { padding: 16px; }
+    .description, .benefits { font-size: 16px; }
+    .product-name { min-height: 3em; }
   }
+  @media (max-width: 760px) {
+    #build-ai { padding-top: 64px; padding-bottom: 64px; }
+    .intro { font-size: 18px; }
+    .products { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 28px; }
+    .product-name, h3, .description { min-height: 0; }
+    h3 { font-size: 28px; }
+    .description { margin-bottom: 20px; }
+    .product-visual { aspect-ratio: 16 / 9; }
+    .editorial .product { display: flex; flex-direction: column; }
+    .editorial .product-visual { min-height: 0; aspect-ratio: 16 / 9; border: 0; border-bottom: 1px solid var(--color-rule); }
+    .editorial .product-copy { padding: 24px 24px 0; }
+    .editorial footer { padding: 16px 24px; }
+    a { min-height: 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) { summary span { transition: none; } }
 </style>
