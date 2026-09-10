@@ -2,36 +2,49 @@
 import { ai } from '../data/site';
 import Visual from './Visual.astro';
 const { layout = 'cards' } = Astro.props;
+const stories = [
+  [
+    { title: 'Why I built it', items: ['I wanted to find roles that fit my experience and ambitions, and prepare high-quality applications.'] },
+    { title: 'How it works', items: ['LLMs evaluate fit alongside deterministic matching and claims verification.', 'I built and shipped it with Claude Code, evaluating models for quality, reliability, and cost.'] },
+    { title: 'Where it is now', items: ['I use it for my own search and am piloting a boutique service for others.'] },
+  ],
+  [
+    { title: 'Capture and act', items: ['Record my own ideas and guidance alongside user bugs and questions.', 'Triage for later or assign work directly to Claude, Codex, and other MCP-connected agents. Review the results in one shared backlog.'] },
+    { title: 'Keep people involved', items: ['Reply to users through email and follow issue updates in Slack.', 'The team and its agents can see production issues and the work underway.'] },
+    { title: 'Where I use it', items: ['Part of my productivity toolkit across local and production projects.'] },
+  ],
+  [
+    { title: 'The teaching tool', items: ['Students practice clinical consultations with an AI patient.', 'Open-source models run locally, keeping conversations on the device and avoiding cloud inference charges.'] },
+    { title: 'My role at the 2026 conference', items: ['Invited to speak and coordinate the AI in medicine plenary, introducing speakers and hosting the session.', 'Leading the panel on AI in medical education where resources are limited.'] },
+    { title: 'The hands-on workshop', items: ['I’ll help delegates install the tools on their own systems so they can bring them back to their home countries.'] },
+  ],
+];
 ---
 <section class:list={['slide', { editorial: layout === 'editorial' }]} id="build-ai">
   <div class="watermark" aria-hidden="true">{ai.number}</div>
   <div class="inner">
     <div class="head rv">
       <p class="eyebrow eyebrow-accent">04 &middot; Build with AI &middot; Independent work</p>
-      <h2>From real needs to working products.</h2>
-      <p class="intro">Tools I build, use, and put in other people’s hands.</p>
+      <h2>Products I build with AI.</h2>
     </div>
     <div class="products">
       {ai.products.map((p, i) => (
         <article class="product rv">
           <div class="product-visual"><Visual v={p.visual} /></div>
           <div class="product-copy">
-            <p class="product-name"><span aria-hidden="true">0{i + 1}</span>{p.name}</p>
-            <h3>{p.tagline}</h3>
-            <p class="description">{p.description}</p>
-            <ul class="benefits">
-              {p.points.map(point => <li><strong>{point.label}</strong> {point.text}</li>)}
-            </ul>
-            <details>
-              <summary>{i === 2 ? 'My role at the conference' : 'The story behind it'}<span aria-hidden="true">+</span></summary>
-              <p>{p.detail}</p>
-            </details>
+            <h3>{p.name}<span>{p.tagline}</span></h3>
+            <p class="description">{i === 2 ? <>Practice consultations with local, open-source models. No cloud required. I’m demonstrating it at <a class="conference" href={p.links.find(l => l.label === 'Conference')?.url} target="_blank" rel="noopener noreferrer">a Global Health Conference</a>.</> : p.description}</p>
+            <button class="story-button" data-story-open={`ai-story-${i}`}>{i === 2 ? 'The project & my role' : 'The story behind it'}<span aria-hidden="true">↗</span></button>
           </div>
           <footer>
             <span class="status">{p.status}</span>
-            <span class="product-links">{p.links.map(l => <a href={l.url} target="_blank" rel="noopener noreferrer">{l.label}<span aria-hidden="true"> ↗</span></a>)}</span>
+            <span class="product-links">{p.links.filter(l => l.label !== 'Conference').map(l => <a href={l.url} target="_blank" rel="noopener noreferrer">{l.label}<span aria-hidden="true"> ↗</span></a>)}</span>
           </footer>
         </article>
+        <dialog class="story-dialog" id={`ai-story-${i}`} aria-labelledby={`ai-story-title-${i}`}>
+          <div class="story-head"><h2 id={`ai-story-title-${i}`}>{p.name}</h2><button class="story-close" aria-label={`Close ${p.name} story`}>Close <span aria-hidden="true">×</span></button></div>
+          <div class="story-body">{stories[i].map(chunk => <section><h3>{chunk.title}</h3><ul>{chunk.items.map(item => <li>{item}</li>)}</ul></section>)}</div>
+        </dialog>
       ))}
     </div>
   </div>
@@ -95,4 +108,45 @@ const { layout = 'cards' } = Astro.props;
     a { min-height: 44px; }
   }
   @media (prefers-reduced-motion: reduce) { summary span { transition: none; } }
+
+  .products { margin-top: 28px; }
+  .product-copy { padding: 22px 24px 0; display: flex; flex-direction: column; }
+  .product-copy h3 { font-size: 22px; min-height: 0; line-height: 1.3; letter-spacing: -.015em; }
+  .product-copy h3 span { display: block; font-size: 18px; font-weight: 400; line-height: 1.4; margin-top: 8px; color: var(--color-accent); letter-spacing: 0; }
+  .description { min-height: 0; margin: 16px 0; font-size: 18px; }
+  .description .conference { display: inline; min-height: 0; }
+  .story-button { border: 0; border-top: 1px solid var(--color-rule); background: none; padding: 12px 0; min-height: 48px; display: flex; justify-content: space-between; align-items: center; gap: 12px; font: inherit; font-size: 16px; color: var(--color-accent); cursor: pointer; margin-top: auto; text-align: left; }
+  footer { min-height: 64px; padding: 12px 24px; align-items: center; }
+  .story-dialog { position: fixed; inset: 0; width: min(640px, calc(100vw - 32px)); max-width: none; height: fit-content; max-height: calc(100dvh - 48px); margin: auto; padding: 0; border: 1px solid var(--color-rule); background: white; color: var(--color-ink); overflow: hidden; }
+  .story-dialog[open] { display: flex; flex-direction: column; }
+  .story-dialog::backdrop { background: rgb(23 27 29 / .45); }
+  .story-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 28px; border-bottom: 1px solid var(--color-rule); }
+  .story-head h2 { font-size: 24px; margin: 0; line-height: 1.2; }
+  .story-close { flex-shrink: 0; min-height: 44px; background: none; border: 0; font: inherit; font-size: 16px; color: var(--color-accent); cursor: pointer; }
+  .story-close span { margin-left: 8px; font-size: 24px; }
+  .story-body { overflow-y: auto; padding: 24px 28px 28px; overscroll-behavior: contain; }
+  .story-body section + section { margin-top: 24px; }
+  .story-body h3 { font-size: 18px; min-height: 0; margin: 0 0 10px; letter-spacing: 0; line-height: 1.4; }
+  .story-body ul { list-style: disc; margin: 0; padding-left: 20px; color: var(--color-muted); font-size: 18px; line-height: 1.5; }
+  .story-body li + li { margin-top: 8px; }
+  button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+  @media (max-width: 760px) { .story-head { padding: 16px 20px; } .story-body { padding: 20px; } .story-head h2 { font-size: 22px; } }
 </style>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-story-open]').forEach(button => {
+    const dialog = document.getElementById(button.dataset.storyOpen!) as HTMLDialogElement;
+    let previousOverflow = '';
+    button.addEventListener('click', () => {
+      previousOverflow = document.documentElement.style.overflow;
+      document.documentElement.style.overflow = 'hidden';
+      dialog.showModal();
+      dialog.querySelector('.story-body')!.scrollTop = 0;
+      dialog.querySelector<HTMLButtonElement>('.story-close')!.focus();
+    });
+    dialog.querySelector('.story-close')!.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('close', () => {
+      document.documentElement.style.overflow = previousOverflow;
+      button.focus({ preventScroll: true });
+    });
+  });
+</script>

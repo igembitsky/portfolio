@@ -164,8 +164,8 @@ export const ai = {
   products: <AiProduct[]>[
     {
       name: 'Prophase',
-      tagline: 'A personal approach to your next role.',
-      description: 'Built for my own search. Now piloting a boutique job-search service.',
+      tagline: 'Job matching and tailored applications.',
+      description: 'Built for my own search. Matches roles, checks claims, and prepares applications. Now in private beta as a boutique service.',
       points: [
         { label: 'Find the fit.', text: 'Roles matched to your experience and ambitions.' },
         { label: 'Make your case.', text: 'Tailored applications with verified claims.' },
@@ -178,8 +178,8 @@ export const ai = {
     },
     {
       name: 'VibeOps',
-      tagline: 'Capture an idea. Put an agent to work.',
-      description: 'A shared workspace for your ideas, direction, and user feedback.',
+      tagline: 'An issue tracker for coding agents.',
+      description: 'Capture ideas, bugs, and questions. Assign work to agents, review changes, and keep users informed through email and Slack.',
       points: [
         { label: 'Capture in context.', text: 'Ideas, bugs, questions, and what to do next.' },
         { label: 'Work with any agent.', text: 'Triage, assign, and review through MCP.' },
@@ -192,8 +192,8 @@ export const ai = {
     },
     {
       name: 'Virtual Standardized Patient',
-      tagline: 'Clinical practice. Without cloud costs.',
-      description: 'For the AI plenary and workshop I’m leading at the Global Health Conference.',
+      tagline: 'An offline AI patient for medical training.',
+      description: 'Practice consultations with local, open-source models. No cloud required. I’m demonstrating it at a Global Health Conference.',
       points: [
         { label: 'Practice a consultation.', text: 'Interview an AI patient in a clinical scenario.' },
         { label: 'Run it locally.', text: 'Open-source models. Offline. On your hardware.' },
