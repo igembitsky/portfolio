@@ -191,7 +191,7 @@ export const ai = {
       visual: { src: 'assets/ai/vibeops.jpg', alt: 'VibeOps board' },
     },
     {
-      name: 'Virtual Standardized Patient',
+      name: 'Virtual Patient Simulator',
       tagline: 'An offline AI patient for medical training.',
       description: 'Practice consultations with local, open-source models. No cloud required. I’m demonstrating it at a Global Health Conference.',
       points: [
@@ -202,7 +202,7 @@ export const ai = {
       detail: 'Invited to speak at the 2026 Global Health Conference, I’m coordinating and hosting the AI in medicine plenary, leading the AI in medical education panel, and running the closing hands-on workshop. Delegates will install the patient simulator on their own systems and learn how to bring it back to their home countries. Local models keep conversations on the device and avoid recurring cloud inference charges.',
       status: 'Open source · Conference 2026',
       links: [{ label: 'GitHub', url: 'https://github.com/igembitsky/virtual-standardized-patient' }, { label: 'Conference', url: 'https://www.theglobalhealthacademy.org/global-health-academy/global-health-conferences/2026-home' }],
-      visual: { src: 'assets/ai/vsp.jpg', alt: 'Virtual Standardized Patient consultation with Jerry Graham, 55' },
+      visual: { src: 'assets/ai/vsp.jpg', alt: 'Virtual Patient Simulator consultation with Jerry Graham, 55' },
     },
   ],
 };
