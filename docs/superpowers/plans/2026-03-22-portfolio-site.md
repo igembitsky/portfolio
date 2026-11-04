@@ -55,7 +55,7 @@ portfolio/
 - [ ] **Step 1: Initialize Astro project**
 
 ```bash
-cd /Users/igor/projects/portfolio
+cd portfolio
 npm create astro@latest . -- --template minimal --typescript strict --install --no-git
 ```
 

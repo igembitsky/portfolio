@@ -5,3 +5,8 @@ dist
 .DS_Store
 .playwright-cli
 
+.playwright-mcp
+test-results
+playwright-report
+.vscode
+*.log
