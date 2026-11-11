@@ -5,10 +5,10 @@ const { layout = 'cards' } = Astro.props;
 const engineering = [
   '32 patients · 10 languages · Benchmark gates · Source checks',
   'Website · 3D product film · Pilot request flow',
-  'MCP integration · Agent workflows · Email + Slack',
   'One-page site · Request form · Privacy-friendly analytics',
+  'MCP integration · Agent workflows · Email + Slack',
 ];
-const storyLabels = ['What I built', 'What I built', 'How I built it', 'What I do'];
+const storyLabels = ['What I built', 'What I built', 'What I do', 'How I built it'];
 const stories = [
   [
     { title: 'What I built', items: ['I designed, built, and shipped all of it with coding agents: the web app, the website, the product video, the analytics, and the test system.', '32 patients set in 11 countries, in ten languages. Each case comes from an openly licensed, published source.', 'It works on a phone, tablet, or computer with nothing to install. A free offline version runs on local, open-source models.'] },
@@ -21,15 +21,15 @@ const stories = [
     { title: 'My role', items: ['I lead product at Canary. I wrote the message from what I hear from safety managers.', 'I directed the story and approved each revision.'] },
   ],
   [
+    { title: 'What it is', items: ['I help small teams move their busywork to AI agents.', 'Status updates, reporting, follow-ups, and admin work go to agents. People keep the decisions.'] },
+    { title: 'How I work with a team', items: ['I map how the team works and find the manual work.', 'I build a shared brain and agents with clear permissions, one routine at a time.', 'I coach the team in regular sessions until everyone works through agents.'] },
+    { title: 'The site', items: ['I wrote, designed, and built it with coding agents, including the drawings and the request form.', 'Privacy-friendly analytics show what people read, with no cookies.'] },
+  ],
+  [
     { title: 'Capture and act', items: ['Record my own ideas and guidance alongside user bugs and questions.', 'Triage for later or assign work directly to Claude, Codex, and other MCP-connected agents. Review the results in one shared backlog.'] },
     { title: 'Engineering decisions', items: ['MCP gives Claude, Codex, and other coding agents access to the same backlog and workflow.', 'Local and production projects share the same capture, triage, work, and review process.'] },
     { title: 'Keep people involved', items: ['Reply to users through email and follow issue updates in Slack.', 'The team and its agents can see production issues and the work underway.'] },
     { title: 'Where I use it', items: ['Part of my productivity toolkit across local and production projects.'] },
-  ],
-  [
-    { title: 'What it is', items: ['I help small teams move their busywork to AI agents.', 'Status updates, reporting, follow-ups, and admin work go to agents. People keep the decisions.'] },
-    { title: 'How I work with a team', items: ['I map how the team works and find the manual work.', 'I build a shared brain and agents with clear permissions, one routine at a time.', 'I coach the team in regular sessions until everyone works through agents.'] },
-    { title: 'The site', items: ['I wrote, designed, and built it with coding agents, including the drawings and the request form.', 'Privacy-friendly analytics show what people read, with no cookies.'] },
   ],
 ];
 ---

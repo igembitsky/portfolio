@@ -26,7 +26,7 @@ test('no email address or resume link is exposed', async ({ page }) => {
 
 test('logo strip renders all eight logos', async ({ page }) => {
   await page.goto('/portfolio/');
-  const imgs = page.locator('.logos img');
+  const imgs = page.locator('.logos:not([aria-hidden]) img');
   await expect(imgs).toHaveCount(8);
   for (const img of await imgs.all()) {
     const w = await img.evaluate((el) => (el as HTMLImageElement).naturalWidth);

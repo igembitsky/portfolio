@@ -8,18 +8,18 @@ export const hero = {
   name: 'Igor Gembitsky',
   eyebrow: 'Product leader & builder',
   // Two lines: what I build, then the fields I work in.
-  domains: [['B2B SaaS', 'Marketplaces', 'Applied AI'], ['Industrial Safety', 'Medical Education']],
+  domains: [['B2B SaaS', 'Marketplaces', 'AI Agents'], ['Industrial Safety', 'IoT', 'Medical Education']],
   headline: 'I build and scale products in complex, ambiguous environments.',
 };
 
 export interface Logo { key: string; name: string; file?: string; mark?: string; text?: string }
 export const logos: Logo[] = [
   { key: 'canary', name: 'Canary', file: 'canary-logo.png' },
-  { key: 'gha', name: 'Global Health Academy', mark: 'gha-mark.png', text: 'Global Health Academy' },
   { key: 'vdb', name: 'Virtual Diamond Boutique', mark: 'vdb-mark.svg', text: 'Virtual Diamond Boutique' },
-  { key: 'brooklyn-museum', name: 'Brooklyn Museum', file: 'brooklyn-museum.svg' },
-  { key: 'harvard-law', name: 'Harvard Law School', file: 'harvard-law.svg' },
   { key: 'hbs', name: 'Harvard Business School', file: 'hbs-lockup.svg' },
+  { key: 'harvard-law', name: 'Harvard Law School', file: 'harvard-law.svg' },
+  { key: 'gha', name: 'Global Health Academy', mark: 'gha-mark.png', text: 'Global Health Academy' },
+  { key: 'brooklyn-museum', name: 'Brooklyn Museum', file: 'brooklyn-museum.svg' },
   { key: 'ihs', name: 'Institute for Humane Studies', file: 'ihs.svg' },
   { key: 'mru', name: 'Marginal Revolution University', file: 'mru-lockup.png' },
 ];
@@ -193,20 +193,6 @@ export const ai = {
       visual: { src: 'assets/ai/canary-site.jpg', alt: 'The Canary website: intelligence for an injury-free workplace' },
     },
     {
-      name: 'VibeOps',
-      tagline: 'An issue tracker for coding agents.',
-      description: 'Capture ideas, bugs, and questions. Assign work to agents, review changes, and keep users informed through email and Slack.',
-      points: [
-        { label: 'Capture in context.', text: 'Ideas, bugs, questions, and what to do next.' },
-        { label: 'Work with any agent.', text: 'Triage, assign, and review through MCP.' },
-        { label: 'Keep people involved.', text: 'User conversations, email, and Slack updates.' },
-      ],
-      detail: 'Part of the productivity toolkit I use across local and production projects. Capture an idea for later or send it straight to Claude, Codex, or another MCP-connected agent, then review the work. The shared backlog keeps production issues visible to everyone on the project. Email replies and Slack updates connect the work back to the people who raised it.',
-      status: 'Open source · Daily use',
-      links: [{ label: 'GitHub', url: 'https://github.com/igembitsky/vibeops-tracker' }],
-      visual: { src: 'assets/ai/vibeops.jpg', alt: 'VibeOps board' },
-    },
-    {
       name: 'Work Can Be More Fun',
       tagline: 'AI agents for team busywork.',
       description: 'I help small teams move status updates, reporting, and admin work to AI agents. I wrote, designed, and built this site with coding agents.',
@@ -219,6 +205,20 @@ export const ai = {
       status: 'Live · workcanbemorefun.com',
       links: [{ label: 'Website', url: 'https://workcanbemorefun.com/' }],
       visual: { src: 'assets/ai/workfun-site.jpg', alt: 'The Work Can Be More Fun website: let your team be human, and let agents do the drudgery' },
+    },
+    {
+      name: 'VibeOps',
+      tagline: 'An issue tracker for coding agents.',
+      description: 'Capture ideas, bugs, and questions. Assign work to agents, review changes, and keep users informed through email and Slack.',
+      points: [
+        { label: 'Capture in context.', text: 'Ideas, bugs, questions, and what to do next.' },
+        { label: 'Work with any agent.', text: 'Triage, assign, and review through MCP.' },
+        { label: 'Keep people involved.', text: 'User conversations, email, and Slack updates.' },
+      ],
+      detail: 'Part of the productivity toolkit I use across local and production projects. Capture an idea for later or send it straight to Claude, Codex, or another MCP-connected agent, then review the work. The shared backlog keeps production issues visible to everyone on the project. Email replies and Slack updates connect the work back to the people who raised it.',
+      status: 'Open source · Daily use',
+      links: [{ label: 'GitHub', url: 'https://github.com/igembitsky/vibeops-tracker' }],
+      visual: { src: 'assets/ai/vibeops.jpg', alt: 'VibeOps board' },
     },
   ],
 };

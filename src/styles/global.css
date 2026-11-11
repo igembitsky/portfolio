@@ -143,42 +143,33 @@ p { margin: 0; }
 .tlink { border-bottom: 1px solid var(--color-accent); padding-bottom: 2px; transition: color 0.15s; }
 .tlink:hover { color: var(--color-accent); }
 
-/* Logo strip */
-.logos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 28px; }
-@media (min-width: 1100px) { .logos { flex-wrap: nowrap; } }
+/* Logo strip: one row for the carousel. Each logo is one flat gray tone; hover shows its colors. */
+.logos { --gap: clamp(52px, 5.2vw, 84px); list-style: none; margin: 0; padding: 0 var(--gap) 0 0; display: flex; flex-wrap: nowrap; align-items: center; justify-content: flex-start; gap: 0 var(--gap); }
 .logos li { display: flex; align-items: center; justify-content: center; height: 44px; flex: 0 0 auto; }
 .logos img {
   height: calc(28px * var(--ls, 1));
   width: auto;
   max-width: 170px;
   object-fit: contain;
-  filter: grayscale(1) brightness(0.35);
-  opacity: 0.75;
+  filter: brightness(0);
+  opacity: var(--lo, 0.56);
   mix-blend-mode: multiply;
   transition: opacity 0.3s, filter 0.3s;
 }
 .logos img:hover { opacity: 1; filter: none; }
 .lg-canary { --ls: 1.45; } .lg-brooklyn-museum { --ls: 0.62; } .lg-harvard-law { --ls: 0.95; } .lg-ihs { --ls: 1.0; } .lg-hbs { --ls: 1.5; } .lg-mru { --ls: 1.5; }
-.lg-mru img { filter: invert(1); }
+/* Harvard Business School has white parts inside the shield: keep them white, make the rest black. */
+.lg-hbs img { filter: grayscale(1) contrast(6); }
+/* Heavy shapes get a little less ink, so the row reads as one tone. */
+.lg-hbs { --lo: 0.5; } .lg-mru { --lo: 0.46; } .lg-brooklyn-museum { --lo: 0.5; } .lg-canary { --lo: 0.6; }
+/* The Marginal Revolution University file is white: hover shows it in black. */
 .lg-mru img:hover { filter: invert(1); }
-.lockup { display: inline-flex; align-items: center; gap: 10px; opacity: 0.75; transition: opacity 0.3s; }
+.lockup { display: inline-flex; align-items: center; gap: 10px; opacity: var(--lo, 0.56); transition: opacity 0.3s; }
 .lockup:hover { opacity: 1; }
-.lockup .mark { height: 27px; width: auto; max-width: 40px; object-fit: contain; filter: grayscale(1) brightness(0.35); opacity: 1; mix-blend-mode: multiply; }
+.lockup .mark { height: 27px; width: auto; max-width: 40px; object-fit: contain; filter: brightness(0); opacity: 1; mix-blend-mode: multiply; }
 .lockup:hover .mark { filter: none; }
-.lockup .name { font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: var(--color-ink); line-height: 1.15; max-width: 7.5rem; }
+.lockup .name { font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: #000; line-height: 1.15; max-width: 7.5rem; }
 .lg-gha .lockup .mark { height: 38px; max-width: 46px; }
-@media (min-width: 1100px) and (max-width: 1399px) { .logos { gap: 20px 16px; } }
-@media (min-width: 1100px) and (max-width: 1279px) {
-  .logos img { height: calc(24px * var(--ls, 1)); max-width: 146px; }
-  .lockup .mark { height: 24px; }
-  .lg-gha .lockup .mark { height: 33px; }
-  .logos { gap: 20px 10px; }
-  .lockup .name { font-size: 12px; max-width: 6.6rem; }
-}
-@media (min-width: 821px) and (max-width: 1099px) {
-  .logos { display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; }
-  .logos li { justify-content: flex-start; }
-}
 
 /* Placeholder for missing imagery */
 .ph {
