@@ -15,10 +15,10 @@ const base = import.meta.env.BASE_URL;
     <a class="seework" href="#build-scale">See the work &darr;</a>
   </div>
   <div class="strip">
-    <div class="marquee">
+    <div class="marquee" role="group" aria-label="Organizations I worked with" tabindex="0">
       <div class="track">
-        {[0, 1].map((copy) => (
-          <ul class="logos" aria-hidden={copy === 1 ? 'true' : undefined}>
+        {[0, 1, 2, 3].map((copy) => (
+          <ul class="logos" aria-hidden={copy > 0 ? 'true' : undefined}>
             {logos.map((l) => (
               <li class={`lg-${l.key}`}>
                 {l.file && <img src={`${base}assets/logos/brand/${l.file}`} alt={copy === 0 ? l.name : ''} loading="eager" />}
@@ -36,7 +36,7 @@ const base = import.meta.env.BASE_URL;
   .hero { padding: 0; display: block; }
   .bg { position: absolute; left: 0; top: 0; height: 100%; width: auto; max-width: none; display: block; -webkit-mask-image: linear-gradient(90deg, #000 78%, rgba(0,0,0,0.65) 92%, transparent 100%); mask-image: linear-gradient(90deg, #000 78%, rgba(0,0,0,0.65) 92%, transparent 100%); }
   .veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(246,247,247,0) 40%, rgba(246,247,247,0.7) 58%, rgba(246,247,247,0.95) 74%, rgba(246,247,247,1) 100%); -webkit-mask-image: linear-gradient(180deg, transparent 22%, rgba(0,0,0,0.6) 36%, #000 48%); mask-image: linear-gradient(180deg, transparent 22%, rgba(0,0,0,0.6) 36%, #000 48%); }
-  .copy { position: relative; z-index: 2; isolation: isolate; margin-left: auto; width: min(42rem, 47vw); padding: 30vh 6vw 22vh 0; }
+  .copy { position: relative; z-index: 2; isolation: isolate; margin-left: auto; width: min(42rem, 47vw); padding: min(30vh, max(96px, calc(78svh - 384px))) 6vw 22vh 0; }
   .copy > * { position: relative; }
   /* Entrance: the photo settles first, then the four lines arrive 90ms apart, then the logo strip. */
   :global(.js) .bg { opacity: 0; transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -58,11 +58,12 @@ const base = import.meta.env.BASE_URL;
   .domains { margin: 26px 0 0; font-size: var(--fs-body); color: var(--color-ink); letter-spacing: 0.01em; }
   .domains span { display: block; }
   .seework { display: none; }
-  /* Logo carousel: two copies of the list move left by one copy, then repeat. It starts with Canary at the left. */
-  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 56px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 56px), transparent 100%); }
+  /* Logo carousel: four copies of the list move left by one copy, then repeat, so very wide screens never show a blank end. It starts with Canary at the left. Hover or keyboard focus pauses it. */
+  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 96px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 96px), transparent 100%); }
   .track { display: flex; width: max-content; margin-left: 28px; animation: logo-marquee 70s linear 2.5s infinite; }
-  .track:hover { animation-play-state: paused; }
-  @keyframes logo-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .track:hover, .marquee:focus .track { animation-play-state: paused; }
+  .marquee:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 6px; }
+  @keyframes logo-marquee { from { transform: translateX(0); } to { transform: translateX(-25%); } }
   @media (prefers-reduced-motion: reduce) {
     .marquee { overflow-x: auto; scrollbar-width: none; }
     .marquee::-webkit-scrollbar { display: none; }
