@@ -5,8 +5,10 @@ const { layout = 'cards' } = Astro.props;
 const engineering = [
   'Deterministic matching · LLM evaluation · Claims verification',
   'MCP integration · Agent workflows · Email + Slack',
-  'Local inference · Open-source models · Offline operation',
+  '32 patients · 10 languages · Benchmark gates · Source checks',
+  'Website · 3D product film · Pilot request flow',
 ];
+const storyLabels = ['How I built it', 'How I built it', 'What I built', 'What I built'];
 const stories = [
   [
     { title: 'Why I built it', items: ['I wanted to find roles that fit my experience and ambitions, and prepare high-quality applications.'] },
@@ -20,9 +22,14 @@ const stories = [
     { title: 'Where I use it', items: ['Part of my productivity toolkit across local and production projects.'] },
   ],
   [
-    { title: 'Engineering decisions', items: ['I built a clinical simulation around local, open-source models so students can practice consultations offline.', 'Local inference keeps conversations on the device and removes recurring cloud charges. The practical constraint is what delegates can run on their own hardware.'] },
-    { title: 'My role at the 2026 conference', items: ['Invited to speak and coordinate the AI in medicine plenary, introducing speakers and hosting the session.', 'Leading the panel on AI in medical education where resources are limited.'] },
-    { title: 'The hands-on workshop', items: ['I’ll help delegates install the tools on their own systems so they can bring them back to their home countries.'] },
+    { title: 'What I built', items: ['I designed, built, and shipped all of it with coding agents: the web app, the website, the product video, the analytics, and the test system.', '32 patients set in 11 countries, in ten languages. Each case comes from an openly licensed, published source.', 'It works on a phone, tablet, or computer with nothing to install. A free offline version runs on local, open-source models.'] },
+    { title: 'How I check it', items: ['Every case is checked against its published source, so the patient stays true to the clinical facts.', 'Benchmark gates run before each release. They test that the patient follows the case, answers only what was asked, and holds up in each language.', 'I chose the model by benchmark, with a fallback model, cost limits, and misuse guards.', 'I wrote the verification standard: sources, automated tests, real use, then clinician review of a sample.'] },
+    { title: 'The video and the website', items: ['I made the product video from real footage of the app, with captions in four languages.', 'The website takes access requests. Privacy-friendly analytics show what people use.'] },
+    { title: 'Where it started', items: ['I hosted the AI in medicine plenary at the 2026 Global Health Conference and ran the hands-on workshop. Delegates ran eight patients offline on their own laptops.', 'Partners asked us to keep building it. It is now a pilot with the Global Health Academy.'] },
+  ],
+  [
+    { title: 'What I built', items: ['The full public site: how the product works, installation, how a pilot runs, the FAQ, and the pilot request flow.', 'A 3D product film. Agents modeled the forklift, the hardware, and the warehouse in Blender, then animated and rendered it.'] },
+    { title: 'My role', items: ['I lead product at Canary. I wrote the message from what I hear from safety managers.', 'I directed the story and approved each revision.'] },
   ],
 ];
 ---
@@ -30,7 +37,7 @@ const stories = [
   <div class="watermark" aria-hidden="true">{ai.number}</div>
   <div class="inner">
     <div class="head rv">
-      <p class="eyebrow eyebrow-accent">04 &middot; Build with AI &middot; Independent work</p>
+      <p class="eyebrow eyebrow-accent">04 &middot; Build with AI</p>
       <h2>Products I designed and built with AI.</h2>
     </div>
     <div class="products">
@@ -39,13 +46,13 @@ const stories = [
           <div class="product-visual"><Visual v={p.visual} /></div>
           <div class="product-copy">
             <h3>{p.name}<span>{p.tagline}</span></h3>
-            <p class="description">{i === 2 ? <>Practice consultations with local, open-source models. No cloud required. I’m demonstrating it at <a class="conference" href={p.links.find(l => l.label === 'Conference')?.url} target="_blank" rel="noopener noreferrer">a Global Health Conference</a>.</> : p.description}</p>
+            <p class="description">{p.description}</p>
             <p class="engineering"><span>Engineering</span>{engineering[i]}</p>
-            <button class="story-button" data-story-open={`ai-story-${i}`}>{i === 2 ? 'How I built it & my role' : 'How I built it'}<span aria-hidden="true">↗</span></button>
+            <button class="story-button" data-story-open={`ai-story-${i}`}>{storyLabels[i]}<span aria-hidden="true">↗</span></button>
           </div>
           <footer>
             <span class="status">{p.status}</span>
-            <span class="product-links">{p.links.filter(l => l.label !== 'Conference').map(l => <a href={l.url} target="_blank" rel="noopener noreferrer">{l.label}<span aria-hidden="true"> ↗</span></a>)}</span>
+            <span class="product-links">{p.links.map(l => <a href={l.url} target="_blank" rel="noopener noreferrer">{l.label}<span aria-hidden="true"> ↗</span></a>)}</span>
           </footer>
         </article>
         <dialog class="story-dialog" id={`ai-story-${i}`} aria-labelledby={`ai-story-title-${i}`}>
@@ -60,7 +67,7 @@ const stories = [
   #build-ai { padding-top: 100px; padding-bottom: 80px; }
   h2 { font-size: clamp(30px, 3.4vw, 46px); margin: 14px 0 0; max-width: 900px; }
   .intro { font-size: 20px; color: var(--color-muted); margin: 14px 0 0; }
-  .products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 40px; align-items: stretch; }
+  .products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin-top: 40px; align-items: stretch; }
   .product { min-width: 0; display: grid; grid-template-rows: auto 1fr auto; background: white; border: 1px solid var(--color-rule); }
   .product-visual { aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--color-rule); background: var(--color-ground); }
   .product-visual :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
@@ -121,7 +128,6 @@ const stories = [
   .product-copy h3 { font-size: 22px; min-height: 0; line-height: 1.3; letter-spacing: -.015em; }
   .product-copy h3 span { display: block; font-size: 18px; font-weight: 400; line-height: 1.4; margin-top: 8px; color: var(--color-accent); letter-spacing: 0; }
   .description { min-height: 0; margin: 16px 0; font-size: 18px; }
-  .description .conference { display: inline; min-height: 0; }
   .engineering { min-height: 84px; margin: auto 0 16px; padding-top: 14px; color: var(--color-ink); font-size: 15px; line-height: 1.5; }
   .engineering > span { display: block; color: var(--color-muted); font-size: 14px; margin-bottom: 4px; }
   .story-button { border: 0; border-top: 1px solid var(--color-rule); background: none; padding: 12px 0; min-height: 48px; display: flex; justify-content: space-between; align-items: center; gap: 12px; font: inherit; font-size: 16px; color: var(--color-accent); cursor: pointer; margin-top: 0; text-align: left; }
@@ -139,6 +145,17 @@ const stories = [
   .story-body ul { list-style: disc; margin: 0; padding-left: 20px; color: var(--color-muted); font-size: 18px; line-height: 1.5; }
   .story-body li + li { margin-top: 8px; }
   button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+  /* Four cards: four columns on wide screens, two by two on medium screens. */
+  @media (min-width: 1200px) {
+    .engineering { min-height: 108px; }
+    footer { min-height: 96px; align-items: flex-start; align-content: flex-start; padding: 16px 24px; }
+  }
+  @media (max-width: 1199px) and (min-width: 761px) {
+    .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .product-copy { padding: 22px 24px 0; }
+    footer { padding: 12px 24px; }
+    .description { font-size: 18px; }
+  }
   @media (max-width: 760px) { .story-head { padding: 16px 20px; } .story-body { padding: 20px; } .story-head h2 { font-size: 22px; } }
 </style>
 <script>
