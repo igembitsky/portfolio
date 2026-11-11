@@ -24,10 +24,10 @@ test('no email address or resume link is exposed', async ({ page }) => {
   expect(html).not.toMatch(/resume|\bcv\b/i);
 });
 
-test('logo strip renders all seven logos', async ({ page }) => {
+test('logo strip renders all eight logos', async ({ page }) => {
   await page.goto('/portfolio/');
   const imgs = page.locator('.logos img');
-  await expect(imgs).toHaveCount(7);
+  await expect(imgs).toHaveCount(8);
   for (const img of await imgs.all()) {
     const w = await img.evaluate((el) => (el as HTMLImageElement).naturalWidth);
     expect(w).toBeGreaterThan(0);

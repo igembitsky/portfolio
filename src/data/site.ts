@@ -7,13 +7,15 @@ export const links = {
 export const hero = {
   name: 'Igor Gembitsky',
   eyebrow: 'Product leader & builder',
-  domains: ['B2B SaaS', 'Marketplaces', 'Applied AI', 'Industrial IoT'],
+  // Two lines: what I build, then the fields I work in.
+  domains: [['B2B SaaS', 'Marketplaces', 'Applied AI'], ['Industrial Safety', 'Medical Education']],
   headline: 'I build and scale products in complex, ambiguous environments.',
 };
 
 export interface Logo { key: string; name: string; file?: string; mark?: string; text?: string }
 export const logos: Logo[] = [
   { key: 'canary', name: 'Canary', file: 'canary-logo.png' },
+  { key: 'gha', name: 'Global Health Academy', mark: 'gha-mark.png', text: 'Global Health Academy' },
   { key: 'vdb', name: 'Virtual Diamond Boutique', mark: 'vdb-mark.svg', text: 'Virtual Diamond Boutique' },
   { key: 'brooklyn-museum', name: 'Brooklyn Museum', file: 'brooklyn-museum.svg' },
   { key: 'harvard-law', name: 'Harvard Law School', file: 'harvard-law.svg' },
@@ -205,18 +207,18 @@ export const ai = {
       visual: { src: 'assets/ai/vibeops.jpg', alt: 'VibeOps board' },
     },
     {
-      name: 'Prophase',
-      tagline: 'Job matching and tailored applications.',
-      description: 'Built for my own search. Matches roles, checks claims, and prepares applications. Now in private beta as a boutique service.',
+      name: 'Work Can Be More Fun',
+      tagline: 'My side practice: AI agents for team busywork.',
+      description: 'On the side, I help small teams move status updates, reporting, and admin work to AI agents. I wrote, designed, and built this site with coding agents.',
       points: [
-        { label: 'Find the fit.', text: 'Roles matched to your experience and ambitions.' },
-        { label: 'Make your case.', text: 'Tailored applications with verified claims.' },
-        { label: 'Apply with care.', text: 'Human judgment, supported by evaluated models.' },
+        { label: 'Map the work.', text: 'Find the manual updates, meetings, and chasing.' },
+        { label: 'Build the system.', text: 'A shared brain and agents with clear permissions.' },
+        { label: 'Coach the team.', text: 'Regular sessions until everyone works through agents.' },
       ],
-      detail: 'I built and shipped the platform with Claude Code. It combines LLMs, deterministic matching, and claims verification. Using it for my own applications taught me how to evaluate models, control costs, and make the complete workflow reliable. I’m now using those tools to help others find strong matches and prepare thoughtful applications.',
-      status: 'In production · Private beta',
-      links: [],
-      visual: { src: 'assets/ai/prophase.jpg', alt: 'Prophase shortlist with match analysis' },
+      detail: 'Side work next to my product role. I map how a team works, build a shared brain and agents with clear permissions, and coach the team until the new way of working holds. I wrote, designed, and built the site with coding agents.',
+      status: 'Live · Side practice',
+      links: [{ label: 'Website', url: 'https://workcanbemorefun.com/' }],
+      visual: { src: 'assets/ai/workfun-site.jpg', alt: 'The Work Can Be More Fun website: let your team be human, and let agents do the drudgery' },
     },
   ],
 };
