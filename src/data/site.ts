@@ -194,8 +194,8 @@ export const ai = {
     },
     {
       name: 'Work Can Be More Fun',
-      tagline: 'AI agents for team busywork.',
-      description: 'I help small teams move status updates, reporting, and admin work to AI agents. I wrote, designed, and built its website with coding agents.',
+      tagline: 'The website for the AI services I offer teams.',
+      description: 'I help small teams move status updates, reporting, and admin work to AI agents. I wrote, designed, and built the website with coding agents.',
       points: [
         { label: 'Map the work.', text: 'Find the manual updates, meetings, and chasing.' },
         { label: 'Build the system.', text: 'A shared brain and agents with clear permissions.' },
