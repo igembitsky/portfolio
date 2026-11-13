@@ -27,9 +27,12 @@ import Rich from './Rich.astro';
       </div>
       <button type="button" class="open" data-open={`case-${f.id}`}>View case study &rarr;</button>
     </div>
-    <div class="media collage rv" style="transition-delay:.12s">
-      <div class="frame main"><Visual v={f.shots[0]} /></div>
-      <div class="side">{f.shots.slice(1).map((v) => <div class="frame"><Visual v={v} /></div>)}</div>
+    <div class="media rv" style="transition-delay:.12s">
+      <div class="collage">
+        <div class="frame main on"><Visual v={f.shots[0]} /></div>
+        <div class="side">{f.shots.slice(1).map((v) => <div class="frame"><Visual v={v} /></div>)}</div>
+      </div>
+      <div class="shotdots" aria-hidden="true">{f.shots.map((_, i) => <i class:list={{ on: i === 0 }}></i>)}</div>
     </div>
   </div>
 </section>
@@ -88,6 +91,25 @@ import Rich from './Rich.astro';
   </div>
 </dialog>
 
+<script>
+  // Phones: mark the screenshot nearest the center of the row, and light its dot.
+  const row = document.querySelector<HTMLElement>('#build-scale .collage');
+  const dots = document.querySelectorAll('#build-scale .shotdots i');
+  if (row && dots.length) {
+    const frames = [...row.querySelectorAll<HTMLElement>('.frame')];
+    let queued = false;
+    const mark = () => {
+      queued = false;
+      const r = row.getBoundingClientRect(), mid = r.left + r.width / 2;
+      let best = 0, gap = Infinity;
+      frames.forEach((f, i) => { const b = f.getBoundingClientRect(); const d = Math.abs(b.left + b.width / 2 - mid); if (d < gap) { gap = d; best = i; } });
+      frames.forEach((f, i) => f.classList.toggle('on', i === best));
+      dots.forEach((d, i) => d.classList.toggle('on', i === best));
+    };
+    row.addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(mark); } }, { passive: true });
+  }
+</script>
+
 <style>
   .grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto; grid-template-areas: "head media" "body media"; gap: 0 5vw; align-items: end; }
   .head { grid-area: head; } .body { grid-area: body; } .media { grid-area: media; }
@@ -99,5 +121,19 @@ import Rich from './Rich.astro';
   .collage .side { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; }
   .collage .side .frame { min-height: 0; }
   h2 { font-size: clamp(28px, 3vw, 40px); margin: 12px 0 10px; max-width: 20ch; }
-  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "head" "media" "body"; gap: 24px; align-items: start; } .collage { gap: 12px; } .collage .main { max-height: none; } .collage .side { grid-template-columns: 1fr; grid-template-rows: auto; gap: 0; } .collage .side .frame { aspect-ratio: 600 / 1298; } .collage .side .frame:not(:first-child) { display: none; } }
+  .shotdots { display: none; }
+  @media (max-width: 820px) {
+    .grid { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "head" "media" "body"; gap: 24px; align-items: start; }
+    /* Phones: one large screenshot at a time, centered, neighbors peeking at both sides. The row runs edge to edge of the screen. */
+    .media { min-width: 0; }
+    .collage { --w: min(60vw, 300px); display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; margin-inline: -24px; padding-inline: calc((100% + 48px) / 2 - var(--w) / 2); }
+    .collage::-webkit-scrollbar { display: none; }
+    .collage .side { display: contents; }
+    .collage .frame { flex: 0 0 var(--w); aspect-ratio: 600 / 1298; max-height: none; scroll-snap-align: center; scroll-snap-stop: always; transition: transform 0.25s, opacity 0.25s; }
+    .collage .frame:not(.on) { transform: scale(0.92); opacity: 0.6; }
+    .shotdots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+    .shotdots i { width: 6px; height: 6px; border-radius: 3px; background: var(--color-rule); transition: background 0.2s, width 0.2s; }
+    .shotdots i.on { width: 16px; background: var(--color-accent); }
+  }
+  @media (max-width: 820px) and (prefers-reduced-motion: reduce) { .collage .frame, .shotdots i { transition: none; } }
 </style>
