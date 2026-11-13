@@ -78,5 +78,5 @@ const base = import.meta.env.BASE_URL;
   .shift .from { color: var(--color-muted); }
   .shift .arrow { color: var(--color-accent); text-align: center; }
   .shift .to { font-weight: 500; }
-  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "head" "media" "body"; gap: 24px; align-items: start; } .head, .body { padding-left: 0; } .media :global(img) { aspect-ratio: 4 / 3; max-height: 42svh; } .how { margin-top: 0; } .how li { padding-left: 20px; } .shift li { grid-template-columns: 1fr; gap: 4px; } .shift .arrow { display: none; } }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "head" "media" "body"; gap: 24px; align-items: start; } .head, .body { padding-left: 0; } .media :global(img) { aspect-ratio: 1; object-position: 50% 3%; max-height: 70svh; } .how { margin-top: 0; } .how li { padding-left: 20px; } .shift li { grid-template-columns: 1fr; gap: 4px; } .shift .arrow { display: none; } }
 </style>
