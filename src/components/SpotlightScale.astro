@@ -37,7 +37,7 @@ import LifecycleDiagram from './LifecycleDiagram.astro';
           ['Adoption', 'App utilization', '#804195'],
           ['Use & Success', 'Business value', '#d31c50'],
           ['Relationship', 'Renewals and referrals', '#713782'],
-        ].map(([n, sub, c]) => <li style={`--c:${c}`}><b>{n}</b><span>{sub}</span></li>)}
+        ].map(([n, sub, c], i, all) => <li style={`--c:${c};--n:${all[(i + 1) % all.length][2]}`}><b>{n}</b><span>{sub}</span></li>)}
       </ol>
     </div>
   </div>
@@ -89,12 +89,16 @@ import LifecycleDiagram from './LifecycleDiagram.astro';
     .grid { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "head" "media" "body"; gap: 24px; align-items: start; }
     .diagram-box { aspect-ratio: auto; display: block; padding: 6px 20px; }
     .diagram-box :global(svg) { display: none; }
-    .lifelist { display: block; list-style: none; margin: 0; padding: 0; }
-    .lifelist li { display: grid; grid-template-columns: 22px 1fr; column-gap: 12px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--color-rule); }
-    .lifelist li:first-child { border-top: 0; }
-    .lifelist li::before { content: ""; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--c); align-self: center; }
-    .lifelist b { font-weight: 500; font-size: var(--fs-body); }
-    .lifelist span { grid-column: 2; color: var(--color-muted); font-size: var(--fs-small); }
+    /* Phone version of the loop: a vertical flow. Rows are equal height and each node sits level with its stage name (--y from the row top), so the dashed return path can run from the last node back to the first. */
+    .lifelist { --y: 25px; display: grid; grid-auto-rows: 1fr; position: relative; list-style: none; margin: 0; padding: 6px 0 6px 26px; }
+    .lifelist li { position: relative; display: grid; grid-template-columns: 22px 1fr; column-gap: 16px; align-content: start; padding: 14px 0; }
+    .lifelist li > * { grid-column: 2; }
+    .lifelist li::before { content: ""; grid-column: 1; grid-row: 1; align-self: center; justify-self: center; position: relative; z-index: 1; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--c); box-shadow: 0 0 0 4px #fff; }
+    .lifelist li:not(:last-child)::after { content: ""; position: absolute; left: 10px; top: var(--y); height: 100%; width: 2px; background: linear-gradient(var(--c), var(--n)); }
+    .lifelist b { font-weight: 500; font-size: var(--fs-body); line-height: 1.25; }
+    .lifelist span { justify-self: start; margin-top: 6px; padding: 3px 10px; border-radius: 999px; font-size: var(--fs-small); line-height: 1.35; color: var(--color-ink); background: color-mix(in srgb, var(--c) 11%, #fff); }
+    .lifelist::before { content: ""; position: absolute; left: 4px; width: 18px; top: calc(6px + var(--y)); bottom: calc(6px + (100% - 12px) * 0.2 - var(--y)); border: 1.5px dashed var(--color-muted); border-right: 0; border-radius: 18px 0 0 18px; opacity: 0.55; }
+    .lifelist::after { content: ""; position: absolute; left: 21px; top: calc(6px + var(--y)); transform: translateY(-50%); border: 5px solid transparent; border-left: 8px solid var(--color-muted); border-right-width: 0; }
     .wins { grid-template-columns: 1fr; }
   }
 </style>
