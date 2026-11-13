@@ -25,7 +25,8 @@ export const logos: Logo[] = [
 ];
 
 export interface Metric { value: string; label: string }
-export interface Visual { src?: string; video?: string; alt: string; caption?: string }
+// pos: optional object-position, for images that are cropped to fit their frame.
+export interface Visual { src?: string; video?: string; alt: string; caption?: string; pos?: string }
 
 export interface Flagship {
   id: string;
@@ -262,7 +263,7 @@ export const others: OtherProject[] = [
       { value: '20+', label: 'professors' },
       { value: '30+', label: 'experiments' },
     ],
-    visual: { src: 'assets/other/learn-liberty.jpg', alt: 'Learn Liberty programs page, 2017' },
+    visual: { src: 'assets/other/learn-liberty.jpg', alt: 'Learn Liberty programs page, 2017', pos: 'left top' },
   },
 ];
 

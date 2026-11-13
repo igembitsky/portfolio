@@ -46,7 +46,8 @@ import Visual from './Visual.astro';
   @media (max-width: 820px) {
     .rows { margin-top: 28px; }
     .row { gap: 18px; padding: 28px 0; }
-    .media :global(img) { aspect-ratio: 16 / 10; max-height: 42svh; }
+    /* Both images are portrait: a square keeps most of each on a phone. */
+    .media :global(img) { aspect-ratio: 1; }
     h3 { font-size: 22px; }
     .desc { font-size: var(--fs-body); color: var(--color-muted); }
     .tag + .desc { color: var(--color-ink); }
