@@ -56,8 +56,15 @@ export const podcasts = [
 
 export const toolbox = [
   { group: 'Dev and AI', tools: [
-    { name: 'Claude Code', img: 'assets/tools/claude.svg' }, { name: 'Codex', img: 'assets/tools/codex.svg' }, { name: 'VS Code', img: 'assets/tools/vscode.svg' },
+    { name: 'Claude Code', img: 'assets/tools/claude.svg' }, { name: 'Codex', img: 'assets/tools/codex.svg' }, { name: 'VS Code', img: 'assets/tools/vscode.svg' }, { name: 'cmux', img: 'assets/tools/cmux.png' },
     { name: 'Perplexity', img: 'assets/tools/perplexity.svg' }, { name: 'Gemini', img: 'assets/tools/gemini.svg' }, { name: 'Google AI Studio', img: 'assets/tools/google-ai-studio.png' }, { name: 'GitHub', img: 'assets/tools/github.svg' },
+  ] },
+  { group: 'Deploy and backend', tools: [
+    { name: 'Render', img: 'assets/tools/render.svg' }, { name: 'Cloudflare', img: 'assets/tools/cloudflare.svg' }, { name: 'Vercel', img: 'assets/tools/vercel.svg' }, { name: 'Netlify', img: 'assets/tools/netlify.svg' },
+    { name: 'Google Cloud', img: 'assets/tools/googlecloud.svg' }, { name: 'Supabase', img: 'assets/tools/supabase.svg' },
+  ] },
+  { group: 'Film, voice, and 3D', tools: [
+    { name: 'Higgsfield', img: 'assets/tools/higgsfield.png' }, { name: 'ElevenLabs', img: 'assets/tools/elevenlabs.svg' }, { name: 'Blender', img: 'assets/tools/blender.svg' },
   ] },
   { group: 'Sales and GTM', tools: [
     { name: 'Pipedrive', img: 'assets/tools/pipedrive.png' }, { name: 'Salesforce', img: 'assets/tools/salesforce.svg' }, { name: 'LinkedIn', img: 'assets/tools/linkedin.svg' }, { name: 'Woodpecker', img: 'assets/tools/woodpecker.png' }, { name: 'Apollo', img: 'assets/tools/apollo.png' },
