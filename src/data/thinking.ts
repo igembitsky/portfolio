@@ -60,8 +60,12 @@ export const toolbox = [
     { name: 'Perplexity', img: 'assets/tools/perplexity.svg' }, { name: 'Gemini', img: 'assets/tools/gemini.svg' }, { name: 'Google AI Studio', img: 'assets/tools/google-ai-studio.png' }, { name: 'GitHub', img: 'assets/tools/github.svg' },
   ] },
   { group: 'Deploy and backend', tools: [
-    { name: 'Render', img: 'assets/tools/render.svg' }, { name: 'Cloudflare', img: 'assets/tools/cloudflare.svg' }, { name: 'Vercel', img: 'assets/tools/vercel.svg' }, { name: 'Netlify', img: 'assets/tools/netlify.svg' },
-    { name: 'Google Cloud', img: 'assets/tools/googlecloud.svg' }, { name: 'Supabase', img: 'assets/tools/supabase.svg' },
+    { name: 'AWS', img: 'assets/tools/aws.svg' }, { name: 'Render', img: 'assets/tools/render.svg' }, { name: 'Cloudflare', img: 'assets/tools/cloudflare.svg' }, { name: 'Vercel', img: 'assets/tools/vercel.svg' },
+    { name: 'Netlify', img: 'assets/tools/netlify.svg' }, { name: 'Google Cloud', img: 'assets/tools/googlecloud.svg' }, { name: 'Supabase', img: 'assets/tools/supabase.svg' }, { name: 'Auth0', img: 'assets/tools/auth0.svg' },
+  ] },
+  { group: 'Data and analytics', tools: [
+    { name: 'Mixpanel', img: 'assets/tools/mixpanel.svg' }, { name: 'PostHog', img: 'assets/tools/posthog.svg' }, { name: 'Knowi', img: 'assets/tools/knowi.png' },
+    { name: 'SQLite', img: 'assets/tools/sqlite.svg' }, { name: 'Google Sheets', img: 'assets/tools/googlesheets.svg' },
   ] },
   { group: 'Film, voice, and 3D', tools: [
     { name: 'Higgsfield', img: 'assets/tools/higgsfield.png' }, { name: 'ElevenLabs', img: 'assets/tools/elevenlabs.svg' }, { name: 'Blender', img: 'assets/tools/blender.svg' },
